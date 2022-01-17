@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title }}{% unless page.title == "SQLBI Documentation" %} - SQLBI Documentation{% endunless %}</title>
+
+    <link rel="icon" href="/assets/favicons/icon-16.png" sizes="16x16">
+    <link rel="icon" href="/assets/favicons/icon-32.png" sizes="32x32">
+    <link rel="icon" href="/assets/favicons/icon-96.png" sizes="96x96">
+    <link rel="icon" href="/assets/favicons/icon-128.png" sizes="128x128">
+    <link rel="icon" href="/assets/favicons/icon-228.png" sizes="228x228">
+    <link rel="shortcut icon" href="/assets/favicons/icon-228.png" sizes="228x228">
+    <link rel="apple-touch-icon" href="/assets/favicons/icon-120.png" sizes="120x120">
+    <link rel="apple-touch-icon" href="/assets/favicons/icon-152.png" sizes="152x152">
+    <link rel="apple-touch-icon" href="/assets/favicons/icon-167.png" sizes="167x167">
+    <link rel="apple-touch-icon" href="/assets/favicons/icon-180.png" sizes="180x180">
+    <link rel="apple-touch-icon" href="/assets/favicons/icon-228.png">
+
+    <link rel="stylesheet" href="/assets/css/main.min.css?v={{ "now" | date: "%s" }}">
+</head>
+<body class="page-{{ page.title | slugify }}">
+
+    {% include header.html %}
+
+    {{ content }}
+    
+    {% include footer.html %}
+
+    <script src="/assets/js/index.js"></script>
+    <script src="/assets/js/fuse.min.js"></script>
+    <script src="/assets/js/main.min.js"></script>
+    
+</body>
+</html>

@@ -1,0 +1,12 @@
+{% unless page.toc == false %}
+    <!--googleoff: snippet-->
+    {% assign page_content = page.content | markdownify %}
+    {% capture jekyll_toc %}{% include toc.html html=page_content h_max=page.toc_max h_min=page.toc_min %}{% endcapture %}
+    {% unless jekyll_toc == empty %}
+        <div class="toc">
+            <strong class="uc">In this page</strong>
+            {{ jekyll_toc }}
+        </div>
+    {% endunless %}
+    <!--googleon: snippet-->
+{% endunless %}

@@ -1,0 +1,6 @@
+<nav>
+    <ul>
+        <li class="l0{% if page.url == "/index" or page.url == "/" %} current{% endif %}"><a href="/" class="tree-link">Docs</a></li>
+        {% include nav.html url="/" level=1 %}
+    </ul>
+</nav>

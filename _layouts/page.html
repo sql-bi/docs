@@ -1,0 +1,38 @@
+---
+layout: default
+---
+<div class="page">
+    {% include page-nav.html %}
+
+    <div class="content">
+        <article>
+            <header>
+                {% include breadcrumbs.html %}
+            
+                <a href="{{ page.url | remove: "index" | remove: ".html" }}" class="solo"><h1>{{ page.title }}</h1></a>
+               
+                <hr>
+            </header>
+
+            {% include draft.html %}
+
+            {% include page-toc.html %}
+
+            {{ content }}
+
+            <footer>
+                {% if page.modified or page.date %}
+                    <a href="https://github.com/okviz/docs/commits/main{{ site.collections_dir }}/{{ page.path }}" title="View file history on Github" class="unseen" rel="nofollow" target="_blank"><span class="icon icon-github"></span></a>
+                    
+                    Last updated: 
+                    {% if page.modified %}
+                        {{ page.modified | date: "%b %d, %Y" }}
+                    {% else %}
+                        {{ page.date | date: "%b %d, %Y" }}
+                    {% endif %}
+
+                 {% endif %}
+            </footer>
+        </article>
+    </div>
+</div>
