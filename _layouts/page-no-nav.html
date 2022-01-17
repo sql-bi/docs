@@ -17,7 +17,7 @@ layout: default
 
             <footer>
                 {% if page.modified or page.date %}
-                    <a href="https://github.com/sql-bi/docs/commits/main{{ site.collections_dir }}/{{ page.path }}" title="View file history on Github" class="unseen" rel="nofollow" target="_blank"><span class="icon icon-github"></span></a>
+                    <a href="{{ site.github }}/commits/main{{ site.collections_dir }}/{{ page.path }}" title="View file history on Github" class="unseen" rel="nofollow" target="_blank"><span class="icon icon-github"></span></a>
                     
                     Last updated: 
                     {% if page.modified %}

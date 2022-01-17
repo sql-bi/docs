@@ -22,6 +22,9 @@ title: SQLBI Documentation
 email: info@sqlbi.com
 domain: docs.sqlbi.com
 url: https://docs.sqlbi.com
+company: SQLBI Corp.
+website: https://www.sqlbi.com
+github: https://github.com/sql-bi/docs
 plugins:
   - jekyll-sitemap
 permalink: /:categories/:title:output_ext

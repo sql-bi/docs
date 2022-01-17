@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ page.title }}{% unless page.title == "SQLBI Documentation" %} - SQLBI Documentation{% endunless %}</title>
+    <title>{{ page.title }}{% unless page.title == site.title %} - {{ site.title }}{% endunless %}</title>
 
     <link rel="icon" href="/assets/favicons/icon-16.png" sizes="16x16">
     <link rel="icon" href="/assets/favicons/icon-32.png" sizes="32x32">

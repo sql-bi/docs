@@ -24,6 +24,20 @@ for (let i = 0; i < treeLinks.length; i++) {
     }
 }
 
+// TO DO
+let showToDo = (window.location.search == "?todo");
+if (showToDo) {
+    window.history.replaceState({}, null, document.location.href.replace(window.location.search, ''));
+} else {
+    showToDo = localStorage.getItem("todo");
+}
+if (showToDo) {
+    document.body.classList.add("show-todo");
+    localStorage.setItem("todo", true);
+} else {
+    document.body.classList.remove("show-todo");
+}
+
 // Search (requires Fuse.js)
 let minSearchLen = 3;
 let maxPreviewLen = 140;

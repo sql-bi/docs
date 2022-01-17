@@ -9,7 +9,18 @@ layout: default
             <header>
                 {% include breadcrumbs.html %}
             
-                <a href="{{ page.url | remove: "index" | remove: ".html" }}" class="solo"><h1>{{ page.title }}</h1></a>
+                <a href="{{ page.url | remove: "index" | remove: ".html" }}" class="solo"><h1>{{ page.title }}
+                     {% if page.available %}
+                        <!--googleoff: snippet-->
+                        <div class="badge availability" title="Available in {{ page.available }}">{{ page.available }}</div>
+                        <!--googleon: snippet-->
+                    {% endif %}
+                    {% if page.version %}
+                        <!--googleoff: snippet-->
+                        <div class="badge version lc" title="Available from version {{ page.version }}">v{{ page.version }}</div>
+                        <!--googleon: snippet-->
+                    {% endif %}
+                </h1></a>
                
                 <hr>
             </header>
@@ -21,8 +32,12 @@ layout: default
             {{ content }}
 
             <footer>
+                {% if page.available %}
+                    <p>The features in this page are available only in <strong>{{ page.available | replace: " | ", ", " }}</strong>.</p>
+                {% endif %}
+
                 {% if page.modified or page.date %}
-                    <a href="https://github.com/okviz/docs/commits/main{{ site.collections_dir }}/{{ page.path }}" title="View file history on Github" class="unseen" rel="nofollow" target="_blank"><span class="icon icon-github"></span></a>
+                    <a href="{{ site.github }}/commits/main{{ site.collections_dir }}/{{ page.path }}" title="View file history on Github" class="unseen" rel="nofollow" target="_blank"><span class="icon icon-github"></span></a>
                     
                     Last updated: 
                     {% if page.modified %}
