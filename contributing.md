@@ -72,7 +72,7 @@ You need to follow the steps below only the first time.
 
     Cloning a repository means creating a local copy of a remote repository on your computer. You can make any changes on your local copy, and then send those changes back online through a **Commit**.
 
-    To clone the repo, open VSCode, click on the ***Clone Repository*** button in the ***Editors*** sidebar, and insert this repository URL: `https://github.com/sql-bi/docs.git`
+    To clone the repo, open VSCode, click on the ***Clone Repository*** button in the ***Editors*** sidebar, and insert this repository URL: `{{ site.github }}.git`
 
     <img src="assets/images/contributing/clone-repo.png" width="700">
 
@@ -158,7 +158,7 @@ A session starts with synchronization and ends with a Pull Request.
 
     At this point your changes are online on another branch, not visible on the website. You want to make them available to everyone, but you can't commit them directly to the ***main*** branch because every change requires approval. To request approval, you need to create a Pull Request (**PR**).
 
-    First of all, go to the repo on Github (<https://github.com/sql-bi/docs>), ***Sign in*** if you are not logged in, then click on ***Compare & pull request*** button that should appear on top of the files list.
+    First of all, go to the repo on Github (<{{ site.github }}>), ***Sign in*** if you are not logged in, then click on ***Compare & pull request*** button that should appear on top of the files list.
     
     <img src="assets/images/contributing/pr-1.png" width="700">
 
@@ -217,7 +217,7 @@ These steps are for reviewers only. They must review the Pull Request, approve i
 
 1. #### Review the Pull Request
 
-    To review the PR, open the repo on Github, click on [Pull requests](https://github.com/sql-bi/docs/pulls) and select it from the list.
+    To review the PR, open the repo on Github, click on [Pull requests]({{ site.github }}/pulls) and select it from the list.
 
     <img src="assets/images/contributing/pr-4.png" width="800">
 

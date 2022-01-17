@@ -311,10 +311,10 @@ This line is in line 2.</pre>
     </tr>
     <tr>
         <td>
-            <pre>[This website]({{ site.url }})</pre>
+            <pre>[This website](https://www.sqlbi.com/)</pre>
         </td>
         <td>
-            <a href="{{ site.url }}">This website</a>
+            <a href="https://www.sqlbi.com/">This website</a>
         </td>
     </tr>
 </table>
