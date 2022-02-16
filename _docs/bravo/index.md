@@ -1,6 +1,6 @@
 ---
 layout:     home
 title:      Bravo for Power BI
-published:  true
+published:  false
 order:      /
 ---
