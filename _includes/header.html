@@ -1,6 +1,6 @@
 <header class="main">
     <div class="logo">
-        <a href="/" class="noicon"><img src="/assets/images/logo.svg"></a> 
+        <a href="/" class="noicon"><img src="/assets/images/logo.svg" class="light"><img src="/assets/images/logo-dark.svg" class="dark"></a> 
         <div class="title">Docs</div>
     </div>
 
@@ -13,9 +13,7 @@
     </div>
 
     <div class="controls">
-        <a href="{% if page.url == "/contributing.html" %}/{% else %}/contributing{% endif %}" class="solo todo" title="Contributing"><span class="ctrl icon-pencil{% if page.url == "/contributing.html" %} active{% endif %}"></span></a>
-
-        <a href="{% if page.url == "/todo.html" %}/{% else %}/todo{% endif %}" class="solo todo" title="TODOs"><span class="ctrl icon-flag{% if page.url == "/todo.html" %} active{% endif %}"></span></a>
+        <a href="{% if page.url == "/contributing.html" %}/{% else %}/contributing{% endif %}" class="solo" title="Contributing"><span class="ctrl icon-pencil{% if page.url == "/contributing.html" %} active{% endif %}"></span></a>
 
         <a href="#" class="solo change-theme" title="Change Theme"><span class="ctrl icon-theme-auto"></span></a>
     </div>

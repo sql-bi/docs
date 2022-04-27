@@ -18,6 +18,13 @@ header.main {
         img {
             height: 32px;
             width: auto;
+
+            &.light { display: initial;}
+            &.dark { display: none; }
+        }
+        .dark & img {
+            &.light { display: none;}
+            &.dark { display: initial;}
         }
         .title {
             font-size: 25px;
