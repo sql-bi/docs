@@ -29,8 +29,8 @@ let navSizes = localStorage.getItem("nav");
 navSizes = (navSizes ? JSON.parse(navSizes) : [20, 80]);
 Split([".main-nav", ".main-content"], {
     sizes: navSizes,
-    minSize: [200, 450],
-    gutterSize: 1.5,
+    minSize: [150, 450],
+    gutterSize: 5,
     direction: "horizontal",
     cursor: "ew-resize",
     onDragEnd: function (sizes) {

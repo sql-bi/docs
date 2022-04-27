@@ -85,19 +85,19 @@ nav {
 }
 
 .gutter {
-    background-color: @border-color;
+    background-color: @gutter-color;
     background-repeat: no-repeat;
     background-position: center;
 
     .dark & {
-        background-color: @border-color-dark;
+        background-color: @gutter-color-dark;
     }
 
     &:hover {
-        background-color: darken(@border-color, 5%);
+        background-color: darken(@gutter-color, 5%);
 
         .dark & {
-            background-color: darken(@border-color-dark, 3%);
+            background-color: darken(@gutter-color-dark, 3%);
         }
     }
     &.gutter-vertical {
