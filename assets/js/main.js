@@ -24,6 +24,20 @@ for (let i = 0; i < treeLinks.length; i++) {
     }
 }
 
+// Split
+let navSizes = localStorage.getItem("nav");
+navSizes = (navSizes ? JSON.parse(navSizes) : [20, 80]);
+Split([".main-nav", ".main-content"], {
+    sizes: navSizes,
+    minSize: [200, 450],
+    gutterSize: 1.5,
+    direction: "horizontal",
+    cursor: "ew-resize",
+    onDragEnd: function (sizes) {
+        localStorage.setItem("nav", JSON.stringify(sizes))
+    }
+});
+
 // TO DO
 let showToDo = (window.location.search == "?todo");
 if (showToDo) {

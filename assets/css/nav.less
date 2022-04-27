@@ -1,12 +1,11 @@
 // main: main.min.less
 nav {
-    position: fixed;
-    height: calc(100% - 140px);
-    width: 270px;
+    //position: fixed;
+    //width: 270px;
+    //height: calc(100% - 140px);
     overflow: hidden;
     overflow-y: auto;
     padding: 20px 10px;
-    //background: linear-gradient(0, #fff 0%, #fafafa 100%);
     scroll-behavior:auto;
     
     ul, li {
@@ -14,15 +13,14 @@ nav {
         margin: 0;
         padding: 0;
     }
-    ul {
+    /*ul {
         ul {
-            //border-left: 2px solid @hr-color;
-            
+            border-left: 2px solid @border-color;
             .dark & {
-                border-color: @hr-color-dark;
+                border-color: @border-color-dark;
             }
         }
-    }
+    }*/
     li {
         padding: 4px 20px;
         display: none;
@@ -84,4 +82,31 @@ nav {
     }
 
     
+}
+
+.gutter {
+    background-color: @border-color;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    .dark & {
+        background-color: @border-color-dark;
+    }
+
+    &:hover {
+        background-color: darken(@border-color, 5%);
+
+        .dark & {
+            background-color: darken(@border-color-dark, 3%);
+        }
+    }
+    &.gutter-vertical {
+        cursor: ns-resize;
+        width: 100%;
+    }
+
+    &.gutter-horizontal {
+        cursor: ew-resize;
+        height: 100%;
+    }
 }
