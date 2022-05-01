@@ -9,6 +9,22 @@ The Dax Templates library has a number of definitions used by specific templates
 
 # HolidaysDefinition
 The HolidaysDefinition template use the following definition to create a HolidaysDefinition table.
+
+~~~
+  "Holidays": [
+    {
+      "IsoCountry": "US",
+      "MonthNumber": 1,
+      "DayNumber": 1,
+      "WeekDayNumber": 0,
+      "OffsetWeek": 0,
+      "OffsetDays": 0,
+      "HolidayName": "New Year's Day",
+      "SubstituteHoliday": "NoSubstituteHoliday",
+      "ConflictPriority": 100
+    },
+    ...
+~~~
  
 ## Holidays
 Array of holidays, each defined as follows.
@@ -71,17 +87,46 @@ Last year for the holiday, 0 if it is not defined.
 
 A single Translation.Definition object includes an array for all the available translations.
 
+~~~
+  "Translations": [
+    {
+      "Iso": "it",
+      "Table": {...},
+      "Columns": [...],
+      "Hierarchies": [...],
+      "Measures": [...]
+    },
+    ...
+  ]
+~~~
+
 ## Translations
 Array of [Language](#language) objects, one for each supported ISO localization. 
 
 # Language
 Defines the translations for one template.
+~~~
+    {
+      "Iso": "it",
+      "Table": {...},
+      "Columns": [...],
+      "Hierarchies": [...],
+      "Measures": [...]
+    }
+~~~
 
 ## Iso
 Defines the ISO code of the localization, e.g. en-US.
 
 ## Table
-Defines the localization of a table.
+Defines the localization of a table. It is unusual to translate a table in Bravo because the user can customize the table name.
+~~~
+      "Table": {
+        "OriginalName": null,
+        "Name": "",
+        "Description": ""
+      }
+~~~
 
 ### OriginalName
 Original table name.
@@ -92,8 +137,19 @@ Localized table description.
 
 
 ## Measures
-Defines the localization of a measure.
-
+Array of objects defining the localization of a measure. Each object has the following properties.
+~~~
+     "Measures": [
+        {
+          "OriginalName": "Last Transaction Date",
+          "Name": "Data Ultima Transazione",
+          "Description": "",
+          "DisplayFolders": "",
+          "FormatString": "dd/mm/yyyy"
+        },
+        ...
+      ]
+~~~
 ### OriginalName
 Original measure name.
 ### Name
@@ -107,7 +163,19 @@ Localized format string of the measure.
 
 
 ## Columns
-Defines the localization of a column.
+Array of objects defining the localization of a column. Each object has the following properties.
+
+~~~
+     "Columns": [
+        {
+          "OriginalName": "Year Month",
+          "Name": "Anno Mese",
+          "Description": "",
+          "DisplayFolders": ""
+        },
+        ...
+      ]
+~~~
 
 ### OriginalName
 Original column name.
@@ -121,7 +189,35 @@ Localized display folder of the column.
 Localized format string of the column.
 
 ## Hierarchies
-Defines the localization of a hierarchy.
+Array of objects defining the localization of a hierarchy. Each object has the following properties.
+~~~
+      "Hierarchies": [
+        {
+          "OriginalName": "Fiscal",
+          "Name": "Fiscale",
+          "Description": "",
+          "DisplayFolders": "",
+          "Levels": [
+            {
+              "OriginalName": "Year",
+              "Name": "Anno",
+              "Description": ""
+            },
+            {
+              "OriginalName": "Quarter",
+              "Name": "Trimestre",
+              "Description": ""
+            },
+            {
+              "OriginalName": "Month",
+              "Name": "Mese",
+              "Description": ""
+            }
+          ]
+        },
+        ...
+      ]
+~~~
 
 ### OriginalName
 Original hierarchy name.
@@ -131,3 +227,16 @@ Localized hierarchy name.
 Localized hierarchy description.
 ### DisplayFolders
 Localized display folder of the hierarchy.
+
+### Levels
+Array of objects defining the localization of a hierarchy level. Each object has the following properties.
+
+#### OriginalName
+Original hierarchy level name.
+
+#### Name
+Localized hierarchy level name.
+
+#### Description
+Localized hierarchy level description.
+

@@ -5,6 +5,8 @@ published:  true
 order:      /
 ---
 
+The CustomDateTable template class creates a Date table using the configurations described in [Config](../configuration/config.md) and applying the business logic defined by the following [Custom Date Table](#custom-date-table) definition. The [Custom Date Table](#custom-date-table) definition is based on a generic [Custom Template Table](#custom-template-table) definition.
+
 # Custom Date Table
 Defines a custom date table extending the [Custom Template Table](#custom-template-table) definition.
 

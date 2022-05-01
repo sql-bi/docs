@@ -57,14 +57,18 @@ Returns the minimum year applying to the default **minYear** the constraints spe
 # Measure templates
 The DAX placeholders used in table templates can be identified by **\*\_** and **\_\*** delimiters, or by the **@@** prefix.
 
-## @\_C-\<column-name\>\_@
-Entity single columns
-## @\_CL-\<column-name\>\_@
-Entity columns list
-## @\_T-\<column-name\>\_@
-Entity single table
-## @\_TL-\<column-name\>\_@
-Entity tables list
+## @\_C-\<column-attribute-name\>\_@
+Returns a single column marked with the attribute specified as column-attribute-name. If zero, two or more columns are found with the specified attribute, an error is thrown. 
+
+## @\_CL-\<column-attribute-name\>\_@
+Returns a list of columns marked with the attribute specified as column-attribute-name.
+
+## @\_T-\<table-attribute-name\>\_@
+Returns a single table marked with the attribute specified as column-attribute-name. If zero, two or more table are found with the specified attribute, an error is thrown.
+
+## @\_TL-\<table-attribute-name\>\_@
+Returns a list of tables marked with the attribute specified as tables-attribute-name.
+
 ## @\_MEASURE\_@
 Returns the original measure name.
 ## @\_MEASUREFOLDER\_@

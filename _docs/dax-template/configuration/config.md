@@ -10,14 +10,14 @@ The Config object defines a group of templates to apply to a Tabular model, incl
 Configuration of the templates to apply on a Tabular model in a single run of the engine.
 
 ## Templates
-Array of templates to apply.
+List of templates to apply. The templates are applied in the same order as they are defined in the list.
 
 ### Class
 Template class name:
-- **CustomDateTable**: Create a Date table.
-- **HolidaysDefinition**: Create a HolidaysDefinition table that defines the logic to generate an [Holidays](#holidays) table. 
-- **HolidaysTable**: Create a Holidays table based on the content of an [HolidaysDefinition](./definitions.md/#holidaysdefinition) table. 
-- **MeasuresTemplate**: Create measures.
+- **CustomDateTable**: Create a Date table using the [Custom Date Table](../templates/custom-date-table.md) template.
+- **HolidaysDefinition**: Create a table using the [Holidays Definition Table](../templates/holidays-definition-table.md) table, which defines the logic to generate an [Holidays Table](../templates/holidays-table.md).
+- **HolidaysTable**: Create a [Holidays Table](../templates/holidays-table.md) based on the content of an [Holidays Definition Table](../templates/holidays-definition-table.md). 
+- **MeasuresTemplate**: Create measures using the [Measures Template](../templates/measures.md).
 
 ### Table
 Name of the table created by the template (used only by templates that create calculated tables).
