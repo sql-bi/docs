@@ -129,7 +129,7 @@ A session starts with synchronization and ends with a Pull Request.
 
     <img src="assets/images/contributing/preview-pane.png" width="850">
 
-    See [Markdown Editing](markdown-editing) and [Best Practices](best-practices) to learn how to properly format your content. 
+    See [Markdown Editing](markdown-editing.md) and [Best Practices](best-practices.md) to learn how to properly format your content. 
 
     After editing the files, save them and you are ready for the next steps.
 
@@ -245,7 +245,7 @@ These steps are for reviewers only. They must review the Pull Request, approve i
 
         > Note that the ***Edit File*** button may sometimes be disabled. This happens because you probably clicked somewhere and got placed into a different branch by Github. In this case, simply click on the PR as you did in the first step of this section, then click on the file you want to edit and the button should be enabled again.
         
-        See [Markdown Editing](markdown-editing) to learn the supported syntax for content editing.
+        See [Markdown Editing](markdown-editing.md) to learn the supported syntax for content editing.
 
     *- Or -*
 
@@ -294,7 +294,7 @@ The changes will be visible on the website in a couple of minutes. If the change
 
 ## Content Editing
 
-See [Markdown Editing](markdown-editing) to learn how to properly format your content.
+See [Markdown Editing](markdown-editing.md) to learn how to properly format your content.
 ## Best Practices
 
-Follow the [Best Practices](best-practices) to keep the docs clean and consistent.
+Follow the [Best Practices](best-practices.md) to keep the docs clean and consistent.

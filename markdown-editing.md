@@ -384,7 +384,7 @@ You are not allowed to embed images in Markdown documents like in Word, but they
 
 Always create a folder called images in the parent folder of the document you are working on (if it doesn't exist) and put all the images in it. For example, the images of ***smart-filter-pro/about.md*** must be placed in the folder ***_docs/smart-filter-pro/images/***.
 
-> Set a reasonable number of pixels in the ***width*** attribute of the &lt;img&gt; tag (see the [Best Practices](best-practices)).
+> Set a reasonable number of pixels in the ***width*** attribute of the &lt;img&gt; tag (see the [Best Practices](best-practices.md)).
 
 #### Available Badge
 
