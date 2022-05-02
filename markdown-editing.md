@@ -329,17 +329,15 @@ The URL of the links can be:
 - **Relative URL**  
     When you need to link a page of the repo. 
 
-    - If the page to link is in the same folder as the document, simply use the file name (without extension) as the URL.  
+    - If the page to link is in the same folder as the document, simply use the file name as the URL.  
         For example, ***smart-filter-pro/changelog.md*** contains the following link to ***smart-filter-pro/about.md***:
 
-        `[About](about)`
+        `[About](about.md)`
 
     - If the page belongs to a different folder, you need to go up one level and include the new folder name in the URL.  
         For example, ***smart-filter-pro/changelog.md*** contains the following link to ***general/licensing.md***:
 
-        `[Licensing](../general/licensing)`
-
-    > Do not put the file extension ***.md*** or a trailing slash ***/*** into these links.
+        `[Licensing](../general/licensing.md)`
 
 - **Anchor**  
     Markdown automatically generates anchors for each title/heading you place in a document.
@@ -358,7 +356,7 @@ The URL of the links can be:
     You can create links to anchors by adding a # plus the anchor ID to the URL.  
     For example, ***smart-filter-pro/changelog.md*** contains this link to the Price section of ***general/licensing.md***:
 	
-    `[Licensing](../general/licensing#price)`
+    `[Licensing](../general/licensing.md#price)`
 
     If the link needs to point to an anchor on the same document, you can simply write # plus the anchor ID. 
     For instance:
