@@ -14,10 +14,10 @@ List of templates to apply. The templates are applied in the same order as they 
 
 ### Class
 Template class name:
-- **CustomDateTable**: Create a Date table using the [Custom Date Table](../templates/custom-date-table) template.
-- **HolidaysDefinition**: Create a table using the [Holidays Definition Table](../templates/holidays-definition-table) table, which defines the logic to generate an [Holidays Table](../templates/holidays-table).
-- **HolidaysTable**: Create a [Holidays Table](../templates/holidays-table) based on the content of an [Holidays Definition Table](../templates/holidays-definition-table). 
-- **MeasuresTemplate**: Create measures using the [Measures Template](../templates/measures).
+- **CustomDateTable**: Create a Date table using the [Custom Date Table](../templates/custom-date-table.md) template.
+- **HolidaysDefinition**: Create a table using the [Holidays Definition Table](../templates/holidays-definition-table.md) table, which defines the logic to generate an [Holidays Table](../templates/holidays-table.md).
+- **HolidaysTable**: Create a [Holidays Table](../templates/holidays-table.md) based on the content of an [Holidays Definition Table](../templates/holidays-definition-table.md). 
+- **MeasuresTemplate**: Create measures using the [Measures Template](../templates/measures.md).
 
 ### Table
 Name of the table created by the template (used only by templates that create calculated tables).
@@ -100,10 +100,10 @@ Configuration for localization.
 Specifies the ISO translation (like "en-US"). If null, it does not apply a translation to the template.
 
 ## IsoFormat
-Specifies the ISO code for the international format applied to the DAX template placeholder [@@GETISO](./dax-placeholders#vars).
+Specifies the ISO code for the international format applied to the DAX template placeholder [@@GETISO](./dax-placeholders.md#vars).
 
 ## LocalizationFiles
-List of localization files. Each localization file corresponds to a [TranslationDefinition](./definitions/#translationdefinition) object.
+List of localization files. Each localization file corresponds to a [TranslationDefinition](./definitions.md/#translationdefinition) object.
 
 # Holidays
 Controls how to generate an *Holidays* table used to identify holidays in a Date table. 

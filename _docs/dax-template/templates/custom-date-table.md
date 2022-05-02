@@ -5,7 +5,7 @@ published:  true
 order:      /
 ---
 
-The CustomDateTable template class creates a Date table using the configurations described in [Config](../configuration/config) and applying the business logic defined by the following [Custom Date Table](#custom-date-table) definition. The [Custom Date Table](#custom-date-table) definition is based on a generic [Custom Template Table](#custom-template-table) definition.
+The CustomDateTable template class creates a Date table using the configurations described in [Config](../configuration/config.md) and applying the business logic defined by the following [Custom Date Table](#custom-date-table) definition. The [Custom Date Table](#custom-date-table) definition is based on a generic [Custom Template Table](#custom-template-table) definition.
 
 # Custom Date Table
 Defines a custom date table extending the [Custom Template Table](#custom-template-table) definition.
@@ -20,7 +20,7 @@ Specify a list of calendar types assigned to the Date table. It is ignored if [C
 Defines the configuration of a custom table.
 
 ## Steps
-Array of [DaxExpression](#daxexpression) objects defining explicit table steps required by other expressions. For example, the Date table usually creates a *__Calendar* step that defines the range of dates using the [@@GETCALENDAR()](../configuration/dax-placeholders#getcalendar) placeholder.
+Array of [DaxExpression](#daxexpression) objects defining explicit table steps required by other expressions. For example, the Date table usually creates a *__Calendar* step that defines the range of dates using the [@@GETCALENDAR()](../configuration/dax-placeholders.md#getcalendar) placeholder.
 ~~~
   "Steps": [
     {
