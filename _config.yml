@@ -27,6 +27,7 @@ website: https://www.sqlbi.com
 github: https://github.com/sql-bi/docs
 plugins:
   - jekyll-sitemap
+  - jekyll-relative-links
 permalink: /:categories/:title:output_ext
 excerpt_separator: <!--more-->
 collections:
@@ -36,6 +37,9 @@ collections:
 
 exclude:
   - "*.less"
+relative_links:
+  enabled:     true
+  collections: true
 
 # Build settings
 #theme: sqlbi
