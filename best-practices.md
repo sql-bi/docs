@@ -9,6 +9,8 @@ sitemap:    false
 
 The following directions are required to keep this documentation clean and consistent.
 
+See the full guide: [Contributing](contributing.md)
+
 ### File Name
 
 These rules apply to both folders, Markdown files and images:

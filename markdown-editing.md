@@ -12,6 +12,8 @@ Markdown documents (file extension ***.md***) are simple text files with additio
 
 These documents are interpreted, this means that **what you write is not exactly what will appear** on the website, for this reason, it is recommended to use the VSCode preview pane to see the final result while editing.
 
+See the full guide: [Contributing](contributing.md)
+
 ### Header
 
 Every file must contain a header in the following format (note that the ***\-\-\-*** lines are required):
