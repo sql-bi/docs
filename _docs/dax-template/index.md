@@ -93,4 +93,4 @@ However, the external JSON files can be included in the main JSON file after the
 }
 ~~~
 
-The [Config](./configuration/config) object contains the complete configuration of the templates to apply.
+The [Config](./configuration/config.md) object contains the complete configuration of the templates to apply.
