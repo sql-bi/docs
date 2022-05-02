@@ -5,7 +5,7 @@ nav {
     //height: calc(100% - 140px);
     overflow: hidden;
     overflow-y: auto;
-    padding: 20px 10px;
+    padding: 20px 0;
     scroll-behavior:auto;
     
     ul, li {
@@ -25,6 +25,7 @@ nav {
         padding: 4px 20px;
         display: none;
         line-height: 1.4;
+        white-space: nowrap;
 
         .tree-toggle .icon {
             .icon-up;
@@ -62,6 +63,10 @@ nav {
 
             .noicon;
 
+            &.tree-link {
+                white-space: normal;
+            }
+
         }
         &.current > a.tree-link, & > a.tree-link:hover {
             color: @accent-back-color !important;
@@ -82,6 +87,19 @@ nav {
     }
 
     
+}
+
+.burger {
+    position: fixed;
+    margin: 10px;
+
+    .ctrl {
+        color: darken(@border-color, 20%);
+
+        .dark & {
+            color: @border-color-dark;
+        }
+    }
 }
 
 .gutter {
