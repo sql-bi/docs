@@ -7,6 +7,9 @@ nav {
     overflow-y: auto;
     padding: 20px 0;
     scroll-behavior:auto;
+    background-color: @nav-back-color;
+
+    .dark & { background-color: @nav-back-color-dark;}
     
     ul, li {
         list-style: none;
@@ -77,9 +80,9 @@ nav {
             font-weight: 700;
         }
 
-        &.l0 > a {
+        /*&.l0 > a {
             font-weight: 700;
-        }
+        }*/
         
     }
     li.expanded > ul > li, li.l0, li.l1 {
@@ -97,7 +100,7 @@ nav {
         color: darken(@border-color, 20%);
 
         .dark & {
-            color: @border-color-dark;
+            color: lighten(@border-color-dark, 20%);
         }
     }
 }
