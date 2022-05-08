@@ -7,7 +7,7 @@ order:      /
 
 The Dax Templates library has a number of definitions used by specific templates.
 
-# HolidaysDefinition
+## HolidaysDefinition
 The HolidaysDefinition template use the following definition to create a HolidaysDefinition table.
 
 ~~~
@@ -26,19 +26,19 @@ The HolidaysDefinition template use the following definition to create a Holiday
     ...
 ~~~
  
-## Holidays
+### Holidays
 Array of holidays, each defined as follows.
 
-### IsoCountry
+#### IsoCountry
 Two-letter ISO code of the country.
 
-### MonthNumber
+#### MonthNumber
 Number of month - use 99 for relative dates using Easter as a reference.
 
-### DayNumber
+#### DayNumber
 Absolute day (ignore [WeekDayNumber](#weekdaynumber) when other than 0).
 
-### WeekDayNumber
+#### WeekDayNumber
 Day of the week, as a number:
 - **0** : Sunday
 - **1** : Monday
@@ -48,7 +48,7 @@ Day of the week, as a number:
 - **5** : Friday
 - **6** : Saturday
 
-### OffsetWeek
+#### OffsetWeek
 Number of the week in the month, negative if the reference is the last one in the month
 - **1** : first week
 - **2** : second week
@@ -56,13 +56,13 @@ Number of the week in the month, negative if the reference is the last one in th
 - **-2** : second-last week
 - **-1** : last week
 
-### OffsetDays
+#### OffsetDays
 Days to add after [OffsetWeek](#offsetweek) and [WeekDayNumber](#weekdaynumber) have been applied.
 
-### HolidayName
+#### HolidayName
 Name of the holiday.
 
-### SubstituteHoliday
+#### SubstituteHoliday
 Define the logic to move an holiday to another day in case the date is already a non-working day (e.g. "in lieu of...")
 
 - **NoSubstituteHoliday** (0): no substitution.
@@ -71,19 +71,19 @@ Define the logic to move an holiday to another day in case the date is already a
 For example, use *SubstituteHolidayWithNextNextWorkingDay* for Christmas and *SubstituteHolidayWithNextWorkingDay* for Boxing Day.
 - **FridayIfSaturdayOrMondayIfSunday** (-1): if the holidays falls on a Saturday then it is observed on Friday; if it falls on a Sunday then it is observed on Monday.
 
-### ConflictPriority
+#### ConflictPriority
 Priority in case of two or more holidays in the same date.
 A lower number corresponds to an higher priority.
 
 For example, marking Easter relative days with 150 and other holidays with 100 means that other holidays take precedence over Easter-related days; use 50 for Easter related holidays to invert such a priority.
 
-### FirstYear
+#### FirstYear
 First year for the holiday, 0 if it is not defined.
 
-### LastYear
+#### LastYear
 Last year for the holiday, 0 if it is not defined.
 
-# TranslationDefinition
+## TranslationDefinition
 
 A single Translation.Definition object includes an array for all the available translations.
 
@@ -100,10 +100,10 @@ A single Translation.Definition object includes an array for all the available t
   ]
 ~~~
 
-## Translations
+### Translations
 Array of [Language](#language) objects, one for each supported ISO localization. 
 
-# Language
+## Language
 Defines the translations for one template.
 ~~~
     {
@@ -115,10 +115,10 @@ Defines the translations for one template.
     }
 ~~~
 
-## Iso
+### Iso
 Defines the ISO code of the localization, e.g. en-US.
 
-## Table
+### Table
 Defines the localization of a table. It is unusual to translate a table in Bravo because the user can customize the table name.
 ~~~
       "Table": {
@@ -128,15 +128,15 @@ Defines the localization of a table. It is unusual to translate a table in Bravo
       }
 ~~~
 
-### OriginalName
+#### OriginalName
 Original table name.
-### Name
+#### Name
 Localized table name.
-### Description
+#### Description
 Localized table description.
 
 
-## Measures
+### Measures
 Array of objects defining the localization of a measure. Each object has the following properties.
 ~~~
      "Measures": [
@@ -150,19 +150,19 @@ Array of objects defining the localization of a measure. Each object has the fol
         ...
       ]
 ~~~
-### OriginalName
+#### OriginalName
 Original measure name.
-### Name
+#### Name
 Localized measure name.
-### Description
+#### Description
 Localized measure description.
-### DisplayFolders
+#### DisplayFolders
 Localized display folder of the measure.
-### FormatString
+#### FormatString
 Localized format string of the measure.
 
 
-## Columns
+### Columns
 Array of objects defining the localization of a column. Each object has the following properties.
 
 ~~~
@@ -177,18 +177,18 @@ Array of objects defining the localization of a column. Each object has the foll
       ]
 ~~~
 
-### OriginalName
+#### OriginalName
 Original column name.
-### Name
+#### Name
 Localized column name.
-### Description
+#### Description
 Localized column description.
-### DisplayFolders
+#### DisplayFolders
 Localized display folder of the column.
-### FormatString
+#### FormatString
 Localized format string of the column.
 
-## Hierarchies
+### Hierarchies
 Array of objects defining the localization of a hierarchy. Each object has the following properties.
 ~~~
       "Hierarchies": [
@@ -219,24 +219,24 @@ Array of objects defining the localization of a hierarchy. Each object has the f
       ]
 ~~~
 
-### OriginalName
+#### OriginalName
 Original hierarchy name.
-### Name
+#### Name
 Localized hierarchy name.
-### Description
+#### Description
 Localized hierarchy description.
-### DisplayFolders
+#### DisplayFolders
 Localized display folder of the hierarchy.
 
-### Levels
+#### Levels
 Array of objects defining the localization of a hierarchy level. Each object has the following properties.
 
-#### OriginalName
+##### OriginalName
 Original hierarchy level name.
 
-#### Name
+##### Name
 Localized hierarchy level name.
 
-#### Description
+##### Description
 Localized hierarchy level description.
 
