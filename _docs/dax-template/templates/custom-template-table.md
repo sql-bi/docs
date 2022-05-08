@@ -5,7 +5,7 @@ published:  true
 order:      /
 ---
 
-The CustomTemplateTable defines the configuration of a custom table. This class is the foundation of the [Custom Date Table](.\custom-date-table.md).
+The CustomTemplateTable defines the configuration of a custom table. This class is the foundation of the [Custom Date Table](./custom-date-table.md).
 
 ## Steps
 Array of [DaxExpression](#daxexpression) objects defining explicit table steps required by other expressions. For example, the Date table usually creates a *__Calendar* step that defines the range of dates using the [@@GETCALENDAR()](../configuration/dax-placeholders.md#getcalendar) placeholder.
@@ -205,7 +205,7 @@ Array of strings used as prefix/suffix in formatted name of attribute values. Th
  "FormatPrefixes": [ "Q", "FY", "FQ", "FM", "FW" ]
 ~~~
 
-# DaxExpession
+# DaxExpression
 
 Common properties of the base DaxExpression object used by [Steps](#steps), [GlobalVariables](#globalvariables), [RowVariables](#rowvariables), and [Columns](#columns).
 
