@@ -5,7 +5,7 @@ published:  true
 order:      /
 ---
 
-The HolidaysDefinitionTable class creates a table with the content specified in the [Holidays Definition](../configuration/definitions.md) configuration. The class does not have real parameters other than the list of holidays definition that populates the table.
+The HolidaysDefinitionTable class creates a table with the content specified in the [Holidays Definition](../configuration/definitions/holidays-definition.md) configuration. The class does not have real parameters other than the list of holidays definition that populates the table.
 
 ~~~
 {
@@ -35,7 +35,7 @@ The HolidaysDefinitionTable class creates a table with the content specified in 
     ...
 ~~~
 
-The DAX calculated table generated is a single DATETABLE function that includes the content specified, replacing the [SubstituteHoliday](../configuration/definitions.md#substituteholiday) names with the corresponding integer values.
+The DAX calculated table generated is a single DATETABLE function that includes the content specified, replacing the [SubstituteHoliday](../configuration/definitions/holidays-definition.md#substituteholiday) names with the corresponding integer values.
 
 ~~~
 HolidaysDefinition = 

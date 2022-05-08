@@ -44,7 +44,7 @@ Flag true/false to specify whether the template is enabled or not. If a template
 Usually, this flag is used internally to disable templates that are not required for other configuration settings.
 
 ### Properties
-List of properties that are used internnally by specific templates. For example, the MeasureTemplate uses *DisplayFolderRule* and *DisplayFolderRuleSingleInstanceMeasures*.
+List of properties that are used internally by specific templates. For example, the MeasureTemplate uses *DisplayFolderRule* and *DisplayFolderRuleSingleInstanceMeasures*.
 
 # Scan
 Configuration section for the automatic scan of the model to retrieve a date range for the Date table from existing date columns in the model.
@@ -103,7 +103,7 @@ Specifies the ISO translation (like "en-US"). If null, it does not apply a trans
 Specifies the ISO code for the international format applied to the DAX template placeholder [@@GETISO](./dax-placeholders.md#vars).
 
 ## LocalizationFiles
-List of localization files. Each localization file corresponds to a [TranslationDefinition](./definitions.md/#translationdefinition) object.
+List of localization files. Each localization file corresponds to a [TranslationDefinition](./definitions/translation-definition.md) object.
 
 # Holidays
 Controls how to generate an *Holidays* table used to identify holidays in a Date table. 
@@ -141,7 +141,7 @@ If defined, it is the minimum value for the last year generated in the Date tabl
 ## LastYearMax
 If defined, it is the maximum value for the first year generated in the Date table. If the year found by the automatic scan is greater than [LastYearMax](#lastyearmax), then the Date table will start from the [LastYearMax](#lastyearmax) year.
 
-## Holidays
+## HolidaysReference
 Configuration for holidays used to create working and non-working days in the Date table.
 
 ### IsEnabled
