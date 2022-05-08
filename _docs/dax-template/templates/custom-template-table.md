@@ -46,7 +46,7 @@ Array of objects derived from [DaxExpression](#daxexpression) defining global va
 Every global variable name must start with a double underscore prefix ( **__** ).
 
 ### IsConfigurable
-This additional property extends the [DaxExpression](#daxexpression) object for a global variable specifying whether the variable should be configurable (**true**) or not (**false**). The global variables with IsConfigurable set to true are included in an initial section of the table expresison, so that they are easier to change by manually editing the DAX expression that defines the calculated table
+This additional property extends the [DaxExpression](#daxexpression) object for a global variable specifying whether the variable should be configurable (**true**) or not (**false**). The global variables with IsConfigurable set to true are included in an initial section of the table expression, so that they are easier to change by manually editing the DAX expression that defines the calculated table
 
 ## RowVariables
 Array of [DaxExpression](#daxexpression) objects that define local variables for each row of the generated table. The expression can reference other variables defined in [RowVariables](#rowvariables) and [GlobalVariables](#globalvariables). The template engine automatically arrange the right definition order evaluating the dependencies.
@@ -106,7 +106,7 @@ Data category using standard definitions:
 Description of the expression. Can be used in comments for steps and variables.
 
 ### Step
-Defines a column defined in the specified steps. For example, the Date column of a Date table is usually defined in a **__Calendar** step:
+Specifies a column defined in the specified step. For example, the Date column of a Date table is usually defined in a **__Calendar** step:
 ~~~
   "Columns": [
     {
