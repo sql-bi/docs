@@ -205,7 +205,7 @@ Array of strings used as prefix/suffix in formatted name of attribute values. Th
  "FormatPrefixes": [ "Q", "FY", "FQ", "FM", "FW" ]
 ~~~
 
-# DaxExpession
+# DaxExpression
 
 Common properties of the base DaxExpression object used by [Steps](#steps), [GlobalVariables](#globalvariables), [RowVariables](#rowvariables), and [Columns](#columns).
 
