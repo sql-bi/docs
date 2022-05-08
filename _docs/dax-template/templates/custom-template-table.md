@@ -18,6 +18,29 @@ Array of [DaxExpression](#daxexpression) objects defining explicit table steps r
   ]
 ~~~
 
+### DaxExpression
+
+Common properties of the base DaxExpression object used by [Steps](#steps), [GlobalVariables](#globalvariables), [RowVariables](#rowvariables), and [Columns](#columns).
+
+The code for the DAX expression is defined in either the [Expression](#expression) or [MultiLineExpression](#multilineexpression) property. 
+
+The content of the DAX expression must use a double underscore ( **__** ) as a prefix for global and row variables, and a single underscore ( **_** ) as a prefix for local variables defined and referenced within the same DAX expression.
+
+#### Name
+Name of the DAX expression, corresponding to the name of the step/variable/column.
+
+#### Expression
+DAX expression defined in a single line. If defined, [Expression](#expression) has precedence over [MultiLineExpression](#multilineexpression).
+
+#### MultiLineExpression
+Array of strings that define a comment in multiple lines. If [Expression](#expression) is defined, then [MultiLineExpression](#multilineexpression) is ignored.
+
+#### Comment
+Single line comment. If defined, [Comment](#comment) has precedence over [MultiLineComment](#multilinecomment).
+
+#### MultiLineComment
+Array of strings that define a DAX expression in a multiple lines. If [Comment](#comment) is defined, then [MultiLineComment](#multilinecomment) is ignored.
+
 ## GlobalVariables
 Array of objects derived from [DaxExpression](#daxexpression) defining global variables that can be used by any following step. The global variables cannot have dependencies on other [Steps](#steps) of the template.
 Every global variable name must start with a double underscore prefix ( **__** ).
@@ -205,25 +228,3 @@ Array of strings used as prefix/suffix in formatted name of attribute values. Th
  "FormatPrefixes": [ "Q", "FY", "FQ", "FM", "FW" ]
 ~~~
 
-# DaxExpression
-
-Common properties of the base DaxExpression object used by [Steps](#steps), [GlobalVariables](#globalvariables), [RowVariables](#rowvariables), and [Columns](#columns).
-
-The code for the DAX expression is defined in either the [Expression](#expression) or [MultiLineExpression](#multilineexpression) property. 
-
-The content of the DAX expression must use a double underscore ( **__** ) as a prefix for global and row variables, and a single underscore ( **_** ) as a prefix for local variables defined and referenced within the same DAX expression.
-
-## Name
-Name of the DAX expression, corresponding to the name of the step/variable/column.
-
-## Expression
-DAX expression defined in a single line. If defined, [Expression](#expression) has precedence over [MultiLineExpression](#multilineexpression).
-
-## MultiLineExpression
-Array of strings that define a comment in multiple lines. If [Expression](#expression) is defined, then [MultiLineExpression](#multilineexpression) is ignored.
-
-## Comment
-Single line comment. If defined, [Comment](#comment) has precedence over [MultiLineComment](#multilinecomment).
-
-## MultiLineComment
-Array of strings that define a DAX expression in a multiple lines. If [Comment](#comment) is defined, then [MultiLineComment](#multilinecomment) is ignored.
