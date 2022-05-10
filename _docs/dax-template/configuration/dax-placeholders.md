@@ -45,14 +45,14 @@ MINX (
 Returns the maximum date found in the columns specified for the autoscan.
 
 ### @@GETMAXYEAR( < maxYear > )
-Returns the maximum year applying to the default **maxYear** the constraints specified in the configuration settings [LastYearMin](./config.md#lastyearmin) and [LastYearMax](./config.md#lastyearmax).
+Returns the maximum year applying to the default **maxYear** the constraints specified in the configuration settings [LastYearMin](./config-object/date-template.md#lastyearmin) and [LastYearMax](./config-object/date-template.md#lastyearmax).
 
 
 ### @@GETMINDATE()
 Returns the minimum date found in the columns specified for the autoscan.
 
 ### @@GETMINYEAR( < minYear > )
-Returns the minimum year applying to the default **minYear** the constraints specified in the configuration settings [FirstYearMin](./config.md#lastyearmin) and [FirstYearMax](./config.md#lastyearmax).
+Returns the minimum year applying to the default **minYear** the constraints specified in the configuration settings [FirstYearMin](./config-object/date-template.md#lastyearmin) and [FirstYearMax](./config-object/date-template.md#lastyearmax).
 
 ## Measure templates
 The DAX placeholders used in table templates can be identified by **\*\_** and **\_\*** delimiters, or by the **@@** prefix.
