@@ -2,7 +2,7 @@
 layout:     page
 title:      Weekly calendar
 published:  true
-order:      30
+order:      /
 ---
 
 Whe Weekly calendar template creates a calendar for ISO 8601 or other week-based calendars (like 4-4-5) with 52 or 53 weeks in each year. It can be used with the [Week-related calculations](https://www.daxpatterns.com/week-related-calculations/).
