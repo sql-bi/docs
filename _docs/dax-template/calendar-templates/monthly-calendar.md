@@ -2,7 +2,7 @@
 layout:     page
 title:      Monthly calendar
 published:  true
-order:      2
+order:      /
 ---
 
 The monthly calendar template creates a 
