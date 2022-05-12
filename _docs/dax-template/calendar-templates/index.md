@@ -2,7 +2,7 @@
 layout:     page
 title:      Calendar templates
 published:  true
-order:      0
+order:      /
 ---
 
 There are several examples of date templates implementing common calendars that are also used by [Bravo for Power BI](https://bravo.bi). Each of these templates is a base for corresponding [time intelligence patterns](https://www.daxpatterns.com/time-patterns/). 
