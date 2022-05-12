@@ -2,7 +2,7 @@
 layout:     page
 title:      Custom calendar
 published:  true
-order:      /
+order:      4
 ---
 
 The Custom calendar creates a Gregorian calendar compatible with [Custom time-related calculations](https://www.daxpatterns.com/custom-time-related-calculations/), which is based on DAX code that can support non-standard calculations and it does not use the standard DAX time-intelligence functions.

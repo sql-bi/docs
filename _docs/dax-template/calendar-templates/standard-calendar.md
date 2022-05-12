@@ -2,7 +2,7 @@
 layout:     page
 title:      Standard calendar
 published:  true
-order:      /
+order:      1
 ---
 
 The standard calendar template creates a 
