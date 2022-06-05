@@ -18,6 +18,13 @@ header.main {
         img {
             height: 32px;
             width: auto;
+
+            &.light { display: initial;}
+            &.dark { display: none; }
+        }
+        .dark & img {
+            &.light { display: none;}
+            &.dark { display: initial;}
         }
         .title {
             font-size: 25px;
@@ -106,17 +113,30 @@ header.main {
     } 
 
     .controls {
+        .flexbox(center, center);
         margin-left: auto;
-    }
-    .gotoweb {
-        text-transform: uppercase;
-        margin-left: 20px;
-        padding: 0 20px;
-        border-left: 1px solid @border-color;
-        .dark & {
-            border-color: @border-color-dark;
+        margin-right: 10px;
+
+        a {
+            margin: 0 5px;
+
+            &.gotogithub .ctrl:before {
+                font-size: 14px;
+            } 
         }
-    }
+
+        hr {
+            width: 1px;
+            height: 20px;
+            margin: 0 5px;
+
+            border: none;
+            border-left: 1px solid @border-color;
+            .dark & {
+                border-color: @border-color-dark;
+            }
+        }
+    } 
       
 }
 .search-catcher {

@@ -24,6 +24,35 @@ for (let i = 0; i < treeLinks.length; i++) {
     }
 }
 
+// Split
+let defaultSizes = [20, 80];
+let navSizes = localStorage.getItem("nav");
+navSizes = (navSizes ? JSON.parse(navSizes) : defaultSizes);
+try {
+    let panes = Split([".main-nav", ".main-content"], {
+        sizes: navSizes,
+        minSize: [0, 450],
+        gutterSize: 8,
+        direction: "horizontal",
+        cursor: "ew-resize",
+        onDragEnd: function (sizes) {
+            localStorage.setItem("nav", JSON.stringify(sizes))
+        }
+    });
+
+    document.querySelector(".burger").addEventListener("click", e => {
+        e.preventDefault();
+
+        if (panes) {
+            let currentSizes = panes.getSizes();
+            let sizes = (currentSizes[0] < 10 ? defaultSizes : [0, 100]);
+            panes.setSizes(sizes);
+            localStorage.setItem("nav", JSON.stringify(sizes))
+        }
+    });
+
+} catch (e){}
+
 // TO DO
 let showToDo = (window.location.search == "?todo");
 if (showToDo) {

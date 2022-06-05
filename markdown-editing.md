@@ -12,6 +12,8 @@ Markdown documents (file extension ***.md***) are simple text files with additio
 
 These documents are interpreted, this means that **what you write is not exactly what will appear** on the website, for this reason, it is recommended to use the VSCode preview pane to see the final result while editing.
 
+See the full guide: [Contributing](contributing.md)
+
 ### Header
 
 Every file must contain a header in the following format (note that the ***\-\-\-*** lines are required):
@@ -329,17 +331,15 @@ The URL of the links can be:
 - **Relative URL**  
     When you need to link a page of the repo. 
 
-    - If the page to link is in the same folder as the document, simply use the file name (without extension) as the URL.  
+    - If the page to link is in the same folder as the document, simply use the file name as the URL.  
         For example, ***smart-filter-pro/changelog.md*** contains the following link to ***smart-filter-pro/about.md***:
 
-        `[About](about)`
+        `[About](about.md)`
 
     - If the page belongs to a different folder, you need to go up one level and include the new folder name in the URL.  
         For example, ***smart-filter-pro/changelog.md*** contains the following link to ***general/licensing.md***:
 
-        `[Licensing](../general/licensing)`
-
-    > Do not put the file extension ***.md*** or a trailing slash ***/*** into these links.
+        `[Licensing](../general/licensing.md)`
 
 - **Anchor**  
     Markdown automatically generates anchors for each title/heading you place in a document.
@@ -358,7 +358,7 @@ The URL of the links can be:
     You can create links to anchors by adding a # plus the anchor ID to the URL.  
     For example, ***smart-filter-pro/changelog.md*** contains this link to the Price section of ***general/licensing.md***:
 	
-    `[Licensing](../general/licensing#price)`
+    `[Licensing](../general/licensing.md#price)`
 
     If the link needs to point to an anchor on the same document, you can simply write # plus the anchor ID. 
     For instance:
@@ -386,7 +386,7 @@ You are not allowed to embed images in Markdown documents like in Word, but they
 
 Always create a folder called images in the parent folder of the document you are working on (if it doesn't exist) and put all the images in it. For example, the images of ***smart-filter-pro/about.md*** must be placed in the folder ***_docs/smart-filter-pro/images/***.
 
-> Set a reasonable number of pixels in the ***width*** attribute of the &lt;img&gt; tag (see the [Best Practices](best-practices)).
+> Set a reasonable number of pixels in the ***width*** attribute of the &lt;img&gt; tag (see the [Best Practices](best-practices.md)).
 
 #### Available Badge
 

@@ -1,30 +1,35 @@
 {% assign crumbs = page.url | remove: "/index" | split: "/" %}
 {% assign level = crumbs | size | minus: 1 %}
-
-{% if level > 1 %} 
+{% if level > 0 %}
   <!--googleoff: snippet-->
   <div class="breadcrumbs">
-    {% for crumb in crumbs offset: 1 %}
-      {% unless forloop.last %}
-      {% if forloop.index > 1 %} <span class="sep">&nbsp;\&nbsp;</span> {% endif %}
-        {% assign crumb_limit = forloop.index | plus: 1 %}
-        
-        {% capture crumb_url %}{% for crumb in crumbs limit: crumb_limit %}{{ crumb | append: '/' }}{% endfor %}{% endcapture %}
-        
-        {% assign crumb_title = crumb | replace:'-',' ' | remove:'.html' %}
-        {% for _page in site.docs %}
-          {% assign page_url = _page.url | remove: "/index" | append: '/' %}
-          {% if page_url == crumb_url %}
+    <a href="/" class="unseen">Docs</a> 
+    <span class="sep">&nbsp;\&nbsp;</span> 
 
-            {% capture crumb_title %}{% if _page.menu_title %}{{ _page.menu_title }}{% else %}{{ _page.title }}{% endif %}{% endcapture %}
-            
-            {% break %}
-          {% endif %}
-        {% endfor %}
+      {% for crumb in crumbs offset: 1 %}
+        {% unless forloop.last %}
+          
+          {% assign crumb_limit = forloop.index | plus: 1 %}
+          
+          {% capture crumb_url %}{% for crumb in crumbs limit: crumb_limit %}{{ crumb | append: '/' }}{% endfor %}{% endcapture %}
+          
+          {% assign crumb_title = crumb | replace:'-',' ' | remove:'.html' %}
+          {% for _page in site.docs %}
+            {% assign page_url = _page.url | remove: "/index" | append: '/' %}
+            {% if page_url == crumb_url %}
 
-        <a href="{{ crumb_url }}" class="unseen">{{ crumb_title }}</a>
-      {% endunless %}
-    {% endfor %}
+              {% capture crumb_title %}{% if _page.menu_title %}{{ _page.menu_title }}{% else %}{{ _page.title }}{% endif %}{% endcapture %}
+              
+              {% break %}
+            {% endif %}
+          {% endfor %}
+
+          <a href="{{ crumb_url }}" class="unseen">{{ crumb_title }}</a> 
+          <span class="sep">&nbsp;\&nbsp;</span>
+        {% endunless %}
+      {% endfor %}
+    
+    
   </div>
   <!--googleon: snippet-->
 {% endif %}
