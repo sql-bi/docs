@@ -1,11 +1,11 @@
 ---
 layout:     home
-title:      ContosoDatamart DatbaseGenerator
+title:      Contoso Data Generator
 menu_title: ContosoDatamart
 published:  false
 order:      /
 ---
-The ContosoDatamart DatabaseGenerator is a tool to generates orders for the Contoso data model in order to provide demo data.
+The Contoso Data Generator is a tool to generates orders for the Contoso data model in order to provide demo data.
 
 ## Overview and usage
 Database Generator  is a command line application, running on .NET Core 3.1. It requires a working-folder to run on, containing a configuration file and data input files. After executing, working-folder also contains generated output data files and logs.
