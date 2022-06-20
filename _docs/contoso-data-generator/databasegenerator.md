@@ -2,7 +2,7 @@
 layout:     page
 title:      Contoso Data Generator
 menu_title: DatabaseGenerator
-published:  false
+published:  true
 order:      /2
 ---
 The DatabaseGenerator.exe is a tool to generate orders for the Contoso data model in order to provide demo data.
