@@ -2,7 +2,7 @@
 layout:     home
 title:      Contoso Data Generator
 menu_title: Contoso Data Generator
-published:  false
+published:  true
 order:      /
 ---
 # Contoso Data Generator
