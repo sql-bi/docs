@@ -25,7 +25,7 @@ Output files:
 
 ## Model
 
-<img src="../images/contoso-dataset-model.png" with=280></img>
+<img src="../images/contoso-dataset-model.png" with=280>
 
 ## Json Configuration file (config.json)
 
