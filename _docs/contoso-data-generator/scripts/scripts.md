@@ -1,7 +1,7 @@
 ---
 layout:     page
 title:      Contoso Data Generator
-menu_title: Contoso Data Generator
+menu_title: Scripts
 published:  true
 order:      /1
 ---

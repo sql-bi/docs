@@ -22,5 +22,5 @@ The pre-generated database files require the SQL Server 2019 or newer, but we ex
 [Contoso-Data-Generator-release-v1.0.0](https://github.com/sql-bi/Contoso-Data-Generator/releases/tag/v1.0.0)
 
 ## Documentation
-- [**Scripts**](scripts.md)
-- [**DatabaseGenerator.exe**](databasegenerator.md)
+- [**Scripts**](scripts/scripts.md)
+- [**DatabaseGenerator.exe**](databasegenerator/databasegenerator.md)
