@@ -36,7 +36,7 @@ This file contains the main configuration of the data generator.
 
 - **YearsCount**: (int) total number of years generated. Orders are distributed over the years.
 
-- **CutDateBefore**, **CutDateAfter**: (datetime) the range of dates (included) for the generated orders to be saved to the files. Orders preceding or following this range are discarded.
+- **CutDateBefore**, **CutDateAfter**: (datetime optional parameters) the 2 parameters allow to create data starting from a day different from January 1st  and ending on a date different from December 31st. Data before CutDateBefore and after CutDateAfter is removed
 
 - **CustomerFakeGenerator**: (int) number of fake customers. If > 0, customers.rpt file is ignored and a number of fake customers are generated.
 
