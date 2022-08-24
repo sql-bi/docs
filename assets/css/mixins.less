@@ -63,8 +63,8 @@
     box-shadow: @h @v @blur @spread @color;
 } 
 .noshadow {
-    box-shadow: none;
-    text-shadow:none; 
+    box-shadow: none !important;
+    text-shadow:none !important; 
 }
 .noappearence {
     -webkit-appearance:none; 
@@ -162,15 +162,15 @@
     font-family: @title-font;
 }
 .badge {
-    display: table;
+    display: inline-block;
     font-size: 13px;
-    font-weight: 600;
+    font-weight: bold;
     line-height: 1;
     text-transform: uppercase;
     background-color: @badge-back-color;
     color: @badge-color;
     padding: 8px 12px;
-    .border-radius(8px);
+    .border-radius(3px);
     border: 1px solid darken(@badge-back-color, 10%);
     letter-spacing: .5px;
     cursor: default;
@@ -184,6 +184,18 @@
         background-color: @version-back-color;
         color: @version-color;
         border-color: darken(@version-back-color, 10%);
+    }
+    &.premium {
+        background-color: @premium-back-color;
+        color: @premium-color;
+        border-color: darken(@premium-back-color, 10%);
+
+        a {
+            color: @premium-color !important;
+            &:hover {
+                color: darken(@premium-color, 10%) !important;
+            }
+        }
     }
     &.assign {
         display: inline-block;
@@ -201,7 +213,8 @@ h1, h2, h3, h4, h5, h6 {
     .badge {
         display: inline-block;
         vertical-align: middle;
-        margin-left: 5px;
+        margin-left: 6px;
+        margin-top: -3px;
     }
 }
 .bad {
@@ -215,4 +228,17 @@ iframe.embed {
     border: 1px solid @border-color;
 
     .dark & { border-color: @border-color-dark;}
+}
+.color-cell {
+    width: 16px;
+    height: 16px;
+    border: 2px solid @border-color;
+    border-radius: 3px;
+    display: inline-block;
+    vertical-align: middle;
+    margin:0 5px;
+
+    .dark & {
+        border-color: @border-color-dark;
+    }
 }

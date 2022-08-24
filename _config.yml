@@ -28,6 +28,7 @@ github: https://github.com/sql-bi/docs
 plugins:
   - jekyll-sitemap
   - jekyll-relative-links
+  - jekyll-include-cache
 permalink: /:categories/:title #:output_ext
 excerpt_separator: <!--more-->
 collections:

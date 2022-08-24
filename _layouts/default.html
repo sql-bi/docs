@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ page.title }}{% unless page.title == site.title %} - {{ site.title }}{% endunless %}</title>
+    {% if page.noindex or page.redirect %}<meta name="robots" content="noindex">{% endif %}
+    {% if page.redirect %}<meta http-equiv="refresh" content="0; URL={{page.redirect}}" />{% endif %}
+    <title>{% if page.error %}{{ page.error}}{% else %}{{ page.title }}{% endif %}{% unless page.title == site.title %} - {{ site.title }}{% endunless %}</title>
 
     <link rel="icon" href="/assets/favicons/icon-16.png" sizes="16x16">
     <link rel="icon" href="/assets/favicons/icon-32.png" sizes="32x32">
@@ -31,6 +33,7 @@
     <script src="/assets/js/index.js"></script>
     <script src="/assets/js/fuse.min.js"></script>
     <script src="/assets/js/split.min.js"></script>
+    <script src="/assets/js/cookiehelper/cookiehelper.min.js"></script>
     <script src="/assets/js/main.min.js"></script>
     
 </body>

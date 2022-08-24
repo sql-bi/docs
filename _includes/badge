@@ -1,0 +1,5 @@
+{% if include.in %}
+    <!--googleoff: snippet--><span class="badge availability">{{ include.in }}</span><!--googleon: snippet-->
+{% elsif include.v %}
+    <!--googleoff: snippet--><span class="badge version lc" title="Available from version {{ include.v }}">v{{ include.v }}</span><!--googleon: snippet-->
+{% endif %}

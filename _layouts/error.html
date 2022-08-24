@@ -2,8 +2,9 @@
 layout: default
 ---
 <div class="err{{ page.error }}">
-    <h1>{{page.error}}</h1>
+    {% if page.hide_title != true %}
+        <h1>{{page.error}}</h1>
+    {% endif %}
 
     {{ content }}
-
 </div>

@@ -1,11 +1,17 @@
 {% unless page.toc == false %}
     <!--googleoff: snippet-->
     {% assign page_content = page.content | markdownify %}
-    {% capture jekyll_toc %}{% include toc.html html=page_content h_max=page.toc_max h_min=page.toc_min %}{% endcapture %}
+    {% capture jekyll_toc %}{% include toc.html html=page_content h_max=page.toc_max h_min=page.toc_min item_class=page.toc_class %}{% endcapture %}
     {% unless jekyll_toc == empty %}
         <div class="toc">
-            <strong class="uc">In this page</strong>
-            {{ jekyll_toc }}
+            <div class="toc-content">
+                <div class="controls">
+                    <div class="expander icon"></div>
+                    <div class="pin icon"></div>
+                </div>
+                <div class="toc-title"">In this page</div>
+                {{ jekyll_toc }}
+            </div>
         </div>
     {% endunless %}
     <!--googleon: snippet-->

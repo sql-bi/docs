@@ -1,0 +1,1 @@
+<span class="color-cell" style="background:{{ include.value }}"></span>

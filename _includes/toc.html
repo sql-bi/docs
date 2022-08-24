@@ -74,109 +74,110 @@
     {% assign minHeader = include.h_min | default: 1 %}
     {% assign maxHeader = include.h_max | default: 6 %}
     {% assign nodes = include.html | strip | split: '<h' %}
-
+    {% assign nodes_size = nodes | size %}
     {% assign firstHeader = true %}
     {% assign currLevel = 0 %}
     {% assign lastLevel = 0 %}
 
     {% capture listModifier %}{% if orderedList %}ol{% else %}ul{% endif %}{% endcapture %}
-
-    {% for node in nodes %}
-        {% if node == "" %}
-            {% continue %}
-        {% endif %}
-
-        {% assign currLevel = node | replace: '"', '' | slice: 0, 1 | times: 1 %}
-
-        {% if currLevel < minHeader or currLevel > maxHeader %}
-            {% continue %}
-        {% endif %}
-
-        {% assign _workspace = node | split: '</h' %}
-
-        {% assign _idWorkspace = _workspace[0] | split: 'id="' %}
-        {% assign _idWorkspace = _idWorkspace[1] | split: '"' %}
-        {% assign htmlID = _idWorkspace[0] %}
-
-        {% assign _classWorkspace = _workspace[0] | split: 'class="' %}
-        {% assign _classWorkspace = _classWorkspace[1] | split: '"' %}
-        {% assign htmlClass = _classWorkspace[0] %}
-
-        {% if htmlClass contains "no_toc" %}
-            {% continue %}
-        {% endif %}
-
-        {% if firstHeader %}
-            {% assign minHeader = currLevel %}
-        {% endif %}
-
-        {% capture _hAttrToStrip %}{{ _workspace[0] | split: '>' | first }}>{% endcapture %}
-        {% assign header = _workspace[0] | replace: _hAttrToStrip, '' %}
-
-        {% if include.item_class and include.item_class != blank %}
-            {% capture listItemClass %} class="{{ include.item_class | replace: '%level%', currLevel | split: '.' | join: ' ' }}"{% endcapture %}
-        {% endif %}
-
-        {% if include.submenu_class and include.submenu_class != blank %}
-            {% assign subMenuLevel = currLevel | minus: 1 %}
-            {% capture subMenuClass %} class="{{ include.submenu_class | replace: '%level%', subMenuLevel | split: '.' | join: ' ' }}"{% endcapture %}
-        {% endif %}
-
-        {% capture anchorBody %}{% if include.sanitize %}{{ header | strip_html }}{% else %}{{ header }}{% endif %}{% endcapture %}
-
-        {% if htmlID %}
-            {% capture anchorAttributes %} href="{% if baseURL %}{{ baseURL }}{% endif %}#{{ htmlID }}"{% endcapture %}
-
-            {% if include.anchor_class %}
-                {% capture anchorAttributes %}{{ anchorAttributes }} class="{{ include.anchor_class | split: '.' | join: ' ' }}"{% endcapture %}
+    {% if nodes_size > 2 %} 
+        {% for node in nodes %}
+            {% if node == "" %}
+                {% continue %}
             {% endif %}
 
-            {% capture listItem %}<a{{ anchorAttributes }}>{{ anchorBody }}</a>{% endcapture %}
-        {% elsif skipNoIDs == true %}
-            {% continue %}
-        {% else %}
-            {% capture listItem %}{{ anchorBody }}{% endcapture %}
-        {% endif %}
+            {% assign currLevel = node | replace: '"', '' | slice: 0, 1 | times: 1 %}
 
-        {% if currLevel > lastLevel %}
-            {% capture jekyll_toc %}{{ jekyll_toc }}<{{ listModifier }}{{ subMenuClass }}>{% endcapture %}
-        {% elsif currLevel < lastLevel %}
-            {% assign repeatCount = lastLevel | minus: currLevel %}
+            {% if currLevel < minHeader or currLevel > maxHeader %}
+                {% continue %}
+            {% endif %}
 
-            {% for i in (1..repeatCount) %}
-                {% capture jekyll_toc %}{{ jekyll_toc }}</li></{{ listModifier }}>{% endcapture %}
-            {% endfor %}
+            {% assign _workspace = node | split: '</h' %}
 
-            {% capture jekyll_toc %}{{ jekyll_toc }}</li>{% endcapture %}
-        {% else %}
-            {% capture jekyll_toc %}{{ jekyll_toc }}</li>{% endcapture %}
-        {% endif %}
+            {% assign _idWorkspace = _workspace[0] | split: 'id="' %}
+            {% assign _idWorkspace = _idWorkspace[1] | split: '"' %}
+            {% assign htmlID = _idWorkspace[0] %}
 
-        {% capture jekyll_toc %}{{ jekyll_toc }}<li{{ listItemClass }}>{{ listItem }}{% endcapture %}
+            {% assign _classWorkspace = _workspace[0] | split: 'class="' %}
+            {% assign _classWorkspace = _classWorkspace[1] | split: '"' %}
+            {% assign htmlClass = _classWorkspace[0] %}
 
-        {% assign lastLevel = currLevel %}
-        {% assign firstHeader = false %}
-    {% endfor %}
+            {% if htmlClass contains "no_toc" %}
+                {% continue %}
+            {% endif %}
 
-    {% assign repeatCount = minHeader | minus: 1 %}
-    {% assign repeatCount = lastLevel | minus: repeatCount %}
-    {% for i in (1..repeatCount) %}
-        {% capture jekyll_toc %}{{ jekyll_toc }}</li></{{ listModifier }}>{% endcapture %}
-    {% endfor %}
+            {% if firstHeader %}
+                {% assign minHeader = currLevel %}
+            {% endif %}
 
-    {% if jekyll_toc != '' %}
-        {% assign rootAttributes = '' %}
-        {% if include.class and include.class != blank %}
-            {% capture rootAttributes %} class="{{ include.class | split: '.' | join: ' ' }}"{% endcapture %}
-        {% endif %}
+            {% capture _hAttrToStrip %}{{ _workspace[0] | split: '>' | first }}>{% endcapture %}
+            {% assign header = _workspace[0] | replace: _hAttrToStrip, '' %}
 
-        {% if include.id and include.id != blank %}
-            {% capture rootAttributes %}{{ rootAttributes }} id="{{ include.id }}"{% endcapture %}
-        {% endif %}
+            {% if include.item_class and include.item_class != blank %}
+                {% capture listItemClass %} class="{{ include.item_class | replace: '%level%', currLevel | split: '.' | join: ' ' }}"{% endcapture %}
+            {% endif %}
 
-        {% if rootAttributes %}
-            {% assign nodes = jekyll_toc | split: '>' %}
-            {% capture jekyll_toc %}<{{ listModifier }}{{ rootAttributes }}>{{ nodes | shift | join: '>' }}>{% endcapture %}
+            {% if include.submenu_class and include.submenu_class != blank %}
+                {% assign subMenuLevel = currLevel | minus: 1 %}
+                {% capture subMenuClass %} class="{{ include.submenu_class | replace: '%level%', subMenuLevel | split: '.' | join: ' ' }}"{% endcapture %}
+            {% endif %}
+
+            {% capture anchorBody %}{% if include.sanitize %}{{ header | strip_html }}{% else %}{{ header }}{% endif %}{% endcapture %}
+
+            {% if htmlID %}
+                {% capture anchorAttributes %} href="{% if baseURL %}{{ baseURL }}{% endif %}#{{ htmlID }}"{% endcapture %}
+
+                {% if include.anchor_class %}
+                    {% capture anchorAttributes %}{{ anchorAttributes }} class="{{ include.anchor_class | split: '.' | join: ' ' }}"{% endcapture %}
+                {% endif %}
+
+                {% capture listItem %}<a{{ anchorAttributes }}>{{ anchorBody }}</a>{% endcapture %}
+            {% elsif skipNoIDs == true %}
+                {% continue %}
+            {% else %}
+                {% capture listItem %}{{ anchorBody }}{% endcapture %}
+            {% endif %}
+
+            {% if currLevel > lastLevel %}
+                {% capture jekyll_toc %}{{ jekyll_toc }}<{{ listModifier }}{{ subMenuClass }}>{% endcapture %}
+            {% elsif currLevel < lastLevel %}
+                {% assign repeatCount = lastLevel | minus: currLevel %}
+
+                {% for i in (1..repeatCount) %}
+                    {% capture jekyll_toc %}{{ jekyll_toc }}</li></{{ listModifier }}>{% endcapture %}
+                {% endfor %}
+
+                {% capture jekyll_toc %}{{ jekyll_toc }}</li>{% endcapture %}
+            {% else %}
+                {% capture jekyll_toc %}{{ jekyll_toc }}</li>{% endcapture %}
+            {% endif %}
+
+            {% capture jekyll_toc %}{{ jekyll_toc }}<li{{ listItemClass }}>{{ listItem }}{% endcapture %}
+
+            {% assign lastLevel = currLevel %}
+            {% assign firstHeader = false %}
+        {% endfor %}
+
+        {% assign repeatCount = minHeader | minus: 1 %}
+        {% assign repeatCount = lastLevel | minus: repeatCount %}
+        {% for i in (1..repeatCount) %}
+            {% capture jekyll_toc %}{{ jekyll_toc }}</li></{{ listModifier }}>{% endcapture %}
+        {% endfor %}
+
+        {% if jekyll_toc != '' %}
+            {% assign rootAttributes = '' %}
+            {% if include.class and include.class != blank %}
+                {% capture rootAttributes %} class="{{ include.class | split: '.' | join: ' ' }}"{% endcapture %}
+            {% endif %}
+
+            {% if include.id and include.id != blank %}
+                {% capture rootAttributes %}{{ rootAttributes }} id="{{ include.id }}"{% endcapture %}
+            {% endif %}
+
+            {% if rootAttributes %}
+                {% assign nodes = jekyll_toc | split: '>' %}
+                {% capture jekyll_toc %}<{{ listModifier }}{{ rootAttributes }}>{{ nodes | shift | join: '>' }}>{% endcapture %}
+            {% endif %}
         {% endif %}
     {% endif %}
 {% endcapture %}{% assign tocWorkspace = '' %}{{ deprecation_warnings }}{{ jekyll_toc -}}

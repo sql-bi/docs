@@ -1,6 +1,7 @@
 {% assign crumbs = page.url | remove: "/index" | split: "/" %}
 {% assign level = crumbs | size | minus: 1 %}
 {% if level > 0 %}
+  {% capture html %}
   <!--googleoff: snippet-->
   <div class="breadcrumbs">
     <a href="/" class="unseen">Docs</a> 
@@ -32,4 +33,6 @@
     
   </div>
   <!--googleon: snippet-->
+  {% endcapture %}
+  {{ html | normalize_whitespace | strip }}
 {% endif %}

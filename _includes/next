@@ -1,0 +1,29 @@
+{% assign sorted_pages = site.docs | sort: "order" %}
+{% assign this_page_url = page.url | remove: "/index" %}
+{% capture list %}
+{% for _page in sorted_pages %}
+    {% assign page_url = _page.url | remove: "/index" %}
+    {% assign this_page_url_size = this_page_url | size %}
+    {% assign page_url_root = page_url | slice: 0, this_page_url_size %}
+    {% assign page_url_branch = page_url | remove: page_url_root %}
+    {% assign page_url_branch_parts = page_url_branch | split: "/" %}
+    {% assign branch_level = page_url_branch_parts | size | minus: 1 | at_least: 0 %}
+    {% assign page_file = _page.url | split: "/" | last %}
+
+    {% if page_url_root == this_page_url and page_url != this_page_url and branch_level == 1%}
+        <li>
+            <a href="{{ page_url }}">{% if _page.next_title %}{{ _page.next_title }}{% else %}{{ _page.title }}{% endif %}</a>
+        </li>
+    {% endif %}
+{% endfor %}
+{% endcapture %}
+
+{% assign render_list = list | strip %}
+{% if render_list != "" %}
+<div class="next-reading">
+    <div class="title">{% if include.title %}{{ include.title}}{% else %}Next Reading{% endif %}:</div>
+    <ul>
+        {{ render_list }}
+    </ul>
+</div>
+{% endif %}

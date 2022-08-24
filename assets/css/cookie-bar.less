@@ -1,0 +1,78 @@
+// main: main.min.less
+
+//Cookie bar
+#cookie-bar {
+    background:rgba(33, 33, 33, 0.9);
+    color: #fff !important;
+    font-family: Arial, Helvetica, sans-serif !important;
+  
+    font-size:14px; 
+    line-height: 1.4;
+    padding: 20px; 
+    position:fixed; 
+    bottom:0; 
+    left:0; 
+    right: 0;
+    z-index:999999999999999; 
+
+    .cookies-info {
+        width: 100%;
+        max-width: 600px;
+        margin: 20px auto;
+    }
+    
+    h2 {
+        font-family: Arial, Helvetica, sans-serif !important;
+        font-size:20px !important;
+        color: #fff !important;
+        margin: 0 0 20px 0 !important;
+        &:before, &:after {
+            display: none;
+        }
+    }
+    .cookies-ctrl {
+        overflow: hidden;
+        float: left;
+        margin: 15px 0;
+    }
+    .button {
+        float: right;
+        font-size:14px;
+        padding:8px 12px;
+        margin:15px 0;
+        display: block;
+        box-shadow: none;
+        text-shadow:none;
+
+        &.allow-necessary-cookies {
+            background: none;
+            border:1px solid #ddd;
+            color: #666;
+            
+
+            &:hover, &:active, &:focus { 
+                background:#f5f5f5;
+            }
+            &:visited { 
+                background: none;
+            }
+        }
+    }
+}
+.cookie-fallback {
+    display: none;
+
+    .button {
+        font-size:12px;
+        padding:5px 10px;
+        margin: 10px 0;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    #cookie-bar {
+        .cookies-ctrl, .button {
+            float: none;
+        }
+    }
+}

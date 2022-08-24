@@ -1,0 +1,30 @@
+{% if page.related %}
+    {% capture related_content %}
+        {% for related_path in page.related %}
+            {% assign page_dir = "" %}
+            {% assign related_path_first = related_path | slice: 0, 1 %}
+            {% if related_path_first == "/" %}
+                {% if page.collection %}
+                    {% assign page_dir = "_" | append: page.collection %}
+                {% endif %}
+            {% else %}
+                {% assign page_file = page.path | split: "/" | last %}
+                {% assign page_dir = page.path | remove: page_file %}
+            {% endif %}
+            {% assign related_page_path = page_dir | append: related_path %}
+            {% assign related_page = site.docs | where: "path", related_page_path | first %}
+            {% if related_page %}
+                <li><a href="{{ related_page.url }}">{{ related_page.title }}</a></li>
+            {% endif %}
+        {% endfor %}
+    {% endcapture %}
+    {% assign related_html = related_content | strip %}
+    {% unless related_html == empty %}
+        <div class="next-reading">
+            <div class="title">{% if page.related_title %}{{ page.related_title }}{% else %}Related Pages{% endif %}:</div>
+            <ul>
+                {{ related_html }}
+            </ul>
+        </div>
+    {% endunless %}
+{% endif %}

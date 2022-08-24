@@ -55,10 +55,13 @@ h2 {
     line-height: 1.4;
     margin: 40px 0 20px 0;
 }
+blockquote + h2 {
+    margin-top: 10px;
+}
 h3 {
     font-size: 22px;
     line-height: 1.5;
-    margin: 20px 0 15px 0;
+    margin: 30px 0 15px 0;
 }
 h4{
     font-size: 18px;
@@ -70,12 +73,28 @@ h5, h6 {
     line-height: 1.6;
     margin: 20px 0 0 0;
 }
-
+blockquote + h3,
+blockquote + h4,
+blockquote + h5,
+blockquote + h6  {
+    margin-top: 0;
+}
 h1, h2, h3, h4, h5, h6 {
     font-family: @title-font;
     font-weight: 700;
     &.nohero {
         margin-bottom: 5px;
+    }
+}
+h2:not(.static), h3:not(.static) {
+    .icon;
+    .icon-down;
+    cursor: pointer;
+    &.collapsed {
+        .icon-right;
+    }
+    &:before {
+        font-size: 0.7em;
     }
 }
 img, svg {
@@ -93,6 +112,7 @@ hr {
     margin: 30px 0;
     border: 0;
     border-bottom: 2px solid @hr-color;
+    .border-radius(5px);
     .dark & {
         border-color: @hr-color-dark;
     }
@@ -482,7 +502,7 @@ label[for] {
 }
 
 blockquote {
-            
+    display: inline-block;
     background-color: @blockquote-back-color;
     padding: 0;
     
@@ -497,15 +517,15 @@ blockquote {
 
     p {
         margin:0;
-        padding: 15px;
+        padding: 15px 20px 15px 15px;
 
         &:first-child {
              .icon;
             .icon-info;
 
             &:before {
-                font-size: 1.5em;
-                margin: 0px 5px 0 0;
+                font-size: 1.6em;
+                margin: 0px 8px 0 0;
                 display: block;
                 float: left;
             }
