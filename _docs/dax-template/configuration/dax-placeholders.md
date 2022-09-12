@@ -96,3 +96,17 @@ results in the following code when applied to the measure *Sales Amount* (accord
 VAR __ValueCurrentPeriod = [Sales Amount]
 VAR __ValuePreviousPeriod = [PY Sales Amount]
 ~~~
+
+### @@GETDEFAULTVARIABLE( < var_name > ) 
+Returns the content of the **var_name** variable defined in the template. 
+
+### @@GETYEARENDFROMFIRSTMONTHVARIABLE( < var_name > )
+Returns the end of the year string corresponding to the month number specified in the **var_name** variable.
+The result of this function can be used as an argument for DATESYTD, TOTALYTD, and PREVIOUSYEAR functions.
+For example, this is a template for YTD calculation.
+~~~
+CALCULATE (
+    @@GETMEASURE(),
+    DATESYTD ( @_C-SQLBI_AttributeTypes-Date_@,  @@GETYEARENDFROMFIRSTMONTHVARIABLE(__FirstFiscalMonth) )
+)
+~~~
