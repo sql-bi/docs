@@ -5,4 +5,4 @@ published:  true
 order:      /
 ---
 
-<todo assign="marco">Explain how to depoly date templates by using group policies, include video.</todo>
+<todo assign="marco">Explain how to deploy date templates by using group policies, include video.</todo>
