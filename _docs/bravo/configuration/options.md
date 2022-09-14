@@ -58,16 +58,16 @@ The Templates tab controls the templates available in the [Manage Dates](../feat
 A **template package** is a single JSON file that contains a user template (extension *.package.json*).
 
 A **template workspace** is an entire folder hierarchy identified by a file with the extension *.code-workspace*.
-<img src="images/options-01.png" width="500">
-1. **Enable User Date Templates** shows custom user templates in [Manage Dates](../features/manage-dates/index.md)
-2. The **Type** of the template can be:
+<img src="../images/options-01.png" width="500">
+1. **Enable User Date Templates**<br> Shows custom user templates in [Manage Dates](../features/manage-dates/index.md)
+2. **Type**<br> The type of the template can be:
     - *User*: Custom template that has imported in Bravo or has been created locally. More information in [Customize Date Template](../features/manage-dates/customize-date-template.md).
     - *Organization*: template distributed by the organization through group policies. More information in [Deploy Organization Templates](../features/manage-dates/deploy-organization-templates.md).
-3. **Edit in Visual Studio Code** opens the template in Visual Studio. This button appears for user templates that are created locally or have been imported with the entire folder. This button does not appear for Organization templates and User templates imported using only the package distribution file.
-4. **Show in File Explorer** opens the root folder for the user template. This button appears for user templates that are created locally or have been imported with the entire folder. This button does not appear for Organization templates and User templates imported using only the package distribution file.
-5. **Removes** a user template from the list. The template files are not deleted, users should use Show in File Explorer to open the folder before removing the template in order to delete the files.
-6. **New Template** creates a new Date template based on a predefined template.
-7. **Browse...** imports a template package or workspace.
+3. **Edit in Visual Studio Code**<br> Opens the template in Visual Studio. This button appears for user templates that are created locally or have been imported with the entire folder. This button does not appear for Organization templates and User templates imported using only the package distribution file.
+4. **Show in File Explorer**<br> Opens the root folder for the user template. This button appears for user templates that are created locally or have been imported with the entire folder. This button does not appear for Organization templates and User templates imported using only the package distribution file.
+5. **Remove**<br> Removes a user template from the list. The template files are not deleted, users should use Show in File Explorer to open the folder before removing the template in order to delete the files.
+6. **New Template**<br> Creates a new Date template based on a predefined template.
+7. **Browse...**<br> Imports a template package or workspace.
 
 ## About
 Shows the Power BI version and provide update options:
