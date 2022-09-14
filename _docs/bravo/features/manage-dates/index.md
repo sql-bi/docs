@@ -50,6 +50,7 @@ The **Preview Changes** button shows a preview of the changes that will be appli
 The **Manage Templates** link opens the [Templates](../../configuration/options.md#templates) section to [customize a date template](customize-date-template.md).
 
 ### Interval
+
 - **First Year**: Force the first year of the *Date* table. If not defined, uses the Automatic Scan setting.
 - **Last Year**: Force the first year of the *Date* table. If not defined, uses the Automatic Scan setting.
 - **Automatic Scan**: Defines how to scan the date columns in other tables of the model in order to define the range of years to generate in the *Date* table:
@@ -57,12 +58,15 @@ The **Manage Templates** link opens the [Templates](../../configuration/options.
     - *Chose Columns...* only considers an arbitrary selection of tables and columns.
     - *Active Relationships* only considers the date columns that are part of an active relationship.
     - *Inactive Relationships* only considers the date columns that are part of both active and inactive relationships.
+
 ### Dates
+
 - **Regional Format**: Regional format to generate day and month names.
 - **Dates Table**: Name of the visible *Date* table, which only includes a reference to another hidden table specified in *Dates Definition Table*.
 - **Dates Definition Table**: Name of the hidden caculated table containing the complete DAX code to generates the *Date* table. Because the DAX code required for a *Date* table is very long, the hidden table referenced by *Date* does not hide the report area when any column of the *Date* table is selected in the Fields pane of Power BI. 
 
 ### Holidays
+
 - **Holidays**: enables/disables the generation of columns related to Holidays in the final *Date* table. When enabled, the template creates additional tables to store the holidays definition and the holidays active in for the selected period and country.
 - **Holidays Country**: specified for which country to generate holidays in the *Date* table.
 - **Holidays Table**: name of the hidden Holidays table created by the template.
