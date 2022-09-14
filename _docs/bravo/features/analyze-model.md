@@ -15,7 +15,7 @@ The purpose is to find where a model consumes memory in order to remove the more
 3. **Group by Table**<br> Shows the columns grouped by table.
 4. **Cardinality**<br> The cardinality value reports the number of rows in a table and the number of unique values in each column.
 5. **Size**<br> The size value represents the amount of memory consumed by each table and column.
-6. **Save as VPAX**<br> Saves the information collected by Analyze Model into an external VPAX file. The VPAX file can be opened by Bravo, [DAX Studio](https://daxstudio.org/), [Tabular Editor](https://tabulareditor.com/), and [VertiPaq Analyzer](https://www.sqlbi.com/tools/vertipaq-analyzer/).
+6. **Save as VPAX**<br> Saves the information collected by Analyze Model into an external VPAX file. The VPAX file can be opened by Bravo, [DAX Studio](https://daxstudio.org/), [Tabular Editor](https://tabulareditor.com/), and [VertiPaq Analyzer](https://www.sqlbi.com/tools/vertipaq-analyzer/)
 7. **Treemap**<br> Shows the same memory size as an area.
 
 The Group by Table visualization displays data in two levels: table and column.

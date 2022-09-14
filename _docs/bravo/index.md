@@ -21,4 +21,4 @@ Users and developers can contribute to Bravo in many ways:
 - Submit [issues](https://github.com/sql-bi/Bravo/issues) for bugs or have for new features.
 - Answer to questions made by other Bravo users in the [Discussions](https://github.com/sql-bi/Bravo/discussions) page.
 - [Add or edit translations](https://github.com/sql-bi/Bravo#how-to-help-with-translations) in non-English languages.
-- Write C# and TypeScript code for new features by forking the [Bravo GitHub repository](https://github.com/sql-bi/Bravo).
+- Write C# and TypeScript code for new features by forking the [Bravo GitHub repository](https://github.com/sql-bi/Bravo)
