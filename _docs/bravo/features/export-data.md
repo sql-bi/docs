@@ -36,4 +36,4 @@ The CSV export format shows different format options:
     - *Enclose Strings in Quotes*: Ensures that every string is enclosed in double quotes.
     - *Save in a Subfolder*: Creates a subfolder with the name of the model. All the CSV files are saved in that subfolder, otherwise the files are created in the folder selected when the user clicks the Export Selected button.
     
-The Export Data feature in Bravo does not provide filters over rows and columns. [DAX Studio](https://daxstudio.org) has more advanced features to export a selection of rows or columns: [Query Builder](https://daxstudio.org/docs/features/query-builder/) and [Export Data](https://daxstudio.org/docs/features/export-data/).
+>The Export Data feature in Bravo does not provide filters over rows and columns. [DAX Studio](https://daxstudio.org) has more advanced features to export a selection of rows or columns: [Query Builder](https://daxstudio.org/docs/features/query-builder/) and [Export Data](https://daxstudio.org/docs/features/export-data/).

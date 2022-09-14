@@ -28,4 +28,4 @@ The Group by Table visualization displays data in two levels: table and column.
 3. **Expands all** the table names, showing all the filtered columns for all the tables. The expand all does not remove the filter applied by the Search Column textbox.
 4. **Collapses all** shows only table names, removing the detail of the columns. The size of each table only considers the columns filtered by the Search Column textbox.
 
-Use Power BI Desktop to remove columns that are not useful after verifying that they are not used by any report. Remember that Bravo only checks that columns are referenced within the model, but it cannot verify whether a column is used in a report.
+>Use Power BI Desktop to remove columns that are not useful after verifying that they are not used by any report. Remember that Bravo only checks that columns are referenced within the model, but it cannot verify whether a column is used in a report.

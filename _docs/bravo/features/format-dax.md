@@ -39,4 +39,4 @@ Bravo writes in the Power BI the formatted version only of the selected measures
 8. **Format online with DAX Formatter** shows the formatted measure in a browser window using the DAX Formatter website. From that page, the formatted measure can be copied to the clipboard or saved into a file.
 9. **Format Selected** writes a formatted version of the selected measure in the Power BI model.
 
-**IMPORTANT**: create a backup of the PBIX file before using Bravo, because it is not possible to “undo” the Format DAX operation!
+>**IMPORTANT**: create a backup of the PBIX file before using Bravo, because it is not possible to “undo” the Format DAX operation!
