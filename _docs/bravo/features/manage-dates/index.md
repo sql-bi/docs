@@ -47,7 +47,7 @@ The **Preview Changes** button shows a preview of the changes that will be appli
 - **Last Weekday of the Year**
     - *Last of the Year*: Last Saturday of the month at fiscal year end. The fiscal year is defined as the final Saturday (if Sunday is selected as first day of the week) in the fiscal year end month.
     - *Closest to the Year End*: Saturday nearest the end of month. The fiscal year is defined as the Saturday (if Sunday is selected as first day of the week) that falls closest to the last day of the fiscal year end month.
-The **Manage Templates** link opens the [Templates](options.md#templates) section to [customize a date template](customize-date-template.md).
+The **Manage Templates** link opens the [Templates](../../configuration/options.md#templates) section to [customize a date template](customize-date-template.md).
 
 ## Interval
 - **First Year**: Force the first year of the *Date* table. If not defined, uses the Automatic Scan setting.

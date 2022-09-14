@@ -22,7 +22,7 @@ The preview requires a manual action because the DAX Formatter service must rece
 
 1. **Preview** sends only the DAX measure displayed in the *Current* pane to the DAX Formatter service, and then displays the formatted code.
 2. **Preview All Measures** sends all the measures of the model to the DAX Formatter service. The preview is then automatically displayed for any other measure selected for the current model without requiring a confirmation for each measure.
-3. By enabling the **Automatic preview** setting, the preview is automatically enabled for all the measures of any model. The choice can be reverted in the [Options](../options.md) dialog box.
+3. By enabling the **Automatic preview** setting, the preview is automatically enabled for all the measures of any model. The choice can be reverted in the [Options](../configuration/options.md) dialog box.
 
 When the previes is enabled, the measures that are not formatted are highlighted in the list of the measures.
 Bravo writes in the Power BI the formatted version only of the selected measures.
