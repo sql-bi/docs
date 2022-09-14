@@ -8,6 +8,8 @@ toc_max:    2
 
 Bravo uses registry settings to store company policies, configuration related to the setup, and advanced settings not exposed in the user interface.
 
+>Attributes that use a *REG_DWORD* type for a boolean 0/1 have the same behavior of 1 for any values that is not 0. In other words, 0 is False and any other number is True.
+
 ## Policies
 The **HKEY_LOCAL_MACHINE\SOFTWARE\Policies\SQLBI\Bravo\OptionSettings** registry hive includes the following registry settings to control policies across the organization.
 
