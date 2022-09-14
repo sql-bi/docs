@@ -57,7 +57,7 @@ The Templates tab controls the templates available in the [Manage Dates](../feat
 A **template package** is a single JSON file that contains a user template (extension *.package.json*).
 
 A **template workspace** is an entire folder hierarchy identified by a file with the extension *.code-workspace*.
-<img src="images/options-01.png" width="500" class="naked">
+<img src="images/options-01.png" width="500">
 1. **Enable User Date Templates** shows custom user templates in [Manage Dates](../features/manage-dates/index.md)
 2. The **Type** of the template can be:
     - *User*: Custom template that has imported in Bravo or has been created locally. More information in [Customize Date Template](../features/manage-dates/customize-date-template.md).

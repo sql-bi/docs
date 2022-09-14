@@ -7,7 +7,7 @@ order:      /2
 
 Bravo has a user interface based on a single window that allows multiple connections.
 
-<img src="images/general-ui-01.png" width="700" class="naked">
+<img src="images/general-ui-01.png" width="700">
 
 1. Creates a **connection** to a model in Power BI, or loads a VertiPaq Analyzer file. 
 2. Opens a **new connection**
@@ -21,7 +21,7 @@ Bravo has a user interface based on a single window that allows multiple connect
 
 Other two common elements of the user interface appear in all the operation pages.
 
-<img src="images/general-ui-02.png" width="300" class="naked">
+<img src="images/general-ui-02.png" width="300">
 
 1. **Synchronizes** the information in Bravo with the information in Power BI Desktop. For example, if you add a measure or import a new table, you can update the information in Bravo by clicking the “Synchronize” button.
 2. Opens a **Help** page in a browser window pointing to the documentation.

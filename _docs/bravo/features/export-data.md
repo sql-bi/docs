@@ -19,7 +19,7 @@ Bravo can export the data of one or more tables to multiple CSV files in the sam
 
 The CSV export format shows different format options:
 
-<img src="../images/export-data-02.png" width="700" class="naked">
+<img src="../images/export-data-02.png" width="700">
 
 1. Filters the tables containing the text specified in the **Search Table** textbox. Selected tables are exported even though they are not listed because of a filter.
 2. Displays the **number of selected tables** to export, regardless of their visibility in the above list.
