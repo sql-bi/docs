@@ -2,7 +2,7 @@
 layout:     page
 title:      Format DAX
 published:  true
-order:      /
+order:      /2
 ---
 
 Bravo can format the DAX measures of a Power BI model.

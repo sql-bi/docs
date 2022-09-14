@@ -2,7 +2,7 @@
 layout:     page
 title:      Analyze Model
 published:  true
-order:      /
+order:      /1
 ---
 Analyze Model shows the space consumed by columns in the model.
 

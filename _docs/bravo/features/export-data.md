@@ -2,7 +2,7 @@
 layout:     page
 title:      Export Data
 published:  true
-order:      /
+order:      /4
 ---
 Bravo can export the data of one or more tables to multiple CSV files in the same folder or into a single Excel file with one worksheet for each table.
 

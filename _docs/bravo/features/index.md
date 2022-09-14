@@ -2,7 +2,7 @@
 layout:     home
 title:      Features
 published:  true
-order:      /
+order:      /3
 ---
 
 Bravo for Power BI helps to author a Power BI model:

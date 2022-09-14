@@ -2,10 +2,10 @@
 layout:     page
 title:      Customize Date Templates
 published:  true
-order:      /
+order:      /1
 ---
 
-The [Templates](options.md#templates) page can add, delete, and modify user date templates for Bravo.
+The [Templates](../../configuration/options.md#templates) page can add, delete, and modify user date templates for Bravo.
 
 ## Template workspace and package
 
@@ -30,7 +30,7 @@ The Bravo Template Editor provides the following features:
 - **Generates the template package** from the template workspace every time a file is saved in the *src* folder.
 - **Shows a preview of the template result** by using Bravo connected to an instance of Power BI Desktop with a model compatible with the template.
 
-<img src="images/customize-date-template-01.png" width="700" class="naked">
+<img src="../../images/customize-date-template-01.png" width="700" class="naked">
 
 1. Only the files in the *src* folder should be modified in Visual Studio Code.
 2. Opens the Bravo Template Editor pane.
@@ -38,7 +38,7 @@ The Bravo Template Editor provides the following features:
 The Bravo Template Editor pane creates the connection to a Power BI Desktop model used to validate the template and generate a preview of the template result.
 The preview is updated every time a file is saved in the *src* folder.
 
-<img src="images/customize-date-template-02.png" width="700" class="naked">
+<img src="../../images/customize-date-template-02.png" width="700" class="naked">
 
 1. Chooses an existing Power BI Desktop connection. *Browse* opens a PBIX file with Power BI Desktop, waiting for the proper initialization and the connecting to that model automatically.
 2. Shows the preview of the DAX code generated for a table or a measure selected in the *Model Changes Preview* pane.
