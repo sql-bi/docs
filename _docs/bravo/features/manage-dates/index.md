@@ -20,9 +20,9 @@ The preview pane shows the content obtained by using the [changing the parameter
 
 The **Preview Changes** button shows a preview of the changes that will be applied to the model. These changes are applied to the model by clicking the **Apply Changes** button.
 
-# Choosing parameters
+## Choosing parameters
 
-## Calendar
+### Calendar
 
 - **Template**:
     - *Standard*
@@ -49,7 +49,7 @@ The **Preview Changes** button shows a preview of the changes that will be appli
     - *Closest to the Year End*: Saturday nearest the end of month. The fiscal year is defined as the Saturday (if Sunday is selected as first day of the week) that falls closest to the last day of the fiscal year end month.
 The **Manage Templates** link opens the [Templates](../../configuration/options.md#templates) section to [customize a date template](customize-date-template.md).
 
-## Interval
+### Interval
 - **First Year**: Force the first year of the *Date* table. If not defined, uses the Automatic Scan setting.
 - **Last Year**: Force the first year of the *Date* table. If not defined, uses the Automatic Scan setting.
 - **Automatic Scan**: Defines how to scan the date columns in other tables of the model in order to define the range of years to generate in the *Date* table:
@@ -57,18 +57,18 @@ The **Manage Templates** link opens the [Templates](../../configuration/options.
     - *Chose Columns...* only considers an arbitrary selection of tables and columns.
     - *Active Relationships* only considers the date columns that are part of an active relationship.
     - *Inactive Relationships* only considers the date columns that are part of both active and inactive relationships.
-## Dates
+### Dates
 - **Regional Format**: Regional format to generate day and month names.
 - **Dates Table**: Name of the visible *Date* table, which only includes a reference to another hidden table specified in *Dates Definition Table*.
 - **Dates Definition Table**: Name of the hidden caculated table containing the complete DAX code to generates the *Date* table. Because the DAX code required for a *Date* table is very long, the hidden table referenced by *Date* does not hide the report area when any column of the *Date* table is selected in the Fields pane of Power BI. 
 
-## Holidays
+### Holidays
 - **Holidays**: enables/disables the generation of columns related to Holidays in the final *Date* table. When enabled, the template creates additional tables to store the holidays definition and the holidays active in for the selected period and country.
 - **Holidays Country**: specified for which country to generate holidays in the *Date* table.
 - **Holidays Table**: name of the hidden Holidays table created by the template.
 - **Holidays Table**: name of the hidden HolidaysDefinition table created by the template.
 
-## Time Intelligence
+### Time Intelligence
 
 - **Time Intelligence Functions**: enables/disables the generation of time intellignece measures.
 - **Target Measures**
