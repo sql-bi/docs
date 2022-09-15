@@ -16,8 +16,10 @@ The **HKEY_LOCAL_MACHINE\SOFTWARE\Policies\SQLBI\Bravo\OptionSettings** registry
 ### UseSystemBrowserForAuthentication
 *REG_DWORD* 
 
-0. Uses Bravo user interface for user authentication.
-1. Uses the system browser for user authentication.
+<ol>
+<li value="0">Uses Bravo user interface for user authentication.</li>
+<li>Uses the system browser for user authentication.</li>
+</ol>
 
 ### TelemetryEnabled
 *REG_DWORD* 
