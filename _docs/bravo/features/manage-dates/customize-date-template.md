@@ -3,9 +3,14 @@ layout:     page
 title:      Customize Date Templates
 published:  true
 order:      /1
+toc: false
 ---
 
 The [Templates](../../configuration/options.md#templates) page can add, delete, and modify user date templates for Bravo.
+
+<div class="video-container">
+    <iframe src="https://player.vimeo.com/video/763684375" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+</div>
 
 ## Template workspace and package
 

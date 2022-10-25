@@ -3,6 +3,7 @@ layout:     page
 title:      Manage Dates
 published:  true
 order:      /3
+toc:        false
 ---
 
 Manage Dates creates a *Date* table with relationships to other date columns of a Power BI model. The template can also add measures implementing time intelligence calculations from DAX Patterns.
