@@ -6,7 +6,11 @@ order:      /4
 ---
 Bravo can export the data of one or more tables to multiple CSV files in the same folder or into a single Excel file with one worksheet for each table.
 
-<img src="../images/export-data-01.png" width="700" class="naked">
+<div class="video-container">
+    <iframe src="https://player.vimeo.com/video/763681111" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+</div>
+
+<img src="images/export-data-01.png" width="700" class="naked">
 
 1. **Select/unselect all**<br> Toggles the selection of the tables to export.
 2. **Select individual tables**<br> Select or unselect the table to export in the corresponding line.
@@ -19,7 +23,7 @@ Bravo can export the data of one or more tables to multiple CSV files in the sam
 
 The CSV export format shows different format options:
 
-<img src="../images/export-data-02.png" width="700">
+<img src="images/export-data-02.png" width="700">
 
 1. **Search Table**<br> Filters the tables containing the text specified in the textbox. Selected tables are exported even though they are not listed because of a filter.
 2. **Total selection to export**<br> Displays the **number of selected tables** to export, alongside with their number of rows and size, regardless of their visibility in the above list.

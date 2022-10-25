@@ -3,9 +3,14 @@ layout:     page
 title:      Manage Dates
 published:  true
 order:      /3
+toc:        false
 ---
 
 Manage Dates creates a *Date* table with relationships to other date columns of a Power BI model. The template can also add measures implementing time intelligence calculations from DAX Patterns.
+
+<div class="video-container">
+    <iframe src="https://player.vimeo.com/video/763679068" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+</div>
 
 The *Date* table created by Bravo is a standard calculated table: Bravo is not necessary to refresh the Date table.
 

@@ -7,7 +7,11 @@ order:      /2
 
 Bravo can format the DAX measures of a Power BI model.
 
-<img src="../images/format-dax-01.png" width="700">
+<div class="video-container">
+    <iframe src="https://player.vimeo.com/video/763677100" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+</div>
+
+<img src="images/format-dax-01.png" width="700">
 
 1. **Search Measure**<br> Filters measures by writing a partial name in the  textbox.
 2. **Current**<br> Shows the current DAX expressions of the selected measure.
@@ -18,7 +22,7 @@ When the *Formatted (Preview)* pane is visible, the DAX code must be sent to the
 
 The preview requires a manual action because the DAX Formatter service must receive the DAX code. The DAX Formatter service does not store any received DAX code, but users must be aware that they are using a free online service provided by SQLBI.
 
-<img src="../images/format-dax-02.png" width="700">
+<img src="images/format-dax-02.png" width="700">
 
 1. **Preview**<br> Sends only the DAX measure displayed in the *Current* pane to the DAX Formatter service, and then displays the formatted code.
 2. **Preview All Measures**<br> Sends all the measures of the model to the DAX Formatter service. The preview is then automatically displayed for any other measure selected for the current model without requiring a confirmation for each measure.
@@ -27,7 +31,7 @@ The preview requires a manual action because the DAX Formatter service must rece
 When the previes is enabled, the measures that are not formatted are highlighted in the list of the measures.
 Bravo writes in the Power BI the formatted version only of the selected measures.
 
-<img src="../images/format-dax-03.png" width="700">
+<img src="images/format-dax-03.png" width="700">
 
 1. **Show unformatted measures**<br> Filters only the measures that are not formatted. This filter only works with measures that have the preview enabled. The same filter also includes measures that cannot be formatted because of a syntax error. The code of the measure cannot be modified in Bravo, the *Current* and *Formatted (Preview)* panes are read-only.
 2. **Select/unselect all the measures**<br> Chooses the measures that Bravo writes in Power BI when the user clicks *Format Selected*.

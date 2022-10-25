@@ -7,6 +7,10 @@ order:      /
 
 The Options dialog box includes the settings for all the features available in Bravo for Power BI.
 
+<div class="video-container">
+    <iframe src="https://player.vimeo.com/video/763683383" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+</div>
+
 The settings are stored per user and are preserved when Bravo is updated.
 
 ## General
@@ -22,7 +26,7 @@ The settings are stored per user and are preserved when Bravo is updated.
 
 ## Formatting
 
-- **Automatic Preview**: Enable/disable the automatic preview for [Format DAX](../features/format-dax.md)
+- **Automatic Preview**: Enable/disable the automatic preview for [Format DAX](../features/format-dax/index.md)
 - **Separators**: Sets the separators used for the DAX code:
     - *Auto*: Automatic choice of the separators based on heuristic search.
     - *A, B, C, 1234.00*: Uses comma (,) as list separator and dot (.) as decimal separator.
@@ -66,7 +70,7 @@ The Templates tab controls the templates available in the [Manage Dates](../feat
 A **template package** is a single JSON file that contains a user template (extension *.package.json*).
 
 A **template workspace** is an entire folder hierarchy identified by a file with the extension *.code-workspace*.
-<img src="../images/options-01.png" width="500">
+<img src="images/options-01.png" width="500">
 1. **Enable User Date Templates**<br> Shows custom user templates in [Manage Dates](../features/manage-dates/index.md)
 2. **Type**<br> The type of the template can be:
     - *User*: Custom template that has imported in Bravo or has been created locally. More information in [Customize Date Template](../features/manage-dates/customize-date-template.md).

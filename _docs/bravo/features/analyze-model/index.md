@@ -6,9 +6,13 @@ order:      /1
 ---
 Analyze Model shows the space consumed by columns in the model.
 
+<div class="video-container">
+    <iframe src="https://player.vimeo.com/video/763673832" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+</div>
+
 The purpose is to find where a model consumes memory in order to remove the more expensive columns that are not useful.
 
-<img src="../images/analyze-model-01.png" width="700">
+<img src="images/analyze-model-01.png" width="700">
 
 1. **Unreferenced columns**<br> The highlighted unreferenced columns are columns not used in measures and relationships of the model. However, unreferenced columns could be used in reports. Make sure that they are unnecessary at the report level before removing them from the model.
 2. **Smaller columns...**<br> The link shows all the model columns, instead of showing only the five largest columns of the model by default.
@@ -20,7 +24,7 @@ The purpose is to find where a model consumes memory in order to remove the more
 
 The Group by Table visualization displays data in two levels: table and column.
 
-<img src="../images/analyze-model-02.png" width="700">
+<img src="images/analyze-model-02.png" width="700">
 
 1. **Search Column**<br> Filters the displayed columns by typing partial column names in the textbox.
 2. **Show unreferenced columns only**<br> Displays only unreferenced columns, hiding columns that are used by relationships and DAX expressions in the model.
