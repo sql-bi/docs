@@ -11,6 +11,8 @@ Bravo has a user interface based on a single window that allows multiple connect
     <iframe src="https://player.vimeo.com/video/763673584" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
 </div>
 
+Here is a brief tour of all features:
+
 <img src="images/general-ui-01.png" width="700">
 
 1. Creates a **connection** to a model in Power BI, or loads a VertiPaq Analyzer file. 

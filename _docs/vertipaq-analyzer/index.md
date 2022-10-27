@@ -2,7 +2,7 @@
 layout:     home
 title:      VertiPaq Analyzer
 published:  true
-order:      /
+order:      /vertipaq-analyzer
 ---
 VertiPaq Analyzer is a set of open-source libraries to represent statistical information related to Tabular models.
 

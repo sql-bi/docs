@@ -2,7 +2,7 @@
 layout:     home
 title:      Dax Template
 published:  true
-order:      /
+order:      /dax-template
 ---
 Dax Template is a library that generates measures, calculated tables, calculated columns, and calculation groups based on composable templates.
 

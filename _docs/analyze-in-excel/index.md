@@ -3,5 +3,5 @@ layout:     home
 title:      Analyze in Excel for Power BI Desktop
 menu_title: Analyze in Excel for Power BI 
 published:  false
-order:      /
+order:      /analyze-in-excel
 ---
