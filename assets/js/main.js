@@ -389,9 +389,10 @@ const cookieHelper = new CookieHelper({
     necessaryCookies: ["sqlbi-*"],
     privacyUrl: "https://www.sqlbi.com/privacy/#cookies",
     geoReverseUrl: 'https://ipinfo.io/{ip}/json?token=81e7debefa0ece',
+    geoCookieName: '_sqlbi_iso',
     targetEU: true
 });
-cookieHelper.addDependency("optional", () => {
+cookieHelper.addDependency(() => {
 
     // Google Analytics
     const gaID = "G-R2Q43JNMWE";

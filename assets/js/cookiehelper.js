@@ -1,5 +1,5 @@
 /*!
- * Cookie Helper 2.1.5
+ * Cookie Helper 2.1.6
  * Copyright (c) SQLBI. All rigths are reserved.
  * https://www.sqlbi.com/	
 */
@@ -12,6 +12,7 @@ class CookieHelper {
 	dependencies;
 	privacyUrl;
 	geoReverseUrl;
+	geoCookieName;
 	targetEU;
 
 	get cookiesAllowed() {
@@ -38,7 +39,9 @@ class CookieHelper {
 		this.privacyUrl = options.privacyUrl ?? "";
 		this.allowOnFile = options.disableOnFile ?? true;
 		this.targetEU = options.targetEU ?? true;
+		this.geoCookieName = options.geoCookieName ?? "_country";
 		this.geoReverseUrl = options.geoReverseUrl ?? "";
+		this.necessaryCookies.push(this.geoCookieName);
  
 		if (document.readyState == "complete") {
 			this.load();
@@ -88,18 +91,31 @@ class CookieHelper {
 		} else {
 			const euCountries = ['AT', 'BE', 'BG', 'CY', 'CZ', 'DE', 'DK', 'ES', 'EE', 'FI', 'FR', 'GB', 'GR', 'HR', 'HU', 'IE', 'IT', 'LT', 'LU', 'LV', 'MT', 'NL', 'PL', 'PT', 'RO', 'SK', 'SI', 'SE'];
 
-			const url = this.geoReverseUrl.replace("/{ip}/", "/").replace("{ip}", "");
+			const country = this.getCookie(this.geoCookieName);
+			if (country) {
+				return Promise.resolve(euCountries.indexOf(country) >= 0);
 
-			return fetch(url, {
-				method: "GET", 
-				headers: {
-					"Content-Type": "application/json",
-					"Access-Control-Allow-Origin": "*"
-				}
-			})
-			.then(response => response.json())
-			.then(json => !json || !json.country || euCountries.indexOf(json.country) >= 0)
-			.catch(ignore => true);
+			} else {
+
+				const url = this.geoReverseUrl.replace("/{ip}/", "/").replace("{ip}", "");
+				return fetch(url, {
+					method: "GET", 
+					headers: {
+						"Content-Type": "application/json",
+						"Access-Control-Allow-Origin": "*"
+					}
+				})
+				.then(response => response.json())
+				.then(json => {
+					if (json && json.country) {
+						this.setCookie(this.geoCookieName, json.country, 365);
+						return euCountries.indexOf(json.country) >= 0;
+					} else {
+						return true;
+					}
+				})
+				.catch(ignore => true);
+			}
 		}
 	}
 
