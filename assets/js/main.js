@@ -385,11 +385,11 @@ new Theme();
 
 // Cookies (requires cookiehelper.js)
 const cookieHelper = new CookieHelper({
-    consentCookie: "_sqlbi_consent",
+    prefCookieName: "_sqlbi_consent",
+    necessaryCookies: ["sqlbi-*"],
     privacyUrl: "https://www.sqlbi.com/privacy/#cookies",
-    euCheckService: "https://www.sqlbi.com/wp-admin/admin-ajax.php",
-    requiredCookies: ["sqlbi-*"],
-    onlyEU: true
+    geoReverseUrl: 'https://ipinfo.io/{ip}/json?token=81e7debefa0ece',
+    targetEU: true
 });
 cookieHelper.addDependency("optional", () => {
 
