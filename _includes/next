@@ -21,7 +21,8 @@
 {% assign render_list = list | strip %}
 {% if render_list != "" %}
 <div class="next-reading">
-    <div class="title">{% if include.title %}{{ include.title}}{% else %}Next Reading{% endif %}:</div>
+    <hr>
+    <div class="title">{% if include.title %}{{ include.title}}{% else %}Next Reading{% endif %}</div>
     <ul>
         {{ render_list }}
     </ul>

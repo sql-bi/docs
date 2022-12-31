@@ -25,39 +25,43 @@ nav {
         }
     }*/
     li {
-        padding: 4px 0 4px 25px;
+        padding: 0 0 0 25px;
         display: none;
         line-height: 1.4;
         white-space: nowrap;
      
-        &.l0, &.l1 {
+        &.l0 {
             padding-left: 15px;
+            padding-right: 5px;
+            text-transform: uppercase;
+            letter-spacing: .5px;
+            
+
+            & > .tree-link, & > .tree-link:hover {
+                color: @disabled-color !important;
+                font-weight: 700 !important;
+                font-size: 0.8em;
+
+                .dark & {
+                    color: @disabled-color-dark !important;
+                }
+            }
+        }
+        &.l1 {
+            padding-right: 5px;
         }
         &.block {
             display: block;
             height: 3px;
         }
-        .tree-toggle .icon {
-            display: inline-block;
-            .icon-right;
 
-            &:before {
-                font-weight: 700;
-                margin: 0 5px 0 0;
-            }
-        }
         &.non-expandable {
-            .tree-toggle .icon { 
-                .icon-minus;
-                color: @disabled-color;
-
-                .dark & {
-                    color: @disabled-color-dark;
-                }
+            .tree-toggle { 
+               display: none;
             }
         }
         &:not(.non-expandable).expanded {
-            & > .tree-toggle .icon {
+            & > .tree-link .tree-toggle {
                 .icon-down;
             }
 
@@ -78,32 +82,70 @@ nav {
             .dark & { color: @text-color-dark !important}
 
             &:hover {
-                color: @accent-back-color !important;
                 text-decoration: none;
             }
 
             .noicon;
 
             &.tree-link {
-                white-space: normal;
+                display: flex;
+                align-items: center;
+                padding: 4px 10px;
+                margin: 2px 0;
+                .border-radius(5px);
 
-                &.icon:before {
-                    margin-right: 8px;
+                &.icon{
+                    &:before {
+                        margin-right: 8px;
+                    }
+                    &:after {
+                        margin: 0;
+                    }
+                }
+
+
+                .link-title {
+                    width: 100%;
+                    flex: 0 1 auto;
+                    text-overflow: ellipsis;
+                    overflow: hidden;
+                    white-space: nowrap;
+                }
+
+                .tree-toggle {
+                    margin: 0 0 0 auto;
+                    padding-left: 6px;
+                    .icon-right;
+    
+                    &:before {
+                        font-weight: 700;
+                        margin: 0;
+                    }
+                    
                 }
             }
 
         }
-        &.current > a.tree-link, & > a.tree-link:hover {
-            color: @accent-back-color !important;
-            
-            //font-size: 17px;
+
+        & > .tree-link:hover {
+            //color: @accent-back-color !important;
+            background: @nav-hover-color;
+            .dark & {
+                background: @nav-hover-color-dark;
+            }
         }
         &.current > a.tree-link {
-            font-weight: 700;
+            color: @accent-back-color !important;
+            background: @nav-sel-color;
+            .dark & {
+                background: @nav-sel-color-dark;
+            }
 
+            font-weight: 700;
             &:before { 
                 font-weight: normal;
             }
+
         }
 
         /*&.l0 > a {

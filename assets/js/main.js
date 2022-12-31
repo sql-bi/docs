@@ -5,23 +5,24 @@
 */
 
 // Navigation
-let treeToggleEls = document.querySelectorAll(".tree-toggle");
-treeToggleEls.forEach(a => {
-
-    if (a.parentElement.querySelectorAll("ul li").length > 0) {
-        a.addEventListener("click", e => {
+const treeToggleEls = document.querySelectorAll(".tree-toggle");
+treeToggleEls.forEach(el => {
+    const li = el.closest("li");
+    if (li.querySelectorAll("ul li").length > 0) {
+        el.addEventListener("click", e => {
             e.preventDefault();
-            let parent = e.currentTarget.parentNode;
+            e.stopPropagation();
+            let parent = e.currentTarget.closest("li");
             if (parent.classList.contains("expanded")) 
                 parent.classList.remove("expanded");
             else
                 parent.classList.add("expanded");
         });
     } else {
-        a.parentElement.classList.add("non-expandable");
+        li.classList.add("non-expandable");
     }
 });
-let treeLinks = document.querySelectorAll(".tree-link");
+const treeLinks = document.querySelectorAll(".tree-link");
 for (let i = 0; i < treeLinks.length; i++) {
     if (treeLinks[i].href == document.location.href) {
         treeLinks[i].scrollIntoView(false);
@@ -146,7 +147,8 @@ if (navElement) {
 // Nav Split
 if (navElement) {
     const storage = "panels-sizes";
-    const defaultSizes = [20, 80];
+    const defaultLeftPerc = (300 / document.body.clientWidth) * 100;
+    const defaultSizes = [defaultLeftPerc, 100 - defaultLeftPerc];
     let sizes = JSON.parse(localStorage.getItem(storage));
     if (!sizes) sizes = defaultSizes;
 

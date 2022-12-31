@@ -21,7 +21,8 @@
     {% assign related_html = related_content | strip %}
     {% unless related_html == empty %}
         <div class="next-reading">
-            <div class="title">{% if page.related_title %}{{ page.related_title }}{% else %}Related Pages{% endif %}:</div>
+            <hr>
+            <div class="title">{% if page.related_title %}{{ page.related_title }}{% else %}Related Pages{% endif %}</div>
             <ul>
                 {{ related_html }}
             </ul>

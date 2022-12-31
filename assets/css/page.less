@@ -39,18 +39,31 @@
                     color: @note-color;
                 }
             }
+            h1 a {
+                color: @text-color !important;
+
+                .dark & {
+                    color: @text-color-dark !important;
+                }
+            }
         }
 
         footer {
             margin: 60px 0 0 0;
             color: @note-color;
             font-size: 14px;
-            
-            .icon {
-                color: @text-color;
 
-                .dark & {
-                    color: @text-color-dark;
+            .last-update {
+                font-size: 13px;
+                font-weight: 600;
+                letter-spacing: .5px;
+                text-transform: uppercase;
+                .icon {
+                    color: @note-color;
+
+                    .dark & {
+                        color: @note-color-dark;
+                    }
                 }
             }
         }
@@ -338,7 +351,7 @@
 }
 
 .next-reading {
-    margin-top: 45px;
+    margin-top: 30px;
 
     .title {
         font-family: @title-font;

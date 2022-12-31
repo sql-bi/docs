@@ -17,15 +17,16 @@ layout: default
 
             <footer>
                 {% if page.modified or page.date %}
-                    <a href="{{ site.github }}/commits/main{{ site.collections_dir }}/{{ page.path }}" title="View file history on Github" class="unseen" rel="nofollow" target="_blank"><span class="icon icon-github"></span></a>
-                    
-                    Last updated: 
-                    {% if page.modified %}
-                        {{ page.modified | date: "%b %d, %Y" }}
-                    {% else %}
-                        {{ page.date | date: "%b %d, %Y" }}
-                    {% endif %}
-
+                    <div class="last-update">
+                        <a href="{{ site.github }}/commits/main{{ site.collections_dir }}/{{ page.path }}" title="View file history on Github" class="unseen" rel="nofollow" target="_blank"><span class="icon icon-github"></span></a>
+                        
+                        Last update: 
+                        {% if page.modified %}
+                            {{ page.modified | date: "%b %d, %Y" }}
+                        {% else %}
+                            {{ page.date | date: "%b %d, %Y" }}
+                        {% endif %}
+                    </div>
                  {% endif %}
             </footer>
         </article>

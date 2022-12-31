@@ -1,0 +1,7 @@
+{
+    "name": "Jekyll",
+    "scripts": {
+        "run (incremental)": "bundle exec jekyll serve --incremental",
+        "run (full)": "bundle exec jekyll serve"
+    }
+}

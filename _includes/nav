@@ -11,10 +11,14 @@
 
         {% if page_url_sub == include.url and page_level == include.level %}
             <li id="p-{{ _page.url | slugify }}" class="l{{ include.level }} url_{{ _page.url | remove: "index" }}">
-                {% if page_file == "index" and page_level > 0 %}
-                    <a href="#" class="tree-toggle"><span class="icon"></span></a>
-                {% endif %}
-                <a href="{{ page_url }}" class="tree-link{% if _page.menu_class %} {{ _page.menu_class }}{% endif %}">{% if _page.menu_title %}{{ _page.menu_title }}{% else %}{{ _page.title }}{% endif %}</a>
+        
+                <a href="{{ page_url }}" class="tree-link{% if _page.menu_class %} {{ _page.menu_class }}{% endif %}" >
+                    <span class="link-title" title="{% if _page.menu_title %}{{ _page.menu_title }}{% else %}{{ _page.title }}{% endif %}">{% if _page.menu_title %}{{ _page.menu_title }}{% else %}{{ _page.title }}{% endif %}</span>
+                    {% if page_file == "index" and page_level > 0 %}
+                        <span class="tree-toggle icon"></span>
+                    {% endif %}
+                </a>
+
                 {% if page_file == "index" %}
                     <ul>
                         {% assign _level = page_level | plus: 1 %}
