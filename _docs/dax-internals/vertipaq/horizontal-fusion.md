@@ -204,7 +204,7 @@ The only current workaround is to use simple measures and apply the table filter
    	    )
 ```
 
-#### Dynamic filter applied to a column
+### Dynamic filter applied to a column
 If the filter applied to a column depends on a dynamic calculation the horizontal fusion optimization is not applied even if the filter is identical. Just the fact that it's dynamically computed is enough to skip the possible fusion.
 
 ```
