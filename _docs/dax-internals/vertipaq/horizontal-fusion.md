@@ -203,3 +203,60 @@ The only current workaround is to use simple measures and apply the table filter
             DATESYTD ( 'Date'[Date] )
    	    )
 ```
+
+#### Dynamic filter applied to a column
+If the filter applied to a column depends on a dynamic calculation the horizontal fusion optimization is not applied even if the filter is identical. Just the fact that it's dynamically computed is enough to skip the possible fusion.
+
+```
+    MEASURE Sales[Sales Contoso] =
+	    VAR _LastDate = [DateLast]
+        RETURN 
+            CALCULATE (
+                [Sales Amount],
+                KEEPFILTERS ( 'Product'[Brand] = "Contoso" ),
+                'Date'[Date] = _LastDate
+            )
+    MEASURE Sales[Sales Fabrikam] =
+        VAR _LastDate = [DateLast] 
+        RETURN
+            CALCULATE (
+                [Sales Amount],
+                KEEPFILTERS ( 'Product'[Brand] = "Fabrikam" ),
+                'Date'[Date] = _LastDate
+            )
+    MEASURE Sales[Sales Litware] =
+        VAR _LastDate = [DateLast] 
+        RETURN
+            CALCULATE (
+                [Sales Amount],
+                KEEPFILTERS ( 'Product'[Brand] = "Litware" ),
+                'Date'[Date] = _LastDate
+            )
+```
+
+#### Workaround #1
+The only possible workaround is to move the filter to the measure that consumes the simpler measures (without a filter).
+```
+    MEASURE Sales[Sales Contoso] =
+        CALCULATE (
+            [Sales Amount],
+            KEEPFILTERS ( 'Product'[Brand] = "Contoso" )
+        )
+    MEASURE Sales[Sales Fabrikam] =
+        CALCULATE (
+            [Sales Amount],
+            KEEPFILTERS ( 'Product'[Brand] = "Fabrikam" )
+        )
+    MEASURE Sales[Sales Litware] =
+        CALCULATE (
+            [Sales Amount],
+            KEEPFILTERS ( 'Product'[Brand] = "Litware" )
+        )
+    MEASURE Sales[Test] =
+        VAR _LastDate = [DateLast]
+        RETURN
+            CALCULATE (
+                [Sales Contoso] + [Sales Fabrikam] + [Sales Litware],
+                'Date'[Date] = _LastDate
+            )
+```
