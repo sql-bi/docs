@@ -13,7 +13,7 @@ Horizontal Fusion is an optimization performed in a DAX query plan so that multi
 [Optimizing fusion optimization for DAX measures](https://www.sqlbi.com/articles/optimizing-fusion-optimization-for-dax-measures/) describes how to get a query plan that is better than Horizontal Fusion in a specific scenarios.
 
 ## Unsopported cases
-The Horizontal Fusion optimization does not recognize scenarios where it could be applied, but the engine is not able to do that. For each scenario we provide possible workarounds. These cases could be supported in the future: in that case, this page should be updated.
+Horizontal Fusion does not recognize scenarios where it could be applied, but the engine is not able to do that. For each scenario we provide possible workarounds. These cases could be supported in the future: in that case, this page should be updated.
 
 ### Multiple selection of static slices on columns without groupby
 The filter on a column has more than one element selected, and the column filtered is not part of a groupby column (in SUMMARIZECOLUMNS or similar functions).
@@ -52,14 +52,14 @@ At the query level, add 'Product'[Brand] to the calculation, so fusion takes pla
 ```
 EVALUATE
 GROUPBY ( 
-	SUMMARIZECOLUMNS (
-	    'Product'[Color],
-	    'Product'[Brand],
-	    TREATAS ( { 2019 }, 'Date'[Year] ),
-	    "Test", [Test]
-	),
-	'Product'[Color],
-	"Test", SUMX ( CURRENTGROUP(), [Test] )
+    SUMMARIZECOLUMNS (
+        'Product'[Color],
+        'Product'[Brand],
+        TREATAS ( { 2019 }, 'Date'[Year] ),
+        "Test", [Test]
+    ),
+    'Product'[Color],
+    "Test", SUMX ( CURRENTGROUP(), [Test] )
 )
 ```
 
@@ -68,18 +68,18 @@ At the measure level, use [Phil Seamark's 1-Column fusion optimization](https://
 ```
 DEFINE
     MEASURE Sales[Sales Contoso] =
-    	SUMX (
-    		KEEPFILTERS ( ALL ( 'Product'[Brand] ) ),
+        SUMX (
+            KEEPFILTERS ( ALL ( 'Product'[Brand] ) ),
             [Sales Amount] * ('Product'[Brand] IN { "Contoso", "Adventure Works" } )
         )
     MEASURE Sales[Sales Fabrikam] =
-    	SUMX (
-    		KEEPFILTERS ( ALL ( 'Product'[Brand] ) ),
+        SUMX (
+            KEEPFILTERS ( ALL ( 'Product'[Brand] ) ),
             [Sales Amount] * ( 'Product'[Brand] IN { "Fabrikam" } )
         )
     MEASURE Sales[Sales Litware] =
-    	SUMX (
-    		KEEPFILTERS ( ALL ( 'Product'[Brand] ) ),
+        SUMX (
+            KEEPFILTERS ( ALL ( 'Product'[Brand] ) ),
             [Sales Amount] * ( 'Product'[Brand] IN { "Fabrikam", "Adventure Works" } )
         )
     MEASURE Sales[Test] = [Sales Contoso] + [Sales Fabrikam] + [Sales Litware]
@@ -198,8 +198,8 @@ The only current workaround is to use simple measures and apply the table filter
             KEEPFILTERS ( 'Product'[Brand] = "Litware" )
         )
     MEASURE Sales[Test] = 
-    	CALCULATE (
-    		[Sales Contoso] + [Sales Fabrikam] + [Sales Litware],
-    		DATESYTD ( 'Date'[Date] )
-   		)
+        CALCULATE (
+            [Sales Contoso] + [Sales Fabrikam] + [Sales Litware],
+            DATESYTD ( 'Date'[Date] )
+   	    )
 ```
