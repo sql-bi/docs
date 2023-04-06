@@ -13,7 +13,7 @@ Horizontal Fusion is an optimization performed in a DAX query plan so that multi
 [Optimizing fusion optimization for DAX measures](https://www.sqlbi.com/articles/optimizing-fusion-optimization-for-dax-measures/) describes how to get a query plan that is better than Horizontal Fusion in a specific scenarios.
 
 ## Unsopported cases
-The Horizontal Fusion optimization does not recognize scenarios where it could be applied, but the engine is not able to do that. For each scenario we provide possible workarounds. These cases could be supported in the future: in that case, this page should be updated.
+Horizontal Fusion does not recognize scenarios where it could be applied, but the engine is not able to do that. For each scenario we provide possible workarounds. These cases could be supported in the future: in that case, this page should be updated.
 
 ### Multiple selection of static slices on columns without groupby
 The filter on a column has more than one element selected, and the column filtered is not part of a groupby column (in SUMMARIZECOLUMNS or similar functions).
