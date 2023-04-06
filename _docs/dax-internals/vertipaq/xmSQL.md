@@ -1,6 +1,6 @@
 ---
 layout:     page
-title:      LxmSQL code in VertiPaq
+title:      xmSQL code in VertiPaq
 published:  true
 order:      /
 ---
