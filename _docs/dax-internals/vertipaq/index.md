@@ -11,4 +11,3 @@ order:      /
 
 [**xmSQL**](xmSQL.md)
 
-[**Horizontal Fusion**](horizontal-fusion.md)
