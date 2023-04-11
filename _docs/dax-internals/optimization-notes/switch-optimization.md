@@ -126,3 +126,40 @@ The solution is to apply an explicit conversion to CURRENCY (we use CONVERT, but
 ```
 
 This is a separate issue from the [expression with operator](#expressions-with-operators) case we described before, and they could be fixed separately by Microsoft in the future.
+
+### Context transition
+If the simple aggregations contains a context transition, the SWITCH evaluation in a SUMMARIZECOLUMNS performs the full crossjoin in the formula engine, as we have seen in the previos [Expressions with operators](#expressions-with-operators) section.
+
+For example, this code produces a full crossjoin in the formula engine.
+
+
+```
+    MEASURE Sales[selection] = 
+        SELECTEDVALUE ( DisconnectedTable[column] )
+    MEASURE Sales[Test1] =
+        SWITCH (
+            SELECTEDVALUE ( 'Currency'[ToCurrency] ),
+...
+            -- AUD returns CURRENCY
+            "AUD", SUMX ( Sales, Sales[Quantity] * [selection] ),
+...
+        )
+```
+
+If the context transition is not required to evaluate a measure reference (e.g. SELECTEDVALUE from a slicer), then a variable is a possible workaround.
+
+```
+    MEASURE Sales[selection] = 
+        SELECTEDVALUE ( DisconnectedTable[column] )
+    MEASURE Sales[Test1] =
+        VAR _selection = [selection]
+        RETURN 
+            SWITCH (
+                SELECTEDVALUE ( 'Currency'[ToCurrency] ),
+...
+                -- AUD returns CURRENCY
+                "AUD", SUMX ( Sales, Sales[Quantity] * _selection ),
+...
+        )
+```
+
