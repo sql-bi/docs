@@ -9,5 +9,5 @@ order:      /
 
 [**Physical Query Plan**](physical-query-plan.md)
 
-[**xmSQL**](xmSQL.md)
+
 
