@@ -1,7 +1,7 @@
 ---
 layout:     page
 title:      xmSQL code in VertiPaq
-published:  false
+published:  true
 order:      /
 ---
 
