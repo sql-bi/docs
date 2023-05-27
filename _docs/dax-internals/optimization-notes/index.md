@@ -8,3 +8,5 @@ order:      /
 [**Horizontal Fusion**](horizontal-fusion.md)
 
 [**SWITCH optimization**](switch-optimization.md)
+
+[**IsAvailableInMDX Property**](isavailableinmdx-property.md)
