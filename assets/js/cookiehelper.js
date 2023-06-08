@@ -1,5 +1,5 @@
 /*!
- * Cookie Helper 2.1.6
+ * Cookie Helper 2.2.1
  * Copyright (c) SQLBI. All rigths are reserved.
  * https://www.sqlbi.com/	
 */
@@ -11,7 +11,6 @@ class CookieHelper {
 	necessaryCookies;
 	dependencies;
 	privacyUrl;
-	geoReverseUrl;
 	geoCookieName;
 	targetEU;
 
@@ -28,7 +27,7 @@ class CookieHelper {
 		else if (ret == 1)
 			return "all";
 		else
-			return "notset";
+			return "notSet";
 	}
   
 	constructor(options) {
@@ -40,7 +39,6 @@ class CookieHelper {
 		this.allowOnFile = options.disableOnFile ?? true;
 		this.targetEU = options.targetEU ?? true;
 		this.geoCookieName = options.geoCookieName ?? "_country";
-		this.geoReverseUrl = options.geoReverseUrl ?? "";
 		this.necessaryCookies.push(this.geoCookieName);
  
 		if (document.readyState == "complete") {
@@ -50,26 +48,26 @@ class CookieHelper {
 		}
 	}
 
+	setAllCookiesPref() {
+		this.setCookie(this.prefCookieName, 1, 365);
+	}
+	setRequiredCookiesPref() {
+		this.setCookie(this.prefCookieName, -1, 365);
+	}
+	setExtraEUCookiesPref() {
+		this.setCookie(this.prefCookieName, 2, 7);
+	}
+
 	load() {
 		let canSetCookies = this.cookiesAllowed;
-		if (canSetCookies == "notset") {
-			if (this.targetEU) {
-				this.isEuropean()
-					.then(yes => {
-						if (yes)
-							this.showCookieBar();
-						else
-							this.setCookie(this.prefCookieName, 2, 7);
-					});
-			} else {
-				this.showCookieBar();
-			}
+		if (canSetCookies == "notSet") {
+			this.maybeShowCookiebar();
 		} else if (canSetCookies == "all") {
 			this.loadDependencies();
 		}
 
-		// Listen privacy links
 		this.handlePrivacyLinks();
+		this.toggleCookieFallback();
 	}
 
 	handlePrivacyLinks() {
@@ -82,42 +80,83 @@ class CookieHelper {
 			});
 		});
 
+		document.querySelectorAll(".allow-all-cookies").forEach(div => {
+			div.addEventListener("click", e => {
+				if (e.currentTarget.classList.contains("inert")) 
+					e.preventDefault();
+
+				this.setAllCookiesPref();
+				this.loadDependencies();
+				this.hideCookieBar();
+
+				document.querySelectorAll(".cookie-pref").forEach(div => {
+					div.innerHTML = "Allow all cookies (Necessary, Functional, Statistics, Marketing)";
+				});
+			});
+		});
+
+		document.querySelectorAll(".allow-necessary-cookies").forEach(div => {
+			div.addEventListener("click", e => {
+				if (e.currentTarget.classList.contains("inert")) 
+					e.preventDefault();
+
+				this.deleteAllNonNecessaryCookies();
+				this.setRequiredCookiesPref();
+				this.hideCookieBar();
+
+				document.querySelectorAll(".cookie-pref").forEach(div => {
+					div.innerHTML = "Allow necessary cookies only";
+				});
+			});
+		});
 	}
 
-	isEuropean() {
+	maybeShowCookiebar() {
 		const euTime = Intl.DateTimeFormat().resolvedOptions().timeZone.indexOf("Europe") >= 0;
-		if (euTime || !this.geoReverseUrl) {
-			return Promise.resolve(true);
+		if (euTime || !this.targetEU) {
+			this.showCookieBar();
+
 		} else {
-			const euCountries = ['AT', 'BE', 'BG', 'CY', 'CZ', 'DE', 'DK', 'ES', 'EE', 'FI', 'FR', 'GB', 'GR', 'HR', 'HU', 'IE', 'IT', 'LT', 'LU', 'LV', 'MT', 'NL', 'PL', 'PT', 'RO', 'SK', 'SI', 'SE'];
 
 			const country = this.getCookie(this.geoCookieName);
 			if (country) {
-				return Promise.resolve(euCountries.indexOf(country) >= 0);
+				this.showCookieBarIfEuropean(country);
 
 			} else {
-
-				const url = this.geoReverseUrl.replace("/{ip}/", "/").replace("{ip}", "");
-				return fetch(url, {
-					method: "GET", 
-					headers: {
-						"Content-Type": "application/json",
-						"Access-Control-Allow-Origin": "*"
-					}
-				})
-				.then(response => response.json())
-				.then(json => {
-					if (json && json.country) {
-						this.setCookie(this.geoCookieName, json.country, 365);
-						return euCountries.indexOf(json.country) >= 0;
+				// Load geo IP reverse service script
+				/*const script = document.createElement("script");
+				script.onload = ()=> {
+					if (typeof geoip2 !== "undefined") {
+						geoip2.country(json =>{
+							if (json && json.country && json.country.iso_code) {
+								this.setCookie(this.geoCookieName, json.country.iso_code, 365);
+								
+								this.showCookieBarIfEuropean(json.country.iso_code);
+							} else {
+								this.showCookieBar();
+							}
+						}, ()=>{
+							this.showCookieBar();
+						});
 					} else {
-						return true;
+						this.showCookieBar();
 					}
-				})
-				.catch(ignore => true);
+				};
+				script.src = "//geoip-js.com/js/apis/geoip2/v2.1/geoip2.js";
+				document.head.appendChild(script);
+				*/
 			}
 		}
 	}
+
+	showCookieBarIfEuropean(country) {
+		const euCountries = ['AT', 'BE', 'BG', 'CY', 'CZ', 'DE', 'DK', 'ES', 'EE', 'FI', 'FR', 'GB', 'GR', 'HR', 'HU', 'IE', 'IT', 'LT', 'LU', 'LV', 'MT', 'NL', 'PL', 'PT', 'RO', 'SK', 'SI', 'SE'];
+
+		if (euCountries.indexOf(country) >= 0)
+			this.showCookieBar();
+		else
+			this.setExtraEUCookiesPref();
+	};
 
 	showCookieBar() {
 
@@ -134,7 +173,7 @@ class CookieHelper {
 							dismiss = true;
 						}
 						if (dismiss) {
-							this.setCookie(this.prefCookieName, 1, 365);
+							this.setAllCookiesPref();
 							this.loadDependencies();
 							this.hideCookieBar();
 						}
@@ -153,10 +192,11 @@ class CookieHelper {
 				this.cookieBar = null;
 			});
 		}
-		this.toggleCookieFallback(false);
+		this.toggleCookieFallback();
 	}
 
-	toggleCookieFallback(toggle) {
+	toggleCookieFallback() {
+		const toggle = (this.cookiesAllowed !== "all");
 		document.querySelectorAll(".cookie-fallback").forEach(el => {
 			el.style.display = (toggle ? "initial" : "none");
 		});
@@ -183,30 +223,7 @@ class CookieHelper {
 		`);
 		document.body.append(this.cookieBar);
 
-		this.cookieBar.querySelector(".allow-all-cookies").addEventListener("click", e => {
-			if (e.currentTarget.classList.contains("inert")) 
-				e.preventDefault();
-
-			this.setCookie(this.prefCookieName, 1, 365);
-			this.loadDependencies();
-			this.hideCookieBar();
-
-			document.querySelectorAll(".cookie-pref").forEach(div => {
-				div.innerHTML = "Allow all cookies (Necessary, Functional, Statistics, Marketing)";
-			});
-		});
-		this.cookieBar.querySelector(".allow-necessary-cookies").addEventListener("click", e => {
-			if (e.currentTarget.classList.contains("inert")) 
-				e.preventDefault();
-
-			this.deleteAllNonNecessaryCookies();
-			this.setCookie(this.prefCookieName, -1, 365);
-			this.hideCookieBar();
-
-			document.querySelectorAll(".cookie-pref").forEach(div => {
-				div.innerHTML = "Allow necessary cookies only";
-			});
-		});
+		
 		this.utils.slideUp(this.cookieBar);
 	}
 

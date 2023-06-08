@@ -390,7 +390,6 @@ const cookieHelper = new CookieHelper({
     prefCookieName: "_sqlbi_consent",
     necessaryCookies: ["sqlbi-*"],
     privacyUrl: "https://www.sqlbi.com/privacy/#cookies",
-    geoReverseUrl: 'https://ipinfo.io/{ip}/json?token=81e7debefa0ece',
     geoCookieName: '_sqlbi_iso',
     targetEU: true
 });
