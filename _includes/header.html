@@ -1,4 +1,4 @@
-<header class="main {% if page.nosearch == true %}nosearch{% endif %}">
+<header class="main {% if page.nosearch or site.search == false %}nosearch{% endif %}">
     <div class="logo">
         <a href="/"><img src="/assets/images/logo.svg" class="light"><img src="/assets/images/logo-dark.svg" class="dark"></a>
     </div>

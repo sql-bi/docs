@@ -7,6 +7,8 @@ You must follow only 3 steps:
 - Update the content of `_myassets` folder (images, css).
 - Add your documents to the `_mydocs` folder (md, see sections below).
 
+> If you also need to create custom layouts, you can do it by adding new files in the `_layouts` folder: in this case, please add `_my` suffix to the file name (e.g. `page_my.html`).
+
 
 ## Test Locally
 
@@ -74,8 +76,10 @@ Every file must contain a header (Front Matter) in the following format (note th
     description:        Document description in HTML meta/Next Reading/Related
     menu_title:         Document title in menu
     next_title:         Document title in Next Reading section
+    body_class:         Document body CSS class name
     published:          true
     draft:              false
+    nodraft:            false
     date:               2021-11-15
     modified:   	    2022-07-20
     order:              /01/02/document-title
@@ -104,6 +108,7 @@ Parameters:
 - **description:** (optional) a page description used in page meta and the ***Next Reading***/***Related*** sections
 - **menu_title:** (optional) set a title for the navigation menu, if you want to make it different from the main title.
 - **next_title:** (optional) set a title for the ***Next Reading*** section of the pages, if you want to make it different from the main title.
+- **body_class:** (optional) set a custom CSS class for the body of the document.
 - **published:** set ***true*** to display the document on the website 
 - **draft:** (optional) set ***true*** to show a notice that the document is not completed (note that this notice appears automatically if the document is empty or if it contains a &lt;todo&gt;&lt;/todo&gt; tag. Set ***nodraft: true*** to avoid displaying the notice.
 - **date:** set the creation date of the document.

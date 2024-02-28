@@ -25,7 +25,12 @@
 // Dark colors
 @mixin my-dark-colors {
 
-
+    --accent-color: #ec5d5d;
+    --accent-hover-color: #e94141;
+    --accent-back-color: #f7eded;
+    --accent-hover-back-color: #fae8e8;
+    --accent-border-color: #8f3838;
+    --accent-contrast-color: #fff;
 
     // DAX Syntax
     --code-comment-color: #86C573;

@@ -16,7 +16,7 @@
 
     <script src="/assets/scripts/preload.min.js" defer></script>
 </head>
-<body class="page-{{ page.title | slugify }} {% if page.layout == 'home' %}front-site{% endif %}">
+<body class="page-{{ page.title | slugify }} {% if page.layout == 'home' %}front-site{% endif %} {% if page.body_class %}{{ page.body_class }}{% endif %}">
 
     {% include header.html %}
 

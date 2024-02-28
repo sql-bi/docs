@@ -80,7 +80,7 @@ document.querySelectorAll("img").forEach(img => {
 // TOC
 const tocElement = document.querySelector(".toc");
 if (tocElement) {
-    const container = document.querySelector(".main-content");
+    const container = document.querySelector(".main-content, .content-no-nav");
     const items = tocElement.querySelectorAll("li");
     const sections = container.querySelectorAll("h2, h3, h4, h5, h6");
 
