@@ -1,0 +1,146 @@
+
+// UI Images
+$select-arrow-image: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMCIgaGVpZ2h0PSI5IiB2aWV3Qm94PSIwIDAgMzAgOSI+PHBvbHlnb24gcG9pbnRzPSIwLjUgMS40IDEuNyAwLjMgNy4yIDYuMiAxMi43IDAuMyAxMy45IDEuNCA3LjIgOC42IDAuNSAxLjQiLz48L3N2Zz4=";
+
+$select-arrow-image-dark: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMCIgaGVpZ2h0PSI5IiB2aWV3Qm94PSIwIDAgMzAgOSI+PHBvbHlnb24gcG9pbnRzPSIwLjUgMS40IDEuNyAwLjMgNy4yIDYuMiAxMi43IDAuMyAxMy45IDEuNCA3LjIgOC42IDAuNSAxLjQiIHN0eWxlPSJmaWxsOiNmZmYiLz48L3N2Zz4=";
+
+$drop-ctrl-image: "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48c3ZnIGlkPSJhIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA5IDYiPjxwYXRoIGQ9Ik0uMTY2NiwxLjI2NTZjLS4wMDI5LS40NzYyLC4zODA3LS44NjQ2LC44NTY5LS44Njc1LC4yMzI5LS4wMDE0LC40NTY2LC4wOTE0LC42MTk5LC4yNTc1bDIuODU5LDIuODQ1Mkw3LjM2MTYsLjY1NjNjLjMzNjctLjMzNjcsLjg4MjYtLjMzNjcsMS4yMTkzLDAsLjMzMTcsLjMzMTcsLjMzNzMsLjg2NzcsLjAxMjcsMS4yMDY0bC0uMDAxNCwuMDAxNC0uMDExNCwuMDExMy0zLjQ2ODYsMy40Njg4Yy0uMzI3MSwuMzM2Ny0uODY1MywuMzQ0NS0xLjIwMiwuMDE3My0uMDAwMS0uMDAwMS0uMDAwMy0uMDAwMy0uMDAwNC0uMDAwNGgwbC0uMDE2OS0uMDE2OUwuNDI0MSwxLjg3NTVjLS4xNjYyLS4xNTg5LS4yNTk0LS4zNzk1LS4yNTc0LS42MDk1di0uMDAwNFoiIHN0eWxlPSJmaWxsOiMyMTIxMjE7Ii8+PC9zdmc+";
+
+$drop-ctrl-image-dark: "TODO";
+
+$clear-search-image: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgdmlld0JveD0iMCAwIDQwIDQwIj48cGF0aCBkPSJNMzAuODYsMjkuNzhhMSwxLDAsMCwxLS4wOS40MiwxLjE2LDEuMTYsMCwwLDEtLjI0LjM0LDEsMSwwLDAsMS0uMzUuMjMsMSwxLDAsMCwxLS40MS4wOCwxLDEsMCwwLDEtLjc2LS4zMWwtOS05LTksOWExLjA5LDEuMDksMCwwLDEtMS41MiwwLDEuMDYsMS4wNiwwLDAsMSwwLTEuNTRsOS05LTktOWExLDEsMCwwLDEtLjMyLS43NiwxLDEsMCwwLDEsLjMxLS43NywxLDEsMCwwLDEsLjc3LS4zMiwxLDEsMCwwLDEsLjczLjMxbDksOSw5LTlhMSwxLDAsMCwxLC43Ni0uMzIsMSwxLDAsMCwxLC40Mi4wOSwxLjIxLDEuMjEsMCwwLDEsLjM1LjI0LDEuMTMsMS4xMywwLDAsMSwuMjMuMzRBMS4wNSwxLjA1LDAsMCwxLDMwLjUyLDExbC05LDksOSw5YTEuMjQsMS4yNCwwLDAsMSwuMjUuMzVBMSwxLDAsMCwxLDMwLjg2LDI5Ljc4WiIvPjxyZWN0IHg9IjQiIHk9IjQiIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgc3R5bGU9ImZpbGw6bm9uZSIvPjwvc3ZnPg==";
+
+$clear-search-image-dark: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgdmlld0JveD0iMCAwIDQwIDQwIj48cGF0aCBkPSJNMzAuODYsMjkuNzhhMSwxLDAsMCwxLS4wOS40MiwxLjE2LDEuMTYsMCwwLDEtLjI0LjM0LDEsMSwwLDAsMS0uMzUuMjMsMSwxLDAsMCwxLS40MS4wOCwxLDEsMCwwLDEtLjc2LS4zMWwtOS05LTksOWExLjA5LDEuMDksMCwwLDEtMS41MiwwLDEuMDYsMS4wNiwwLDAsMSwwLTEuNTRsOS05LTktOWExLDEsMCwwLDEtLjMyLS43NiwxLDEsMCwwLDEsLjMxLS43NywxLDEsMCwwLDEsLjc3LS4zMiwxLDEsMCwwLDEsLjczLjMxbDksOSw5LTlhMSwxLDAsMCwxLC43Ni0uMzIsMSwxLDAsMCwxLC40Mi4wOSwxLjIxLDEuMjEsMCwwLDEsLjM1LjI0LDEuMTMsMS4xMywwLDAsMSwuMjMuMzRBMS4wNSwxLjA1LDAsMCwxLDMwLjUyLDExbC05LDksOSw5YTEuMjQsMS4yNCwwLDAsMSwuMjUuMzVBMSwxLDAsMCwxLDMwLjg2LDI5Ljc4WiIgc3R5bGU9ImZpbGw6I2ZmZiIvPjxyZWN0IHg9IjQiIHk9IjQiIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgc3R5bGU9ImZpbGw6bm9uZSIvPjwvc3ZnPg==";
+
+// Icons
+$icon-version: "1.0.0";
+@font-face {
+  font-family: "icons";
+  src:  url("/assets/fonts/icons.eot?ver=@{icon-version}");
+  src:  url("/assets/fonts/icons.eot?ver=@{icon-version}#iefix") format("embedded-opentype"),
+        url("/assets/fonts/icons.ttf?ver=@{icon-version}") format("truetype"),
+        url("/assets/fonts/icons.woff?ver=@{icon-version}") format("woff"),
+        url("/assets/fonts/icons.svg?ver=@{icon-version}#icons") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+@mixin icon($content: "") {
+	  &:before {
+		    font-family: "icons" !important;
+        vertical-align: middle;
+        font-style: normal;
+        //font-weight: normal;
+        font-variant: normal;
+        text-transform: none;
+        line-height: 1;
+
+	      -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+    
+    &:before {
+        margin-right:5px;
+        @if $content != "" {
+            content: $content;
+        }
+    }
+
+    &.solo {
+      &:before {
+        margin:0
+      }
+    }
+}
+@mixin noicon {
+  &:before  {
+    content: "";
+    margin:0;
+  }
+}
+
+.icon, [class^="icon-"], [class*=" icon-"] {
+    @include icon;
+}
+
+@mixin icon-search { @include icon("\e900"); }
+.icon-search { @include icon-search; };
+
+@mixin icon-time { @include icon("\e901"); }
+.icon-time { @include icon-time; };
+
+@mixin icon-cart { @include icon("\e902"); }
+.icon-cart { @include icon-cart; };
+
+@mixin icon-aa { @include icon("\e903"); }
+.icon-aa { @include icon-aa; };
+
+@mixin icon-pencil { @include icon("\e904"); }
+.icon-pencil { @include icon-pencil; };
+
+@mixin icon-notice { @include icon("\e905"); }
+.icon-notice { @include icon-notice; };
+
+@mixin icon-flag { @include icon("\e906"); }
+.icon-flag { @include icon-flag; };
+
+@mixin icon-pen { @include icon("\e907"); }
+.icon-pen { @include icon-pen; };
+
+@mixin icon-up { @include icon("\e908"); }
+.icon-up { @include icon-up; };
+
+@mixin icon-down { @include icon("\e90b"); }
+.icon-down { @include icon-down; };
+
+@mixin icon-right { @include icon("\e916"); }
+.icon-right { @include icon-right; };
+
+@mixin icon-minus { @include icon("\e915"); }
+.icon-minus { @include icon-minus; };
+
+@mixin icon-next { @include icon("\e909"); }
+.icon-next { @include icon-next; };
+
+@mixin icon-alert { @include icon("\e90a"); }
+.icon-alert { @include icon-alert; };
+
+@mixin icon-close { @include icon("\e90c"); }
+.icon-close { @include icon-close; };
+
+@mixin icon-previous { @include icon("\e90d"); }
+.icon-previous { @include icon-previous; };
+
+@mixin icon-theme-dark { @include icon("\e90e"); }
+.icon-theme-dark { @include icon-theme-dark; };
+
+@mixin icon-theme-light { @include icon("\e90f"); }
+.icon-theme-light { @include icon-theme-light; };
+
+@mixin icon-theme-system { @include icon("\e910"); }
+.icon-theme-system { @include icon-theme-system; };
+
+@mixin icon-anchor { @include icon("\e911"); }
+.icon-anchor { @include icon-anchor; };
+
+@mixin icon-github { @include icon("\e912"); }
+.icon-github { @include icon-github; };
+
+@mixin icon-info { @include icon("\e913"); }
+.icon-info { @include icon-info; };
+
+@mixin icon-menu { @include icon("\e914"); }
+.icon-menu { @include icon-menu; };
+
+@mixin icon-pin { @include icon("\e91f"); }
+.icon-pin { @include icon-pin; };
+
+@mixin icon-pinned { @include icon("\e920"); }
+.icon-pinned { @include icon-pinned; };
+
+@mixin icon-left-panel { @include icon("\e917"); }
+.icon-left-panel { @include icon-left-panel; };
+
+@mixin icon-right-panel { @include icon("\e918"); }
+.icon-right-panel { @include icon-right-panel; };

@@ -1,0 +1,262 @@
+// Mixins
+
+// Scrollbar
+@mixin scrollbar {
+
+    scrollbar-width: thin;
+    scrollbar-color: var(--scrollbar-thumb-color) var(--scrollbar-track-color);
+
+    ::-webkit-scrollbar {
+        width: 12px;
+        height: 12px;
+    }
+
+    ::-webkit-scrollbar,
+    ::-webkit-scrollbar-track,
+    ::-webkit-scrollbar-corner {
+        background: var(--scrollbar-track-color);
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: var(--scrollbar-thumb-color);
+        border: 3px solid var(--scrollbar-track-color);
+        background-clip: padding-box;
+        border-radius: 12px;
+    }
+
+    ::-webkit-scrollbar-track-piece {
+        display: none;
+    }
+}
+
+// Placeholders
+@mixin placeholder {
+    &::placeholder {
+        color: var(--placeholder-color) !important;
+    }
+
+    &:-moz-placeholder {
+        color: var(--placeholder-color) !important;
+    }
+
+    &:-ms-input-placeholder {
+        color: var(--placeholder-color) !important;
+    }
+
+    &::-webkit-input-placeholder {
+        color: var(--placeholder-color) !important;
+    }
+
+    &:-moz-placeholder {
+        color: var(--placeholder-color) !important;
+    }
+
+    &::-moz-placeholder {
+        color: var(--placeholder-color) !important;
+    }
+
+    &:placeholder-shown {
+        text-overflow: ellipsis;
+    }
+}
+
+// Border radius
+@mixin border-radius($radius: $border-radius) {
+    //-webkit-border-radius: @radius;
+    //-moz-border-radius: @radius;
+    border-radius: $radius;
+}
+@mixin rounded {
+    @include border-radius($border-radius);
+}
+.rounded {
+    @include rounded;
+}
+@mixin round {
+    @include border-radius(100% !important);
+}
+.round {
+    @include round;
+}
+
+// Selection
+@mixin selection($color, $back-color) {
+    ::-moz-selection {
+        background: $back-color;
+        color: $color;
+        text-shadow: none;
+    }
+
+    ::selection {
+        background: $back-color;
+        color: $color;
+        text-shadow: none;
+    }
+}
+
+@mixin unselectable {
+    user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+}
+.unselectable {
+    @include unselectable;
+}
+
+@mixin selectable {
+    user-select: text !important;
+    -moz-user-select: text !important;
+    -khtml-user-select: text !important;
+    -webkit-user-select: text !important;
+    -o-user-select: text !important;
+}
+.selectable {
+    @include selectable;
+}
+
+@mixin noshadow {
+    box-shadow: none;
+    text-shadow: none;
+}
+
+@mixin noappearence {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+@mixin ellipsis {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.ellipsis {
+    @include ellipsis;
+}
+
+@mixin wrapper {
+    max-width: $max-width;
+    margin: 0 auto;
+}
+.wrapper {
+    @include wrapper;
+}
+
+// Drag & drop
+@mixin undraggable {
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+    -ms-user-drag: none;
+}
+.undraggable {
+    @include undraggable;
+}
+
+@mixin draggable {
+    -webkit-user-drag: auto !important;
+    -khtml-user-drag: auto !important;
+    -moz-user-drag: auto !important;
+    -o-user-drag: auto !important;
+    -ms-user-drag: auto !important;
+}
+.draggable {
+    @include draggable;
+}
+
+// Borders
+@mixin border($position: all, $width: 1px, $style: solid) {
+    @if $position == all {
+        border: $width $style var(--border-color);
+    } @else {
+        border-#{$position}: $width $style var(--border-color);
+    }
+}
+@mixin border-top($width: 1px, $style: solid) {
+    @include border(top, $width, $style);
+}
+@mixin border-right($width: 1px, $style: solid) {
+    @include border(right, $width, $style);
+}
+@mixin border-bottom($width: 1px, $style: solid) {
+    @include border(bottom, $width, $style);
+}
+@mixin border-left($width: 1px, $style: solid) {
+    @include border(left, $width, $style);
+}
+
+// Flexbox
+@mixin flex($align: normal, $justify: normal, $direction: row, $wrap: nowrap, $content: normal, $inline: false) {
+    @if $inline {
+        display: inline-flex;
+    } @else {
+        display: flex;
+    }
+    align-items: $align;
+    justify-content: $justify;
+    align-content: $content;
+    flex-direction: $direction;
+    flex-wrap: $wrap;
+}
+@mixin h-flex {
+    @include flex(normal, normal, row);
+}
+@mixin v-flex {
+    @include flex(normal, normal, column);
+}
+@mixin flex-middle-center {
+    @include flex(center, center);
+}
+@mixin flex-center-middle { @include flex-middle-center; }
+@mixin h-flex-middle-center {
+    @include flex(center, center);
+}
+@mixin h-flex-center-middle { @include h-flex-middle-center; }
+
+@mixin v-flex-middle-center {
+    @include flex(center, center, column);
+}
+@mixin v-flex-center-middle { @include v-flex-middle-center; }
+
+@mixin flex-middle($direction: row) {
+    @if ($direction == row) {
+        @include flex(center);
+    } @else {
+        @include flex(normal, center, column);
+    }
+}
+@mixin h-flex-middle() {
+    @include flex-middle();
+}
+@mixin v-flex-middle() {
+    @include flex-middle(column);
+}
+@mixin flex-center($direction: row) {
+    @if ($direction == row) {
+        @include flex(normal, center);
+    } @else {
+        @include flex(center, normal, column);
+    }
+}
+@mixin h-flex-center() {
+    @include flex-center();
+}
+@mixin v-flex-center() {
+    @include flex-center(column);
+}
+@mixin flex-item-noresize {
+    flex: 0 0 auto;
+}
+@mixin flex-item-grow-only {
+    flex: 1 0 auto;
+}
+@mixin flex-item-shrink-only {
+    flex: 0 1 auto;
+}
+@mixin vmiddle {
+    @include v-flex-middle-center;
+    height: 100%;
+    text-align: center;
+}

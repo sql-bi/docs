@@ -1,0 +1,20 @@
+// Put your custom styles here
+
+.page {
+    article {
+
+        a[href^="https://dax.guide"] {
+            color: var(--alt-link-color);
+            border-bottom: 1px dashed var(--alt-link-color);
+            font-family: var(--code-font);
+            text-decoration: none;
+            line-height: 1;
+
+            &:hover {
+                color: var(--alt-link-hover-color);
+                border-bottom: none;
+                text-decoration: none;
+            }
+        }
+    }
+}

@@ -1,0 +1,21 @@
+{% assign sorted_pages = site.mydocs | sort | reverse %}
+{% assign filtered_list = '' | split: '' %}
+{% for _page in sorted_pages %}
+    {% assign page_url = _page.url | remove: "/index" %}
+    {% assign path_size = include.path | size %}
+    {% assign page_url_root = page_url | slice: 0, path_size %}
+    {% assign page_file = _page.url | split: "/" | last %}
+    {% if page_url_root == include.path and page_url != include.path and page_file != "feed" %}
+        {% assign filtered_list = filtered_list | push: _page %}
+    {% endif %}
+{% endfor %}
+{% capture json_list %}
+{% for _page in filtered_list %}{
+    "title": {{ _page.title | jsonify }},
+    "date": {{ _page.date | date: "%Y-%m-%d" | jsonify }},
+    "url": {{ _page.url | jsonify }},
+    "content": {{ _page.content | markdownify | strip_newlines | strip | jsonify }}
+}{% if forloop.last == false %},{% endif %}
+{% endfor %}
+{% endcapture %}
+{ "items": [{{ json_list }}] }

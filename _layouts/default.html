@@ -7,22 +7,16 @@
     {% if page.noindex or page.redirect %}<meta name="robots" content="noindex">{% endif %}
     {% if page.redirect %}<meta http-equiv="refresh" content="0; URL={{page.redirect}}" />{% endif %}
     <title>{% if page.error %}{{ page.error}}{% else %}{{ page.title }}{% endif %}{% unless page.title == site.title %} - {{ site.title }}{% endunless %}</title>
+    {% if page.description %}<meta name="description" content="{{ page.description }}">{% endif %}
+    <link rel="shortcut icon" href="/assets/images/icon.png" sizes="228x228" media="(prefers-color-scheme: light)">
+    <link rel="shortcut icon" href="/assets/images/icon-dark.png" sizes="228x228" media="(prefers-color-scheme: dark)">
+    <link rel="apple-touch-icon" href="/assets/images/icon.png">
 
-    <link rel="icon" href="/assets/favicons/icon-16.png" sizes="16x16">
-    <link rel="icon" href="/assets/favicons/icon-32.png" sizes="32x32">
-    <link rel="icon" href="/assets/favicons/icon-96.png" sizes="96x96">
-    <link rel="icon" href="/assets/favicons/icon-128.png" sizes="128x128">
-    <link rel="icon" href="/assets/favicons/icon-228.png" sizes="228x228">
-    <link rel="shortcut icon" href="/assets/favicons/icon-228.png" sizes="228x228">
-    <link rel="apple-touch-icon" href="/assets/favicons/icon-120.png" sizes="120x120">
-    <link rel="apple-touch-icon" href="/assets/favicons/icon-152.png" sizes="152x152">
-    <link rel="apple-touch-icon" href="/assets/favicons/icon-167.png" sizes="167x167">
-    <link rel="apple-touch-icon" href="/assets/favicons/icon-180.png" sizes="180x180">
-    <link rel="apple-touch-icon" href="/assets/favicons/icon-228.png">
+    <link rel="stylesheet" href="/assets/css/style.css">
 
-    <link rel="stylesheet" href="/assets/css/main.min.css?v={{ "now" | date: "%s" }}">
+    <script src="/assets/scripts/preload.min.js" defer></script>
 </head>
-<body class="page-{{ page.title | slugify }}">
+<body class="page-{{ page.title | slugify }} {% if page.layout == 'home' %}front-site{% endif %}">
 
     {% include header.html %}
 
@@ -30,11 +24,11 @@
     
     {% include footer.html %}
 
-    <script src="/assets/js/index.js"></script>
-    <script src="/assets/js/fuse.min.js"></script>
-    <script src="/assets/js/split.min.js"></script>
-    <script src="/assets/js/cookiehelper.min.js"></script>
-    <script src="/assets/js/main.min.js"></script>
+    <script src="/assets/scripts/fuse-index.js"></script>
+    <script src="/assets/scripts/fuse.min.js"></script>
+    <script src="/assets/scripts/search.min.js"></script>
     
+    <script src="/assets/scripts/split.min.js"></script>
+    <script src="/assets/scripts/main.min.js"></script>
 </body>
 </html>

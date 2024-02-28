@@ -1,0 +1,42 @@
+<article>
+
+    <section class="markdown-body">
+        <header>
+            {% unless page.breadcrumbs == false %}
+                {% include breadcrumbs.html %}
+            {% endunless %}
+
+            <a href="{{ page.url | remove: "index" | remove: ".html" }}"><h1>{{ page.title }}</h1></a>
+            <hr>
+        </header>
+
+        {% include draft.html %}
+
+        {{ content }}
+
+        {% if page.related %}
+            {% include related %}
+        {% elsif page.next_reading %}
+            {% include next title=page.next_reading_title ol=page.next_reading_ol %}
+        {% endif %}
+
+        <footer>
+            {% if page.modified or page.date %}
+                <div class="last-update">
+                    {% if site.github_url %}
+                        <a href="{{ site.github_url }}/blob/main{{ site.collections_dir }}/{{ page.path }}" title="View file history on Github" rel="nofollow" target="_blank"><span class="icon icon-github"></span></a>
+                    {% endif %}
+
+                    Last update: 
+                    {% if page.modified %}
+                        {{ page.modified | date: "%b %d, %Y" }}
+                    {% else %}
+                        {{ page.date | date: "%b %d, %Y" }}
+                    {% endif %}
+                </div>
+            {% endif %}
+        </footer>
+    </section>
+    
+    {% include page-toc.html %}
+</article>

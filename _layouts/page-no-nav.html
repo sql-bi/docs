@@ -3,32 +3,6 @@ layout: default
 ---
 <div class="page">
     <div class="content-no-nav">
-        <article>
-            <header>
-                <a href="{{ page.url | remove: "index" | remove: ".html" }}" class="solo"><h1>{{ page.title }}</h1></a>
-                <hr>
-            </header>
-
-            {% include draft.html %}
-
-            {% include page-toc.html %}
-
-            {{ content }}
-
-            <footer>
-                {% if page.modified or page.date %}
-                    <div class="last-update">
-                        <a href="{{ site.github }}/commits/main{{ site.collections_dir }}/{{ page.path }}" title="View file history on Github" class="unseen" rel="nofollow" target="_blank"><span class="icon icon-github"></span></a>
-                        
-                        Last update: 
-                        {% if page.modified %}
-                            {{ page.modified | date: "%b %d, %Y" }}
-                        {% else %}
-                            {{ page.date | date: "%b %d, %Y" }}
-                        {% endif %}
-                    </div>
-                 {% endif %}
-            </footer>
-        </article>
+        {% include article.html %}
     </div>
 </div>

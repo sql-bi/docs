@@ -1,23 +1,28 @@
-<header class="main">
+<header class="main {% if page.nosearch == true %}nosearch{% endif %}">
     <div class="logo">
-        <a href="/" class="noicon"><img src="/assets/images/logo.svg" class="light"><img src="/assets/images/logo-dark.svg" class="dark"></a> 
-        <div class="title">Docs</div>
+        <a href="/"><img src="/assets/images/logo.svg" class="light"><img src="/assets/images/logo-dark.svg" class="dark"></a>
     </div>
 
+    <div class="title">{{ site.nav_root_title }}</div>
+
+    {% if site.search %}
     <div class="search">
-        <div class="search-results hidden"></div>
+        <div class="search-results" hidden></div>
         <div class="icon-search"></div>
-        <input type="text" placeholder="Search">
-
-        
+        <input type="search" placeholder="Search">
     </div>
+    {% endif %}
 
     <div class="controls">
 
-        <a href="#" class="solo change-theme" title="Change Theme"><span class="ctrl icon-theme-auto"></span></a>
+        <div class="change-theme ctrl solo icon-theme-system" title="Change Theme"></div>
 
-        <hr>
+        {% if site.github_url %}
+        <a href="{{ site.github_url }}/blob/main{{ site.collections_dir }}/{{ page.path }}" class="gotogithub ctrl solo icon-github" title="Go to GitHub"></a>
+        {% endif %}
 
-        <a href="{{ site.github }}/blob/main{{ site.collections_dir }}/{{ page.path }}" class="solo gotogithub" title="Go to Github"><span class="ctrl icon-github"></span></a>
+        {% if site.header_link_url %}
+        <a href="{{ site.header_link_url }}" class="gotoapp ctrl border solo" target="_blank">{{ site.header_link_title }}</a>
+        {% endif %}
     </div>
 </header>

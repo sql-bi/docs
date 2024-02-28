@@ -1,67 +1,71 @@
-# Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely edit after that. If you find
-# yourself editing this file very often, consider using Jekyll's data files
-# feature for the data you need to update frequently.
-#
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
-#
-# If you need help with YAML syntax, here are some quick references for you: 
-# https://learn-the-web.algonquindesign.ca/topics/markdown-yaml-cheat-sheet/#yaml
-# https://learnxinyminutes.com/docs/yaml/
-#
 # Site settings
-# These are used to personalize your new site. If you look in the HTML files,
-# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
-# You can create any custom variable you would like, and they will be accessible
-# in the templates via {{ site.myvariable }}.
-
-title: SQLBI Documentation
+title: SQLBI Docs
 email: info@sqlbi.com
-domain: docs.sqlbi.com
-url: https://docs.sqlbi.com
 company: SQLBI Corp.
-website: https://www.sqlbi.com
-github: https://github.com/sql-bi/docs
+
+# Main website URL
+web_url: https://www.sqlbi.com
+
+# Privacy URL - It's added to the website footer
+privacy_url: https://www.sqlbi.com/privacy/
+
+# GitHub URL - Leave blank if you don't want to display links to GitHub repo
+github_url: 
+
+# Header quick link - This is usually a quick link to the service/product
+header_link_title: 
+header_link_url: 
+
+# TOC heading range
+toc_h_min: 2
+toc_h_max: 3
+toc_title: In this page
+
+# Other parameters
+next_reading_title: Next Reading
+related_title: Related Pages
+search: true
+nav_root_title: Docs
+
+
+
+### DO NOT CHANGE BELOW THIS LINE ###
+
 plugins:
   - jekyll-sitemap
   - jekyll-relative-links
   - jekyll-include-cache
-permalink: /:categories/:title #:output_ext
-excerpt_separator: <!--more-->
-collections:
-    docs:
-        output: true
-        permalink: /:path
 
-exclude:
-  - "*.less"
+permalink: /:categories/:title #:output_ext
+
+excerpt_separator: <!--more-->
+
+sass:
+  style: compressed
+  sass_dir: assets/_sass
+
+collections:
+    pages:
+      output: true
+      permalink: /:path
+    myassets:
+      output: true
+      permalink: /assets/:path
+    mydocs:
+      output: true
+      permalink: /:path
+
 relative_links:
   enabled:     true
   collections: true
 
-# Build settings
-#theme: sqlbi
-#plugins:
-
-# Exclude from processing.
-# The following items will not be processed, by default.
-# Any item listed under the `exclude:` key here will be automatically added to
-# the internal "default list".
-#
-# Excluded items can be processed by explicitly listing the directories or
-# their entries' file path in the `include:` list.
-#
-# exclude:
-#   - .sass-cache/
-#   - .jekyll-cache/
-#   - gemfiles/
-#   - Gemfile
-#   - Gemfile.lock
-#   - node_modules/
-#   - vendor/bundle/
-#   - vendor/cache/
-#   - vendor/gems/
-#   - vendor/ruby/
+exclude:
+  - "gemfiles/"
+  - "Gemfile"
+  - "Gemfile.lock"
+  - "*.code-workspace"
+  - "README.md"
+  - ".sass-cache/"
+  - ".jekyll-cache/"
+  - "package.json"
+  - "package-lock.json"

@@ -1,5 +1,16 @@
 <footer class="main">
-   <div class="copy">
-       Copyright &copy; {{ site.company }} All rights reserved <span class="sep"></span> <a href="{{ site.website }}" class="solo">{{ site.website | replace: 'https://', '' | replace: 'www.', '' }}</a> <span class="sep"></span> <a href="mailto:{{ site.email }}">Contact us</a> 
-   </div>
+    <div class="wrapper">
+        <div class="copy">
+            Copyright &copy; {{ site.company }} All rights reserved. &nbsp;
+            {% if site.web_url %}
+            <a href="{{ site.web_url }}">{{ site.web_url | replace: 'https://', '' }}</a> &nbsp;|&nbsp; 
+            {% endif %}
+            {% if site.privacy_url %}
+            <a href="{{ site.privacy_url }}">Privacy Policy</a> &nbsp;|&nbsp; 
+            {% endif %}
+            {% if site.email %}
+            <a href="mailto:{{ site.email }}">Contact us</a>  
+            {% endif %}
+        </div>
+    </div>
 </footer>

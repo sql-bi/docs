@@ -3,60 +3,14 @@ layout: default
 ---
 {% assign page_file = page.url | split: "/" | last %}
 
-<div class="page{% if page_file == "index" and page.next_reading %} front-section{% endif %} {{ page.class }}">
+<div class="page{% if page_file == "index" and page.next_reading %} front-section{% endif %} {{ page.class }} loading">
     {% include page-nav.html %}
 
     <div class="content main-content">
         <div class="burger">
-            <a href="#" title="Toggle Navigation"><span class="ctrl icon-menu"></span></a>
+            <div class="ctrl solo" title="Toggle Navigation"></div>
         </div>
-        <article>
-            <header>
-                {% include breadcrumbs.html %}
-            
-                <h1>
-                    <a href="{{ page.url | remove: "index" | remove: ".html" }}" class="solo">{{ page.title }}</a>
-                    {% if page.available %}
-                        {% include badge in=page.available %}
-                    {% endif %}
-                    {% if page.version %}
-                        {% include badge v=page.version %}
-                    {% endif %}
-                </h1>
-               
-                <hr>
-            </header>
-
-            {% include draft.html %}
-
-            {% include page-toc.html %}
-
-            {{ content }}
-
-            {% if page.related %}
-                {% include related %}
-            {% elsif page.next_reading %}
-                {% include next title=page.next_reading_title %}
-            {% endif %}
-
-            <footer>
-                {% if page.available %}
-                    <p>The content of this page is relevant or only available to: <strong>{{ page.available | replace: " | ", ", " }}</strong></p>
-                {% endif %}
-
-                {% if page.modified or page.date %}
-                    <div class="last-update">
-                        <a href="{{ site.github }}/commits/main{{ site.collections_dir }}/{{ page.path }}" title="View file history on Github" class="unseen" rel="nofollow" target="_blank"><span class="icon icon-github"></span></a>
-                        
-                        Last update: 
-                        {% if page.modified %}
-                            {{ page.modified | date: "%b %d, %Y" }}
-                        {% else %}
-                            {{ page.date | date: "%b %d, %Y" }}
-                        {% endif %}
-                    </div>
-                 {% endif %}
-            </footer>
-        </article>
+        
+        {% include article.html %}
     </div>
 </div>

@@ -1,4 +1,4 @@
-{% assign sorted_pages = site.docs | sort: "order" %}
+{% assign sorted_pages = site.mydocs | sort: "order" %}
 {% assign this_page_url = page.url | remove: "/index" %}
 {% capture list %}
 {% for _page in sorted_pages %}
@@ -12,7 +12,7 @@
 
     {% if page_url_root == this_page_url and page_url != this_page_url and branch_level == 1%}
         <li>
-            <a href="{{ page_url }}">{% if _page.next_title %}{{ _page.next_title }}{% else %}{{ _page.title }}{% endif %}</a>
+            <a href="{{ page_url }}">{% if _page.next_title %}{{ _page.next_title }}{% else %}{{ _page.title }}{% endif %}</a>{% if _page.description %}: {{ _page.description }}{% endif %}
         </li>
     {% endif %}
 {% endfor %}
@@ -21,10 +21,12 @@
 {% assign render_list = list | strip %}
 {% if render_list != "" %}
 <div class="next-reading">
-    <hr>
-    <div class="title">{% if include.title %}{{ include.title}}{% else %}Next Reading{% endif %}</div>
-    <ul>
+    {% if include.title != false %}
+        <hr>
+        <div class="title">{% if include.title %}{{ include.title}}{% elsif site.next_reading_title %}{{ site.next_reading_title }}{% else %}Next Reading{% endif %}</div>
+    {% endif %}
+    {% if include.ol == true %}<ol>{% else %}<ul>{% endif %}
         {{ render_list }}
-    </ul>
+    {% if include.ol == true %}</ol>{% else %}</ul>{% endif %}
 </div>
 {% endif %}

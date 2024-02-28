@@ -1,0 +1,24 @@
+// Footer
+footer.main {
+    margin-top: auto;
+    background-color: var(--window-back-color);
+    border-top: 1px solid var(--border-color);
+    box-shadow: 0 1px 3px 1px rgba(0,0,0,.04);
+    padding: 0 20px;
+
+    .wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 8px 0;
+
+    }
+    .copy {
+        text-align: center;
+        font-size: 12px;
+
+        a {
+            letter-spacing: .5px;
+        }
+    }
+}

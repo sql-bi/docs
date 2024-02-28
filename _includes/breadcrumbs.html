@@ -4,7 +4,7 @@
   {% capture html %}
   <!--googleoff: snippet-->
   <div class="breadcrumbs">
-    <a href="/" class="unseen">Docs</a> 
+    <a href="/" class="alt">{{ site.nav_root_title }}</a> 
     <span class="sep">&nbsp;\&nbsp;</span> 
 
       {% for crumb in crumbs offset: 1 %}
@@ -15,7 +15,7 @@
           {% capture crumb_url %}{% for crumb in crumbs limit: crumb_limit %}{{ crumb | append: '/' }}{% endfor %}{% endcapture %}
           
           {% assign crumb_title = crumb | replace:'-',' ' | remove:'.html' %}
-          {% for _page in site.docs %}
+          {% for _page in site.mydocs %}
             {% assign page_url = _page.url | remove: "/index" | append: '/' %}
             {% if page_url == crumb_url %}
 
@@ -25,7 +25,7 @@
             {% endif %}
           {% endfor %}
 
-          <a href="{{ crumb_url }}" class="unseen">{{ crumb_title }}</a> 
+          <a href="{{ crumb_url }}" class="alt">{{ crumb_title }}</a> 
           <span class="sep">&nbsp;\&nbsp;</span>
         {% endunless %}
       {% endfor %}

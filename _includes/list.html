@@ -1,0 +1,34 @@
+{% assign sorted_pages = site.mydocs | sort_natural | reverse %}
+
+{% capture _list %}
+{% for _page in sorted_pages %}
+    {% assign page_url = _page.url | remove: "/index" %}
+    {% assign path_size = include.path | size %}
+    {% assign page_url_root = page_url | slice: 0, path_size %}
+    {% assign page_file = _page.url | split: "/" | last %}
+    {% if include.exclude contains page_file %}{% continue %}{% endif %}
+
+    {% if page_url_root == include.path and page_url != include.path %}
+        <li>
+            {% if include.links == false %}
+                <h3 class="noanchor">{{ _page.title }}</h3>
+            {% else %}
+                <a href="{{ page_url }}"><h3 class="noanchor">{{ _page.title }}</h3></a>
+            {% endif %}
+            {% if _page.date %}
+                <span class="date">{{ _page.date | date: "%b %d, %Y" }}</span>
+            {% endif %}
+            {% unless include.content == false %}
+                {{ _page.content | markdownify }}
+            {% endunless %}
+        </li>
+    {% endif %}
+{% endfor %}
+{% endcapture %}
+
+{% assign list = _list | strip %}
+{% if list != "" %}
+<ul class="page-list {{ include.class }}">
+    {{ list }}
+</ul>
+{% endif %}

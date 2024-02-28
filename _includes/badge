@@ -1,5 +1,7 @@
 {% if include.in %}
     <!--googleoff: snippet--><span class="badge availability">{{ include.in }}</span><!--googleon: snippet-->
 {% elsif include.v %}
-    <!--googleoff: snippet--><span class="badge version lc" title="Available from version {{ include.v }}">v{{ include.v }}</span><!--googleon: snippet-->
+    <!--googleoff: snippet--><span class="badge version" title="Available from version {{ include.v }}">v{{ include.v }}</span><!--googleon: snippet-->
+{% elsif include.premium %}
+    <!--googleoff: snippet--><span class="badge premium" title="Available to Premium users only">Premium ✦</span><!--googleon: snippet-->
 {% endif %}

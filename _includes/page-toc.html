@@ -1,15 +1,14 @@
 {% unless page.toc == false %}
     <!--googleoff: snippet-->
     {% assign page_content = page.content | markdownify %}
-    {% capture jekyll_toc %}{% include toc.html html=page_content h_max=page.toc_max h_min=page.toc_min item_class=page.toc_class %}{% endcapture %}
+    {% assign page_toc_class = page.toc_class | default: site.toc_class %}
+    {% assign h_min = page.toc_h_min | default: site.toc_h_min | floor %}
+    {% assign h_max = page.toc_h_max | default: site.toc_h_max | floor %}
+    {% capture jekyll_toc %}{% include toc.html html=page_content h_max=h_max h_min=h_min item_class=page.toc_class %}{% endcapture %}
     {% unless jekyll_toc == empty %}
         <div class="toc">
             <div class="toc-content">
-                <div class="controls">
-                    <div class="expander icon"></div>
-                    <div class="pin icon"></div>
-                </div>
-                <div class="toc-title"">In this page</div>
+                <div class="toc-title note">{{ site.toc_title }}</div>
                 {{ jekyll_toc }}
             </div>
         </div>

@@ -1,10 +1,12 @@
 ---
-layout: default
+layout:     default
 ---
-<div class="err{{ page.error }}">
-    {% if page.hide_title != true %}
-        <h1>{{page.error}}</h1>
-    {% endif %}
-
+<div class="error error{{ page.error }}" hidden>
     {{ content }}
 </div>
+<script>
+    if (window.location.pathname.endsWith("/"))
+        window.location.pathname = window.location.pathname.slice(0, -1);
+    else
+        document.querySelector('.error').hidden = false;
+</script>

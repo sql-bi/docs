@@ -1,0 +1,312 @@
+// Light colors
+@mixin light-colors {
+
+    // Accent
+    --accent-color: #0366d6;
+    --accent-hover-color: #0158ba;
+    --accent-back-color: #c8ddf5;
+    --accent-hover-back-color: #95bdeb;
+    --accent-border-color: #649ddf;
+    --accent-contrast-color: #fff;
+
+    // Base
+    --back-color: #fff;
+    --color: #121212;
+    --alt-color: #666;
+    --alt-color2: #006ef5;
+    --sep-color: #666;
+    --border-color: #e1e4e8;
+    --border-hover-color: #d1d5da;
+    --selection-back-color: #3c8eeb;
+    --selection-color: #fff;
+    --notice-color: #969696;
+    --notice-hover-color: #737373;
+    --placeholder-color: #999;
+    --hr-color: #e1e4e8;
+    --blockquote-color: #4b4b4b;
+    --blockquote-back-color: #f6f8fa;
+
+    // Badges
+    --badge-back-color: #f2f1f3;
+    --badge-border-color: #e1e4e8;
+    --badge-color: #333;
+    --badge-availability-back-color: #e6d7fd;
+    --badge-availability-border-color: #c7badc;
+    --badge-availability-color: #333;
+    --badge-version-back-color: #f1f8ff;
+    --badge-version-border-color: #c8e1ff;
+    --badge-version-color: #333;
+    --badge-premium-back-color: #353535;
+    --badge-premium-border-color: #292929;
+    --badge-premium-color: #fff;
+
+    // Headings
+    --title-color: var(--alt-color);
+
+    // Links
+    --link-color: var(--accent-color);
+    --link-hover-color: var(--accent-hover-color);
+    --alt-link-color: #666;
+    --alt-link-hover-color: var(--accent-hover-color);
+
+    // Scrollbar
+    --scrollbar-thumb-color: #aaa;
+    --scrollbar-track-color: transparent;
+
+    // Controls
+    --disabled-color: #b9b9b9;
+    --disabled-back-color: #ebebeb;
+    --control-color: #333;
+    --control-hover-color: #272727;
+    --control-back-color: #f3f2f1;
+    --control-hover-back-color: #dfdfdf;
+    --control-alt-back-color: #FEFEFE;
+    --control-alt-hover-back-color: #eaeaea;
+    --control-alt-border-color: #ECECEC;
+    --control-del-back-color: #eb1414;
+    --control-del-hover-back-color: #970f0f;
+    --control-del-color: #fff;
+    --window-back-color:#FAFBFC;
+    --window-hover-back-color: #ebebeb;
+    --window-alt-back-color: #f8f8f8;
+    --window-hover-alt-back-color: #fcfcfc;
+    --gutter-back-color: transparent;
+    
+    // Form elements
+    --input-back-color: #fff;
+    --input-border-color: #d5d5d5;
+    --input-color: #111;
+    --switch-back-color: #F5F5F5;
+    --switch-border-color: #5D5D5D;
+    --range-color: #e5e5e5;
+    --range-border-color: #b9b9b9;
+    --range-thumb-color: #fff;
+
+    // Tables
+    --table-header-back-color: #fafafa;
+    --table-header-color: #121212;
+    --table-cell-back-color: #fff;
+    --table-cell-hover-back-color: #f3f3f3;
+    --table-cell-alt-back-color: #f6f8fa;
+    --table-cell-hover-alt-back-color: #e4e4e4;
+    --table-cell-color: #121212;
+    --table-sorter-color: #ccc;
+    --table-cell-active-back-color: #ededed;
+    --table-cell-active-hover-back-color: #cbcbcb;
+    --table-cell-active-alt-back-color: #dfdfdf;
+    --table-cell-active-alt-hover-back-color: #cecece;
+
+    // Tabs
+    --tabs-divider-color: #999;
+
+    // Video
+    --video-back-color: var(--back-color);
+
+    // Images
+    --img-back-color: var(--back-color);
+
+    // Code Editor
+    --code-back-color: #f6f8fa;
+    --code-color: #333;
+    --code-line-number-color: #999;
+    --code-selection-color: #A2D7FF;
+    --code-inactive-selection-color: #E4EBF2;
+    --code-fold-marker-color: #999;
+    --code-matching-brackets-back-color: #E7EFE6;  
+    --code-matching-brackets-border-color: #999; 
+
+    // Nav
+    --nav-back-color: #f6f8fa;
+    --nav-sel-color: var(--link-color);
+    --nav-sel-hover-color: var(--link-hover-color);
+    --nav-sel-back-color: var(--accent-back-color);
+    --nav-sel-hover-back-color: var(--accent-hover-back-color);
+}
+
+// Dark colors
+@mixin dark-colors {
+
+    // Accent
+    --accent-color: #519bef;
+    --accent-hover-color: #2380ea;
+    --accent-back-color: #c8ddf5;
+    --accent-hover-back-color: #95bdeb;
+    --accent-border-color: #649ddf;
+    --accent-contrast-color: #fff;
+
+    // Base
+    --back-color: #202124;
+    --color: #fff;
+    --alt-color: #eee;
+    --alt-color2: #006ef5;
+    --sep-color: #eee;
+    --border-color: #3f3f3f;
+    --border-hover-color: #121212;
+    --selection-back-color: #3c8eeb;
+    --selection-color: initial;
+    --notice-color: #a3a3a3;
+    --notice-hover-color: #808080;
+    --placeholder-color: #999;
+    --hr-color: #737373;
+    --blockquote-color: #c5c5c5;
+    --blockquote-back-color: #262626;
+
+    // Badges
+    --badge-back-color: #f2f1f3;
+    --badge-border-color: #e1e4e8;
+    --badge-color: #333;
+    --badge-availability-back-color: #e6d7fd;
+    --badge-availability-border-color: #c7badc;
+    --badge-availability-color: #333;
+    --badge-version-back-color: #f1f8ff;
+    --badge-version-border-color: #c8e1ff;
+    --badge-version-color: #333;
+    --badge-premium-back-color: #fff;
+    --badge-premium-border-color: #cfcfcf;
+    --badge-premium-color: #333;
+
+    // Headings
+    --title-color: #9fabb2;
+
+    // Links
+    --link-color: var(--accent-color);
+    --link-hover-color: var(--accent-hover-color);
+    --alt-link-color: #ababab;
+    --alt-link-hover-color: var(--accent-hover-color);
+
+    // Scrollbar
+    --scrollbar-thumb-color: #999;
+    --scrollbar-track-color: transparent;
+
+    // Controls
+    --disabled-color: #787878;
+    --disabled-back-color: #4c4c4c;
+    --control-color: #fff;
+    --control-hover-color: #f0f0f0;
+    --control-back-color: #3f3f3f;
+    --control-hover-back-color: #303030;
+    --control-alt-back-color:#373737; 
+    --control-alt-hover-back-color: #252525;
+    --control-alt-border-color: #3f3f3f;
+    --control-del-back-color: #eb1414;
+    --control-del-hover-back-color: #970f0f;
+    --control-del-color: #222;
+    --window-back-color: #292929;
+    --window-hover-back-color: #1a1a1a;
+    --window-alt-back-color: #2b2b2b;
+    --gutter-back-color: transparent;
+
+    // Form elements
+    --input-back-color: #202020;
+    --input-border-color: #1D1D1D;
+    --input-color: #fff;
+    --switch-back-color: #272727;
+    --switch-border-color: #CECECE;
+    --range-color: #CECECE;
+    --range-border-color: #ddd;
+    --range-thumb-color: #202124;
+
+    // Tables
+    --table-header-back-color: #181818;
+    --table-header-color: #fff;
+    --table-cell-back-color: #202124;
+    --table-cell-hover-back-color: #222222;
+    --table-cell-alt-back-color: #292929;
+    --table-cell-hover-alt-back-color: #212121;
+    --table-cell-color: #fff;
+    --table-sorter-color: #555;
+    --table-cell-active-back-color: #33ba79;
+    --table-cell-active-hover-back-color: #12B465;
+    --table-cell-active-alt-back-color: #292929;
+    --table-cell-active-alt-hover-back-color: #111;
+    --table-cell-active-alt2-back-color: #f67b4e;
+    --table-cell-active-alt2-hover-back-color: #f79e7e;
+
+    // Tabs
+    --tabs-divider-color: #666;
+
+    // Video
+    --video-back-color: var(--back-color);
+
+     // Images
+     --img-back-color: var(--back-color);
+
+    // Code editor
+    --code-back-color: #4d4d4d;
+    --code-color: #fff;
+    --code-line-number-color: #858585;
+    --code-selection-color: #124F7C;
+    --code-inactive-selection-color: #393D41;
+    --code-fold-marker-color: #e1e1e1;
+    --code-matching-brackets-back-color: #444;  
+    --code-matching-brackets-border-color: #e1e1e1;  
+
+    // Nav
+    --nav-back-color: #262626;
+    --nav-sel-color: var(--link-color);
+    --nav-sel-hover-color: var(--link-hover-color);
+    --nav-sel-back-color: var(--control-back-color);
+    --nav-sel-hover-back-color: var(--control-hover-back-color);
+}
+
+// Light theme
+@mixin light-theme {
+    @include light-colors;
+    @if mixin-exists(my-light-colors) {
+        @include my-light-colors;
+    }
+
+    // Hide dark-only items
+    .dark { display: none !important; }
+}
+
+// Dark theme
+@mixin dark-theme {
+    @include dark-colors;
+    @if mixin-exists(my-dark-colors) {
+        @include my-dark-colors;
+    }
+
+    // Hide light-only items and show dark-only items
+    .dark { display: unset !important;  }
+    .light { display: none !important; } 
+}
+
+// Apply theme to page
+html, [data-light] {
+    color-scheme: light dark;
+    @include light-theme;
+}
+
+@media (prefers-color-scheme: dark) {
+    html:not([data-light]) {
+        @include dark-theme;
+    }
+}
+[data-dark] {
+    @include dark-theme;
+}
+
+// Utility classes
+@mixin if-dark {
+    @media (prefers-color-scheme: dark) {
+        html:not([data-light]) & {
+            @content;
+        }
+    }
+    [data-dark] & {
+        @content;
+    }
+}
+
+.dark {
+    display: none !important;
+    @include if-dark {
+        display: unset !important;
+    }
+}
+.light {
+    @include if-dark {
+        display: none !important;
+    }
+}

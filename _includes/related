@@ -12,7 +12,7 @@
                 {% assign page_dir = page.path | remove: page_file %}
             {% endif %}
             {% assign related_page_path = page_dir | append: related_path %}
-            {% assign related_page = site.docs | where: "path", related_page_path | first %}
+            {% assign related_page = site.user_docs | where: "path", related_page_path | first %}
             {% if related_page %}
                 <li><a href="{{ related_page.url }}">{{ related_page.title }}</a></li>
             {% endif %}
@@ -22,7 +22,7 @@
     {% unless related_html == empty %}
         <div class="next-reading">
             <hr>
-            <div class="title">{% if page.related_title %}{{ page.related_title }}{% else %}Related Pages{% endif %}</div>
+            <div class="title">{% if page.related_title %}{{ page.related_title }}{% elsif site.related_title %}{{ site.related_title }}{% else %}Related Pages{% endif %}</div>
             <ul>
                 {{ related_html }}
             </ul>

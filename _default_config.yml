@@ -1,0 +1,71 @@
+# Site settings
+title: Docs0 Website Name
+email: info@docs0.io
+company: Docs0
+
+# Main website URL
+web_url: 
+
+# Privacy URL - It's added to the website footer
+privacy_url: 
+
+# GitHub URL - Leave blank if you don't want to display links to GitHub repo
+github_url: 
+
+# Header quick link - This is usually a quick link to the service/product
+header_link_title: 
+header_link_url: 
+
+# TOC heading range
+toc_h_min: 2
+toc_h_max: 2
+toc_title: In this page
+
+# Other parameters
+next_reading_title: Next Reading
+related_title: Related Pages
+search: true
+nav_root_title: Docs
+
+
+
+### DO NOT CHANGE BELOW THIS LINE ###
+
+plugins:
+  - jekyll-sitemap
+  - jekyll-relative-links
+  - jekyll-include-cache
+
+permalink: /:categories/:title #:output_ext
+
+excerpt_separator: <!--more-->
+
+sass:
+  style: compressed
+  sass_dir: assets/_sass
+
+collections:
+    pages:
+      output: true
+      permalink: /:path
+    myassets:
+      output: true
+      permalink: /assets/:path
+    mydocs:
+        output: true
+        permalink: /:path
+
+relative_links:
+  enabled:     true
+  collections: true
+
+exclude:
+  - "gemfiles/"
+  - "Gemfile"
+  - "Gemfile.lock"
+  - "*.code-workspace"
+  - "README.md"
+  - ".sass-cache/"
+  - ".jekyll-cache/"
+  - "package.json"
+  - "package-lock.json"

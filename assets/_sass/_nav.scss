@@ -1,0 +1,183 @@
+// Navigation sidebar
+nav {
+    //position: fixed;
+    width: 20%;
+    //height: calc(100% - 140px);
+    overflow: hidden;
+    overflow-y: auto;
+    padding: 5px 0;
+    scroll-behavior:auto;
+    background-color: var(--nav-back-color);
+    box-shadow: 1px 0 3px 1px rgba(0,0,0,.04);
+
+    ul, li {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+    /*ul {
+        ul {
+            border-left: 2px solid var(--border-color);
+        }
+    }*/
+    li {
+        padding: 0 0 0 25px;
+        display: none;
+        line-height: 1.4;
+        white-space: nowrap;
+     
+        &.l0 {
+            padding-left: 15px;
+            padding-right: 5px;
+            //text-transform: uppercase;
+            //letter-spacing: .5px;
+            
+            // Root
+            /*& > .tree-link, & > .tree-link:hover {
+                color: var(--disabled-color) !important;
+                font-weight: 700 !important;
+                font-size: 0.8em;
+            }*/
+            & > .tree-link {
+                @include ellipsis;
+            }
+        }
+        &.l1 {
+            padding-right: 5px;
+        }
+        &.block {
+            display: block;
+            height: 3px;
+        }
+
+        &.non-expandable {
+            .tree-toggle { 
+               display: none;
+            }
+        }
+        &:not(.non-expandable).expanded, 
+        &:not(.non-expandable):not(.collapsed).current {
+            & > .tree-link .tree-toggle {
+                @include icon-down;
+            }
+
+            ul {
+                margin: 5px 0 0 7px;
+            }
+        }
+        
+        hr {
+            margin: 5px 0;
+            width: 90%;
+        }
+
+        a {
+            text-decoration: none !important;
+            font-weight: normal;
+            color: var(--color) !important;
+
+            &:hover {
+                color: var(--color) !important;
+                text-decoration: none;
+            }
+
+            @include noicon;
+
+            &.tree-link {
+                display: flex;
+                align-items: center;
+                padding: 6px 10px;
+                margin: 2px 0;
+                @include border-radius(5px);
+
+                &.icon{
+                    &:before {
+                        margin-right: 8px;
+                    }
+                    &:after {
+                        margin: 0;
+                    }
+                }
+
+
+                .link-title {
+                    width: 100%;
+                    flex: 0 1 auto;
+                    @include ellipsis;
+                }
+
+                .tree-toggle {
+                    margin: 0 0 0 auto;
+                    padding-left: 6px;
+                    @include icon-right; // right
+    
+                    &:before {
+                        font-weight: 700;
+                        margin: 0;
+                    }
+                    
+                }
+            }
+
+        }
+
+        & > .tree-link:hover {
+            color: var(--nav-sel-hover-color) !important;
+            background: var(--nav-sel-hover-back-color);
+        }
+        &.current > a.tree-link {
+            color: var(--nav-sel-color) !important;
+            background: var(--nav-sel-back-color);
+
+            font-weight: 700 !important;
+            &:before { 
+                font-weight: normal;
+            }
+
+        }
+
+        /*&.l0 > a {
+            font-weight: 700;
+        }*/
+        
+    }
+    li.expanded > ul > li, 
+    li:not(.collapsed).current > ul > li, 
+    li.l0, li.l1 {
+        display: block;
+    }
+
+    
+}
+
+.burger {
+    //display: none;
+    position: fixed;
+    margin: 5px 3px;
+
+    .ctrl {
+        color: var(--alt-color);
+
+        @include icon-left-panel;
+    }
+
+    /*&.collapsed {
+        .ctrl {
+            @include icon-right-panel;
+        }
+    }*/
+}
+
+.gutter {
+    border-left: 1px solid var(--border-color);
+
+    &.gutter-vertical {
+        cursor: ns-resize;
+        width: 100%;
+    }
+
+    &.gutter-horizontal {
+        cursor: ew-resize;
+        height: 100%;
+    }
+}

@@ -1,0 +1,23 @@
+// Media queries
+
+// Example: 
+//  @include screen(1440px, { width: 40px; });
+//  @include if(880px);
+
+@mixin screen($max-width) { 
+    @media only screen and (max-width: $max-width){ 
+        & { @content; } 
+    } 
+}
+
+@mixin show-if-smaller-than($max-width) {
+    @media only screen and (max-width: $max-width){ 
+        & { display: inherit !important; } 
+    }
+}
+
+@mixin hide-if-smaller-than($max-width) {
+    @media only screen and (max-width: $max-width){ 
+        & { display: none !important; } 
+    }
+}
