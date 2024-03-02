@@ -1,6 +1,6 @@
 {
     "name": "Docs0",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "lastUpdated": "2024-02-28",
     "scripts": {
         "run (incremental)": "bundle exec jekyll serve --incremental --port 4001",
