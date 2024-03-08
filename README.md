@@ -78,6 +78,7 @@ Every file must contain a header (Front Matter) in the following format (note th
     next_title:         Document title in Next Reading section
     body_class:         Document body CSS class name
     published:          true
+    unlisted:           false
     draft:              false
     nodraft:            false
     date:               2021-11-15
@@ -109,7 +110,8 @@ Parameters:
 - **menu_title:** (optional) set a title for the navigation menu, if you want to make it different from the main title.
 - **next_title:** (optional) set a title for the ***Next Reading*** section of the pages, if you want to make it different from the main title.
 - **body_class:** (optional) set a custom CSS class for the body of the document.
-- **published:** set ***true*** to display the document on the website 
+- **published:** set ***true*** to display the document on the website. 
+- **unlisted:** set ***true*** to hide the document from the navigation menu.
 - **draft:** (optional) set ***true*** to show a notice that the document is not completed (note that this notice appears automatically if the document is empty or if it contains a &lt;todo&gt;&lt;/todo&gt; tag. Set ***nodraft: true*** to avoid displaying the notice.
 - **date:** set the creation date of the document.
 - **modified:** set the date of the last modification of the document.

@@ -1,6 +1,9 @@
 {% assign sorted_pages = include.pages | sort: "order" %}
 {% for _page in sorted_pages %}
     {% unless _page.redirect %}
+        {% if _page.unlisted %}
+            {% continue %}
+        {% endif %}
         {% assign page_url = _page.url | replace: "/index", "/" %}
         {% assign page_url_parts = page_url | split: "/" %}
         {% assign page_level = page_url_parts | size | minus: 1 | at_least: 0 %}
@@ -8,7 +11,7 @@
 
         {% assign include_url_size = include.url | size %}
         {% assign page_url_sub = page_url | slice: 0, include_url_size %}
-
+        
         {% if page_url_sub == include.url and page_level == include.level %}
             <li id="p-{{ _page.url | slugify }}" class="l{{ include.level }} url_{{ _page.url | remove: "index" }}">
         
