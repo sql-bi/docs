@@ -1,5 +1,8 @@
 # Docs0 Changelog
 
+## 1.0.3 (2024-03-09)
+- Add automatic file modified date
+
 ## 1.0.2 (2024-03-08)
 - Add unlisted property
 

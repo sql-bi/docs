@@ -31,7 +31,11 @@
                     {% if page.modified %}
                         {{ page.modified | date: "%b %d, %Y" }}
                     {% else %}
-                        {{ page.date | date: "%b %d, %Y" }}
+                        {% if site.data.commit_dates[page.path] %}
+                            {{ site.data.commit_dates[page.path] | date: "%b %d, %Y" }}
+                        {% else %}
+                            {{ page.date | date: "%b %d, %Y" }}
+                        {% endif %}
                     {% endif %}
                 </div>
             {% endif %}

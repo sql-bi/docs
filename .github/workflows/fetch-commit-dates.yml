@@ -1,0 +1,32 @@
+name: fetch-commit-dates
+
+on:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - '_data/commit_dates.json'
+
+jobs:
+
+  fetch-commit-dates:
+    if: ${{ !startsWith(github.event.head_commit.committer.name, 'GitHub Actions') }}
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0 # Required to get full commit history
+    
+    - name: Run Ruby script
+      run: ruby fetch-commit-dates.rb
+
+    - name: Create pull request
+      uses: peter-evans/create-pull-request@v6
+      with:
+        commit-message: "Update file dates"
+        title: "[auto] Update file dates"
+        body: "Automated action to update modified file dates to the latest commit date."
+        branch: "actions/update-file-dates"
+        base: main

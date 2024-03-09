@@ -115,6 +115,7 @@ Parameters:
 - **draft:** (optional) set ***true*** to show a notice that the document is not completed (note that this notice appears automatically if the document is empty or if it contains a &lt;todo&gt;&lt;/todo&gt; tag. Set ***nodraft: true*** to avoid displaying the notice.
 - **date:** set the creation date of the document.
 - **modified:** set the date of the last modification of the document.
+> Note that the last modified date is automatically updated when the document is modified and pushed to the repository. Use this parameter only if you need to set a specific date.
 - **order:** set a string to be used to sort the document in the navigation menu - check existing files to know how sorting works. In general, if the page is the child of a node, it is necessary to insert the order attribute of the parent node plus a slash ***/*** and a number (if you want to give a static position) or a sanitized version of the title (without spaces and special characters - if you want to use alphabetical sorting). Note that numbers come  before letters (as they are placed before in the ASCII table); if you want that they are placed after letters, you need to enclose them in curly braces: e.g. ***zzz*** is after ***01*** but before ***{01}***.
 - **toc:** (optional) set ***false*** to hide the automatic table of contents.
 - **toc_h_min:** (optional) set the minimum heading level to include in the table of contents. This setting is set at the site level in the `_config.yml`. Default is 2.
