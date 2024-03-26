@@ -1,11 +1,7 @@
 name: fetch-commit-dates
 
 on:
-  push:
-    branches:
-      - main
-    paths-ignore:
-      - '_data/commit_dates.json'
+  workflow_dispatch:
 
 jobs:
 

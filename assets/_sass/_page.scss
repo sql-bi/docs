@@ -292,8 +292,7 @@
                 margin: 10px 0;
                 padding: 20px 30px;
                 background-color: var(--window-back-color);
-                @include border-radius(8px);
-                border: 1px solid var(--border-color);
+                border-left: 2px solid var(--border-color);
                 position: relative;
                 h3 {
                     margin-top: 0;

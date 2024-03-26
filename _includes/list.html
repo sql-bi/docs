@@ -1,4 +1,4 @@
-{% assign sorted_pages = site.mydocs | sort_natural | reverse %}
+{% assign sorted_pages = site.mydocs | sort | reverse %}
 
 {% capture _list %}
 {% for _page in sorted_pages %}
