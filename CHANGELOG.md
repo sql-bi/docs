@@ -1,5 +1,8 @@
 # Docs0 Changelog
 
+## 1.0.5 (2024-04-20)
+- Add Prism for syntax highlighting
+
 ## 1.0.4 (2024-03-26)
 - Remove unlisted pages from search index
 - Make file modified date action manually only

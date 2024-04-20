@@ -106,14 +106,26 @@
     --img-back-color: var(--back-color);
 
     // Code Editor
-    --code-back-color: #f6f8fa;
+    --code-back-color: #f5f2f0; //#f6f8fa;
     --code-color: #333;
     --code-line-number-color: #999;
-    --code-selection-color: #A2D7FF;
+    --code-selection-color: #b3d4fc; //#A2D7FF;
     --code-inactive-selection-color: #E4EBF2;
     --code-fold-marker-color: #999;
     --code-matching-brackets-back-color: #E7EFE6;  
     --code-matching-brackets-border-color: #999; 
+
+    // Code Syntax
+    --code-property-color: #0551A5;
+    --code-comment-color: #39A03B;
+    --code-string-color: #D93124;
+    --code-column-color: #333;
+    --code-function-color: #035ACA;
+    --code-keyword-color: #035ACA;
+    --code-measure-color: #333;
+    --code-operator-color: #333;
+    --code-number-color: #EE7F18;
+    --code-parenthesis-color: #808080;
 
     // Nav
     --nav-back-color: #f6f8fa;
@@ -240,6 +252,18 @@
     --code-fold-marker-color: #e1e1e1;
     --code-matching-brackets-back-color: #444;  
     --code-matching-brackets-border-color: #e1e1e1;  
+
+    // Code Syntax
+    --code-property-color: #9DDCFE;
+    --code-comment-color: #86C573;
+    --code-string-color: #E44;
+    --code-column-color: #fff;
+    --code-function-color: #0095ff;
+    --code-keyword-color: #0095ff;
+    --code-measure-color: #fff;
+    --code-operator-color: #fff;
+    --code-number-color: #EE7F18;
+    --code-parenthesis-color: #636363;
 
     // Nav
     --nav-back-color: #262626;

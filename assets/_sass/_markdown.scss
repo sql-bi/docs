@@ -350,7 +350,8 @@
         word-break: normal;
         white-space: pre;
         background: transparent;
-        border: 0
+        border: 0;
+        
     }
 
     pre {
@@ -359,7 +360,7 @@
         font-size: 85%;
         line-height: 1.45;
         background-color: var(--window-alt-back-color);
-        border-radius: 3px
+        border-radius: 3px;
     }
 
     pre code,

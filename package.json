@@ -1,7 +1,7 @@
 {
     "name": "Docs0",
-    "version": "1.0.4",
-    "lastUpdated": "2024-03-26",
+    "version": "1.0.5",
+    "lastUpdated": "2024-04-20",
     "scripts": {
         "run (incremental)": "bundle exec jekyll serve --incremental --port 4001",
         "run (full)": "bundle exec jekyll serve --port 4001"
