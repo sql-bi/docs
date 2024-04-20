@@ -1,5 +1,5 @@
 ---
-layout:     home
+layout:     page
 title:      Dax Template
 published:  true
 order:      /dax-template

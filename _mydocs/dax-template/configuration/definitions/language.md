@@ -6,7 +6,7 @@ order:      /
 ---
 
 Defines the translations for one template.
-~~~
+```json
     {
       "Iso": "it",
       "Table": {...},
@@ -14,20 +14,20 @@ Defines the translations for one template.
       "Hierarchies": [...],
       "Measures": [...]
     }
-~~~
+```
 
 ## Iso
 Defines the ISO code of the localization, e.g. en-US.
 
 ## Table
 Defines the localization of a table. It is unusual to translate a table in Bravo because the user can customize the table name.
-~~~
+```json
       "Table": {
         "OriginalName": null,
         "Name": "",
         "Description": ""
       }
-~~~
+```
 
 ### OriginalName
 Original table name.
@@ -39,7 +39,7 @@ Localized table description.
 
 ## Measures
 Array of objects defining the localization of a measure. Each object has the following properties.
-~~~
+```json
      "Measures": [
         {
           "OriginalName": "Last Transaction Date",
@@ -50,7 +50,7 @@ Array of objects defining the localization of a measure. Each object has the fol
         },
         ...
       ]
-~~~
+```
 ### OriginalName
 Original measure name.
 ### Name
@@ -66,7 +66,7 @@ Localized format string of the measure.
 ## Columns
 Array of objects defining the localization of a column. Each object has the following properties.
 
-~~~
+```json
      "Columns": [
         {
           "OriginalName": "Year Month",
@@ -76,7 +76,7 @@ Array of objects defining the localization of a column. Each object has the foll
         },
         ...
       ]
-~~~
+```
 
 ### OriginalName
 Original column name.
@@ -91,7 +91,7 @@ Localized format string of the column.
 
 ## Hierarchies
 Array of objects defining the localization of a hierarchy. Each object has the following properties.
-~~~
+```json
       "Hierarchies": [
         {
           "OriginalName": "Fiscal",
@@ -118,7 +118,7 @@ Array of objects defining the localization of a hierarchy. Each object has the f
         },
         ...
       ]
-~~~
+```
 
 ### OriginalName
 Original hierarchy name.

@@ -1,5 +1,5 @@
 ---
-layout:     home
+layout:     page
 title:      VertiPaq Analyzer
 published:  true
 order:      /vertipaq-analyzer

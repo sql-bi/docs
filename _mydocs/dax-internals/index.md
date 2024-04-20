@@ -1,5 +1,5 @@
 ---
-layout:     home
+layout:     page
 title:      DAX Internals
 published:  true
 order:      /dax-internals

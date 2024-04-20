@@ -7,7 +7,7 @@ order:      /
 
 The HolidaysDefinition template use the following definition to create a HolidaysDefinition table.
 
-~~~
+```json
   "Holidays": [
     {
       "IsoCountry": "US",
@@ -21,7 +21,7 @@ The HolidaysDefinition template use the following definition to create a Holiday
       "ConflictPriority": 100
     },
     ...
-~~~
+```
  
 ## Holidays
 Array of holidays, each defined as follows.

@@ -1,5 +1,5 @@
 ---
-layout:     home
+layout:     page
 title:      Contoso Data Generator
 menu_title: Contoso Data Generator
 published:  true

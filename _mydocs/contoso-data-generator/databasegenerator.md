@@ -10,7 +10,10 @@ The DatabaseGenerator.exe is a tool to generate orders for the Contoso data mode
 ## Overview and usage
 The DatabaseGenerator.exe is a command-line application, running on .NET Core 3.1. It requires a working folder to run on, containing a configuration file and data input files. After executing, the working folder also contains generated output data files and logs.
 
-Usage:  `databasegenerator.exe  inputfolder  outputfolder  configfile  [param:OrdersCount=nnnnnnn]`
+Usage:  
+```bash
+databasegenerator.exe  inputfolder  outputfolder  configfile  [param:OrdersCount=nnnnnnn]
+```
 
 Input files:
 - config.json : main app configuration

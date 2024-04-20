@@ -1,5 +1,5 @@
 ---
-layout:     home
+layout:     page
 title:      Bravo for Power BI
 published:  true
 order:      /bravo

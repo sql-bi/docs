@@ -7,7 +7,7 @@ order:      /
 
 A single Translation.Definition object includes an array for all the available translations.
 
-~~~
+```json
   "Translations": [
     {
       "Iso": "it",
@@ -18,7 +18,7 @@ A single Translation.Definition object includes an array for all the available t
     },
     ...
   ]
-~~~
+```
 
 ## Translations
 Array of [Language](./language.md) objects, one for each supported ISO localization. 
