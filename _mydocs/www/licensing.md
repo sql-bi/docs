@@ -34,7 +34,7 @@ As you customize the library, you fully control whom the licenses are assigned t
 | **Access** | Full, uninterrupted over license lifetime | As long as a user has the license assigned to them, then they lose access once it is revoked |
 | **Supervision of progress (video courses)** | Yes\* | Yes |
 | **Can be reassigned** | | Yes |
-| **Can manage programmatically (API)** | | Yes |
+| **Can be managed programmatically (API)** | | Yes |
 | **Total no. of users per license**| 1 | Unlimited transfers |
 | **Concurrent users at any given time** | One per license purchased|One per license assigned |
 |-|-|-|
