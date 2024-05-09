@@ -30,7 +30,7 @@ As you customize the library, you fully control whom the licenses are assigned t
 |  | Untransferable | Transferable |
 |---|:---:|:---:|
 | **Duration<br>(video courses)** | 36 months | 36 months |
-| **Duration<br>(subscriptions)** | 12 months<br>*(auto renewed)* | 12 months<br>*(auto renewed)* |
+| **Duration<br>(SQLBI+)** | 12 months<br>*(auto renewed)* | 12 months<br>*(auto renewed)* |
 | **Access** | Full, uninterrupted over license lifetime | As long as a user has the license assigned to them, then they lose access once it is revoked |
 | **Supervision of progress (video courses)** | Yes\* | Yes |
 | **Can be reassigned** | | Yes |
