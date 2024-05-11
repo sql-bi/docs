@@ -619,12 +619,63 @@ You can add a section containing a list of links to other pages at the same fold
     </tr>
 </table>
 
+#### Notes (Blockquotes)
+
+You can add notes to your documents by using the blockquote syntax.
+
+<table>
+    <tr>
+        <th>Syntax</th>
+        <th>Rendered Output</th>
+    </tr>
+    <tr>
+        <td>
+            <pre>> This is an info note</pre>
+        </td>
+        <td>
+            <blockquote class="blockquote">
+                <p><span style="float:left; font-weight:600; margin:0 10px 0 0">i</span> This is an info note</p>
+            </blockquote>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <pre>>> This is an alert note</pre>
+        </td>
+        <td>
+            <blockquote class="blockquote">
+                <blockquote class="blockquote">
+                    <p><span style="float:left; font-weight:600; margin:0 10px 0 0">!</span> This is an alert note</p>
+                </blockquote>
+            </blockquote>
+        </td>
+    </tr>
+</table>
+
 #### TODOs
 
-You can add some placeholders and notes in unfinished documents, to keep track of the content to be edited or the tasks to be performed. **TODOs are not displayed on the website** and cause a draft notice to be displayed on the page.
+You can add some placeholders and notes in unfinished documents, to keep track of the content to be edited or the tasks to be performed. **TODOs are not displayed on the rendered page**, but still visible if you inspect the html in the browser – if you need to add a truly hidden content, please use comments. Also, when there is a TODO in the file, a **draft notice** is added the rendered page.
 
     <todo>Take a screenshot</todo>
 
+You can choose to rendere the TODOs in the page by adding the `visible` attribute:
+
+<table>
+    <tr>
+        <th>Syntax</th>
+        <th>Rendered Output</th>
+    </tr>
+    <tr>
+        <td>
+            <pre>&lt;todo visible&gt;This page will contain a screenshot of the described feature.&lt;/todo&gt;</pre>
+        </td>
+        <td>
+            <div class="todo">
+                This page will contain a screenshot of the described feature.
+            </div>
+        </td>
+    </tr>
+</table>
 
 #### Comments
 

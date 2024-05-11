@@ -83,3 +83,59 @@ a:hover {
         color: #fff;
         border-color: #292929;
     }
+
+.todo {
+    display: block !important;
+
+    background-color: #f6fdff;
+    border: 1px solid #e2ebed;
+    border-radius: 8px;
+    margin: 30px 0;
+    padding: 20px;
+
+    font-size: 15px;
+    line-height: 1.5;
+
+    &:before {
+        content: "Upcoming Content";
+        text-transform: uppercase;
+        font-weight: 700;
+        margin:0 0 10px 0;
+        display: block;
+    }
+}
+
+.blockquote {
+    display: inline-block;
+    background-color: #f6f8fa;
+    color: #4b4b4b;
+    border-radius: 8px;
+    border: 1px solid #e1e4e8;
+    margin: 10px 0 30px 0;
+    padding: 0 20px;
+    align-items: center;
+    font-size: 15px;
+    line-height: 1.5;
+
+    p {
+        margin:0;
+        padding: 15px 0;
+    }
+
+    .blockquote {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        background-color: transparent;
+    }
+    
+    &:has(.blockquote) {
+        
+        background: #fcf5f4 !important;
+        border-color: #fae4e1 !important;
+
+        p {
+            color:#775954 !important;
+        }
+    }
+}

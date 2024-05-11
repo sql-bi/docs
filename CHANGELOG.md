@@ -1,5 +1,10 @@
 # Docs0 Changelog
 
+## 1.0.6 (2024-05-11)
+- Add visible TODOs
+- Add new alert note
+- Update README.md
+
 ## 1.0.5 (2024-04-20)
 - Add Prism for syntax highlighting
 
