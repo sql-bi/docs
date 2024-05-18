@@ -12,7 +12,7 @@
                 {% assign page_dir = page.path | remove: page_file %}
             {% endif %}
             {% assign related_page_path = page_dir | append: related_path %}
-            {% assign related_page = site.user_docs | where: "path", related_page_path | first %}
+            {% assign related_page = site.mydocs | where: "path", related_page_path | first %}
             {% if related_page %}
                 <li><a href="{{ related_page.url }}">{{ related_page.title }}</a></li>
             {% endif %}

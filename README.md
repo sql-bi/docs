@@ -125,7 +125,7 @@ Parameters:
 - **next_reading:** (optional) set **true** to show the ***Next Reading*** section at the end of the page. Note there is also a [special template tag](#next-reading) you can use to obtain the same result, useful if you need to place it on a different position.
 - **next_reading_title:** (optional) set a custom title for the ***Next Reading*** section. Default is: "Next Reading". It can be **false** to deactivate title. You can change the title at the site level by editing the **next_reading_title** variable in the `_config.yml` file.
 - **next_reading_ol:** (optional) list items as ordered list.
-- **related:** (optional) define a list of pages related to this one; you can use URLs relative to the _user_docs root (they must start with a slash) or relative to the same parent path (no slashes at the beginnig) - **../** is not supported. At the bottom of the page will be displayed a section like ***Next Reading***. If defined, the **next_reading** option will be ignored.
+- **related:** (optional) define a list of pages related to this one; you can use URLs relative to the _mydocs root (they must start with a slash) or relative to the same parent path (no slashes at the beginnig) - **../** is not supported. At the bottom of the page will be displayed a section like ***Next Reading***. If defined, the **next_reading** option will be ignored.
 - **related_title:** (optional) set a custom title for the related section. Default is: "Related Pages". You can change the title at the site level by editing the **related_title** variable in the `_config.yml` file.
 
 ### Body
@@ -506,7 +506,7 @@ The URL of the links can be:
 
 You are not allowed to embed images in Markdown documents like in Word, but they must be referenced from another location. This means that you need to place image files in a separate folder to use them in a document.
 
-Always create a folder called images in the parent folder of the document you are working on (if it doesn't exist) and put all the images in it. For example, the images of ***smart-filter-pro/about.md*** must be placed in the folder ***_user_docs/smart-filter-pro/images/***.
+Always create a folder called images in the parent folder of the document you are working on (if it doesn't exist) and put all the images in it. For example, the images of ***smart-filter-pro/about.md*** must be placed in the folder ***_mydocs/smart-filter-pro/images/***.
 
 > Set a reasonable number of pixels in the ***width*** attribute of the &lt;img&gt; tag.
 

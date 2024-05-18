@@ -1,5 +1,9 @@
 # Docs0 Changelog
 
+## 1.0.7 (2024-05-18)
+- Fix related links
+- Add badges
+
 ## 1.0.6 (2024-05-11)
 - Add visible TODOs
 - Add new alert note
