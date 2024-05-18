@@ -1,0 +1,208 @@
+---
+layout:     page
+title:      Vertical Fusion
+published:  true
+order:      /10
+---
+
+Vertical Fusion is an optimization performed in a DAX query plan to use the same SE request for different aggregations that share the same filter context. It works for both DirectQuery and VertiPaq. This page is focused on techniques verified on VertiPaq, they have not been verified on DirectQuery.
+
+## Simple example
+In the following example, the measures *Sales Amount* and *Total Cost* are potentially computed twice: indeed, the *Margin* measure references both of them. The engine can optimize the query to compute the two measures only once and reuse the results to compute the Margin measure.
+
+```DAX
+DEFINE
+    MEASURE Sales[Margin] = 
+        [Sales Amount] - [Total Cost]
+    MEASURE Sales[Sales Amount] =
+        SUMX ( Sales, Sales[Quantity] * Sales[Net Price] )
+    MEASURE Sales[Total Cost] =
+        SUMX ( Sales, Sales[Quantity] * Sales[Unit Cost] )
+
+EVALUATE
+SUMMARIZECOLUMNS (
+    'Store'[Country],
+    'Date'[Year Month Number],
+    "Sales", [Sales Amount],
+    "Total Cost", [Total Cost],
+    "Margin", [Margin]
+)
+```
+
+The DAX query generates a single SE request, used for all the measures (*Sales Amount*, *Total Cost*, and *Margin*):
+
+```xmSQL
+WITH
+    $Expr0 := ( PFCAST ( 'Sales'[Quantity] AS INT ) * PFCAST ( 'Sales'[Unit Cost] AS INT ) ) ,
+    $Expr1 := ( PFCAST ( 'Sales'[Quantity] AS INT ) * PFCAST ( 'Sales'[Net Price] AS INT ) ) 
+SELECT
+    'Date'[Year Month Number],
+    'Store'[Country],
+    SUM ( @$Expr0 ),
+    SUM ( @$Expr1 )
+FROM 'Sales'
+    LEFT OUTER JOIN 'Date'
+        ON 'Sales'[Order Date]='Date'[Date]
+    LEFT OUTER JOIN 'Store'
+        ON 'Sales'[StoreKey]='Store'[StoreKey];
+```
+
+The example with the *Margin* measure is a simple case of vertical fusion. The engine recognizes that the two measures (*Sales Amount* and *Total Cost*) are computed in the same context and can be fused into a single SE request. The engine computes the two measures in a single scan of the *Sales* table and then uses the results to compute the *Margin* measure.
+
+However, in the entire query, the engine uses the same SE request also for the individual requests of *Sales Amount* and *Total Cost*. This is a more general case of vertical fusion, where the two measures are not computed within the same DAX expression (like the *Margin* measure). In certain scenarios, this letter case of Fusion is not detected, as covered in the [unsupported cases](#unsupported-cases) section.
+
+## Supported cases
+Complex filters that can be pushed in a single SE request are supported, even when they require long batch requests.
+This includes:
+- regular relationships
+- bi-directional relationships
+- many-to-many cardinality relationships
+- filters computed by TREATAS (*)
+
+(*) While TREATAS is in general supported, there could be a limitation if the expression computed by TREATAS changes for each row in the result. In other words, if the expression computed by TREATAS depends on the filter context produced by the groupby columns that cannot be solved entirely by the storage engine, the engine might not apply vertical fusion.
+
+When complex filters or relationships are pushed down to a single SE Batch request, the fusion optimization is applied to the last query of the SE batch, producing a REDUCE BY condition in the xmSQL query.
+
+```xmSQL
+DEFINE TABLE '$TTable1' :=
+SELECT
+    '$TTable2'[Store$Country],
+    '$TTable3'[Currency Exchange$FromCurrency],
+    SUM ( '$TTable2'[$Measure0] ),
+    SUM ( '$TTable2'[$Measure1] )
+FROM '$TTable2'
+    INNER JOIN '$TTable3'
+        ON '$TTable2'[Date$Date]='$TTable3'[Date$Date]
+REDUCED BY
+'$TTable2' :=
+WITH
+    $Expr0 := ( PFCAST ( 'Sales'[Quantity] AS INT ) * PFCAST ( 'Sales'[Unit Cost] AS INT ) ) ,
+    $Expr1 := ( PFCAST ( 'Sales'[Quantity] AS INT ) * PFCAST ( 'Sales'[Net Price] AS INT ) ) 
+SELECT
+    'Date'[Date],
+    'Store'[Country],
+    SUM ( @$Expr0 ),
+    SUM ( @$Expr1 )
+FROM 'Sales'
+    LEFT OUTER JOIN 'Date'
+        ON 'Sales'[Order Date]='Date'[Date]
+    LEFT OUTER JOIN 'Store'
+        ON 'Sales'[StoreKey]='Store'[StoreKey]
+WHERE
+    'Date'[Date] ININDEX '$TTable4'[$SemijoinProjection];
+```
+    
+### Dynamic filters solved by the storage engine
+If a measure modifies the filter context in a way that the storage engine can solve, the engine can apply vertical fusion. 
+
+```DAX
+Sales Current Quarter =
+    CALCULATE (
+        [Sales Amount],
+        REMOVEFILTERS ( 'Date' ),
+        VALUES ( 'Date'[Quarter] )
+    )
+```
+
+The presence of a filter entirely executed in a single SE Batch request is a requirement for the engine to apply vertical fusion. If the formula engine is required to prepare the filter, vertical fusion is not possible.
+
+## Unsupported cases
+Vertical Fusion is not supported whenever conditional statements or calculation groups may create different execution paths for the measures that should be optimized. Usually, the fusion within the expression in the same measure is preserved, but different measure references in the same query that share the same filter context might not be optimized in those cases.
+
+### Different measures in conditional statements
+IF or SWITCH statements that return different measures based on the filter context, for example when there is a disconnected table used in a measure to return different results based on the selection.
+
+```DAX
+    SWITCH ( 
+        SELECTEDVALUE ( 'Measure selection'[Measure name] ),
+        "Sales Amount", [Sales Amount],
+        "Total Cost", [Total Cost],
+        "Margin", [Margin]
+    )
+```
+
+### Time intelligence calculations
+The presence of time intelligence calculations in DAX queries can break vertical fusion optimization. The issue is that the non-additive nature of the calculation cannot be expressed in a single SE query because the DAX expression usually requires the intervention of the formula engine to compute the result.
+
+> **WORKAROUND:** You can create the time intelligence calculations in the model by using a bridge table, which is possible mainly for aggregations that are additive over time. Because of the resulting size of the bridge table, this option should be considered for calculation at the month or week granularity, but it should be avoided at the day granularity.
+
+> **NOTE:** The optimal use of the workaround is by exposing the selection on the bridge table as a groupby column in the query. If the selection is made in  a CALCULATE (for example in a measure), then there is a separate fusion optimization for each time intelligence item selected (e.g. YTD, QTD, MTD, ...).
+
+We provide a few examples of time intelligence calculations that do not activate vertical fusion optimization.
+
+#### DAX time intelligence functions
+Any DAX time intelligence function is not supported by vertical fusion optimization.
+
+```DAX
+Sales Amount YTD = 
+    CALCULATE (
+        [Sales Amount],
+        DATESYTD ( 'Date'[Date] )
+    )
+```
+
+#### Custom time intelligence calculations
+Custom time intelligence calculations are not supported by vertical fusion optimization.
+
+```DAX
+Sales Amount YTD = 
+    VAR LastDayAvailable = MAX ( 'Date'[Date] )
+    VAR LastFiscalYearAvailable = MAX ( 'Date'[Year] )
+    VAR Result =
+        CALCULATE (
+            [Sales Amount],
+            'Date'[Date] <= LastDayAvailable,
+            'Date'[Year] = LastFiscalYearAvailable
+        )
+    RETURN
+        Result
+```
+
+### Calculation groups
+The presence of multiple active calculation items in the same DAX query does not support vertical fusion. We include several examples to clarify that many common uses of calculation groups break vertical fusion optimization.
+
+#### Different measures in different calculation items
+Different measures that would be normally optimized by vertical fusion when used in a query are no longer optimized if they are invoked by different calculation items.
+
+```DAX
+CALCULATIONGROUP 'Measure Selection'[M]
+    CALCULATIONITEM "Margin" = [Margin]
+    CALCULATIONITEM "Sales Amount" = [Sales Amount]
+    CALCULATIONITEM "Total Cost" = [Total Cost]
+```
+
+#### Different filters in different calculation items
+Changing the filter context for the selected measure breaks the fusion optimization for measures in the same query that would be optimized otherwise (without the calculation group referenced by the query).
+
+```DAX
+CALCULATIONGROUP 'Period Selection'[P]
+
+    CALCULATIONITEM "Current selection" = SELECTEDMEASURE()
+
+    CALCULATIONITEM "Current quarter" = 
+        CALCULATE (
+            SELECTEDMEASURE(),
+            REMOVEFILTERS ( 'Date' ),
+            VALUES ( 'Date'[Year Quarter] )
+        )
+
+    CALCULATIONITEM "Current year" = 
+        CALCULATE (
+            SELECTEDMEASURE(),
+            REMOVEFILTERS ( 'Date' ),
+            VALUES ( 'Date'[Year] )
+        )
+```
+
+#### Different calculations in different calculation items for the same measure
+This case is particularly negative because the measure is the same and the filter context is the same.
+
+```DAX
+CALCULATIONGROUP 'Multiplier'[Factor]
+
+    CALCULATIONITEM "K" = SELECTEDMEASURE() * 1000
+
+    CALCULATIONITEM "M" = SELECTEDMEASURE() * 1000000
+
+    CALCULATIONITEM "Original" = SELECTEDMEASURE()
+```

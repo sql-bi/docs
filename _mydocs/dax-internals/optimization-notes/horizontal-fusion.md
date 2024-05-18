@@ -2,18 +2,18 @@
 layout:     page
 title:      Horizontal Fusion
 published:  true
-order:      /
+order:      /20
 ---
 
-Horizontal Fusion is an optimization performed in a DAX query plan so that multiple SE requests that differs only for the filters applied to one or more columns are merged into a single SE request. It works for both DirectQuery and VertiPaq. This page include link to resources describing the optimization technique and details about cases that are not supported.
+Horizontal Fusion is an optimization performed in a DAX query plan so that multiple SE requests that differ only for the filters applied to one or more columns are merged into a single SE request. It works for both DirectQuery and VertiPaq. This page includes links to resources describing the optimization technique and details about cases that are not supported.
 
 ## External resources
 [Introduction to Horizontal Fusion](https://www.sqlbi.com/articles/introducing-horizontal-fusion-in-dax/) is a general introduction to Horizontal Fusion.
 
-[Optimizing fusion optimization for DAX measures](https://www.sqlbi.com/articles/optimizing-fusion-optimization-for-dax-measures/) describes how to get a query plan that is better than Horizontal Fusion in a specific scenarios.
+[Optimizing fusion optimization for DAX measures](https://www.sqlbi.com/articles/optimizing-fusion-optimization-for-dax-measures/) describes how to get a query plan that is better than Horizontal Fusion in specific scenarios.
 
-## Unsopported cases
-Horizontal Fusion does not recognize scenarios where it could be applied, but the engine is not able to do that. For each scenario we provide possible workarounds. These cases could be supported in the future: in that case, this page should be updated.
+## Unsupported cases
+Horizontal Fusion does not recognize scenarios where it could be applied, but the engine is not able to do that. For each scenario, we provide possible workarounds. These cases could be supported in the future: in that case, this page should be updated.
 
 ### Multiple selection of static slices on columns without groupby
 The filter on a column has more than one element selected, and the column filtered is not part of a groupby column (in SUMMARIZECOLUMNS or similar functions).
@@ -95,7 +95,7 @@ SUMMARIZECOLUMNS (
 ### Table applied to filter context
 Every time a table is applied to a filter context, fusion is not applied. This affects a number of cases:
 - Time Intelligence functions (like DATESYTD)
-- Predicates with range expressions (greater then, less than, ...)
+- Predicates with range expressions (greater than, less than, ...)
 - Use of TREATAS
 
 The following DAX query generates three xmSQL queries instead of one.

@@ -2,7 +2,7 @@
 layout:     page
 title:      SWITCH optimization
 published:  true
-order:      /
+order:      /40
 ---
 
 The SWITCH function is syntax sugar for a list of nested IF conditions. Because SWITCH translates into IF and does not have an equivalent for IF.EAGER, the only way to get an eager evaluation for SWITCH is by using variables.

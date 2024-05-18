@@ -2,7 +2,7 @@
 layout:     page
 title:      IsAvailableInMDX Property
 published:  true
-order:      /
+order:      /30
 ---
 
 The **IsAvailableInMDX** property allows a static evaluation of the items in a column without requiring a scan when the column is not filtered. 
