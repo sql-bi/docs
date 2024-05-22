@@ -194,7 +194,7 @@ The template for a calculated table has these main elements:
 - [**Columns**](./templates/custom-template-table.md#columns): List of columns generated in the output table. Each column can have a DAX expression that can reference variables defined in RowVariables and GlobalVariables.
 - [**Hierarchies**](./templates/custom-template-table.md#hierarchies): List of hierarchies create in the Tabular model. It is optional and there is only one hierarchy created in the previous example.
 
-There is no need to worry about the order in which steps and variables are defined. The DAX Template engine automatically arrange the proper sort order based on dependencies found in the calculations. Circualr dependencies are not allowed.
+There is no need to worry about the order in which steps and variables are defined. The DAX Template engine automatically arrange the proper sort order based on dependencies found in the calculations. Circular dependencies are not allowed.
 
 ## Calendar templates
 The [Calendar templates](./calendar-templates/index.md) are examples of date templates implementing common calendars that are also used by Bravo for Power BI.

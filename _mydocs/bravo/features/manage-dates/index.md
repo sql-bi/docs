@@ -68,7 +68,7 @@ The **Manage Templates** link opens the [Templates](../../configuration/options.
 
 - **Regional Format**: Regional format to generate day and month names.
 - **Dates Table**: Name of the visible *Date* table, which only includes a reference to another hidden table specified in *Dates Definition Table*.
-- **Dates Definition Table**: Name of the hidden caculated table containing the complete DAX code to generates the *Date* table. Because the DAX code required for a *Date* table is very long, the hidden table referenced by *Date* does not hide the report area when any column of the *Date* table is selected in the Fields pane of Power BI. 
+- **Dates Definition Table**: Name of the hidden calculated table containing the complete DAX code to generates the *Date* table. Because the DAX code required for a *Date* table is very long, the hidden table referenced by *Date* does not hide the report area when any column of the *Date* table is selected in the Fields pane of Power BI. 
 
 ### Holidays
 
@@ -79,7 +79,7 @@ The **Manage Templates** link opens the [Templates](../../configuration/options.
 
 ### Time Intelligence
 
-- **Time Intelligence Functions**: enables/disables the generation of time intellignece measures.
+- **Time Intelligence Functions**: enables/disables the generation of time intelligence measures.
 - **Target Measures**
     - *All Measures*: Generates the time intelligence version for all the model measures.
     - *Choose Measures*: Generates the time intelligence version only for the selected measures.

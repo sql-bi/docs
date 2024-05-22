@@ -90,7 +90,7 @@ A JSON object detailing the specific license, including the student and course i
 ### `PATCH` / v1 / license / {id}
 Update the expiration date of a license. Note that:
 - The update is allowed only if the parent license pool is transferable.
-- The uupdate is allowed only if the license is not expired. 
+- The update is allowed only if the license is not expired. 
 - If you put a date in the past, the license will be immediately expired and cannot be updated anymore. 
 - If you put a date in the future, the license cannot be extended further than the pool expiration date.
 

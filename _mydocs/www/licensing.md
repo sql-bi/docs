@@ -11,7 +11,7 @@ At SQLBI, we provide comprehensive licensing options for our video courses and s
 A license is to be considered a personal authorization to consume premium content, has a duration, and must be assigned to a user, even temporarily, in order to be used. Licenses are either transferable or untransferable.
 
 ## Untransferable Licenses
-Untransferable licenses are licenses that can only be assigned to one person at all. You do not have to assign them to a user at the time of purchase. This is something you can do from your dashboard later on, as the license manager. This is useful if you aren't sure who needs the license just yet at the time of purchase, or if you're mixing and matching differnet amounts of different courses.
+Untransferable licenses are licenses that can only be assigned to one person at all. You do not have to assign them to a user at the time of purchase. This is something you can do from your dashboard later on, as the license manager. This is useful if you aren't sure who needs the license just yet at the time of purchase, or if you're mixing and matching different amounts of different courses.
 
 One great, new feature of our untransferable licenses is that you can delegate the assignment of the licenses to the users themselves by creating an auto-enrollment link that you send out. That can represent a significant time saving for you as the license manager, if you purchase a large number of licenses and don't want to be entering everyone's details yourself.
 

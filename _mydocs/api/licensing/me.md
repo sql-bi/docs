@@ -31,7 +31,7 @@ Upon a successful request, the API will return a JSON object containing the deta
     "email": "info@sqlbi.com",
     "pools": 13,
     "licenses": 28,
-    "untrasferableLicenses": 24,
+    "untransferableLicenses": 24,
     "transferableLicenses": 4,
     "allowedDomainsForTransferableLicenses": [
         "sqlbi.com"
