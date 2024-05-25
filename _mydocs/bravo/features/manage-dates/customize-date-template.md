@@ -16,9 +16,9 @@ A **template workspace** is an entire folder hierarchy identified by a file with
 
 A **template package** is a single JSON file that contains a user template (extension *.package.json*). In terms of consumption, for a Bravo user a template is a template package. In order to customize a template, it is necessary to create a template workspace. A template package is obtained by combining the content of several JSON files included in a template workspace.
 
-Bravo creates a new template by copying all the original template files of one of the predefined templates. In order to modify an organization or user template, the corresponding template workspace must be provided by the template author. The template package cannot generate a corresiponding template workspace.
+Bravo creates a new template by copying all the original template files of one of the predefined templates. In order to modify an organization or user template, the corresponding template workspace must be provided by the template author. The template package cannot generate a corresponding template workspace.
 
-The JSON files included in the template workapce can be editing using any text editor. However, Bravo is integrated with [Visual Studio Code](https://code.visualstudio.com/) and the [Bravo Template Editor](template-editor.md) extension. 
+The JSON files included in the template workspace can be editing using any text editor. However, Bravo is integrated with [Visual Studio Code](https://code.visualstudio.com/) and the [Bravo Template Editor](template-editor.md) extension. 
 
 In order to edit a template, Bravo opens the template workspace in Visual Studio Code. The workspace includes several files, but only two folders are relevant to customize a Date template:
 - The **src** folder contains the source files of the Date template. The content of these files is described in the [Dax Template](../../../dax-template/index.md) documentation.

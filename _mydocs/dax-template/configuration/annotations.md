@@ -18,7 +18,7 @@ Describes the template that generated the column/table/measure.
 ### SQLBI_TimeIntelligence
 Describes the type of time intelligence implemented by the time intelligence template.
 - **Standard**: Use standard DAX time intelligence functions.
-- **Monthly**: Use custom DAX code with montly-based calculations, without using the DAX time intelligence functions.
+- **Monthly**: Use custom DAX code with monthly-based calculations, without using the DAX time intelligence functions.
 - **Weekly**: Use custom DAX code with weekly-based calculations, without using the DAX time intelligence functions.
 
 ### SQLBI_CalendarType

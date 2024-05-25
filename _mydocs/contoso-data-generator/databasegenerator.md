@@ -73,7 +73,7 @@ This file contains the main configuration of the data generator.
 
 - **CustomerActivity** : contains the configuration for customer start/end date
 
-    - **StartDateWeightPoints**, **StartDarteWeightValues**: configuration for the spline of customer start date
+    - **StartDateWeightPoints**, **StartDateWeightValues**: configuration for the spline of customer start date
 
     - **EndDateWeightPoints**, **EndDateWeightValues**: configuration for the spline of customer end dates
 
@@ -90,7 +90,7 @@ The Excel configuration file contains both fixed data and parameters to control 
 The file contains several sheets, further described here. Each sheet contains multiple columns. The software reads some of the columns recognizing them by name. Columns with names that do not follow the standard requirements of the software are ignored. Columns have been conveniently colored in yellow if they are used by the software. Any non-yellow color is considered a comment and it is useful only for human purposes. 
 
 ### Categories
-From here you can configure sales of categories using two curves: W and PPC. “W” define the relative weight of each category in the set of all categories for different periods in the entire timeframe. “PPC” define the variation in the price of items of each category during the whole period (Price percent). Normally the last column is 100%.
+From here you can configure sales of categories using two curves: W and PPC. “W” define the relative weight of each category in the set of all categories for different periods in the entire time frame. “PPC” define the variation in the price of items of each category during the whole period (Price percent). Normally the last column is 100%.
 
 ### Subcategories
 From here you can configure sales of subcategories using a weight curve with columns marked with W. The values are used to define the weight of a subcategory inside its category. Therefore, the numbers are summed by category and then used to weight subcategories inside the category.

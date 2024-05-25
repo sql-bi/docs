@@ -4,5 +4,24 @@
 			"path": "."
 		}
 	],
-	"settings": {}
+	"settings": {
+		"cSpell.words": [
+			"anonymization",
+			"Contoso",
+			"crossjoin",
+			"datacache",
+			"groupby",
+			"PBIX",
+			"SQLBI",
+			"subquery",
+			"VertiPaq",
+			"VPAX",
+			"whitespaces"
+		]
+	},
+	"extensions": {
+		"recommendations": [
+			"streetsidesoftware.code-spell-checker"
+		]
+	}
 }

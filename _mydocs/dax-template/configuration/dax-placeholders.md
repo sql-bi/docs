@@ -28,7 +28,7 @@ Retrieve the name of the holiday specified in the **date** provided as an argume
 Returns the IsoFormat specified in the Config object.
 
 ### @@GETLASTSTEP()
-Retrieves the table expression computed so far in a calculated table expression. It is usueful to iterate the table expression built with the DAX expressions that do not depend on the current expression.
+Retrieves the table expression computed so far in a calculated table expression. It is useful to iterate the table expression built with the DAX expressions that do not depend on the current expression.
 
 For example, it can be used to retrieve the first day of a custom fiscal month by writing:
 ```DAX

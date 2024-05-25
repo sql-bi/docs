@@ -22,7 +22,7 @@ Here is a brief tour of all features:
 5. Opens **documentation and help videos**.
 6. Opens the **Alert pane** showing important messages like new updates available.
 7. Opens the [**Options dialog box**](configuration/options.md) to specify all the settings for Bravo.
-8. **Theme selection**<br> Switches beween light theme, dark theme, or automatic. The default setting is automatic, which chooses between light mode and dark mode based on Windows settings.
+8. **Theme selection**<br> Switches between light theme, dark theme, or automatic. The default setting is automatic, which chooses between light mode and dark mode based on Windows settings.
 9. **Login/logout**<br> *Login* to the Power BI service, required to connect Bravo to a dataset published on Power BI service. The first time, Bravo may request the username to locate the right endpoint for the authentication. During the sign in, a browser window appears to complete the login process. Login is not required to access local files. Bravo remembers log in credentials on following runs, just like Power BI Desktop does: use the same button to explicitly *Logout*. 
 
 Other two common elements of the user interface appear in all the operation pages.

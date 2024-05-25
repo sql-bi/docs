@@ -14,7 +14,7 @@ The SWITCH function is syntax sugar for a list of nested IF conditions. Because 
 
 [**Optimizing SWITCH on slicer selection with Group By Columns**](https://www.sqlbi.com/articles/optimizing-switch-on-slicer-selection-with-group-by-columns/) explains how to optimize the SWITCH condition whe it reads a Power BI slicer selection.
 
-## Unsopported cases
+## Unsupported cases
 There are case where the SWITCH optimization is not triggered, or when the presence of the SWITCH function (or an equivalent list of nested IF) produces negative side effects on performance.
 
 ### Expressions with operators
@@ -65,7 +65,7 @@ The server timings pane confirms that there is a single storage engine query (at
 If we use CAD as a filter, we get a much longer query plan. The CrossApply operator in this case implements a CrossApplyInteger operation (even though there are no differences in the logical query plan).
 <img src="images/SWITCH-queryplan-CAD.png" width=600>
 
-The additional storage engine queries are not a big deal unless they materializa many rows, but the real issue is that the full crossjoin executed in the formula engine can be extremely expensive in the formula engine.
+The additional storage engine queries are not a big deal unless they materialize many rows, but the real issue is that the full crossjoin executed in the formula engine can be extremely expensive in the formula engine.
 <img src="images/SWITCH-server-timings-CAD.png" width=800>
 
 For example, with 7,695,091 existing combinations, the full cartesian product of 12 * 2,520 * 4,021 * 11 generates 1,337,545,440 combinations in the formula engine, only to ignore all of them that are not included in the existing combinations.
@@ -92,7 +92,7 @@ It is hard to predict which case favor another, because it really depends on the
 
 In the previous example, the branch for AUD does not produce the optimal formula engine query plan and generates a full crossjoin, even if the the expression matches the pattern that should be optimized (single aggregation, SUMX).
 
-The reason is that the entire SWITCH function must have a single data type as a result, and that result is a CURRENCY (CURRENCY takes precedence over INTEGER when there are different data types; if present, DOUBLE would taks precedence over CURRENCY and INTEGER)
+The reason is that the entire SWITCH function must have a single data type as a result, and that result is a CURRENCY (CURRENCY takes precedence over INTEGER when there are different data types; if present, DOUBLE would take precedence over CURRENCY and INTEGER)
 
 ```DAX
     MEASURE Sales[Test1] =
@@ -129,7 +129,7 @@ The solution is to apply an explicit conversion to CURRENCY (we use CONVERT, but
 This is a separate issue from the [expression with operator](#expressions-with-operators) case we described before, and they could be fixed separately by Microsoft in the future.
 
 ### Context transition
-If the simple aggregations contains a context transition, the SWITCH evaluation in a SUMMARIZECOLUMNS performs the full crossjoin in the formula engine, as we have seen in the previos [Expressions with operators](#expressions-with-operators) section.
+If the simple aggregations contains a context transition, the SWITCH evaluation in a SUMMARIZECOLUMNS performs the full crossjoin in the formula engine, as we have seen in the previous [Expressions with operators](#expressions-with-operators) section.
 
 For example, this code produces a full crossjoin in the formula engine.
 

@@ -73,7 +73,7 @@ Each `Pool` object contains the following fields:
     - `title`: The name of the course.
 - `start`: The start date and time of the license validity period in ISO 8601 format.
 - `end`: The end date and time of the license validity period in ISO 8601 format.
-- `transferable`: A boolean indicating whether the licenses in this pool are transferable (true) or untrasferable (false). [See the difference](https://www.sqlbi.com/transferable-video-course-licenses/). 
+- `transferable`: A boolean indicating whether the licenses in this pool are transferable (true) or untransferable (false). [See the difference](https://www.sqlbi.com/transferable-video-course-licenses/). 
 - `licenses`: The total number of licenses within the pool.
 - `assignedLicenses`: The number of licenses that have been assigned to students.
 - `availableLicenses`: The number of licenses remaining in the pool that can be assigned to new students.
