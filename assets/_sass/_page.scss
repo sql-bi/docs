@@ -265,11 +265,13 @@
             font-size: 14px;
             display: flex;
             align-items: center;
-            width: 300px;
+            width: 310px;
 
             .icon {
-                font-size: 25px;
-                margin:0 5px 0 0;
+                font-size: 28px;
+                margin: 0 2px 5px 0;
+                color: var(--draft-color);
+                display: flex;
             }
             p {
                 color: var(--draft-color);

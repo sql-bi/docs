@@ -81,6 +81,12 @@ svg {
     }
 }
 
+figcaption {
+    font-size: 12px;
+    font-style: italic;
+    color: var(--alt-color);
+}
+
 // Forms
 form {
     display: inline;

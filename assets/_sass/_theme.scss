@@ -169,6 +169,13 @@
     --hr-color: #737373;
     --blockquote-color: #c5c5c5;
     --blockquote-back-color: #262626;
+    --blockquote-border-color: #494949;
+    --nested-blockquote-color: #b25151;
+    --nested-blockquote-back-color: #2c2828;
+    --nested-blockquote-border-color: #b25151;
+    --draft-back-color: #405a61;
+    --draft-color: #dbdbdb;
+    --draft-border-color: #5a838d;
 
     // Badges
     --badge-back-color: #f2f1f3;
@@ -251,7 +258,7 @@
      --img-back-color: var(--back-color);
 
     // Code editor
-    --code-back-color: #4d4d4d;
+    --code-back-color: #353535;
     --code-color: #fff;
     --code-line-number-color: #858585;
     --code-selection-color: #124F7C;

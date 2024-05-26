@@ -1,5 +1,8 @@
 # Docs0 Changelog
 
+## 1.0.8 (2024-05-26)
+- Improve dark mode styles
+
 ## 1.0.7 (2024-05-18)
 - Fix related links
 - Add badges
