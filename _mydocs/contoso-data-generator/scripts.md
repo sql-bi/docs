@@ -3,25 +3,16 @@ layout:     page
 title:      Scripts
 menu_title: Scripts
 published:  true
-order:      /1
+order:      /03
 ---
 
-## QuickRun.ps1
 
-QuickRun purpose is to create the working folders and then run the **GenerateDatabase.ps1** script
 
-## GenerateDatabases.ps1
+Under `script/dataset`, there are 3 ready to use scripts:
+ - `make_tool.cmd` : compiles the tool in release mode, using dotnet from the command line.
+ - `build_all_datasets.cmd` : creates the sets of data published on the ready-to-use repository.
+ - `build_dataset.cmd` : create a single dataset.
 
-Generate several Contoso databases per run, by iterating over an array of configuration parameters to run in sequence
-
- - **DatabaseGenerator** to generate the csv files with the orders
- - SQL Script to create the database, import the data, backup the database and detach the .mdf and .ldf files
- - zip/7-Zip to compress the database files
-
-## Parameters
-
-The parameters are documented into the script inside the **param()** section
-
-## Configurations
-
-The configuration for the databases to be generated are specified as Tuples into the **$databases** array
+Steps:
+ - run `build_tool.cmd`
+ - run `build_dataset.cmd`. When asked, enter the code of the dataset you want to create. E.g.: `csv-100k`, `delta-1m`, `parquet-10m`, etc.
