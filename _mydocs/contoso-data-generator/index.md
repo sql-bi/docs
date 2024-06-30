@@ -7,7 +7,7 @@ order:      /contoso-data-generator
 next_reading: true
 ---
 
-The Contoso Data Generator is a tool to generate sample sets of data with random generated orders for the Contoso data model in order to provide demo data. Generated data is ready to be imported into PowerBI, Fabric OneLake and other platforms.
+The Contoso Data Generator is a tool for generating sample data with random generated orders for the Contoso data model in order to provide demo data. Generated data is ready to be imported into PowerBI, Fabric OneLake and other platforms.
 
 It consist of a c# program, to generate the data plus additional scripts for simplifying the activity, importing data to sql-server, etc. The tool is available on GitHub: [https://github.com/sql-bi/Contoso-Data-Generator-V2/](https://github.com/sql-bi/Contoso-Data-Generator-V2/)
 

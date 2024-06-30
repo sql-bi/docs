@@ -6,7 +6,7 @@ published:  true
 order:      /01
 ---
 
-## Dataset structure
+## Data structure
 
 Output elements:
  - Customers
@@ -27,7 +27,7 @@ Data schema (Orders & OrderRows version):
 
 <br/>
 
-Customers dataset is filled with fake, but realistic, customers data.
+Customers set of data is filled with fake, but realistic, customers data.
 
  
 ## Pre-data-preparation: static data from SQLBI repository
