@@ -15,6 +15,12 @@ This file contains the main configuration of the data generator.
 
 - **CutDateBefore**, **CutDateAfter**: (datetime optional parameters) the 2 parameters allow to create data starting from a day different from January 1st  and ending on a date different from December 31st. Data before CutDateBefore and after CutDateAfter is removed
 
+- **CustomerPercentage** : percentage of customers to be used. Range: 0.001 - 1.000
+
+- **OutputFormat** : format of the data to be generated. Values: CSV, PARQUET, DELTATABLE
+
+- **SalesOrders** : type if data to be generated. Values: SALES ORDERS BOTH.  SALES = creates the "sales" table. ORDERS = creates the "orders" and the "orders details" table.  BOTH =  creates all the previous tables.
+
 - **CustomerFakeGenerator**: (int) number of full random customers. Only used during tests for speeding up the process.
 
 - **DaysWeight** (section)

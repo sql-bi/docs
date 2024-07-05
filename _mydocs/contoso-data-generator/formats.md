@@ -63,6 +63,6 @@ Example:
 Example:
 
 ```
-"OutputFormat": "PARQUET"
+"OutputFormat": "DELTATABLE"
 "DeltaTableOrdersPerFile": 250000
 ```
