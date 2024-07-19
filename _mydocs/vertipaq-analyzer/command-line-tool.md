@@ -25,9 +25,6 @@ You can automate the extraction of VPAX files from a Tabular model using the VPA
 The following YAML script demonstrates how to install the VPAX tool and extract a VPAX file from a Tabular model.
 
 ```YAML
-Sample YAML for Azure DevOps
-
-```YAML
 trigger: none
 pr: none
 
