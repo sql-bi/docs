@@ -17,7 +17,7 @@ It can be installed using the following command:
 ```
 dotnet tool install Dax.Vpax.CLI --global
 ```
-Once installed, the tool can be invoked by typing ```vpax``` in the command line. To get information about the available features and parameters, run ```vpax –help```.
+Once installed, the tool can be invoked by typing ```vpax``` in the command line. To get information about the available features and parameters, run ```vpax –-help```.
 
 # Automation in DevOps pipelines
 You can automate the extraction of VPAX files from a Tabular model using the VPAX command line tool in Azure DevOps pipelines
