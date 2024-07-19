@@ -22,7 +22,7 @@ Once installed, the tool can be invoked by typing ```vpax``` in the command line
 # Automation in DevOps pipelines
 You can automate the extraction of VPAX files from a Tabular model using the VPAX command line tool in Azure DevOps pipelines
 
-The following YAML script demonstrates how to install the VPAX tool and extract a VPAX file from a Tabular model.
+The following YAML script demonstrates how to install the VPAX tool and extract a VPAX file from a Tabular model:
 
 ```YAML
 trigger: none
