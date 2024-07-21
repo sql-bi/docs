@@ -1,6 +1,6 @@
 ---
 layout:     page
-title:      VPAX Command Line Tool
+title:      VPAX command line tool
 published:  true
 order:      /
 ---
@@ -36,6 +36,7 @@ steps:
   # Download and install the VertiPaq-Analyzer .NET tool from NuGet.
   # See https://www.nuget.org/packages/Dax.Vpax.CLI
   #
+
 - script: dotnet tool install Dax.Vpax.CLI --global
   displayName: install vpax tool
   #
@@ -47,6 +48,7 @@ steps:
   #
   # Use `vpax export -?` to learn more about the available options.
   #
+
 - script: vpax export "%VPAX_PATH%" "%TABULAR_CONNECTION_STRING%"
   displayName: export vpax
   env:
@@ -55,11 +57,12 @@ steps:
     # https://blog.tabulareditor.com/2020/06/02/service-principal-access-to-dedicated-capacity-xmla-endpoint
     # https://learn.microsoft.com/en-us/power-bi/enterprise/service-premium-service-principal
     TABULAR_CONNECTION_STRING: $(TabularConnectionString)		
+
     # Variable that holds path where the VPAX file will be extracted.
     # Using $(Build.BuildId) ensures a unique file name for each build.
     VPAX_PATH: $(Build.StagingDirectory)\contoso-$(Build.BuildId).vpax
 ```
 
-For more information on how enable Service Principal access to a Power BI workspace in a dedicated capacity:
+For more information on how to enable Service Principal access to a Power BI workspace in a dedicated capacity:
 - [Service Principal access to dedicated capacity XMLA endpoint](https://blog.tabulareditor.com/2020/06/02/service-principal-access-to-dedicated-capacity-xmla-endpoint)
 - [Automate Premium workspace and semantic model tasks with service principals](https://learn.microsoft.com/en-us/power-bi/enterprise/service-premium-service-principal)
