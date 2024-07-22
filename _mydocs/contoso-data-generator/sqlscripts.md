@@ -8,12 +8,12 @@ order:      /11
 
 # Scripts for importing data into SQL Server
 
-The set of scripts under `scripts/sql` allow you to import CSV output files to a Sql Server database. The scripts create the required tables, indexes and relationship and import data using sql bulk insert. The underlying SQL scripts are executed using SQLCMD from the command line.
+The set of scripts under `scripts/sql` import CSV output files in an SQL Server database. The scripts create the required tables, indexes, and relationships, and import data using the BULK INSERT tool. The underlying SQL scripts are executed using SQLCMD from the command line.
 
 
 ## Sql_ImportData.cmd
 
-**Warning**: on every run, the script deletes and recreates the tables from scratch. Be careful: do not point the script to a production database or to a database in which you already have data. **You risk to lose the existing data**.
+**WARNING**: on every run, the script deletes and recreates the tables from scratch. Be careful: do not point the script to a production database or to a database in which you already have data. **You risk losing the existing data**.
 
 Steps:
  - Create the set of data, as CSV files, as usual.
@@ -34,8 +34,10 @@ Resulting database:
 
 ## SQLBI_ALL_DB.cmd
 
-Specific scripts used by SQLBI for creating SQL Server database backups. It is available in the ready-to-use repository.
-The database are: Contoso V2 10k, Contoso V2 100k, Contoso V2 1M, Contoso V2 10M, and Contoso V2 100M.
+Specific scripts used by SQLBI to create SQL Server database backups. It is available in the ready-to-use repository.
 
- - `SQLBI_ALL_DB.cmd` : import data into the 4 databases, backup them and compress the resulting file.
- - `SQLBI_CreateSqlDatabases.ps1` : creates the 4 databases on the specified SQL Server
+The databases are named with the structure "Contoso V2 10k", where "Contoso V2" is a fixed name and 10k is an approximation of the number of orders included.
+
+ - `SQLBI_CreateSqlDatabases.ps1` : PowerShell script that creates the databases on the specified SQL Server instance.
+ - `SQLBI_ALL_DB.cmd` : For each database, import data from CSV files, backup them, and compress the resulting file.
+

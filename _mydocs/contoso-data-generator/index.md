@@ -48,7 +48,7 @@ databasegenerator.exe  c:\temp\config.json  c:\temp\data.xlsx  c:\temp\OUT\  c:\
 
 To simplify running the tool, [a set of scripts](scripts.md) is available.
 
-**Note**: The tool needs some files containing static data: fake customers, exchange rates, postal codes, etc. The files are cached after being downloaded over the Internet from a specific SQLBI repository. [More details](details.md).
+**Note**: The tool needs some files containing static data: fake customers, exchange rates, postal codes, etc. The files are cached after being downloaded over the Internet from a specific GitHub repository. [More details](details.md).
 
 ## Previous versions
 The current version of this tool is the evolution of the first Contoso Data Generator, still available on GitHub:
