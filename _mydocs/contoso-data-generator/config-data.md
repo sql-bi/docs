@@ -11,7 +11,7 @@ The Excel configuration file contains both fixed data and parameters to control 
 The file contains several sheets, further described here. Each sheet contains multiple columns. The software reads some of the columns recognizing them by name. Columns with names that do not follow the standard requirements of the software are ignored. Columns have been conveniently colored in yellow if they are used by the software. Any non-yellow color is considered a comment and it is useful only for human purposes. 
 
 ### Categories
-From here you can configure sales of categories using two curves: W and PPC. "W" define the relative weight of each category in the set of all categories for different periods in the entire timeframe. "PPC" define the variation in the price of items of each category during the whole period (Price percent). Normally the last column is 100%.
+From here you can configure sales of categories using two curves: W and PPC. "W" defines the relative weight of each category in the set of all categories for different periods in the entire timeframe. "PPC" defines the variation in the price of items of each category during the whole period (Price percent). Normally the last column is 100%.
 
 ### Subcategories
 From here you can configure sales of subcategories using a weight curve with columns marked with W. The values are used to define the weight of a subcategory inside its category. Therefore, the numbers are summed by category and then used to weight subcategories inside the category.
@@ -32,6 +32,6 @@ This page is intended to define geographical areas, each with a set of weights t
 For each geographic area, you define the W columns to provide the activity spline.
 
 ### Stores
-On this page, you enumerate the stores. For each store, you provide its geographical area and the open and close date. A store is active only between the two dates.
+On this page, you enumerate the stores. For each store, you provide its geographical area and the opening and closing date. A store is active only between the two dates.
 You do not provide weight activity for the stores, as the behavior is dictated by the customer clusters. A special store marked -1 as StoreID defines the online store.
 Each order is assigned to either the online store or to a local store depending on the country of the customer.

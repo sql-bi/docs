@@ -6,8 +6,6 @@ published:  true
 order:      /03
 ---
 
-
-
 Under `script/dataset`, there are 3 scripts:
  - `make_tool.cmd` : compiles the tool in release mode, using dotnet from the command line.
  - `build_all.cmd` : creates the sets of data published on the ready-to-use repository.

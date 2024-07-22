@@ -7,7 +7,7 @@ order:      /02
 next_reading: true
 ---
 
-Every output format has specific parameter to be set inside config.json
+Every output format has specific parameters to be set inside config.json
 
 ## CSV
 
