@@ -1,6 +1,6 @@
 ---
 layout:         page
-title:          Terms & Conditions
+title:          SQLBI Terms & Conditions
 published:      true
 order:          /
 next_reading:   true

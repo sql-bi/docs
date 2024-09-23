@@ -59,4 +59,4 @@ order:          /040
 ## J. Agreement
 1. By subscribing to the SQLBI+ service, you acknowledge that you have read, understood, and agreed to be bound by these Terms and Conditions.
 
-This document outlines the specific terms and conditions applicable to the SQLBI+ subscription offered by SQLBI. For overarching terms as well as general terms applicable to other services, please visit the full Terms and Conditions at [https://www.sqlbi.com/terms-and-conditions/](https://www.sqlbi.com/terms-and-conditions/).
+This document outlines the specific terms and conditions applicable to the SQLBI+ subscription offered by SQLBI. For overarching terms as well as general terms applicable to other services, please visit the full Terms and Conditions at [https://docs.sqlbi.com/terms-and-conditions/](https://docs.sqlbi.com/terms-and-conditions/).
