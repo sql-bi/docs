@@ -1,8 +1,8 @@
 ---
 layout:         page
-title:          SQLBI Website
+title:          Terms & Conditions
 published:      true
-order:          /zzz
+order:          /
 next_reading:   true
 ---
-This section contains the documentation of features and services available on the SQLBI website.
+Terms and conditions for using SQLBI website, products, and services.
