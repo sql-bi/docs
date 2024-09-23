@@ -1,8 +1,8 @@
 ---
 layout:         page
-title:          SQLBI Terms & Conditions
+title:          Terms & Conditions
 published:      true
-order:          /
+order:          /zzz
 next_reading:   true
 ---
 Terms and conditions for using SQLBI website, products, and services.
