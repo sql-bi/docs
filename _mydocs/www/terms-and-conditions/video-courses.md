@@ -6,7 +6,7 @@ published:      true
 order:          /020
 ---
 
-## A. General
+## A. Overview
 1. These Terms and Conditions (“Terms”) govern the use of regular licenses provided by SQLBI Corp. (“SQLBI”) for its video courses and other premium content.
 1. By purchasing and accessing video courses produced by SQLBI, you agree to the following terms and conditions.
 
