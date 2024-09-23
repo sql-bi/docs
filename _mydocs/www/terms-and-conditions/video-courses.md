@@ -3,7 +3,7 @@ layout:         page
 title:          SQLBI Video Courses Terms and Conditions
 menu_title:     Video Courses
 published:      true
-order:          /video-courses
+order:          /020
 ---
 
 ## A. General

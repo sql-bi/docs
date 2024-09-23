@@ -3,7 +3,7 @@ layout:         page
 title:          SQLBI+ Subscription Terms and Conditions
 menu_title:     SQLBI+ Subscription
 published:      true
-order:          /sqlbi-plus-subscription
+order:          /040
 ---
 
 ## A. General

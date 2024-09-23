@@ -3,7 +3,7 @@ layout:         page
 title:          Transferable Licenses Terms and Conditions
 menu_title:     Transferable Licenses
 published:      true
-order:          /transferable-licenses
+order:          /030
 ---
 
 ## A. Introduction

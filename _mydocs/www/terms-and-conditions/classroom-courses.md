@@ -3,7 +3,7 @@ layout:         page
 title:          SQLBI Classroom Courses Terms and Conditions
 menu_title:     Classroom Courses
 published:      true
-order:          /classroom-courses
+order:          /010
 ---
 
 ## A. Overview
