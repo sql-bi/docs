@@ -3,7 +3,7 @@ layout:         page
 title:          SQLBI API Reference (Beta)
 menu_title:     SQLBI API
 published:      true
-order:          /zzzz
+order:          /z
 next_reading:   true
 next_reading_title: Available APIs
 ---
