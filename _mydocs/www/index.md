@@ -1,6 +1,7 @@
 ---
 layout:         page
 title:          SQLBI Products and Services
+menu_title:     SQLBI Services
 published:      true
 order:          /zz
 next_reading:   true
