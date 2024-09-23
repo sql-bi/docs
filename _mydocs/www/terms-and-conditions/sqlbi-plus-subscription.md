@@ -6,8 +6,9 @@ published:      true
 order:          /040
 ---
 
-## A. General
-1. By purchasing and accessing a subscription to SQLBI+ produced by SQLBI Corp. (“SQLBI”), you agree to the following terms and conditions.
+## A. Overview
+1. These Terms and Conditions (“Terms”) govern the SQLBI+ subscription service provided by SQLBI Corp. (“SQLBI”).
+2. By purchasing and accessing a subscription to SQLBI+, you agree to abide by these Terms.
 
 ## B. Definitions
 1. SQLBI+ is a subscription service that gives subscribers access to several pieces of content (mostly but not limited to videos, white papers, sessions).

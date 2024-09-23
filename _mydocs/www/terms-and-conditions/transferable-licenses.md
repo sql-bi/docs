@@ -6,7 +6,7 @@ published:      true
 order:          /030
 ---
 
-## A. Introduction
+## A. Overview
 1. These Terms and Conditions (“Terms”) govern the use of transferable licenses provided by SQLBI Corp. (“SQLBI”) for its video courses and other premium content.
 2. By purchasing or using a transferable license, you agree to abide by these Terms.
 

@@ -6,8 +6,8 @@ published:      true
 order:          /050
 ---
 
-## A. Service Overview
-1. This service strives to address troubleshooting and specific design/formulas/performance issues.
+## A. Overview
+1. This service strives to address troubleshooting and specific design/formulas/performance issues of DAX expressions and Tabular semantic models.
 
 ## B. Purchase Options
 1. You can purchase individual hours or packages of prepaid hours.
