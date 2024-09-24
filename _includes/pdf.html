@@ -14,6 +14,15 @@
             pageUrl.search = "";
 
             const contentElement = document.querySelector(".page-content");
+
+            // Convert relative links to absolute URLs
+            contentElement.querySelectorAll("a").forEach(function(link) {
+                if (link.getAttribute("href") && !link.getAttribute("href").startsWith("http")) {
+                    const absoluteURL = new URL(link.getAttribute("href"), window.location.origin).href;
+                    link.setAttribute("href", absoluteURL);
+                }
+            });
+
             const docDefinition = {
                 content: htmlToPdfmake(`
                     <h1>{{ page.title }}</h1>

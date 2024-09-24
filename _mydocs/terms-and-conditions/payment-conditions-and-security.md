@@ -4,6 +4,7 @@ title:          SQLBI Payment Conditions and Security
 menu_title:     Payments and Security
 published:      true
 order:          /070
+pdf:            true
 ---
 
 ## A. Payment Security

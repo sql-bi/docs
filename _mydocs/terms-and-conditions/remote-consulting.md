@@ -4,6 +4,7 @@ title:          SQLBI Remote Consulting Terms and Conditions
 menu_title:     Remote Consulting
 published:      true
 order:          /050
+pdf:            true
 ---
 
 ## A. Overview

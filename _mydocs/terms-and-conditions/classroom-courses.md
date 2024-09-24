@@ -4,6 +4,7 @@ title:          SQLBI Classroom Courses Terms and Conditions
 menu_title:     Classroom Courses
 published:      true
 order:          /010
+pdf:            true
 ---
 
 ## A. Overview
@@ -48,7 +49,7 @@ order:          /010
 3. No payment information (like credit card numbers) is stored on SQLBI servers.
 
 ## H. Privacy Policy
-1. For details on data collection, protection, and sharing, please refer to our Privacy Policy at [https://www.sqlbi.com/privacy/](https://www.sqlbi.com/privacy/).
+1. For details on data collection, protection, and sharing, please refer to our Privacy Policy at [www.sqlbi.com/privacy](https://www.sqlbi.com/privacy/).
 
 ## I. Contact
 1. For any questions or concerns, please contact SQLBI at [info@sqlbi.com](mailto:info@sqlbi.com).
@@ -56,4 +57,4 @@ order:          /010
 ## J. Agreement
 1. By registering for a SQLBI classroom course, you acknowledge that you have read, understood, and agreed to be bound by these Terms and Conditions.
 
-This document outlines the specific terms and conditions applicable to classroom courses offered by SQLBI. For overarching terms as well as general terms applicable to other services, please visit the full Terms and Conditions at [https://docs.sqlbi.com/terms-and-conditions/](https://docs.sqlbi.com/terms-and-conditions/).
+This document outlines the specific terms and conditions applicable to classroom courses offered by SQLBI. For overarching terms as well as general terms applicable to other services, please visit the full [Terms and Conditions](index.md).

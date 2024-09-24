@@ -4,6 +4,7 @@ title:          SQLBI+ Subscription Terms and Conditions
 menu_title:     SQLBI+ Subscription
 published:      true
 order:          /040
+pdf:            true
 ---
 
 ## A. Overview
@@ -12,7 +13,7 @@ order:          /040
 
 ## B. Definitions
 1. SQLBI+ is a subscription service that gives subscribers access to several pieces of content (mostly but not limited to videos, white papers, sessions).
-2. The list of the pieces of content that are included in the SQLBI+ subscription is available on the product page at [https://www.sqlbi.com/p/plus/](https://www.sqlbi.com/p/plus/).
+2. The list of the pieces of content that are included in the SQLBI+ subscription is available on the product page at [www.sqlbi.com/p/plus](https://www.sqlbi.com/p/plus/).
 3. The video courses inside SQLBI+ are different from the video courses you can find available for purchase at [www.sqlbi.com/training](https://www.sqlbi.com/training).
 
 ## C. Registration
@@ -47,7 +48,7 @@ order:          /040
 
 ## J. Privacy
 1. Personal data collected for course registration and access is protected under SQLBI’s privacy policy.
-2. For details, refer to the full Privacy Policy at [https://www.sqlbi.com/privacy/](https://www.sqlbi.com/privacy/).
+2. For details, refer to the full Privacy Policy at [www.sqlbi.com/privacy](https://www.sqlbi.com/privacy/).
 
 ## K. Modifications
 1. SQLBI reserves the right to update these terms and conditions at any time.
@@ -59,4 +60,4 @@ order:          /040
 ## J. Agreement
 1. By subscribing to the SQLBI+ service, you acknowledge that you have read, understood, and agreed to be bound by these Terms and Conditions.
 
-This document outlines the specific terms and conditions applicable to the SQLBI+ subscription offered by SQLBI. For overarching terms as well as general terms applicable to other services, please visit the full Terms and Conditions at [https://docs.sqlbi.com/terms-and-conditions/](https://docs.sqlbi.com/terms-and-conditions/).
+This document outlines the specific terms and conditions applicable to the SQLBI+ subscription offered by SQLBI. For overarching terms as well as general terms applicable to other services, please visit the full [Terms and Conditions](index.md).

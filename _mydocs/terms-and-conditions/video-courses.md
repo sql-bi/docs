@@ -4,6 +4,7 @@ title:          SQLBI Video Courses Terms and Conditions
 menu_title:     Video Courses
 published:      true
 order:          /020
+pdf:            true
 ---
 
 ## A. Overview
@@ -52,7 +53,7 @@ order:          /020
 
 ## J. Privacy
 1. Personal data collected for course registration and access is protected under SQLBI’s privacy policy.
-2. For details on data collection, protection, and sharing, please refer to our Privacy Policy at [https://www.sqlbi.com/privacy/](https://www.sqlbi.com/privacy/).
+2. For details on data collection, protection, and sharing, please refer to our Privacy Policy at [www.sqlbi.com/privacy](https://www.sqlbi.com/privacy/).
 
 ## K. Modifications
 1. SQLBI reserves the right to update these terms and conditions at any time.
@@ -61,4 +62,4 @@ order:          /020
 ## L. Agreement
 1. By registering for a SQLBI video course, you acknowledge that you have read, understood, and agreed to be bound by these Terms and Conditions.
 
-This document outlines the specific terms and conditions applicable to video courses offered by SQLBI. For overarching terms as well as general terms applicable to other services, please visit the full Terms and Conditions at [https://docs.sqlbi.com/terms-and-conditions/](https://docs.sqlbi.com/terms-and-conditions/).
+This document outlines the specific terms and conditions applicable to video courses offered by SQLBI. For overarching terms as well as general terms applicable to other services, please visit the full [Terms and Conditions](index.md).

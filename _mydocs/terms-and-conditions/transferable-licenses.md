@@ -4,6 +4,7 @@ title:          Transferable Licenses Terms and Conditions
 menu_title:     Transferable Licenses
 published:      true
 order:          /030
+pdf:            true
 ---
 
 ## A. Overview
@@ -48,11 +49,12 @@ order:          /030
 
 ## I. Information
 1. For more detailed information about SQLBI licensing and the License Manager, please visit:
-   - SQLBI Licensing Documentation: [https://docs.sqlbi.com/www/licensing](https://docs.sqlbi.com/www/licensing)
-   - SQLBI License Manager: [https://docs.sqlbi.com/www/license-manager](https://docs.sqlbi.com/www/license-manager)
+   - [SQLBI Licensing Documentation](../www/licensing)
+   - [SQLBI License Manager](../www/license-manager)
+   
 2. For any questions or concerns about these Terms, please contact SQLBI at [info@sqlbi.com](mailto:info@sqlbi.com).
 
 ## J. Agreement
 1. By using the transferable license, you acknowledge that you have read, understood, and agreed to be bound by these Terms and Conditions.
 
-This document outlines the specific terms and conditions applicable to transferable licenses for video courses offered by SQLBI. For overarching terms as well as general terms applicable to other services, please visit the full Terms and Conditions at [https://docs.sqlbi.com/terms-and-conditions/](https://docs.sqlbi.com/terms-and-conditions/).
+This document outlines the specific terms and conditions applicable to transferable licenses for video courses offered by SQLBI. For overarching terms as well as general terms applicable to other services, please visit the full [Terms and Conditions](index.md).

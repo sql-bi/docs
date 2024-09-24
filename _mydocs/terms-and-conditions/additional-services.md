@@ -4,6 +4,7 @@ title:          SQLBI Vendor enrollment and other services
 menu_title:     Additional services
 published:      true
 order:          /070
+pdf:            true
 ---
 
 ## A. Vendor enrollment
