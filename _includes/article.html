@@ -18,7 +18,9 @@
 
         {% include draft.html %}
 
-        {{ content }}
+        <div class="page-content">
+            {{ content }}
+        </div>
 
         {% if page.related %}
             {% include related %}
@@ -27,6 +29,9 @@
         {% endif %}
 
         <footer>
+
+            {% include pdf.html %}
+            
             {% if site.data.commit_dates[page.path] or page.modified or page.date %}
                 <div class="last-update">
                     {% if site.github_url %}

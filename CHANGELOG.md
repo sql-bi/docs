@@ -1,5 +1,9 @@
 # Docs0 Changelog
 
+## 1.0.9 (2024-09-24)
+- Allow to generate PDFs from pages
+- Fix search index with special characters
+
 ## 1.0.8 (2024-05-26)
 - Improve dark mode styles
 

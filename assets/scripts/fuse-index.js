@@ -5,6 +5,6 @@ var searchIndex = [{% for collection in site.collections %}{% assign colsize = c
         "id": "{{ page.id | slugify }}",
         "url": "{{ page.url | remove: 'index.html' }}",
         "title": "{{ page.title }}",
-        "content": `{{ page.content | strip_html | remove:'"' }}`
+        "content": `{{ page.content | strip_html | remove:'"' | remove:'`' }}`
     }{% endunless %}{% unless forloop.last %},{% endunless %}{% endfor %}{% endif %}{% endfor %}
 ];

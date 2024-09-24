@@ -1,0 +1,53 @@
+{% if page.pdf == true %}
+<a href="#" class="gen-pdf">Download PDF</a>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.4/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.4/vfs_fonts.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/html-to-pdfmake/browser.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        document.querySelectorAll(".gen-pdf").forEach(el => el.addEventListener("click", e => {
+            e.preventDefault();
+
+            const pageUrl = new URL(window.location.href);
+            pageUrl.hash = "";
+            pageUrl.search = "";
+
+            const contentElement = document.querySelector(".page-content");
+            const docDefinition = {
+                content: htmlToPdfmake(`
+                    <h1>{{ page.title }}</h1>
+                    ${contentElement.innerHTML}
+                    {% if site.data.commit_dates[page.path] or page.modified or page.date %}
+                        <p>  
+                            Last update: 
+                            {% if site.data.commit_dates[page.path] %}
+                                {{ site.data.commit_dates[page.path] | date: "%b %d, %Y" }}
+                            {% elsif page.modified %}
+                                {{ page.modified | date: "%b %d, %Y" }}
+                            {% else %}
+                                {{ page.date | date: "%b %d, %Y" }}
+                            {% endif %}
+                        </p>
+                    {% endif %}
+                    <span class="source">Source: <a href="${pageUrl.toString()}">${pageUrl.toString()}</a></span>
+                `, {
+                    defaultStyles: {
+                        h1: { fontSize:30, bold:true, lineHeight:1.1, marginBottom:10 },
+                    }
+                }),
+                styles: {
+                    source: {
+                        fontSize: 10,
+                    }
+                },
+                defaultStyle: {
+                    fontSize: 12,
+                    lineHeight: 1.3
+                }
+            };
+            pdfMake.createPdf(docDefinition).download(`{{ page.title | slugify }}.pdf`);
+        }));
+    });
+  </script>
+{% endif %}

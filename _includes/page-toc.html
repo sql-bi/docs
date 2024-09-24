@@ -10,6 +10,10 @@
             <div class="toc-content">
                 <div class="toc-title note">{{ site.toc_title }}</div>
                 {{ jekyll_toc }}
+
+                {% if page.pdf == true %}
+                    <a href="#" class="gen-pdf">Download PDF</a>
+                {% endif %}
             </div>
         </div>
     {% endunless %}
