@@ -8,9 +8,10 @@ pdf:            true
 ---
 
 ## A. Vendor enrollment
-1. The request of filling forms to enroll SQLBI as a vendor is subject to an additional cost.
-2. Standard documents are provided by SQLBI to the vendor in order to avoid the additional fee. In that case, the customer must prepare the documents and send them to SQLBI for review and approval only.
+1. The request for us to fill out forms for the customer to be able to enroll SQLBI / Loader as a vendor is subject to an additional fee.
+2. To avoid this fee: Standard documents are provided by SQLBI / Loader to the customer, and they contain the information that is requested in 99% of vendor enrollment systems or forms. The customer should use the information provided by our system to fill out their forms themselves.  
 
 ## B. Additional documents
-1. Standard documents such as W-9 and bank account information are provided automatically without any additional fee.
-2. The request for additional documents to SQLBI is subject to an additional cost.
+1. Standard documents such as our W-9 and bank account information are provided automatically without any additional fee, attached to or included in both our quotes and our invoices. 
+2. The request for additional documents from SQLBI / Loader is subject to an additional fee.
+

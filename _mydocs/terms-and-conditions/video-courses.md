@@ -12,13 +12,14 @@ pdf:            true
 1. By purchasing and accessing video courses produced by SQLBI, you agree to the following terms and conditions.
 
 ## B. Accounts
-1. SQLBI accounts are personal. They must be tied to the email address of a physical person.
-2. Accounts are not to be shared between people, and content cannot be transferred from one person’s account to another person’s account.
+1. SQLBI accounts are personal. They must be tied to the email address of one physical person, the student. The email address must give some indication of the student’s name. 
+2. Accounts are not to be shared between people, they are not to be transferred from one person to the next.  
 3. Generic email addresses, like a team name, are not accepted.
 4. We conduct periodic and random checks to ensure non-transferable licenses are not being shared; determination by SQLBI that a non-transferable license or an account is being shared may lead to termination.
 5. When a user has several personal accounts on the SQLBI platform, accounts can be merged upon request by the user from inside one of the accounts.
 6. When a new purchase is made for someone who already has a SQLBI account, and they purchase a new license using the same email address as the one tied to their existing account, the system places the new license into that account immediately.
 7. In the specific case of transferable licenses, these alone may be managed from a generic email address as we do not offer the possibility of having multiple license managers at this time.
+
 
 ## C. Registration and Access
 1. **Access Duration**: Each video course purchase grants 36 months of desktop and mobile browser access to the videos, unless otherwise specified.
