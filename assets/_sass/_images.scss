@@ -64,83 +64,50 @@ $icon-version: "1.0.0";
     @include icon;
 }
 
-@mixin icon-search { @include icon("\e900"); }
+@mixin icon-search { @include icon("\e903"); }
 .icon-search { @include icon-search; };
 
-@mixin icon-time { @include icon("\e901"); }
-.icon-time { @include icon-time; };
-
-@mixin icon-cart { @include icon("\e902"); }
-.icon-cart { @include icon-cart; };
-
-@mixin icon-aa { @include icon("\e903"); }
-.icon-aa { @include icon-aa; };
-
-@mixin icon-pencil { @include icon("\e904"); }
+@mixin icon-pencil { @include icon("\e90e"); }
 .icon-pencil { @include icon-pencil; };
 
-@mixin icon-notice { @include icon("\e905"); }
-.icon-notice { @include icon-notice; };
-
-@mixin icon-flag { @include icon("\e906"); }
-.icon-flag { @include icon-flag; };
-
-@mixin icon-pen { @include icon("\e907"); }
+@mixin icon-pen { @include icon("\e911"); }
 .icon-pen { @include icon-pen; };
 
-@mixin icon-up { @include icon("\e908"); }
+@mixin icon-up { @include icon("\e912"); }
 .icon-up { @include icon-up; };
 
-@mixin icon-down { @include icon("\e90b"); }
+@mixin icon-down { @include icon("\e915"); }
 .icon-down { @include icon-down; };
 
-@mixin icon-right { @include icon("\e916"); }
+@mixin icon-right { @include icon("\e905"); }
 .icon-right { @include icon-right; };
 
-@mixin icon-minus { @include icon("\e915"); }
-.icon-minus { @include icon-minus; };
-
-@mixin icon-next { @include icon("\e909"); }
-.icon-next { @include icon-next; };
-
-@mixin icon-alert { @include icon("\e90a"); }
+@mixin icon-alert { @include icon("\e900"); }
 .icon-alert { @include icon-alert; };
 
-@mixin icon-close { @include icon("\e90c"); }
-.icon-close { @include icon-close; };
-
-@mixin icon-previous { @include icon("\e90d"); }
-.icon-previous { @include icon-previous; };
-
-@mixin icon-theme-dark { @include icon("\e90e"); }
+@mixin icon-theme-dark { @include icon("\e904"); }
 .icon-theme-dark { @include icon-theme-dark; };
 
-@mixin icon-theme-light { @include icon("\e90f"); }
+@mixin icon-theme-light { @include icon("\e90a"); }
 .icon-theme-light { @include icon-theme-light; };
 
-@mixin icon-theme-system { @include icon("\e910"); }
+@mixin icon-theme-system { @include icon("\e901"); }
 .icon-theme-system { @include icon-theme-system; };
 
-@mixin icon-anchor { @include icon("\e911"); }
+@mixin icon-anchor { @include icon("\e902"); }
 .icon-anchor { @include icon-anchor; };
 
-@mixin icon-github { @include icon("\e912"); }
+@mixin icon-github { @include icon("\e908"); }
 .icon-github { @include icon-github; };
 
-@mixin icon-info { @include icon("\e913"); }
+@mixin icon-info { @include icon("\e907"); }
 .icon-info { @include icon-info; };
 
-@mixin icon-menu { @include icon("\e914"); }
-.icon-menu { @include icon-menu; };
+@mixin icon-left-panel-open { @include icon("\e909"); }
+.icon-left-panel-open { @include icon-left-panel-open; };
 
-@mixin icon-pin { @include icon("\e91f"); }
-.icon-pin { @include icon-pin; };
+@mixin icon-left-panel-close { @include icon("\e906"); }
+.icon-left-panel-close { @include icon-left-panel-close; };
 
-@mixin icon-pinned { @include icon("\e920"); }
-.icon-pinned { @include icon-pinned; };
-
-@mixin icon-left-panel { @include icon("\e917"); }
-.icon-left-panel { @include icon-left-panel; };
-
-@mixin icon-right-panel { @include icon("\e918"); }
-.icon-right-panel { @include icon-right-panel; };
+@mixin icon-download { @include icon("\e90b"); }
+.icon-download { @include icon-download; };

@@ -2,6 +2,7 @@
 * {
     --system-font: system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     --text-font: var(--system-font);
+    --title-font: var(--text-font);
     --code-font: Consolas, Menlo, Monaco, monospace;
 
     -webkit-font-smoothing: antialiased;
@@ -38,6 +39,9 @@ body {
 }
 
 // Headings
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--title-font);
+}
 h1 {
     font-size: 36px;
     line-height: 1.3;
@@ -264,6 +268,7 @@ input[type=range] {
         font-size: 20px;
         line-height: 1;
         margin-left: 10px;
+        display: flex;
     }
 }
 
@@ -1073,7 +1078,7 @@ video {
         font-size: 0.9em;
 
         &:before {
-            content: "\25B8";
+            content: "\e905";
             text-decoration: none;
             font-size: 1.9em;
             line-height: 1;
@@ -1088,7 +1093,7 @@ video {
 
     &.expanded {
         expander:before {
-            content: "\25BE";
+            content: "\e915";
         }
         fragment { display: block; }
     }

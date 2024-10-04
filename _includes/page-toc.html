@@ -11,8 +11,8 @@
                 <div class="toc-title note">{{ site.toc_title }}</div>
                 {{ jekyll_toc }}
 
-                {% if page.pdf == true %}
-                    <a href="#" class="gen-pdf">Download PDF</a>
+                {% if page.pdf == true or site.pdf == true %}
+                    <a href="#" class="gen-pdf icon-download">Download PDF</a>
                 {% endif %}
             </div>
         </div>

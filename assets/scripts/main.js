@@ -59,6 +59,9 @@ document.querySelectorAll("h2:not(.static), h3:not(.static)").forEach(heading =>
     toggleH(toggle, el);
 }));
 
+// Clickable checkboxes
+document.querySelectorAll(`input[type="checkbox"]`).forEach(c => c.removeAttribute('disabled'));
+
 // Anchor links
 document.querySelectorAll("h2, h3, h4, h5, h6").forEach(heading => {
 
@@ -172,7 +175,8 @@ if (navElement) {
             snapOffset: 70,
             cursor: "ew-resize",
             onDragEnd: function (sizes) {
-                localStorage.setItem(storage, JSON.stringify(sizes))
+                localStorage.setItem(storage, JSON.stringify(sizes));
+                menuElement.classList.toggle("collapsed", sizes[0] < 10);
             }
         });
 
@@ -215,7 +219,7 @@ class Theme {
         this.theme = localStorage.getItem("theme") || "system";
 
        if (window.matchMedia)
-            window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => this.apply());
+            window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => this.apply(this.theme));
 
         this.ctrl = document.querySelector(".change-theme");
         

@@ -1,15 +1,15 @@
 <footer class="main">
     <div class="wrapper">
         <div class="copy">
-            Copyright &copy; {{ site.company }} All rights reserved. &nbsp;
+            Copyright &copy; {{ site.company }} &bull; Icons by Lucide Contributors 2022 &nbsp;&nbsp;
             {% if site.web_url %}
-            <a href="{{ site.web_url }}">{{ site.web_url | replace: 'https://', '' }}</a> &nbsp;|&nbsp; 
+            <a href="{{ site.web_url }}">{{ site.web_url | replace: 'https://', '' }}</a> &nbsp;<span class="sep">|</span>&nbsp; 
             {% endif %}
             {% if site.privacy_url %}
-            <a href="{{ site.privacy_url }}">Privacy Policy</a> &nbsp;|&nbsp; 
+            <a href="{{ site.privacy_url }}">Privacy Policy</a> &nbsp;<span class="sep">|</span>&nbsp; 
             {% endif %}
             {% if site.email %}
-            <a href="mailto:{{ site.email }}">Contact us</a>  
+            <a href="mailto:{{ site.email }}">Contact Us</a>  
             {% endif %}
         </div>
     </div>

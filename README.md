@@ -128,7 +128,7 @@ Parameters:
 - **next_reading_ol:** (optional) list items as ordered list.
 - **related:** (optional) define a list of pages related to this one; you can use URLs relative to the _mydocs root (they must start with a slash) or relative to the same parent path (no slashes at the beginnig) - **../** is not supported. At the bottom of the page will be displayed a section like ***Next Reading***. If defined, the **next_reading** option will be ignored.
 - **related_title:** (optional) set a custom title for the related section. Default is: "Related Pages". You can change the title at the site level by editing the **related_title** variable in the `_config.yml` file.
-- **pdf:** (optional) set ***true*** to enable the PDF download button.
+- **pdf:** (optional) set ***true*** to enable the PDF download button. Note that you can set the PDF download button at the site level by editing the **pdf** variable in the `_config.yml` file.
 
 ### Body
 

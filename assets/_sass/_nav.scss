@@ -158,14 +158,14 @@ nav {
     .ctrl {
         color: var(--alt-color);
 
-        @include icon-left-panel;
+        @include icon-left-panel-close;
     }
 
-    /*&.collapsed {
+    &.collapsed {
         .ctrl {
-            @include icon-right-panel;
+            @include icon-left-panel-open;
         }
-    }*/
+    }
 }
 
 .gutter {

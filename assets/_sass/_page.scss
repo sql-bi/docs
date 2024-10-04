@@ -159,8 +159,8 @@
                 }
                 p:first-child {
                     &:before {
-                        //@include icon-alert; //icon-notice
-                        content: "\e90a" !important;
+                        //@include icon-alert;
+                        content: "\e900" !important;
                     }
                 }
             }
@@ -333,6 +333,11 @@
                 font-size: 1em;
                 line-height: 1;
                 position: absolute;
+
+                &:before {
+                    font-size: 0.9em;
+                    vertical-align: text-bottom;
+                }
             }
             &:hover .anchor-link {
                 display: inline-block;
