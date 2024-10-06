@@ -14,40 +14,61 @@
             pageUrl.search = "";
 
             const contentElement = document.querySelector(".page-content");
-
+            
             // Convert relative links to absolute URLs
             contentElement.querySelectorAll("a").forEach(function(link) {
-                if (link.getAttribute("href") && !link.getAttribute("href").startsWith("http")) {
-                    const absoluteURL = new URL(link.getAttribute("href"), window.location.origin).href;
-                    link.setAttribute("href", absoluteURL);
-                }
+               if (link.getAttribute("href") && !link.getAttribute("href").startsWith("http")) {
+                   const absoluteURL = new URL(link.getAttribute("href"), window.location.origin).href;
+                   link.setAttribute("href", absoluteURL);
+               }
             });
 
-            const docDefinition = {
-                content: htmlToPdfmake(`
-                    <h1>{{ page.title }}</h1>
-                    ${contentElement.innerHTML}
-                    {% if site.data.commit_dates[page.path] or page.modified or page.date %}
-                        <p>  
-                            Last update: 
-                            {% if site.data.commit_dates[page.path] %}
-                                {{ site.data.commit_dates[page.path] | date: "%b %d, %Y" }}
-                            {% elsif page.modified %}
-                                {{ page.modified | date: "%b %d, %Y" }}
-                            {% else %}
-                                {{ page.date | date: "%b %d, %Y" }}
-                            {% endif %}
-                        </p>
-                    {% endif %}
-                    <span class="source">Source: <a href="${pageUrl.toString()}">${pageUrl.toString()}</a></span>
-                `, {
-                    defaultStyles: {
-                        h1: { fontSize:30, bold:true, lineHeight:1.1, marginBottom:10 },
+            const content = htmlToPdfmake(`
+                <h1>{{ page.title }}</h1>
+                ${contentElement.innerHTML}
+                {% if site.data.commit_dates[page.path] or page.modified or page.date %}
+                    <p class="update">  
+                        Last update: 
+                        {% if site.data.commit_dates[page.path] %}
+                            {{ site.data.commit_dates[page.path] | date: "%b %d, %Y" }}
+                        {% elsif page.modified %}
+                            {{ page.modified | date: "%b %d, %Y" }}
+                        {% else %}
+                            {{ page.date | date: "%b %d, %Y" }}
+                        {% endif %}
+                    </p>
+                {% endif %}
+                <p class="source">Source: <a href="${pageUrl.toString()}">${pageUrl.toString()}</a></p>
+            `, {
+                defaultStyles: {
+                    h1: { fontSize:30, bold:true, lineHeight:1.1, marginBottom:10 },
+                    h2: { marginTop:30 },
+                    h3: { marginTop:30 },
+                    h4: { marginTop:20 },
+                    h5: { marginTop:10 },
+                    h6: { marginTop:10 },
+                },
+                //removeExtraBlanks: true,
+            });
+
+            const removeBlank = node => {
+                if (node.text && typeof node.text === "string" && node.text.trim() === "")
+                    return false;
+                const props = ["stack", "ul", "ol"];
+                for (const prop of props) {
+                    if (node[prop]) {
+                        node[prop] = node[prop].filter(removeBlank);
+                        if (node[prop].length === 0) return false;
                     }
-                }),
+                }
+                return true;
+            };
+
+            const docDefinition = {
+                content: content.filter(removeBlank),
                 styles: {
                     source: {
-                        fontSize: 10,
+                        fontSize: 10
                     }
                 },
                 defaultStyle: {

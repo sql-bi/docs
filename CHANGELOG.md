@@ -1,5 +1,8 @@
 # Docs0 Changelog
 
+## 1.1.2 (2024-10-06)
+- Improve PDF generation
+
 ## 1.1.1 (2024-10-04)
 - Theme fixes
 - Support checkboxes in markdown
