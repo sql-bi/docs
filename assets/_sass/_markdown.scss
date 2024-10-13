@@ -202,6 +202,10 @@
         width: 100%;
         overflow: auto
     }
+    .wide table, table.wide {
+        display: table;
+        width: 100%;
+    }
 
     table th {
         font-weight: 600

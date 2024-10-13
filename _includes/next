@@ -10,10 +10,15 @@
     {% assign branch_level = page_url_branch_parts | size | minus: 1 | at_least: 0 %}
     {% assign page_file = _page.url | split: "/" | last %}
 
-    {% if page_url_root == this_page_url and page_url != this_page_url and branch_level == 1%}
-        <li>
-            <a href="{{ page_url }}">{% if _page.next_title %}{{ _page.next_title }}{% else %}{{ _page.title }}{% endif %}</a>{% if _page.description %}: {{ _page.description }}{% endif %}
-        </li>
+    {% if page_url_root == this_page_url and page_url != this_page_url and branch_level == 1 %}
+        {% unless _page.redirect %}
+            {% if _page.unlisted %}
+                {% continue %}
+            {% endif %}
+            <li>
+                <a href="{{ page_url }}">{% if _page.next_title %}{{ _page.next_title }}{% else %}{{ _page.title }}{% endif %}</a>{% if _page.description %}: {{ _page.description }}{% endif %}
+            </li>
+        {% endunless %}
     {% endif %}
 {% endfor %}
 {% endcapture %}

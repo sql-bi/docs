@@ -1,5 +1,8 @@
 # Docs0 Changelog
 
+## 1.1.3 (2024-10-13)
+- Hide redirects and unlisted pages from "Next Reading" list and search index
+
 ## 1.1.2 (2024-10-06)
 - Improve PDF generation
 
