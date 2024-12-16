@@ -15,6 +15,11 @@
     <link rel="stylesheet" href="/assets/css/style.css">
 
     <script src="/assets/scripts/preload.min.js" defer></script>
+    <noscript>
+        <style>
+            .page.loading { visibility: inherit !important; }
+        </style>
+    </noscript>
 </head>
 <body class="page-{{ page.title | slugify }} {% if page.layout == 'home' %}front-site{% endif %} {% if page.body_class %}{{ page.body_class }}{% endif %}">
 

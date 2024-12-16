@@ -1,5 +1,8 @@
 # Docs0 Changelog
 
+## 1.1.4 (2024-12-16)
+- Fix loading style with no script
+
 ## 1.1.3 (2024-10-13)
 - Hide redirects and unlisted pages from "Next Reading" list and search index
 
