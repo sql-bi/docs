@@ -3,7 +3,7 @@ layout:     page
 title:      Registry
 published:  true
 order:      /
-toc_max:    2
+toc_h_max:    2
 ---
 
 Bravo uses registry settings to store company policies, configuration related to the setup, and advanced settings not exposed in the user interface.
