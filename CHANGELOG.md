@@ -1,5 +1,8 @@
 # Docs0 Changelog
 
+## 1.1.5 (2025-02-03)
+- Add image zoom feature
+
 ## 1.1.4 (2024-12-16)
 - Fix loading style with no script
 

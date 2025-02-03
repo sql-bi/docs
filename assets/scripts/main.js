@@ -80,6 +80,13 @@ document.querySelectorAll("img").forEach(img => {
     }
 });
 
+// Zoom images
+mediumZoom(".markdown-body img:not(.nozoom)", {
+    margin: 20,
+    background: "rgba(0, 0, 0, 0.8)",
+    scrollOffset: 40,
+});
+
 // TOC
 const tocElement = document.querySelector(".toc");
 if (tocElement) {

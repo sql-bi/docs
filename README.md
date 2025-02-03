@@ -516,6 +516,8 @@ Always create a folder called images in the parent folder of the document you ar
 
 > You can remove borders from images by adding `class="noborder"` to the img tag.
 
+> You can avoid the zoom effect on images by adding `class="nozoom"` to the img tag.
+
 #### Screencast (Video)
 
 <table>
