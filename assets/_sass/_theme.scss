@@ -140,6 +140,14 @@
     --nav-sel-hover-color: var(--link-hover-color);
     --nav-sel-back-color: var(--accent-back-color);
     --nav-sel-hover-back-color: var(--accent-hover-back-color);
+
+    // Cards
+    --card-color: var(--color);
+    --card-back-color: #f6f8fa;
+    --card-border-color: var(--border-color);
+    --card-hover-color: var(--link-hover-color);
+    --card-hover-back-color: var(--accent-back-color);
+    --card-hover-border-color: var(--link-hover-color);
 }
 
 // Dark colors
@@ -285,6 +293,14 @@
     --nav-sel-hover-color: var(--link-hover-color);
     --nav-sel-back-color: var(--control-back-color);
     --nav-sel-hover-back-color: var(--control-hover-back-color);
+
+    // Cards
+    --card-color: var(--color);
+    --card-back-color: #262626;
+    --card-border-color: var(--border-color);
+    --card-hover-color: var(--link-hover-color);
+    --card-hover-back-color: var(--accent-back-color);
+    --card-hover-border-color: var(--link-hover-color);
 }
 
 // Light theme

@@ -1,5 +1,9 @@
 # Docs0 Changelog
 
+## 1.1.6 (2025-02-25)
+- Add ***no_date*** front-matter property
+- Improve styles
+
 ## 1.1.5 (2025-02-03)
 - Add image zoom feature
 
