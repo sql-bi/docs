@@ -6,49 +6,128 @@ draft:      true
 order:      /Tcdx
 ---
 
-# Introduction to the TCDX Model
+# **Introduction to the TCDX Model**
 
-The **TCDX Model** is a structured representation of tabular model usage, focusing on two primary entities: **Consumers** and **QueryGroups**. These elements capture essential metadata on how Tabular models, such as those implemented in Power BI and SQL Server Analysis Services, are utilized by different clients and queried for data analysis.
+## **Overview**
+The **TCDX Model** is a structured framework designed to **standardize tabular model metadata tracking**, focusing on two primary entities: **Consumers** and **QueryGroups**. These elements capture essential metadata on how **Power BI and SQL Server Analysis Services (SSAS)** tabular models are utilized, facilitating **performance analysis, governance, and interoperability** across multiple tools.
 
-## **Purpose and Scope**
-TCDX serves as a standardized format for extracting and storing information about:
-- **Consumers**: Entities that interact with tabular models, such as Excel files, Power BI reports, or other client applications. It records metadata about the source, location, and interactions with the data model.
-- **QueryGroups**: Collections of queries executed against the tabular model. These include execution statistics, query frequency, and references to tables, columns, and measures within the model.
+The **TCDX format** is a **community-driven project** aimed at becoming a **universal standard** for metadata extraction and model tracking. It is intended for **adoption, extension, and modification** by various **BI tool vendors and developers**. Implementers must **map their tools' requirements** to the TCDX object model and may **contribute improvements** to enhance the framework.
 
-By encapsulating this data in a structured format, TCDX enables efficient analysis, auditing, and optimization of Tabular models usage.
+By offering a **common metadata structure**, TCDX brings **consistency, cross-platform compatibility, and efficient data governance** to the **BI ecosystem**.
 
-## **Core Components**
+---
+
+## **TCDX and the BI Tools Developer Community**
+The **TCDX format** is designed to be **an open standard**, enabling BI professionals, vendors, and tool developers to:
+- **Adopt a unified metadata structure** across **Power BI, Excel, and SSAS tools**.
+- **Extend and modify** the model to accommodate **specific tool requirements**.
+- **Contribute to the community**, ensuring **continuous improvement and scalability**.
+
+Since TCDX is a **work in progress**, its growth depends on **community engagement and collaboration**. The Power BI and SSAS communities can drive **innovation and adoption** by:
+- **Standardizing metadata structures** for improved **cross-tool compatibility**.
+- **Optimizing model performance** through **query execution insights**.
+- **Enhancing governance and data lineage tracking**, ensuring **transparent model usage**.
+
+As **more BI tools integrate TCDX**, it will **serve as a common framework** for **tracking and optimizing tabular model usage** across different reporting environments.
+
+---
+
+## **TCDX Object Model**
+The **TCDX Object Model** is structured around **three key components**:
+
 ### **1. Consumers**
-Consumers represent the clients that interact with tabular models. They are categorized by their type (e.g., Excel, Power BI Service, Power BI Desktop) and include details such as:
-- The host and location of the consumer.
-- Metadata related to the consumer’s acquisition and modification.
-- A collection of **Items**, each representing an object (e.g., pivot tables, reports) that references elements of the tabular model.
+A **Consumer** represents a **client application** that interacts with a tabular model, such as:
+- **Excel workbooks** (pivot tables, Power Query connections).
+- **Power BI reports** (DAX queries, visuals).
+- **Other BI tools** leveraging tabular models.
+
+Each Consumer contains:
+- **Metadata about its type** (Excel, Power BI Service, Power BI Desktop).
+- **Host system details** (file path, cloud environment).
+- **A collection of Items**, representing **pivot tables, reports, and visuals**.
+- **Dependencies on tables, columns, and measures**.
+
+Consumers are grouped under a **ConsumersCollection**, allowing for **efficient management of multiple Consumers** in a **single TCDX file**.
 
 ### **2. QueryGroups**
-QueryGroups capture executed queries and provide insights into their performance and usage patterns. Each QueryGroup includes:
-- The type of query source (e.g., Query Analytics, Profiler, Extended Events).
-- Execution metadata such as total query count, execution time, and performance statistics.
-- References to tables, columns, and measures queried within the model.
+A **QueryGroup** captures **queries executed against a tabular model**, tracking:
+- **Query execution sources** (Query Analytics, SQL Profiler, Extended Events).
+- **Performance statistics**, including **query frequency and execution times**.
+- **References to data elements** (tables, columns, measures).
+
+QueryGroups help organizations **optimize queries, refine data models, and improve reporting efficiency**. They are stored in a **QueryGroupsCollection**, organizing query execution data effectively.
 
 ### **3. Model Dependencies**
-Model dependencies define the relationships between Consumers, QueryGroups, and the Tabular models they reference. This includes:
-- **ModelDependency**: the referenced Tabular model.
-- **TableDependency**: the refernced tables in the the referenced Tabular model.
-- **ColumnDependency**: the columns in the the referenced tables.
-- **MeasureDependency**: referenced measures in the referenced Tabular model.
+Model dependencies define **relationships between Consumers, QueryGroups, and tabular models**, including:
+- **ModelDependency**: The referenced **tabular model**.
+- **TableDependency**: The referenced **tables** in the model.
+- **ColumnDependency**: The referenced **columns** in the tables.
+- **MeasureDependency**: The referenced **measures** used in calculations.
+
+These relationships **enhance visibility into data interactions**, helping BI professionals **optimize reporting and data governance**.
+
+---
+
+## **TCDX as an Industry Standard**
+The **TCDX format** aims to be the **de facto standard** for **tabular model metadata tracking**, with an **open architecture** that enables:
+- **Adoption by multiple BI tools and vendors**, ensuring **interoperability**.
+- **Community-driven development**, allowing implementers to **contribute and refine** the model.
+- **Scalability and extensibility**, ensuring that **TCDX can evolve with BI industry needs**.
+
+TCDX relies on **collaboration from the Power BI and SSAS communities** to:
+- **Standardize metadata structures** for seamless **cross-platform use**.
+- **Enhance model performance** through **detailed query analytics**.
+- **Strengthen governance and data lineage tracking** for better **reporting transparency**.
+
+As **more BI tools integrate TCDX**, it will become **the standard framework for managing tabular model interactions**, improving **efficiency, performance, and governance**.
+
+---
 
 ## **TCDX File Format**
-The extracted metadata is stored in a **TCDX file**, which is a ZIP-compressed archive containing JSON-serialized representations of the Consumers and QueryGroups. This structured approach allows for easy data exchange, analysis, and integration with external tools.
+TCDX metadata is stored in a **ZIP-compressed archive**, containing **JSON-serialized metadata** representing:
+- **Consumers** (reporting tools interacting with the model).
+- **QueryGroups** (executed queries and performance metrics).
+
+This format is:
+- **Optimized for integration** with **BI tools, automation scripts, and DevOps pipelines**.
+- **Structured for scalability**, supporting **multi-tool, multi-environment use cases**.
+- **Designed for extensibility**, allowing **future metadata enhancements**.
+
+---
 
 ## **Integration and Tools**
-The TCDX model is supported by a set of **open-source .NET libraries**, available via NuGet, and includes a **command-line tool (CLI)** for automating data extraction and processing. These libraries and tools purpose is to facilitate:
-- Data extraction from Power BI reports, Excel workbooks, and other clients.
-- Query analysis for performance optimization.
-- Integration with DevOps pipelines for continuous monitoring.
-Most of these functionalities are not yet available and are still to be implemented
+TCDX is supported by **open-source .NET libraries** and a **command-line tool (CLI)** that simplify:
+- **Data extraction** from **Power BI, Excel, and SSAS models**.
+- **Query performance analysis** to enhance **reporting efficiency**.
+- **DevOps integration** for **automated monitoring and optimization**.
 
-## **Conclusion**
-The aim of **TCDX model** is to provide a powerful framework for understanding and managing the interaction between tabular models and their consumers. By capturing metadata on queries, dependencies, and usage patterns, it enables better decision-making for performance tuning, auditing, and governance in data analytics environments.
+### **TCDX Libraries**
+The **TCDX libraries** are hosted on [GitHub](https://github.com/sql-bi/tcdx) and available on **NuGet**:
+
+- **[Dax.Tcdx.Metadata](https://www.nuget.org/packages/Dax.Tcdx.Metadata/)**  
+  Provides a structured representation of **Consumers and QueryGroups**.
+
+- **[Dax.Tcdx](https://www.nuget.org/packages/Dax.Tcdx/)**  
+  Enables **reading and writing TCDX files**.
+
+- **[Dax.Tcdx.Module.Unifier](https://www.nuget.org/packages/Dax.Tcdx.Module.Unifier/)**  
+  Supports **merging multiple TCDX files**.
+
+### **TCDX Command-Line Tool**
+The **[TCDX CLI](https://www.nuget.org/packages/Dax.Tcdx.CLI/)** is a **.NET-based tool** whose purpose is to automate:
+- **Query execution tracking**.
+- **Metadata extraction and storage**.
+- **Report dependency analysis**.
+
+## Note: 
+tcdx cli is a work in progress, it now contains the unifier tool, used to merge tcdx files.
+
+#### **Installation**
+To install:
+```sh
+dotnet tool install Dax.Tcdx.CLI --global
+tcdx --help
+```
 
 ## Tcdx Libraries
 

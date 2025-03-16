@@ -6,53 +6,81 @@ draft:      true
 order:      /03
 ---
 
-# **TCDX Items**
+# **Item**
 
-In the **TCDX model**, a **Consumer** represents an entity that interacts with a tabular model, such as an **Excel workbook** or a **Power BI report**. Within each Consumer, there exist **Items**, which are individual components that reference and utilize data from the tabular model. These Items provide a structured way to track how Consumers interact with data, making it easier to analyze and optimize tabular model usage.
+## **Overview**
+The **`Item`** class in the **TCDX** object model represents an individual object within a **Consumer** that interacts with a tabular model. Examples of Items include:
+- **Pivot tables** in an **Excel workbook**.
+- **Visual elements** (e.g., charts, tables, cards) in a **Power BI report**.
 
-## **Understanding TCDX Items**
-An **Item** in the TCDX model represents a distinct object within a Consumer that interacts with a tabular model. For example:
-- **In Excel**: An Item could be a **pivot table** that queries data from the model.
-- **In Power BI**: An Item could be a **visual component** such as a chart, table, or card that references measures and dimensions.
+Each Item contains metadata and dependencies that describe how it interacts with the tabular model, including **tables, columns, and measures**.
 
-Each Item contains critical references that describe its dependencies within the tabular model, allowing for detailed analysis of data consumption patterns.
+## **Purpose**
+The `Item` class serves as a **bridge** between a **Consumer** (Excel workbook, Power BI report) and the **tabular model** it interacts with. It provides detailed information about:
+- The **model dependency** that the Item references.
+- The **tables, columns, and measures** used within the Item.
+- **Custom properties** that describe the Item's characteristics, such as its type and query language.
 
-## **Components of an Item**
-Each **Item** in the TCDX model is characterized by multiple dependencies that define how it interacts with the underlying data:
+By capturing these details, the `Item` class helps with **auditing, optimization, and governance** of tabular model usage.
 
-### **1. Model Dependency**
-An Item maintains a reference to the **ModelDependency**, which links it to a specific **Tabular model**. This establishes the primary relationship between the Item and the data source it queries.
+---
 
-### **2. Table Dependencies**
-Items include **TableDependency** references, identifying which tables from the tabular model are being accessed.
+## **Public Properties**
+The `Item` class consists of the following key properties:
 
-### **3. Column Dependencies**
-An Item may reference specific **columns** from the referenced tables, captured as **ColumnDependency** objects. These dependencies indicate which fields are directly used in a pivot table or Power BI visual.
+| **Property**         | **Type**                | **Description**  |
+|----------------------|------------------------|------------------|
+| `ItemProperties`     | `Dictionary<string, TcdxName>` | A key-value collection of custom properties that provide additional metadata about the Item. |
+| `Model`             | `ModelDependency`       | A reference to the tabular model used by the Item. |
+| `TableDependencies`  | `List<TableDependency>` | A list of **tables** from the tabular model that are referenced by the Item. |
+| `ColumnDependencies` | `List<ColumnDependency>` | A list of **columns** from the tabular model that are used within the Item. |
+| `MeasureDependencies` | `List<MeasureDependency>` | A list of **measures** applied in the Item. |
 
-### **4. Measure Dependencies**
-Measures are recorded as **MeasureDependency** objects.
+### **Property Details**
+- **ItemProperties**  
+  This dictionary holds metadata about the Item, including:
+  - **`ItemType`**: Specifies the type of the Item (e.g., PivotTable, Power BI Visual).
+  - **`QueryLanguage`**: Defines the query language used by the Item (`DAX`, `MDX`, `SQL`, or `Undefined`).
 
-### **5. Custom Properties**
-Each Item may also contain **custom properties** that provide additional metadata, such as:
-- **ItemType**: Specifies the type of object (e.g., Pivot Table, Power BI Visual).
-- **QueryLanguage**: Indicates the query language used (e.g., DAX, MDX, SQL).
+- **Model**  
+  The `ModelDependency` property links the Item to a specific tabular model, helping track which dataset the Item is referencing.
 
+- **TableDependencies**  
+  A collection of `TableDependency` objects that represent the **tables** accessed by the Item. This is useful for **analyzing data consumption patterns**.
 
+- **ColumnDependencies**  
+  A collection of `ColumnDependency` objects that specify the **columns** being queried or displayed within the Item.
 
+- **MeasureDependencies**  
+  A collection of `MeasureDependency` objects that track which **calculated measures** are used within the Item.
 
-## **Why TCDX Items Matter** <todo visible> ---- fuffa da rimuovere o da aggiustare ?</todo>
-By structuring data consumption in this way, the TCDX model enables:
-- **Auditing**: Understanding which tables, columns, and measures are most frequently used.
-- **Optimization**: Identifying inefficiencies in data model utilization.
-- **Governance**: Ensuring compliance with best practices in data reporting and management.
+---
 
-TCDX Items serve as the fundamental building blocks for analyzing how Consumers interact with tabular models, providing valuable insights for performance tuning and data governance.
+## **Relationships with Other Classes**
+The `Item` class interacts with multiple components of the **TCDX model**:
 
-| Member | Values |  Notes |
-| -- | -- | -- |
-| ItemProperties | keyvalue collection | a key/value collection for the custom properties of the Item. The property **ItemType** is used to specify the type of the object. The property **QueryLanguage** can be **DAX**, **MDX**, **SQL**, **Undefined*** |
-| Model | ModelDependency | reference to the Model |
-| TableDependencies | list of TableDependency | the referenced tables |
-| ColumnDependencies | list of ColumnDependency | the referenced columns |
-| MeasureDependencies | list of MeasureDependency | the referenced measures |
+- **Consumer** → Contains multiple Items, each representing a different component interacting with the tabular model.
+- **ModelDependency** → Links the Item to the specific tabular model it queries.
+- **TableDependency, ColumnDependency, MeasureDependency** → Define the detailed data dependencies of the Item.
+
+### **Class Diagram Representation**
+```
+Item
+├── ItemProperties : Dictionary<string, TcdxName>
+├── Model : ModelDependency
+├── TableDependencies : List<TableDependency>
+├── ColumnDependencies : List<ColumnDependency>
+└── MeasureDependencies : List<MeasureDependency>
+```
+- **Consumer** → *contains multiple* `Item`
+- **Item** → *references* `ModelDependency`
+- **Item** → *has* `TableDependency`, `ColumnDependency`, `MeasureDependency`
+
+---
+
+## **Conclusion**
+The `Item` class is a **core component** of the **TCDX model**, enabling detailed tracking of how tabular models are used within **Excel workbooks** and **Power BI reports**. By maintaining references to **models, tables, columns, and measures**, it helps improve **data analysis, governance, and performance tuning**.
+
+## Note: 
+for privacy reasons, strings are implemented as **TcdxName** objects, to allow a future implementation of objects anonymization.
 

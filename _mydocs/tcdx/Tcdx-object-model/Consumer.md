@@ -6,74 +6,111 @@ draft:      true
 order:      /01
 ---
 
-# **TCDX Consumer**
+# **Consumer**
 
-In the **TCDX model**, a **Consumer** represents a client application that interacts with a tabular model. Consumers include:
-- **Excel workbooks**, containing pivot tables and other data-related components.
-- **Power BI reports**, featuring visuals, tables, and analytical elements referencing the model.
-- **Other client applications**, which may access tabular models for analysis and reporting.
+## **Overview**
+The **`Consumer`** class in the **TCDX** object model represents a **client application** that interacts with a tabular model. This can include:
+- **Excel workbooks** containing pivot tables and other data-connected components.
+- **Power BI reports** with visuals that reference tabular models.
+- **Other client applications** that query and consume tabular model data.
 
-Each Consumer holds information about its source, metadata, and the **Items** it contains. Items are individual components, such as **pivot tables** in Excel or **visual elements** in Power BI, that reference the tabular model.
+Each Consumer contains metadata about its origin, interactions with the tabular model, and a collection of **Items** (such as pivot tables or Power BI visuals) that utilize the model.
 
-## **Structure of a Consumer**
-A **Consumer** contains several key attributes that define its characteristics and interactions with the tabular model:
+---
 
-### **1. Consumer Metadata**
-Each Consumer has general metadata describing its origin and access details:
-- **Consumer Type**: The type of client application (e.g., Excel, Power BI Service, Power BI Desktop).
-- **Host Name**: The system or environment where the Consumer is located (e.g., computer name).
-- **Container**: The location within the host where the Consumer resides (e.g., file path or dataset container).
-- **File Name**: The actual name of the Consumer file, if applicable.
-- **URI**: The Universal Resource Identifier (URI) for cloud-based Consumers.
-- **Acquisition Timestamp**: The date and time when the Consumer was extracted.
-- **Modification Timestamp**: The last known modification time of the Consumer.
+## **Purpose**
+The `Consumer` class serves the following key functions:
+- **Identifies the data source**: Tracks the application (Excel, Power BI, etc.) accessing the tabular model.
+- **Captures interaction metadata**: Stores details such as host system, file location, and modification timestamps.
+- **Maintains a collection of Items**: Each Item represents an individual data-connected object within the Consumer, such as a pivot table in Excel or a visual in Power BI.
+- **Tracks model dependencies**: Establishes relationships between the Consumer and the tabular model it references.
 
-### **2. Items in a Consumer**
-Within a Consumer, **Items** represent individual data components that interact with the tabular model:
-- **In Excel**: An Item could be a **pivot table** or another feature accessing tabular data.
-- **In Power BI**: An Item could be a **visual element**, such as a chart or table referencing measures and dimensions.
+By organizing this data in a structured manner, the `Consumer` class enables auditing, optimization, and governance of tabular model usage.
 
-Each Item tracks its dependencies on the tabular model, capturing:
-- The **model** it references.
-- The **tables** used.
-- The **columns** accessed.
-- The **measures** applied.
+---
 
-### **3. Consumer Properties**
-Consumers may have additional **custom properties**, stored as key-value pairs, to provide further context about the usage of the data model.
+## **Public Properties**
+The `Consumer` class consists of the following key properties:
 
-## **Consumer Collections**
-Consumers are stored within a **ConsumersCollection**, which acts as a container for multiple Consumers. The collection includes:
-- A list of **Consumer** objects.
-- **ConsumersCollectionProperties**, a set of custom properties related to the group of Consumers.
+| **Property**           | **Type**                | **Description**  |
+|------------------------|------------------------|------------------|
+| `ConsumerType`        | `EnumConsumerType`     | Defines the type of client application (e.g., `Excel`, `PowerBIService`, `PowerBIDesktop`). |
+| `HostName`           | `TcdxName`              | The system or environment where the Consumer is located (e.g., computer name). |
+| `Container`          | `TcdxName`              | The location within the host where the Consumer resides (e.g., file path or dataset container). |
+| `FileName`          | `TcdxName`              | The actual name of the Consumer file, if applicable. |
+| `Uri`               | `TcdxName`              | The Universal Resource Identifier (URI) for cloud-based Consumers. |
+| `UtcAcquisition`     | `DateTime`              | The timestamp when the Consumer data was extracted. |
+| `UtcModification`    | `DateTime`              | The last known modification time of the Consumer. |
+| `ConsumerProperties` | `Dictionary<string, TcdxName>` | A key-value collection of **custom properties** specific to the Consumer type. |
+| `Items`             | `List<Item>`            | A list of **Items** within the Consumer, each representing an individual object (e.g., pivot table, Power BI visual). |
 
-## **Importance of Consumers in the TCDX Model**
-Tracking Consumers in the TCDX model allows for:
-- **Understanding Data Usage**: Analyzing which reports and workbooks access the tabular model.
-- **Optimizing Performance**: Identifying which Consumers reference specific tables, columns, and measures to optimize model design.
-- **Improving Data Governance**: Ensuring proper usage and tracking of data access across different applications.
+### **Property Details**
+- **ConsumerType**  
+  Specifies the type of client interacting with the tabular model. Common values include:
+  - `Excel` → An Excel workbook containing pivot tables or other data connections.
+  - `PowerBIService` → A report hosted in Power BI Service.
+  - `PowerBIDesktop` → A Power BI Desktop (.pbix) file.
 
-By structuring Consumers and their Items in a standardized way, the TCDX model provides **clear insights into how data is utilized across Excel, Power BI, and other analytical tools**.
+- **HostName**  
+  Identifies the system or cloud environment where the Consumer is located.
 
+- **Container & FileName**  
+  - `Container` represents the folder or dataset location where the Consumer is stored.
+  - `FileName` provides the actual file name if applicable.
 
-| Member | Values |  Notes |
-| -- | -- | -- |
-| ConsumerType | Excel, PowerBIService, PowerBIDesktop, OtherConsumerType | The type of the client imported | 
-| HostName | TcdxName | The name of the main entity where the client is located, for intance the Computer name |
-| Container | TcdxName | Where the Consumer is located on the HostName, for instance the folder path where the client is located |
-| FileName | TcdxName | The name of the Consumer, when it is a file |
-| Uri | TcdxName | The Universal Location Identifier of the client, if located in the cloud |
-| UtcAcquisition | DateTime | timestamp of the acquisition of the client |
-| UtcModification | DateTime | timestamp of the modification of the client |
-| ConsumerProperties | key/value collection | a custom key value collection for custom properties that depend on the type of client |
-| Items | List of Item | the list of dependencies in the consumer. For instance, if the consumer is an excel workbook, each Item represents a pivot table |
+- **Uri**  
+  Stores the URL or cloud-based identifier of the Consumer when applicable (e.g., Power BI datasets stored in the cloud).
 
-The **ConsumersCollection** is a container for **Consumer** objects
+- **UtcAcquisition & UtcModification**  
+  These timestamps record when the Consumer metadata was collected and when it was last modified.
 
-| Member | Values |  Notes |
-| -- | -- | -- |
-| Consumers | List of consumers | |
-| ConsumersCollectionProperties | key/value collection | a custom key value collection for custom properties for the group of consumers. For instance the path containing all the imported clients |
- 
+- **ConsumerProperties**  
+  A dictionary storing additional **custom properties**, which can vary depending on the type of Consumer.
+
+- **Items**  
+  A collection of `Item` objects representing **individual components** (e.g., Excel pivot tables, Power BI visuals) that reference tabular model elements.
+
+---
+
+## **Methods**
+The `Consumer` class includes the following methods:
+
+### **GetModels()**
+**Returns:** `IEnumerable<ModelDependency>`  
+**Description:** Retrieves a collection of `ModelDependency` objects representing the tabular models that the Consumer references.
+
+---
+
+## **Relationships with Other Classes**
+The `Consumer` class interacts with multiple components in the **TCDX model**:
+
+- **ConsumersCollection** → Contains multiple Consumers.
+- **Item** → Represents individual components within a Consumer (e.g., pivot tables, visuals).
+- **ModelDependency** → Tracks which tabular model the Consumer interacts with.
+
+### **Class Diagram Representation**
+```
+Consumer
+├── ConsumerType : EnumConsumerType
+├── HostName : TcdxName
+├── Container : TcdxName
+├── FileName : TcdxName
+├── Uri : TcdxName
+├── UtcAcquisition : DateTime
+├── UtcModification : DateTime
+├── ConsumerProperties : Dictionary<string, TcdxName>
+└── Items : List<Item>
+```
+- **ConsumersCollection** → *contains multiple* `Consumer`
+- **Consumer** → *contains multiple* `Item`
+- **Consumer** → *references* `ModelDependency`
+
+---
+
+## **Conclusion**
+The `Consumer` class is a **central component** in the **TCDX object model**, enabling structured tracking of how **Excel workbooks, Power BI reports, and other clients** interact with **tabular models**. It provides valuable metadata for **auditing, performance optimization, and governance**, ensuring efficient management of tabular model usage.
+
+By linking **Consumers, Items, and ModelDependencies**, the TCDX model allows for **detailed analysis** of how data is utilized across **different reporting tools and analytics applications**.
+
 ## Note: 
 for privacy reasons, strings are implemented as **TcdxName** objects, to allow a future implementation of objects anonymization.
