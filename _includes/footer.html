@@ -1,12 +1,15 @@
 <footer class="main">
     <div class="wrapper">
         <div class="copy">
-            Copyright &copy; {{ site.company }} &bull; Icons by Lucide Contributors 2022 &nbsp;&nbsp;
+            Copyright &copy; {{ site.company }} &bull; 
             {% if site.web_url %}
             <a href="{{ site.web_url }}">{{ site.web_url | replace: 'https://', '' }}</a> &nbsp;<span class="sep">|</span>&nbsp; 
             {% endif %}
             {% if site.privacy_url %}
             <a href="{{ site.privacy_url }}">Privacy Policy</a> &nbsp;<span class="sep">|</span>&nbsp; 
+            {% endif %}
+            {% if site.terms_url %}
+            <a href="{{ site.terms_url }}">Terms of Use</a> &nbsp;<span class="sep">|</span>&nbsp; 
             {% endif %}
             {% if site.email %}
             <a href="mailto:{{ site.email }}">Contact Us</a>  

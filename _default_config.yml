@@ -9,7 +9,10 @@ web_url:
 # Privacy URL - It's added to the website footer
 privacy_url: 
 
-# GitHub URL - Leave blank if you don't want to display links to GitHub repo
+# Terms URL - It's added to the website footer
+terms_url: 
+
+# GitHub URL - Leave blank if you don't want to display links to GitHub repo
 github_url: 
 
 # Header quick link - This is usually a quick link to the service/product
