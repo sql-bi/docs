@@ -1,7 +1,7 @@
 ---
 layout:     page
 title:      Tcdx
-published:  false
+published:  true
 draft:      true
 order:      /Tcdx
 ---
