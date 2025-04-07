@@ -1,6 +1,6 @@
 ---
 layout:     page
-title:      VersionInfo
+title:      ConsumersCollection
 published:  true
 draft:      true
 order:      /09
