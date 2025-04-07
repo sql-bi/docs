@@ -1,6 +1,6 @@
 ---
 layout:     page
-title:      VersionInfo
+title:      QueryGroupsCollection
 published:  true
 draft:      true
 order:      /10
