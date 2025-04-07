@@ -1,7 +1,7 @@
 ---
 layout:     page
 title:      Item
-published:  false
+published:  true
 draft:      true
 order:      /03
 ---

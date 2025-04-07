@@ -1,7 +1,7 @@
 ---
 layout:     page
 title:      The Tcdx Object Model
-published:  false
+published:  true
 draft:      true
 order:      /Tcdx-object-model
 ---

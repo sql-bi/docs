@@ -1,7 +1,7 @@
 ---
 layout:     page
 title:      TableDependency
-published:  false
+published:  true
 draft:      true
 order:      /05
 ---

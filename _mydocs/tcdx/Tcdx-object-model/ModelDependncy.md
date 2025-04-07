@@ -1,7 +1,7 @@
 ---
 layout:     page
 title:      ModelDependency
-published:  false
+published:  true
 draft:      true
 order:      /04
 ---

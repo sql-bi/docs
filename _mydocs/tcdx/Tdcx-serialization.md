@@ -1,7 +1,7 @@
 ---
 layout:     page
 title:      Tcdx command line tool
-published:  false
+published:  true
 draft:      true
 order:      /02
 ---
