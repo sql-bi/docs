@@ -1,7 +1,7 @@
 ---
 layout:     page
 title:      Consumer
-published:  false
+published:  true
 draft:      true
 order:      /01
 ---

@@ -1,7 +1,7 @@
 ---
 layout:     page
 title:      MeasureDependency
-published:  false
+published:  true
 draft:      true
 order:      /07
 ---

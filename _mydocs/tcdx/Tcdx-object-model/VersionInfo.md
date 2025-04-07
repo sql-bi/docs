@@ -1,7 +1,7 @@
 ---
 layout:     page
 title:      VersionInfo
-published:  false
+published:  true
 draft:      true
 order:      /08
 ---

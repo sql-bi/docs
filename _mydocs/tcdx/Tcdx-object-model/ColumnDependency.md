@@ -1,7 +1,7 @@
 ---
 layout:     page
 title:      ColumnDependency
-published:  false
+published:  true
 draft:      true
 order:      /06
 ---

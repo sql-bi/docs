@@ -1,7 +1,7 @@
 ---
 layout:     page
 title:      QueryGroup
-published:  false
+published:  true
 draft:      true
 order:      /02
 ---
