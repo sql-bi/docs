@@ -73,4 +73,6 @@ By standardizing tabular model tracking, **TCDX.Metadata enables better governan
 
 The Model dependencies are represented with references to the **[VertiPaq Analyzer](https://docs.sqlbi.com/vertipaq-analyzer/)** object model
 
-<img src="images/tcdx_full_diagram.svg" width="800">
+<div style="background-color: white;">
+    <img src="images/tcdx_full_diagram.svg" width="800" style="background-color: transparent;">
+</div>
