@@ -9,7 +9,7 @@ order:      /Tcdx-object-model
 # **TCDX**
 
 ## **Overview**
-The **TCDX.Metadata** library provides a structured representation of **tabular model metadata**, enabling **standardized tracking** of how **Power BI, Excel, and SQL Server Analysis Services (SSAS)** interact with tabular models. It defines the **TCDX Object Model**, which organizes metadata related to [`Consumer`](./consumer.md), [`QueryGroup`](./QueryGroup.md), and [`ModelDependency`](./ModelDependency.md) items.
+The **TCDX.Metadata** library provides a structured representation of **tabular model metadata**, enabling **standardized tracking** of how **Power BI, Excel, and SQL Server Analysis Services (SSAS)** interact with tabular models. It defines the **TCDX Object Model**, which organizes metadata related to [`Consumer`](./Consumer.md), [`QueryGroup`](./QueryGroup.md), and [`ModelDependency`](./ModelDependency.md) items.
 
 By leveraging **TCDX.Metadata**, developers and BI professionals can analyze:
 - **Which applications (Consumers) reference tabular models**.
