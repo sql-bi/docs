@@ -6,7 +6,7 @@ draft:      true
 order:      /01
 ---
 
-**Dax.Tcdx.CLI** is a command-line tool developed in .NET and distributed as a [dotnet tool](https://learn.microsoft.com/en-us/dotnet/core/tools/global-tools).
+`Dax.Tcdx.CLI` is a command-line tool developed in .NET and distributed as a [dotnet tool](https://learn.microsoft.com/en-us/dotnet/core/tools/global-tools).
 
 The tool is open-source; its source code is available in the [Tcdx GitHub repository](https://github.com/sql-bi/tcdx).
 
