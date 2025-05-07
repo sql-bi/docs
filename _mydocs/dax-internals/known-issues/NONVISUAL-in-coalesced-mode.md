@@ -8,7 +8,7 @@ order:      /20
 Using NONVISUAL has bugs when used in SUMMARIZECOLUMNS when the semantic model has **Coalesced** setting for [Value Filter Behavior](https://learn.microsoft.com/en-us/power-bi/transform-model/value-filter-behavior). The result of the query changes depending on the expansion of the levels in the matrix visual that generates the DAX query.
 
 Example of the inconsistent behavior:
-https://dax.do/avumjaz1M5SFgK/
+[NONVISUAL in Coalesced Mode on DAX.do](https://dax.do/avumjaz1M5SFgK/)
 
 Workarounds:
 

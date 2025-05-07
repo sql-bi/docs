@@ -48,7 +48,7 @@ ORDER BY [Sales Amount] DESC
 ```
 
 The result of several measurescan be 2 or 1, depending on the expression used in the iterator.
-Example visible here: https://dax.do/d3Hd4HSRghEbk4/
+Example visible here: [Iterators in coalesced mode - DAX.do](https://dax.do/d3Hd4HSRghEbk4/)
 
 Workarounds:
 
