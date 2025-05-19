@@ -26,13 +26,13 @@ The `TableDependency` class consists of the following key properties:
 
 | **Property**    | **Type**                | **Description**  |
 |----------------|------------------------|------------------|
-| `Model`       | [`ModelDependency`](.\ModelDependency.md)       | A reference to the tabular model where the table resides. |
+| `Model`       | [`ModelDependency`](./ModelDependency.md)       | A reference to the tabular model where the table resides. |
 | `TableName`   | `TcdxName`              | The name of the referenced table within the tabular model. |
 | `ModelTable`  | `Dax.Metadata.Table`    | A reference to the table in the [`VertiPaq Analyzer (VPAX) object model`](https://docs.sqlbi.com/vertipaq-analyzer/), if available. |
 
 ### Property Details
 - `Model`  
-  - This property links the `TableDependency` to a specific tabular model via a [`ModelDependency`](.\ModelDependency.md) object.
+  - This property links the `TableDependency` to a specific tabular model via a [`ModelDependency`](./ModelDependency.md) object.
     - It helps track which model the table belongs to.
 
 - `TableName`  
@@ -48,11 +48,11 @@ The `TableDependency` class consists of the following key properties:
 ## Relationships with Other Classes
 The `TableDependency` class interacts with multiple components in the TCDX model:
 
-- [`ModelDependency`](.\ModelDependency.md) → Links the table to the specific tabular model.
-- [`Consumer`](.\Consumer.md) → Stores table dependencies used within Excel, Power BI, or other client applications.
-- [`Item`](.\Item.md) → Represents individual objects (pivot tables, visuals) that reference specific tables.
-- [`ColumnDependency`](.\ColumnDependency.md) → Tracks column-level dependencies within the referenced table.
-- [`MeasureDependency`](.\MeasureDependency.md) → Captures measure dependencies that rely on a specific table.
+- [`ModelDependency`](./ModelDependency.md) → Links the table to the specific tabular model.
+- [`Consumer`](./Consumer.md) → Stores table dependencies used within Excel, Power BI, or other client applications.
+- [`Item`](./Item.md) → Represents individual objects (pivot tables, visuals) that reference specific tables.
+- [`ColumnDependency`](./ColumnDependency.md) → Tracks column-level dependencies within the referenced table.
+- [`MeasureDependency`](./MeasureDependency.md) → Captures measure dependencies that rely on a specific table.
 
 ### Class Diagram Representation
 ```
@@ -61,10 +61,10 @@ TableDependency
 ├── TableName : TcdxName
 └── ModelTable : Dax.Metadata.Table
 ```
-- [`Item`](.\Item.md) → *references multiple* [`TableDependency`]
-- `TableDependency` → *references* [`ModelDependency`](.\ModelDependency.md)
-- [`ColumnDependency`](.\ColumnDependency.md) → *references* [`TableDependency`]
-- [`MeasureDependency`](.\MeasureDependency.md) → *references* [`TableDependency`]
+- [`Item`](./Item.md) → *references multiple* [`TableDependency`]
+- `TableDependency` → *references* [`ModelDependency`](./ModelDependency.md)
+- [`ColumnDependency`](./ColumnDependency.md) → *references* [`TableDependency`]
+- [`MeasureDependency`](./MeasureDependency.md) → *references* [`TableDependency`]
 
 ---
 

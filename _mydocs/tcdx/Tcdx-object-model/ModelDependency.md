@@ -28,11 +28,11 @@ The `ModelDependency` class consists of the following properties:
 
 ## Relationships with Other Classes
 The `ModelDependency` class is referenced by multiple dependency classes, including:
-- [`TableDependency`](.\TableDependency.md) – To track table-level dependencies.
-- [`ColumnDependency`](.\ColumnDependency.md) – To track column-level dependencies.
-- [`MeasureDependency`](.\MeasureDependency.md) – To track measure dependencies.
-- [`Item`](.\Item.md) – To establish which model a specific Item belongs to.
-- [`QueryGroup`](.\QueryGroup.md) – To reference the model involved in query execution.
+- [`TableDependency`](./TableDependency.md) – To track table-level dependencies.
+- [`ColumnDependency`](./ColumnDependency.md) – To track column-level dependencies.
+- [`MeasureDependency`](./MeasureDependency.md) – To track measure dependencies.
+- [`Item`](./Item.md) – To establish which model a specific Item belongs to.
+- [`QueryGroup`](./QueryGroup.md) – To reference the model involved in query execution.
 
 ### Class Diagram Representation
 ```
@@ -42,9 +42,9 @@ ModelDependency
 └── Model : Dax.Metadata.Model
 ```
 References:
-- [`TableDependency`](.\TableDependency.md) → `ModelDependency`
-- [`ColumnDependency`](.\ColumnDependency.md) → `ModelDependency`
-- [`MeasureDependency`](.\MeasureDependency.md) → `ModelDependency`
+- [`TableDependency`](./TableDependency.md) → `ModelDependency`
+- [`ColumnDependency`](./ColumnDependency.md) → `ModelDependency`
+- [`MeasureDependency`](./MeasureDependency.md) → `ModelDependency`
 
 ## Conclusion
 The `ModelDependency` class plays a crucial role in the TCDX model by ensuring that every Consumer, QueryGroup, and Item correctly references the tabular model it depends on. It serves as a link between external Consumers and the underlying tabular model, making it an essential part of data tracking, optimization, and governance.

@@ -31,8 +31,8 @@ The `QueryGroup` class consists of the following key properties:
 | `QueryGroupName`             | `TcdxName`                     | The name of the query group. |
 | `CorrelationId`              | `string`                       | A unique identifier used to link the query group to external logs. |
 | `QueryGroupProperties`       | `Dictionary<string, int>`      | A key-value collection of custom properties related to the query group. |
-| `Model`                     | [`ModelDependency`](.\ModelDependency.md)              | A reference to the model used in the queries. |
-| `Item`                      | [`Item`](.\Item.md)            | The Item (e.g., a pivot table or Power BI visual) that issued the queries. |
+| `Model`                     | [`ModelDependency`](./ModelDependency.md)              | A reference to the model used in the queries. |
+| `Item`                      | [`Item`](./Item.md)            | The Item (e.g., a pivot table or Power BI visual) that issued the queries. |
 | `TableQueries`              | `Dictionary<string, int>`      | A count of queries referencing each table in the tabular model. |
 | `ColumnQueries`             | `Dictionary<string, int>`      | A count of queries referencing each column in the tabular model. |
 | `MeasureQueries`            | `Dictionary<string, int>`      | A count of queries referencing each measure in the tabular model. |
@@ -67,7 +67,7 @@ The `QueryGroup` class consists of the following key properties:
   - A [`ModelDependency`](./ModelDependency.md) reference linking the queries to the tabular model.
 
 - Item  
-  - The [`Item`](.\Item.md) (such as a Power BI visual or an Excel pivot table) that executed the queries.
+  - The [`Item`](./Item.md) (such as a Power BI visual or an Excel pivot table) that executed the queries.
 
 - `TableQueries`, `ColumnQueries`, `MeasureQueries`, `TokenQueries`  
   - These dictionaries store counters for how frequently specific tables, columns, and measures were queried.
@@ -87,8 +87,8 @@ The `QueryGroup` class consists of the following key properties:
 ## Relationships with Other Classes
 The `QueryGroup` class interacts with multiple components in the TCDX model:
 
-- [`ModelDependency`](.\ModelDependency.md) → Links the queries to the specific tabular model.
-- [`Item`](.\|Item.md]) → Represents the data component (e.g., pivot table, Power BI visual) that generated the queries.
+- [`ModelDependency`](./ModelDependency.md) → Links the queries to the specific tabular model.
+- [`Item`](./|Item.md]) → Represents the data component (e.g., pivot table, Power BI visual) that generated the queries.
 - [`TableDependency`](./TableDependency.md) → Captures references to the tables queried.
 - [`ColumnDependency`](./ColumnDependency.md) → Captures references to the columns queried.
 - [`MeasureDependency`](./MeasureDependency.md) → Captures references to the measures queried.

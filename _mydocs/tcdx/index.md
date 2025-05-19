@@ -9,7 +9,7 @@ order:      /Tcdx
 # Introduction to the TCDX Model
 
 ## Overview
-The TCDX Model is a structured framework designed to standardize tabular model metadata tracking, focusing on two primary entities: [`Consumer`](.\Tcdx-object-model\Consumer.md)) and [`QueryGroup`](.\Tcdx-object-model\QueryGroup.md)) items. These elements capture essential metadata on how Power BI and SQL Server Analysis Services (SSAS) tabular models are utilized, facilitating performance analysis, governance, and interoperability across multiple tools.
+The TCDX Model is a structured framework designed to standardize tabular model metadata tracking, focusing on two primary entities: [`Consumer`](./Tcdx-object-model/Consumer.md) and [`QueryGroup`](./Tcdx-object-model/QueryGroup.md) items. These elements capture essential metadata on how Power BI and SQL Server Analysis Services (SSAS) tabular models are utilized, facilitating performance analysis, governance, and interoperability across multiple tools.
 
 The TCDX format is a community-driven project aimed at becoming a universal standard for metadata extraction and model tracking. It is intended for adoption, extension, and modification by various BI tool vendors and developers. Implementers must map their tools' requirements to the TCDX object model and may contribute improvements to enhance the framework.
 
@@ -36,7 +36,7 @@ As more BI tools integrate TCDX, it will serve as a common framework for trackin
 The TCDX Object Model is structured around three key components:
 
 ### 1. Consumer
-A [`Consumer`](.\Tcdx-object-model\Consumer.md) represents a client application that interacts with a tabular model, such as:
+A [`Consumer`](./Tcdx-object-model/Consumer.md) represents a client application that interacts with a tabular model, such as:
 - Excel workbooks (pivot tables, Power Query connections).
 - Power BI reports (DAX queries, visuals).
 - Other BI tools leveraging tabular models.
@@ -47,22 +47,22 @@ Each Consumer contains:
 - A collection of items, representing pivot tables, reports, and visuals.
 - Dependencies on tables, columns, and measures.
 
-Consumers are grouped under a [`ConsumersCollection`](.\Tcdx-object-model\ConsumersCollection.md), allowing for efficient management of multiple Consumers in a single TCDX file.
+Consumers are grouped under a [`ConsumersCollection`](./Tcdx-object-model/ConsumersCollection.md), allowing for efficient management of multiple Consumers in a single TCDX file.
 
 ### 2. QueryGroups
-A [`QueryGroup`](.\Tcdx-object-model\QueryGroup.md) captures queries executed against a tabular model, tracking:
+A [`QueryGroup`](./Tcdx-object-model/QueryGroup.md) captures queries executed against a tabular model, tracking:
 - Query execution sources (Query Analytics, SQL Profiler, Extended Events).
 - Performance statistics, including query frequency and execution times.
 - References to data elements (tables, columns, measures).
 
-`QueryGroup` items help organizations optimize queries, refine data models, and improve reporting efficiency. They are stored in a [`QueryGroupsCollection`](.\Tcdx-object-model\QueryGroupsCollection.md), organizing query execution data effectively.
+`QueryGroup` items help organizations optimize queries, refine data models, and improve reporting efficiency. They are stored in a [`QueryGroupsCollection`](./Tcdx-object-model/QueryGroupsCollection.md), organizing query execution data effectively.
 
 ### 3. Model Dependencies
 Model dependencies define relationships between Consumers, QueryGroups, and tabular models, including:
-- [`ModelDependency`](.\Tcdx-object-model\ModelDependency.md): The referenced tabular model.
-- [`TableDependency`](.\Tcdx-object-model\TableDependency.md): The referenced tables in the model.
-- [`ColumnDependency`](.\Tcdx-object-model\ColumnDependency.md): The referenced columns in the tables.
-- [`MeasureDependency`](.\Tcdx-object-model\MeasureDependency.md): The referenced measures used in calculations.
+- [`ModelDependency`](./Tcdx-object-model/ModelDependency.md): The referenced tabular model.
+- [`TableDependency`](./Tcdx-object-model/TableDependency.md): The referenced tables in the model.
+- [`ColumnDependency`](./Tcdx-object-model/ColumnDependency.md): The referenced columns in the tables.
+- [`MeasureDependency`](./Tcdx-object-model/MeasureDependency.md): The referenced measures used in calculations.
 
 These relationships enhance visibility into data interactions, helping BI professionals optimize reporting and data governance.
 
@@ -85,8 +85,8 @@ As more BI tools integrate TCDX, it will become the standard framework for manag
 
 ## TCDX File Format
 TCDX metadata is stored in a ZIP-compressed archive, containing JSON-serialized metadata representing:
-- [`Consumer`](.\Tcdx-object-model\Consumer.md) items: reporting tools interacting with the model.
-- [`QueryGroup`](.\Tcdx-object-model\QueryGroup.md) items: executed queries and performance metrics.
+- [`Consumer`](./Tcdx-object-model/Consumer.md) items: reporting tools interacting with the model.
+- [`QueryGroup`](./Tcdx-object-model/QueryGroup.md) items: executed queries and performance metrics.
 
 This format is:
 - Optimized for integration with BI tools, automation scripts, and DevOps pipelines.

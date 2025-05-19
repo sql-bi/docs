@@ -10,7 +10,7 @@ order:      /10
 # QueryGroupsCollection Class Documentation
 
 ## Overview
-The `QueryGroupsCollection` class in the TCDX object model acts as a container for multiple []`QueryGroup`](.\QueryGroup.md) objects, representing collections of executed queries against a tabular model. It is used to aggregate, organize, and analyze query activity across different Consumers (such as Excel workbooks or Power BI reports). 
+The `QueryGroupsCollection` class in the TCDX object model acts as a container for multiple []`QueryGroup`](./QueryGroup.md) objects, representing collections of executed queries against a tabular model. It is used to aggregate, organize, and analyze query activity across different Consumers (such as Excel workbooks or Power BI reports). 
 
 This class enables structured tracking of query executions, providing insights into query performance, frequency, and data access patterns.
 
@@ -34,17 +34,17 @@ The `QueryGroupsCollection` class consists of the following key properties:
 | Property                           | Type                                       | Description       |
 |------------------------------------|--------------------------------------------|-------------------|
 | `QueryGroupsCollectionProperties` | `Dictionary<string, TcdxName>`             | A key-value collection of custom properties related to the QueryGroups collection. |
-| [`QueryGroup`](.\Tcdx-object-model\QueryGroup.md)                      | `List<QueryGroup>`                         | A list of QueryGroup objects, each representing a set of executed queries. |
+| [`QueryGroup`](./QueryGroup.md)                      | `List<QueryGroup>`                         | A list of QueryGroup objects, each representing a set of executed queries. |
 
 ### Property Details
 - QueryGroupsCollectionProperties
-  - Stores metadata about the collection of [`QueryGroup`](.\QueryGroup.md) objects.
+  - Stores metadata about the collection of [`QueryGroup`](./QueryGroup.md) objects.
   - Examples of properties:
     - `Query Source` → Defines whether queries were captured via Query Analytics, Extended Events, or Profiler.
     - `Environment Information` → Additional details about the dataset or reporting environment.
 
 - QueryGroups
-  - Holds a list of [`QueryGroup`](.\QueryGroup.md) objects, each representing a set of queries executed against a tabular model.
+  - Holds a list of [`QueryGroup`](./QueryGroup.md) objects, each representing a set of queries executed against a tabular model.
   - Allows batch processing of multiple QueryGroups within a single TCDX file.
 
 ---
@@ -54,27 +54,27 @@ The `QueryGroupsCollection` class typically includes methods for managing QueryG
 
 ### AddQueryGroup(QueryGroup queryGroup)
 Description:  
-Adds a [`QueryGroup`](.\QueryGroup.md) object to the collection.
+Adds a [`QueryGroup`](./QueryGroup.md) object to the collection.
 
 ### GetAllQueryGroups()
 Returns: `List<QueryGroup>`  
 Description:  
-Retrieves all [`QueryGroup`](.\QueryGroup.md) objects within the collection.
+Retrieves all [`QueryGroup`](./QueryGroup.md) objects within the collection.
 
 ### FindQueryGroupByName(TcdxName queryGroupName)
-Returns: [`QueryGroup`](.\QueryGroup.md) *(if found)*  
+Returns: [`QueryGroup`](./QueryGroup.md) *(if found)*  
 Description:  
-Searches for a [`QueryGroup`](.\QueryGroup.md) object by name within the collection.
+Searches for a [`QueryGroup`](./QueryGroup.md) object by name within the collection.
 
 ---
 
 ## Relationships with Other Classes
 The `QueryGroupsCollection` class interacts with multiple components in the TCDX model:
 
-- [`QueryGroup`](.\QueryGroup.md) → Represents a set of executed queries and their associated performance metrics.
-- [`ModelDependency`]](.\ModelDependency.md) → Each [`QueryGroup`](.\QueryGroup.md) references the tabular model that was queried.
-- [`Item`](.\Item.md) → A [`QueryGroup`](.\QueryGroup.md) may be linked to an [`Item`](.\Item.md) (such as a Power BI visual or an Excel pivot table) that issued the queries.
-- [`ConsumersCollection`](.\ConsumersCollection.md) → The [`Consumer`](.\Consumer.md) objects in the queries tracked in [`QueryGroup`](.\QueryGroup.md) objects.
+- [`QueryGroup`](./QueryGroup.md) → Represents a set of executed queries and their associated performance metrics.
+- [`ModelDependency`]](./ModelDependency.md) → Each [`QueryGroup`](./QueryGroup.md) references the tabular model that was queried.
+- [`Item`](./Item.md) → A [`QueryGroup`](./QueryGroup.md) may be linked to an [`Item`](./Item.md) (such as a Power BI visual or an Excel pivot table) that issued the queries.
+- [`ConsumersCollection`](./ConsumersCollection.md) → The [`Consumer`](./Consumer.md) objects in the queries tracked in [`QueryGroup`](./QueryGroup.md) objects.
 
 ### Class Diagram Representation
 ```
@@ -100,10 +100,10 @@ QueryGroupsCollection
       ├── UtcStart : DateTime
       └── UtcEnd : DateTime
 ```
-- [`QueryGroupsCollection`](.\QueryGroupsCollection.md) → *contains multiple* []`QueryGroup`](.\QueryGroup.md)
-- [`QueryGroup`](.\QueryGroup.md) → *references* [`ModelDependency`](.\ModelDependency.md)
-- [`QueryGroup`](.\QueryGroup.md) → *references* [`Item`](.\Item.md)
-- [`QueryGroup`](.\QueryGroup.md) → *references* [`TableDependency`](.\TableDependency.md), [`ColumnDependency`](.\ColumnDependency.md), [`MeasureDependency`](.\MeasureDependency.md)
+- [`QueryGroupsCollection`](./QueryGroupsCollection.md) → *contains multiple* []`QueryGroup`](./QueryGroup.md)
+- [`QueryGroup`](./QueryGroup.md) → *references* [`ModelDependency`](./ModelDependency.md)
+- [`QueryGroup`](./QueryGroup.md) → *references* [`Item`](./Item.md)
+- [`QueryGroup`](./QueryGroup.md) → *references* [`TableDependency`](./TableDependency.md), [`ColumnDependency`](./ColumnDependency.md), [`MeasureDependency`](./MeasureDependency.md)
 
 ---
 

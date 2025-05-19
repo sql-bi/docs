@@ -24,7 +24,7 @@ This library is designed to enable interoperability, improve governance, and enh
 The TCDX Object Model is structured around three key components:
 
 ### 1. Consumers
-A [`Consumer`](.\Consumer) represents an application that interacts with a tabular model, such as:
+A [`Consumer`](./Consumer) represents an application that interacts with a tabular model, such as:
 - Excel workbooks (pivot tables, Power Query).
 - Power BI reports (DAX queries, visuals).
 - Other business intelligence tools that access tabular data.
