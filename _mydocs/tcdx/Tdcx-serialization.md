@@ -9,7 +9,7 @@ order:      /02
 # Tcdx serialization and deserialization
 
 ## Introduction
-The `Dax.Tcdx` NuGet package provides serialization and deserialization capabilities for the `TCDX` object model, a structured representation of tabular model usage in **Power BI, Excel, and other analytical environments**. 
+The `Dax.Tcdx` NuGet package provides serialization and deserialization capabilities for the `TCDX` object model, a structured representation of tabular model usage in Power BI, Excel, and other analytical environments. 
 
 This package enables developers to import and export TCDX files, facilitating analysis of how tabular models are consumed by different clients. It works in conjunction with the [`Dax.Tcdx.Metadata`](.\Tcdx-object-model\index.md) package, which defines the metadata structures required for TCDX operations.
 

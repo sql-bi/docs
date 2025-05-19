@@ -34,17 +34,17 @@ The `QueryGroupsCollection` class consists of the following key properties:
 | Property                           | Type                                       | Description       |
 |------------------------------------|--------------------------------------------|-------------------|
 | `QueryGroupsCollectionProperties` | `Dictionary<string, TcdxName>`             | A key-value collection of custom properties related to the QueryGroups collection. |
-| `QueryGroups`                      | `List<QueryGroup>`                         | A list of QueryGroup objects, each representing a set of executed queries. |
+| [`QueryGroup`](.\Tcdx-object-model\QueryGroup.md)                      | `List<QueryGroup>`                         | A list of QueryGroup objects, each representing a set of executed queries. |
 
 ### Property Details
 - QueryGroupsCollectionProperties
-  - Stores metadata about the collection of []`QueryGroup`](.\QueryGroup.md) objects.
+  - Stores metadata about the collection of [`QueryGroup`](.\QueryGroup.md) objects.
   - Examples of properties:
     - `Query Source` → Defines whether queries were captured via Query Analytics, Extended Events, or Profiler.
     - `Environment Information` → Additional details about the dataset or reporting environment.
 
 - QueryGroups
-  - Holds a list of QueryGroup objects, each representing a set of queries executed against a tabular model.
+  - Holds a list of [`QueryGroup`](.\QueryGroup.md) objects, each representing a set of queries executed against a tabular model.
   - Allows batch processing of multiple QueryGroups within a single TCDX file.
 
 ---
@@ -59,7 +59,7 @@ Adds a [`QueryGroup`](.\QueryGroup.md) object to the collection.
 ### GetAllQueryGroups()
 Returns: `List<QueryGroup>`  
 Description:  
-Retrieves all `QueryGroup` objects within the collection.
+Retrieves all [`QueryGroup`](.\QueryGroup.md) objects within the collection.
 
 ### FindQueryGroupByName(TcdxName queryGroupName)
 Returns: [`QueryGroup`](.\QueryGroup.md) *(if found)*  

@@ -27,8 +27,8 @@ The `TableDependency` class consists of the following key properties:
 | **Property**    | **Type**                | **Description**  |
 |----------------|------------------------|------------------|
 | `Model`       | [`ModelDependency`](.\ModelDependency.md)       | A reference to the tabular model where the table resides. |
-| `TableName`   | [`TcdxName`](.\TcdxName.md)              | The name of the referenced table within the tabular model. |
-| `ModelTable`  | `Dax.Metadata.Table`    | A reference to the table in the VertiPaq Analyzer (VPAX) object model, if available. |
+| `TableName`   | `TcdxName`              | The name of the referenced table within the tabular model. |
+| `ModelTable`  | `Dax.Metadata.Table`    | A reference to the table in the [`VertiPaq Analyzer (VPAX) object model`](https://docs.sqlbi.com/vertipaq-analyzer/), if available. |
 
 ### Property Details
 - `Model`  
@@ -62,7 +62,7 @@ TableDependency
 └── ModelTable : Dax.Metadata.Table
 ```
 - [`Item`](.\Item.md) → *references multiple* [`TableDependency`]
-- [`TableDependency`] → *references* [`ModelDependency`](.\ModelDependency.md)
+- `TableDependency` → *references* [`ModelDependency`](.\ModelDependency.md)
 - [`ColumnDependency`](.\ColumnDependency.md) → *references* [`TableDependency`]
 - [`MeasureDependency`](.\MeasureDependency.md) → *references* [`TableDependency`]
 
@@ -79,4 +79,4 @@ This class is particularly useful for:
 By integrating `TableDependency` into the TCDX model, organizations can gain insights into tabular model usage and enhance overall data management across Power BI, Excel, and other reporting tools.
 
 ## Note: 
-For privacy reasons, strings are implemented as `TcdxName` objects, to allow a future implementation of objects anonymization.
+For privacy reasons, strings are implemented as [`TcdxName`] objects, to allow a future implementation of objects anonymization.
