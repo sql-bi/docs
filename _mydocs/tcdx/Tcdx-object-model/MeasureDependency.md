@@ -30,7 +30,7 @@ The `MeasureDependency` class consists of the following key properties:
 | `Model`       | [`ModelDependency`](./ModelDependency.md) | A reference to the tabular model where the measure resides. |
 | `MeasureName` | `TcdxName`              | The name of the referenced measure within the tabular model. |
 | `Table`       | [`TableDependency`](./TableDependency.md)       | A reference to the table dependency associated with this measure. |
-| `ModelMeasure` | [`Dax.Metadata.Measure`](./Dax.Metadata.Measure.md)  | A reference to the measure in the [`VertiPaq Analyzer (VPAX) object model`](https://docs.sqlbi.com/vertipaq-analyzer/), if available. |
+| `ModelMeasure` | `Dax.Metadata.Measure`  | A reference to the measure in the [`VertiPaq Analyzer (VPAX) object model`](https://docs.sqlbi.com/vertipaq-analyzer/), if available. |
 
 ### Property Details
 - Model  
