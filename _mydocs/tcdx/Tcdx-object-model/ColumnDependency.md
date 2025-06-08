@@ -61,8 +61,8 @@ The `ColumnDependency` class interacts with multiple components in the `TCDX` mo
 
 - [`ModelDependency`](./ModelDependency.md) → Links the column to the specific tabular model.
 - [`TableDependency`](./TableDependency.md) → Represents the table that contains the referenced column.
-- [`Consumer`](../Consumer.md) → Stores column dependencies used within `Excel`, `Power BI`, or other client applications.
-- [`Item`](../Item.md) → Represents individual objects (pivot tables, visuals) that reference specific columns.
+- [`Consumer`](./Consumer.md) → Stores column dependencies used within `Excel`, `Power BI`, or other client applications.
+- [`Item`](./Item.md) → Represents individual objects (pivot tables, visuals) that reference specific columns.
 - [`MeasureDependency`](./MeasureDependency.md) → Captures measure dependencies that rely on a specific column.
 
 ### Class Diagram Representation
@@ -74,7 +74,7 @@ ColumnDependency
 ├── Table : TableDependency
 └── ModelColumn : Dax.Metadata.Column
 ```
-- [`Item`](../Item.md) → *references multiple* `ColumnDependency`
+- [`Item`](./Item.md) → *references multiple* `ColumnDependency`
 - `ColumnDependency` → *belongs to* [`TableDependency`](./TableDependency.md)
 - `ColumnDependency` → *belongs to* [`ModelDependency`](./ModelDependency.md)
 - [`MeasureDependency`](./MeasureDependency.md) → *may reference* `ColumnDependency`
