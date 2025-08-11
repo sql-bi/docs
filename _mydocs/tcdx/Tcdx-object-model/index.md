@@ -22,6 +22,11 @@ This library is designed to enable interoperability, improve governance, and enh
 
 ## TCDX Object Model
 The TCDX Object Model is structured around three key components:
+  1. Consumers
+  2. QueryGroups
+  3. Model Dependencies
+
+<img src="images/tcdx_full_diagram.svg" width="800">
 
 ### 1. Consumers
 A [`Consumer`](./Consumer) represents an application that interacts with a tabular model, such as:
@@ -64,13 +69,13 @@ TCDX.Metadata is a work in progress, designed to be extended and improved by the
 
 ---
 
-## Conclusion
+## Call to Action
 The `TCDX.Metadata` library provides a powerful, structured approach to managing tabular model metadata, helping BI professionals, data engineers, and developers gain deeper insights into model usage, query execution, and data dependencies. 
 
 By standardizing tabular model tracking, `TCDX.Metadata` enables better governance, optimization, and interoperability across Power BI, Excel, and other BI tools.
 
 🚀 Get involved and help shape the future of tabular model metadata management with TCDX!
 
-The Model dependencies are represented with references to the [`VertiPaq Analyzer (VPAX) object model`](https://docs.sqlbi.com/vertipaq-analyzer/)
+The Model dependencies are represented with references to the [`VertiPaq Analyzer (VPAX) object model`](https://docs.sqlbi.com/vertipaq-analyzer/).
 
-<img src="images/tcdx_full_diagram.svg" width="800">
+
