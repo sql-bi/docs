@@ -4,6 +4,7 @@ title:      The Tcdx Object Model
 published:  true
 draft:      true
 order:      /Tcdx-object-model
+next_reading: true
 ---
 
 # TCDX
