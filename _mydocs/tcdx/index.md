@@ -119,7 +119,7 @@ The [TCDX CLI](https://www.nuget.org/packages/Dax.Tcdx.CLI/) is a .NET-based too
 - Metadata extraction and storage.
 - Report dependency analysis.
 
-## Note: 
+#### Note: 
 tcdx cli is a work in progress, it now contains the unifier tool, used to merge tcdx files.
 
 #### Installation
@@ -142,4 +142,4 @@ The TCDX file format is a ZIP file containing the json serialization of the obje
 
 ## Tools
 
-- [Pivot Scanner](https://sqlbi.com/): <todo visible> repository yet to be created for the PivotScanner and ExportPivotScan tools</todo>
+- [Pivot Scanner](): <todo visible> repository yet to be created for the PivotScanner and ExportPivotScan tools</todo>
