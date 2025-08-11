@@ -3,7 +3,7 @@ layout:     page
 title:      Tcdx
 published:  true
 draft:      true
-order:      /Tcdx
+order:      /tcdx
 ---
 
 # Introduction to the TCDX Model
