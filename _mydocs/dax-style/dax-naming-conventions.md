@@ -1,17 +1,17 @@
 ---
 layout:     page
-title:      DAX naming conventions
+title:      DAX Naming Conventions
 published:  true
 order:      /
 ---
 
 The naming conventions for DAX coding in reality involve many objects of the semantic model and reflect the need of exposing clear names to the user and to keep the code readable and maintainable. The following sections describe the conventions for the main DAX and semantic model objects.
 
-# Golden rules for all objects
+## Golden rules for all objects
 - All names should be written using names that are clear for the business users and understandable in the reports.
 - Avoid using abbreviations or acronyms unless they are widely recognized and understood by the business users.
 
-# Tables
+## Tables
 - Do not use any technical prefix, like `dim` or `fact`.
 - Use a single noun when possible for a table name.
     - When more words are part of a table name, separate them by using a space if the table may be visible to the users, like `Coupons Orders`.
@@ -19,18 +19,20 @@ The naming conventions for DAX coding in reality involve many objects of the sem
 - Use singular nouns for qualitative business entities (e.g., `Customer`, `Product`, `Sales Region`).
 - Use uncountable or plural nouns for quantitative business entities (e.g., `Sales`, `Inventory`, `Revenue`, `Movements`).
 
-# Columns
+## Columns
 - Do not use any technical prefix, like `date` or `string`.
 - Use a single noun when possible for a column name.
     - When more words are part of a column name, separate them by using a space if the table may be visible to the users, like `Coupons Orders`.
     - You might use PascalCase (e.g., `PricingConfiguration`) if the column name is designed to be invisible to the user.
 
-# Measures
+## Measures
 - The measure name should clearly describe its result.
     - When more words are part of a measure name, separate them by using a space if the measure may be visible to the users, like `Sales Amount`.
     - You might use PascalCase (e.g., `SalesAmount`) if the measure name is designed to be invisible to the user.  
 - Consider common acronyms that are widely recognized and understood by the business users, like `ROI` or `YOY`.
 - Use time intelligence acronyms like `YTD`, `QTD`, `MTD`, `PY`, `LY` as a suffix, like `Sales Amount YTD` or `Sales Amount PY`. A common list of time intelligence acronyms is provided below:
+
+
     | Acronym | Meaning |
     |---------|---------|
     | YTD | Year-to-date |
@@ -60,7 +62,7 @@ The naming conventions for DAX coding in reality involve many objects of the sem
     | QTDOPQ | Quarter-to-date-over-previous-quarter |
     | MTDOPM | Month-to-date-over-previous-month |
 
-# Variables
+## Variables
 - Variable names should be written in PascalCase.
 - Define a last variable named Result to hold the final result of the measure or expression.
     - This allows to quickly restore the expression logic when editing it for debugging purposes.
@@ -68,9 +70,9 @@ The naming conventions for DAX coding in reality involve many objects of the sem
     - While this was required to avoid possible name conflicts in the past, it is no longer necessary.
     - However, it can still be useful to visually distinguish variables from other objects in the code.
 
-# User-defined functions
+## User-defined functions
 
-## Function names
+### Function names
 - Function names should be written in PascalCase.
 - The dot character (.) is permitted within function names and is recommended for delineating categories.
     - This serves as an effective analogue to namespaces commonly found in many programming languages.
@@ -92,7 +94,7 @@ The naming conventions for DAX coding in reality involve many objects of the sem
         - You cannot use `Dax` as a noun part of the function name, as Microsoft reserves it.
         - You should not use `DaxLib` as an initial prefix for a function name, as it is reserved for general-purpose libraries maintained by the [DAX Lib](https://daxlib.org) community.
 
-## Parameters
+### Parameters
 - Use [camelCase](https://en.wikipedia.org/wiki/Camel_case) for parameter names.
 - Include a suffix indicating the parameter type for `EXPR` parameters:
     - `Column` for a column reference.
@@ -105,7 +107,7 @@ As a result, `YearlySales` is interpreted as a variable, whereas `yearlySales` i
 
 Examples of `EXPR` parameter names are: `lookupTable`, `listPriceColumn`, `amountMeasure`, `metricExpr`.
 
-## Comments
+### Comments
 
 Comments describing functions are typically introduced with a triple forward slash (///) directly before the function declaration. This notation serves to document the function’s purpose. For example, the following function converts the temperature from Celsius to Fahrenheit:
 ```
