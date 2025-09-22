@@ -81,8 +81,8 @@ The naming conventions for DAX coding in reality involve many objects of the sem
     - For complex models with numerous model-dependent functions warranting categorization, `Local.` should serve as the initial segment of the prefix.
     - Examples:
         - `GetCustomerDiscount`
-        - `Model.GetCustomerDiscount` if you prefer to make it more explicit that the function is model-dependent.
-        - `Model.Checkout.GetCustomerDiscount` where Checkout is a prefix to group similar or related functions.
+        - `Local.GetCustomerDiscount` if you prefer to make it more explicit that the function is model-dependent.
+        - `Local.Checkout.GetCustomerDiscount` where Checkout is a prefix to group similar or related functions.
         - **Do not use** `Checkout.GetCustomerDiscount` because it would appear as a model-independent function.
 
 - **Model-independent** functions must begin with a prefix indicating at least the containing library.
