@@ -121,13 +121,21 @@ FUNCTION CelsiusToFahrenheit = ( temperature: DOUBLE ) =>
 Here is a possible technique inspired by the JSDoc standard (https://en.wikipedia.org/wiki/JSDoc) that can be used in September 2025 version of Power BI Desktop and shows the parameters in the function description:
 ```
 /// Convert from Celsius(°C) to Fahrenheit(°F)
-/// @param temperature – The temperature in Celsius
+/// @param {decimal} temperature – The temperature in Celsius
 /// @returns The temperature converted to Fahrenheit
 FUNCTION CelsiusToFahrenheit = ( temperature: DOUBLE ) =>
         ( temperature * ( 9 / 5 ) ) + 32
 ```
 
-Here is the technique adopted for parameters by Tabular Editor 3 in September 2025 release:
+These would be the rule to follow in DAX to use JSDoc-style comments:
+- Use `///` to start a comment block for a function.
+- Use `@param` to describe each parameter of the function. You can also use `@arg` and `@argument` as parameter tags.
+- _(Optional)_ After `@param`, you may include the type of the parameter within curly braces `{}`.
+- The word after `@param` and the optional type is the name of the parameter being described.
+- _(Optional)_ After the parameter name, use a dash `–` (en dash) to separate the name from its description.
+- Use `@returns` to describe the return value of the function. You can also use `@return` as a synonym.
+
+Here is the technique adopted for parameters by Tabular Editor 3 in September 2025 release, but we expect Tabular Editor 3 to support the JSDoc-style comments in future releases:
 ```
 /// Convert from Celsius(°C) to Fahrenheit(°F)
 FUNCTION CelsiusToFahrenheit = ( 
