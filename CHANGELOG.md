@@ -1,5 +1,9 @@
 # Docs0 Changelog
 
+## 1.1.8 (2025-10-24)
+
+- Improve search indexing robustness
+
 ## 1.1.7 (2025-04-05)
 
 - Add `terms_url` to the footer
