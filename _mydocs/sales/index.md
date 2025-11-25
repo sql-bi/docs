@@ -1,10 +1,10 @@
 ---
 layout:         page
-title:          Sales
+title:          SQLBI Sales
 published:      true
 date:           2025-11-25
 modified:       2025-11-25
-order:          /sales
+order:          /sqlbi-sales
 next_reading:   true
 ---
 

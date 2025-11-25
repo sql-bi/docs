@@ -4,7 +4,7 @@ title:          Payment Methods
 published:      true
 date:           2025-11-25
 modified:       2025-11-25
-order:          /sales/020-payment-methods
+order:          /sqlbi-sales/020-payment-methods
 ---
 
 You have several payment methods available. If you include a SQLBI+ subscription in your order, consider that SQLBI+ is a subscription with an automatic renewal according to the billing cycle you choose (every year or every 3 years for Enterprise bundles).

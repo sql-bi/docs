@@ -4,7 +4,7 @@ title:          No Resellers Programs
 published:      true
 date:           2025-11-25
 modified:       2025-11-25
-order:          /sales/030-no-resellers-programs
+order:          /sqlbi-sales/030-no-resellers-programs
 ---
 
 At SQLBI we maximize the efficiency by automating all the processes we can, trying to remove any unnecessary bureaucracy. We try to reflect this efficiency in the pricing of our services, which we try to keep as low as possible to reflect the value of the services and making sure that most of the money goes to the production and delivery of the services and not to the sales process.

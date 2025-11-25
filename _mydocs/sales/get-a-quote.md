@@ -4,7 +4,7 @@ title:          Get a Quote
 published:      true
 date:           2025-11-25
 modified:       2025-11-25
-order:          /sales/010-get-a-quote
+order:          /sqlbi-sales/010-get-a-quote
 ---
 
 You can create a quote for a SQLBI service by following the steps below:_
