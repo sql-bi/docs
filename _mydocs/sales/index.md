@@ -4,7 +4,7 @@ title:          SQLBI Sales
 published:      true
 date:           2025-11-25
 modified:       2025-11-25
-order:          /sqlbi-sales
+order:          /z
 next_reading:   true
 ---
 
