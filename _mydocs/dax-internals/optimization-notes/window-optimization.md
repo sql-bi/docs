@@ -34,7 +34,7 @@ The query plan without the optimization shows the _O ( n * n )_ complexity in th
 <img src="images/WINDOW-on2-queryplan.png" width=600>
 
 With the optimization enabled, the query plan shows a much more efficient plan that hides the internal implementation but results in _O ( n * log(n) )_ complexity. The presence of the optimization can be verified by the presence of the **WindowAggSpool** node in the physical query plan.
-<img src="images/WINDOW-onlogn-queryplan.png" width=600>
+<img src="images/WINDOW-onlogn-queryplan.png" width=800>
 
 ## Unsupported scenarios
 The optimization is not applied on iterators consuming the WINDOW result and on non-additive expressions.
