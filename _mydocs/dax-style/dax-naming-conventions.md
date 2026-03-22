@@ -97,11 +97,11 @@ The naming conventions for DAX coding in reality involve many objects of the sem
 ### Parameters
 - Use [camelCase](https://en.wikipedia.org/wiki/Camel_case) for parameter names.
 - Include a suffix indicating the parameter type for `EXPR` parameters:
-    - `Column` for a column reference.
-    - `Table` for a table reference.
-    - `Measure` for a measure reference.
-    - `Expr` for a DAX expression that is not necessarily a single column reference, table reference, or measure reference.
-    - `Calendar` for a calendar reference, which cannot be an expression.
+    - `Column` for a column reference, which should have a `COLUMNREF` type.
+    - `Table` for a table reference, which should have a `TABLEREF` type.
+    - `Measure` for a measure reference, which should have a `MEASUREREF` type.
+    - `Expr` for a DAX expression that is not necessarily a single column reference, table reference, or measure reference, and should have a `ANYREF` type.
+    - `Calendar` for a calendar reference, which cannot be an expression and should have a `CALENDARREF` type.
 
 As a result, `YearlySales` is interpreted as a variable, whereas `yearlySales` indicates a parameter. Adhering to these conventions significantly improves code readability, particularly when working with complex functions. 
 
