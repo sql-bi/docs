@@ -158,8 +158,12 @@ nav {
             max-width: calc(100vw - 48px);
             height: auto;
             transform: translateX(calc(-100% - 12px));
-            transition: transform 180ms ease;
+            transition: none;
             box-shadow: 2px 0 12px rgba(0, 0, 0, 0.16);
+
+            html.nav-animating & {
+                transition: transform 180ms ease;
+            }
 
             html.nav-open & {
                 transform: translateX(0);

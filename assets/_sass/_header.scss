@@ -14,7 +14,7 @@ header.main {
         img {
             height: 32px;
             width: auto;
-            margin-right: 20px;
+            margin-right: 10px;
         }
         
     }
@@ -94,7 +94,7 @@ header.main {
 
         .logo img {
             height: 28px;
-            margin-right: 12px;
+            margin-right: 0;
         }
 
         .title {
@@ -117,12 +117,9 @@ header.main {
     }
 
     @include screen(520px) {
-        .title {
-            display: none;
-        }
 
         .controls .ctrl.gotoapp {
-            margin-left: 4px;
+            display: none;
         }
     }
 }

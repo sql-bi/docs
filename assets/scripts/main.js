@@ -206,6 +206,7 @@ if (navElement) {
     rememberExpandedSizes(sizes);
 
     const menuElement = document.querySelector(".burger");
+    const mobileNavQuery = window.matchMedia ? window.matchMedia("(max-width: 760px)") : { matches: false };
     if (isCollapsedSizes(sizes)) menuElement.classList.add("collapsed");
 
     try {
@@ -223,7 +224,25 @@ if (navElement) {
             }
         });
 
+        /**
+         * Restores the desktop burger icon after leaving the mobile breakpoint.
+         * @param {MediaQueryList|MediaQueryListEvent} query
+         */
+        const syncDesktopNav = query => {
+            if (query.matches) return;
+
+            document.documentElement.classList.remove("nav-open", "nav-animating");
+            menuElement.classList.toggle("collapsed", isCollapsedSizes(panes.getSizes()));
+        };
+
+        if (mobileNavQuery.addEventListener)
+            mobileNavQuery.addEventListener("change", syncDesktopNav);
+        else if (mobileNavQuery.addListener)
+            mobileNavQuery.addListener(syncDesktopNav);
+
         menuElement.addEventListener("click", e => {
+            if (mobileNavQuery.matches) return;
+
             e.preventDefault();
 
             if (panes) {
