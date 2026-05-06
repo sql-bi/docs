@@ -33,16 +33,14 @@
             {% include pdf.html %}
             
             {% unless page.no_date %}
-                {% if site.data.commit_dates[page.path] or page.modified or page.date %}
+                {% if page.modified or page.date %}
                     <div class="last-update">
                         {% if site.github_url %}
                             <a href="{{ site.github_url }}/blob/main{{ site.collections_dir }}/{{ page.path }}" title="View file history on Github" rel="nofollow" target="_blank"><span class="icon icon-github"></span></a>
                         {% endif %}
 
                         Last update: 
-                        {% if site.data.commit_dates[page.path] %}
-                            {{ site.data.commit_dates[page.path] | date: "%b %d, %Y" }}
-                        {% elsif page.modified %}
+                        {% if page.modified %}
                             {{ page.modified | date: "%b %d, %Y" }}
                         {% else %}
                             {{ page.date | date: "%b %d, %Y" }}

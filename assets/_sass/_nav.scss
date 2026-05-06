@@ -147,6 +147,25 @@ nav {
         display: block;
     }
 
+    &.main-nav {
+        @include screen(760px) {
+            position: absolute;
+            z-index: 20;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            width: min(84vw, 320px) !important;
+            max-width: calc(100vw - 48px);
+            height: auto;
+            transform: translateX(calc(-100% - 12px));
+            transition: transform 180ms ease;
+            box-shadow: 2px 0 12px rgba(0, 0, 0, 0.16);
+
+            html.nav-open & {
+                transform: translateX(0);
+            }
+        }
+    }
     
 }
 
@@ -166,6 +185,28 @@ nav {
             @include icon-left-panel-open;
         }
     }
+
+    @include screen(760px) {
+        z-index: 30;
+        margin: 10px 8px;
+
+        .ctrl {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 34px;
+            height: 34px;
+            background: var(--window-back-color);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.12);
+            @include icon-left-panel-open;
+        }
+
+        html.nav-open & .ctrl {
+            @include icon-left-panel-close;
+        }
+    }
 }
 
 .gutter {
@@ -179,5 +220,9 @@ nav {
     &.gutter-horizontal {
         cursor: ew-resize;
         height: 100%;
+
+        @include screen(760px) {
+            display: none !important;
+        }
     }
 }

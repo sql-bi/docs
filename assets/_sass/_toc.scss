@@ -6,7 +6,7 @@
     align-self: flex-start; //Importat to make it sticky
     margin: 0 0 20px 40px;
 
-    @include hide-if-smaller-than(700px);
+    @include hide-if-smaller-than(760px);
 
     .toc-content { 
         border-left: 1px solid var(--border-color);

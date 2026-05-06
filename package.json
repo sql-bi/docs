@@ -1,10 +1,13 @@
 {
     "name": "Docs0",
-    "version": "1.1.8",
-    "lastUpdated": "2025-10-24",
+    "version": "1.2.1",
+    "lastUpdated": "2026-05-06",
     "scripts": {
-        "run (incremental)": "bundle exec jekyll serve --incremental --port 4001",
-        "run (full)": "bundle exec jekyll serve --port 4001",
-        "update dates": "ruby fetch-commit-dates.rb"
+        "run:incremental": "bundle exec jekyll serve --incremental --port 4001",
+        "run:full": "bundle exec jekyll serve --port 4001",
+        "update-dates:sh": "./_scripts/update-mydocs-modified.sh",
+        "update-dates:sh:dry-run": "./_scripts/update-mydocs-modified.sh --dry-run",
+        "update-dates:ps": "powershell -ExecutionPolicy Bypass -File .\\_scripts\\update-mydocs-modified.ps1",
+        "update-dates:ps:dry-run": "powershell -ExecutionPolicy Bypass -File .\\_scripts\\update-mydocs-modified.ps1 --dry-run"
     }
 }

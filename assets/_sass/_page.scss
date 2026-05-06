@@ -4,6 +4,7 @@
     height: 100%;
     overflow: hidden;
     display: flex;
+    min-height: 0;
 
     &.loading {
         visibility: hidden;
@@ -12,6 +13,7 @@
     .content {
         height: 100%;
         width: 80%;
+        min-width: 0;
         //margin-left: 290px;
         position: relative;
         overflow: auto;
@@ -28,6 +30,7 @@
         @include wrapper;
         @include flex;
         padding: 40px;
+        min-width: 0;
 
         header {
 
@@ -387,6 +390,94 @@
             }
         }
     }
+
+    @include screen(980px) {
+        article {
+            padding: 34px 28px;
+
+            header h1 {
+                font-size: 34px;
+            }
+        }
+    }
+
+    @include screen(760px) {
+        position: relative;
+        overflow: visible;
+
+        .content,
+        .content-no-nav {
+            width: 100% !important;
+            overflow-x: hidden;
+        }
+
+        article {
+            display: block;
+            padding: 28px 20px 36px 20px;
+
+            header {
+                .breadcrumbs {
+                    letter-spacing: 0;
+                }
+
+                h1 {
+                    font-size: 30px;
+                    line-height: 1.2;
+                    overflow-wrap: anywhere;
+
+                    .badge {
+                        display: inline-flex;
+                        position: static;
+                        max-width: 100%;
+                        margin: 10px 0 0 0;
+                        white-space: normal;
+                        vertical-align: middle;
+                    }
+                }
+            }
+
+            blockquote {
+                display: block;
+                width: 100%;
+                padding: 0 16px;
+            }
+
+            img.fl,
+            img.fr,
+            .fl,
+            .fr,
+            .markdown-body span.float-left,
+            .markdown-body span.float-right {
+                float: none;
+                display: block;
+                margin: 18px auto;
+            }
+
+            .draft {
+                width: 100%;
+            }
+
+            .changelog > li {
+                padding: 18px 20px;
+
+                .date {
+                    position: static;
+                    display: block;
+                    margin-bottom: 8px;
+                }
+            }
+        }
+    }
+
+    @include screen(520px) {
+        article {
+            padding: 24px 16px 32px 16px;
+
+            header h1 {
+                font-size: 27px;
+            }
+        }
+    }
 }
 
 .front-section:not(.normal) {
@@ -424,5 +515,10 @@
         @include screen(500px) {
             grid-template-rows: repeat(50, min-content);
         };
+
+        @include screen(760px) {
+            display: block;
+            padding-left: 1.4em;
+        }
     }
 }

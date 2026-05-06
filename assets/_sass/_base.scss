@@ -29,7 +29,7 @@ body {
     cursor: default !important;
     min-width: $min-width;
     height: 100%;
-    //overflow: hidden;
+    overflow-x: hidden;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -1179,6 +1179,12 @@ video {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
+    align-items: stretch;
+
+    @include screen(760px) {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
 }
 .card {
     display: flex;
@@ -1188,7 +1194,7 @@ video {
     @include border-radius($border-radius);
     padding:15px 20px;
     gap:20px;
-    min-width: 300px;
+    min-width: min(100%, 300px);
     overflow: hidden;
 
     &.half {
@@ -1247,6 +1253,35 @@ video {
                 color: var(--card-hover-color) !important;
                 text-decoration: none;
             }
+        }
+    }
+
+    @include screen(760px) {
+        width: 100%;
+        min-width: 0;
+        flex: 1 1 100%;
+        gap: 14px;
+        padding: 14px 16px;
+
+        &.half {
+            width: 100%;
+        }
+
+        .card-title {
+            white-space: normal;
+            overflow: visible;
+            text-overflow: clip;
+        }
+
+        &.interactive a {
+            gap: 14px;
+            padding: 14px 16px;
+        }
+    }
+
+    @include screen(520px) {
+        &, &.interactive a {
+            align-items: flex-start;
         }
     }
 }

@@ -4,6 +4,8 @@
     font-size: 16px;
     line-height: 1.5;
     word-wrap: break-word;
+    overflow-wrap: anywhere;
+    word-break: normal;
 
     &:before {
         display: table;
@@ -157,7 +159,9 @@
     }
 
     li {
-        word-wrap: break-all
+        word-wrap: break-word;
+        word-break: normal;
+        overflow-wrap: anywhere
     }
 
     li>p {
@@ -200,6 +204,7 @@
     table {
         display: block;
         width: 100%;
+        max-width: 100%;
         overflow: auto
     }
     .wide table, table.wide {
@@ -356,6 +361,7 @@
     }
 
     pre {
+        max-width: 100%;
         word-wrap: normal
     }
 
@@ -390,5 +396,15 @@
         word-wrap: normal;
         background-color: transparent;
         border: 0
+    }
+
+    @include screen(760px) {
+        table,
+        .wide table,
+        table.wide {
+            display: block;
+            width: 100%;
+            overflow-x: auto;
+        }
     }
 }

@@ -165,13 +165,48 @@ if (navElement) {
 // Nav Split
 if (navElement) {
     const storage = "panels-sizes";
+    const expandedStorage = "panels-expanded-sizes";
     const defaultLeftPerc = (300 / document.body.clientWidth) * 100;
     const defaultSizes = [defaultLeftPerc, 100 - defaultLeftPerc];
-    let sizes = JSON.parse(localStorage.getItem(storage));
-    if (!sizes) sizes = defaultSizes;
+    /**
+     * Checks whether the stored split pane sizes can be reused.
+     * @param {unknown} sizes
+     */
+    const isValidSizes = sizes => Array.isArray(sizes) && sizes.length > 1 && sizes.every(size => Number.isFinite(size));
+    /**
+     * Checks whether the navigation pane is collapsed.
+     * @param {unknown} sizes
+     */
+    const isCollapsedSizes = sizes => isValidSizes(sizes) && sizes[0] < 10;
+    /**
+     * Reads split pane sizes from local storage.
+     * @param {string} key
+     */
+    const readSizes = key => {
+        try {
+            const sizes = JSON.parse(localStorage.getItem(key));
+            return isValidSizes(sizes) ? sizes : null;
+        } catch (_) {
+            return null;
+        }
+    };
+    /**
+     * Stores the last expanded split pane sizes.
+     * @param {number[]} sizes
+     */
+    const rememberExpandedSizes = sizes => {
+        if (!isCollapsedSizes(sizes))
+            localStorage.setItem(expandedStorage, JSON.stringify(sizes));
+    };
+    /**
+     * Gets the latest expanded split pane sizes.
+     */
+    const getExpandedSizes = () => readSizes(expandedStorage) || defaultSizes;
+    let sizes = readSizes(storage) || defaultSizes;
+    rememberExpandedSizes(sizes);
 
     const menuElement = document.querySelector(".burger");
-    if (sizes[0] < 10) menuElement.classList.add("collapsed");
+    if (isCollapsedSizes(sizes)) menuElement.classList.add("collapsed");
 
     try {
         let panes = Split([".main-nav", ".main-content"], {
@@ -183,7 +218,8 @@ if (navElement) {
             cursor: "ew-resize",
             onDragEnd: function (sizes) {
                 localStorage.setItem(storage, JSON.stringify(sizes));
-                menuElement.classList.toggle("collapsed", sizes[0] < 10);
+                rememberExpandedSizes(sizes);
+                menuElement.classList.toggle("collapsed", isCollapsedSizes(sizes));
             }
         });
 
@@ -192,8 +228,10 @@ if (navElement) {
 
             if (panes) {
                 let currentSizes = panes.getSizes();
-                let sizes = (currentSizes[0] < 10 ? defaultSizes : [0, 100]);
-                menuElement.classList.toggle("collapsed", sizes[0] < 10);
+                rememberExpandedSizes(currentSizes);
+
+                let sizes = (isCollapsedSizes(currentSizes) ? getExpandedSizes() : [0, 100]);
+                menuElement.classList.toggle("collapsed", isCollapsedSizes(sizes));
                 panes.setSizes(sizes);
                 localStorage.setItem(storage, JSON.stringify(sizes));
             }
@@ -206,6 +244,7 @@ class Theme {
 
     theme;
     ctrl;
+    onChangeCallbacks = [];
 
     get current() {
         if (this.theme == "system") {
@@ -245,6 +284,14 @@ class Theme {
         return isDark ? "dark" : "light";
     }
 
+    /**
+     * Registers a callback called after the active theme changes.
+     * @param {Function} callback
+     */
+    onChange(callback) {
+        this.onChangeCallbacks.push(callback);
+    }
+
     change(theme) {
         localStorage.setItem("theme", theme);
         this.apply(theme);
@@ -266,6 +313,104 @@ class Theme {
 
         this.ctrl.classList.remove("icon-theme-dark", "icon-theme-light", "icon-theme-system");
         this.ctrl.classList.add("icon-theme-" + this.theme);
+
+        this.onChangeCallbacks.forEach(callback => {
+            try {
+                callback(this.current);
+            } catch (_) {}
+        });
     }
 }
-new Theme();
+const theme = new Theme();
+
+// Mermaid manager
+class MermaidManager {
+
+    /**
+     * Creates the Mermaid manager.
+     * @param {Theme} theme
+     */
+    constructor(theme) {
+        this.theme = theme;
+
+        document.addEventListener("DOMContentLoaded", () => {
+            this.renderAll({ firstRun: true });
+            this.theme.onChange(() => {
+                this.renderAll({ firstRun: false });
+            });
+        });
+    }
+
+    /**
+     * Initializes Mermaid using the active theme.
+     */
+    initMermaid() {
+        mermaid.initialize({
+            startOnLoad: false,
+            theme: this.theme.isDark ? "dark" : "default",
+            securityLevel: "loose"
+        });
+    }
+
+    /**
+     * Converts Mermaid code blocks to renderable Mermaid elements.
+     */
+    initialTransform() {
+        const blocks = document.querySelectorAll(
+            "pre code.language-mermaid, pre.language-mermaid code"
+        );
+
+        blocks.forEach(block => {
+            const pre = block.closest("pre");
+            if (!pre) return;
+
+            const code = block.textContent;
+            const div = document.createElement("div");
+            div.className = "mermaid";
+            div.textContent = code;
+            div.setAttribute("data-original-code", code);
+            pre.replaceWith(div);
+        });
+    }
+
+    /**
+     * Restores Mermaid diagrams before re-rendering them.
+     */
+    resetDiagrams() {
+        document.querySelectorAll(".mermaid").forEach(diagram => {
+            const original = diagram.getAttribute("data-original-code");
+            if (!original) return;
+            diagram.removeAttribute("data-processed");
+            diagram.textContent = original;
+        });
+    }
+
+    /**
+     * Runs Mermaid using the available API version.
+     */
+    runMermaid() {
+        if (typeof mermaid.run === "function") {
+            mermaid.run();
+        } else if (typeof mermaid.init === "function") {
+            mermaid.init(undefined, ".mermaid");
+        }
+    }
+
+    /**
+     * Renders all Mermaid diagrams.
+     * @param {object} options
+     */
+    renderAll({ firstRun } = { firstRun: false }) {
+        if (firstRun) {
+            this.initialTransform();
+        } else {
+            this.resetDiagrams();
+        }
+
+        this.initMermaid();
+        this.runMermaid();
+    }
+}
+
+if (typeof mermaid !== "undefined")
+    new MermaidManager(theme);

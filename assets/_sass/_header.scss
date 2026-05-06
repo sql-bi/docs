@@ -80,4 +80,49 @@ header.main {
             margin-left: auto;
         }
     }
+
+    @include screen(980px) {
+        .search {
+            width: min(48%, 520px);
+        }
+    }
+
+    @include screen(760px) {
+        flex-wrap: wrap;
+        gap: 8px 10px;
+        padding: 8px 12px;
+
+        .logo img {
+            height: 28px;
+            margin-right: 12px;
+        }
+
+        .title {
+            padding-left: 12px;
+            font-size: 14px;
+            letter-spacing: 1px;
+        }
+
+        .search {
+            order: 3;
+            flex: 1 0 100%;
+            width: 100%;
+            margin: 0;
+        }
+
+        .controls {
+            margin-left: auto;
+            padding-left: 0;
+        }
+    }
+
+    @include screen(520px) {
+        .title {
+            display: none;
+        }
+
+        .controls .ctrl.gotoapp {
+            margin-left: 4px;
+        }
+    }
 }

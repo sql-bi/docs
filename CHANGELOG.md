@@ -1,5 +1,17 @@
 # Docs0 Changelog
 
+## 1.2.1 (2026-05-06)
+
+- Improve responsive layout
+
+## 1.2.0 (2026-04-13)
+
+- Improve update dates script
+
+## 1.1.9 (2025-12-02)
+
+- Add Mermaid diagrams support
+
 ## 1.1.8 (2025-10-24)
 
 - Improve search indexing robustness

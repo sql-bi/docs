@@ -10,12 +10,14 @@ footer.main {
         display: flex;
         align-items: center;
         justify-content: center;
+        flex-wrap: wrap;
         padding: 8px 0;
 
     }
     .copy {
         text-align: center;
         font-size: 12px;
+        line-height: 1.6;
 
         a {
             letter-spacing: .5px;
