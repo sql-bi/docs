@@ -5,7 +5,7 @@ published:  true
 order:      /05
 ---
 
-A UDF is **model-dependent** when its body references model objects directly — tables, columns, measures, or calendars — by name. It is **model-independent** when all such references arrive exclusively through parameters, making the function portable across semantic models without modification.
+A UDF is **model-dependent** when its body references model objects directly (tables, columns, measures, or calendars) by name. It is **model-independent** when all such references arrive exclusively through parameters, making the function portable across semantic models without modification.
 
 ## Hidden dependencies
 

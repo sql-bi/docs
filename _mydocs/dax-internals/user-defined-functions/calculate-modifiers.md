@@ -5,7 +5,7 @@ published:  true
 order:      /04
 ---
 
-Because UDFs expand as macros, a function body can contain expressions that are only syntactically valid in a specific calling position. In particular, a function can "return" a CALCULATE modifier — provided the function is always called as a filter argument of `CALCULATE` or `CALCULATETABLE`.
+Because UDFs expand as macros, a function body can contain expressions that are only syntactically valid in a specific calling position. In particular, a function can "return" a CALCULATE modifier, provided the function is always called as a filter argument of `CALCULATE` or `CALCULATETABLE`.
 
 ## Mechanism
 
@@ -74,4 +74,4 @@ This pattern returns a scalar and has no calling-position restriction. The choic
 
 ## Practical use case
 
-A common application is centralizing the list of **filter-keep columns** — columns on a date table whose filters must be removed when computing a reference date, but preserved by time intelligence functions applied afterward. Placing the `REMOVEFILTERS` list in a function prevents it from being duplicated across many measures and simplifies maintenance when the column list changes.
+A common application is centralizing the list of **filter-keep columns**: columns on a date table whose filters must be removed when computing a reference date but preserved by time intelligence functions applied afterward. Placing the `REMOVEFILTERS` list in a function prevents it from being duplicated across many measures and simplifies maintenance when the column list changes.

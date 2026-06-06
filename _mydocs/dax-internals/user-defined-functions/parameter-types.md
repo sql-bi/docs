@@ -86,20 +86,20 @@ FUNCTION F = ( a : VAL, b : EXPR ) => ...
 
 Type checking and coercion apply differently depending on the parameter category:
 
-**Scalar subtypes** (`INT64`, `DECIMAL`, `DOUBLE`, etc.) do not reject incompatible arguments — they coerce them. Each argument is independently converted to the declared type before the function body runs. No error is raised; see the coercion note under *Scalar subtypes* above.
+**Scalar subtypes** (`INT64`, `DECIMAL`, `DOUBLE`, etc.) do not reject incompatible arguments; they coerce them. Each argument is independently converted to the declared type before the function body runs. No error is raised; see the coercion note under *Scalar subtypes* above.
 
 **Reference types** (`MEASUREREF`, `COLUMNREF`, `TABLEREF`, `CALENDARREF`) perform genuine type checking at call time. Passing an incompatible expression produces an error that identifies the expected and received types, for example: *"An invalid argument type was passed into parameter 'amountMeasure' of the user-defined function. Expected 'MEASUREREF' but got 'SCALAR'."* There is a known limitation for `COLUMNREF`: when a column reference is invalid, the internal syntax error from the function body surfaces before any custom validation error the function author may have written.
 
-**`ANYREF`** performs no type checking. An incompatible argument may produce confusing errors deep inside the function body or, in the worst case, incorrect results with no error at all. Functions using `ANYREF` must handle the general case defensively — for example, wrapping every reference to the parameter in `CALCULATE` to guarantee context transition regardless of what was passed.
+**`ANYREF`** performs no type checking. An incompatible argument may produce confusing errors deep inside the function body or, in the worst case, incorrect results with no error at all. Functions using `ANYREF` must handle the general case defensively, for example by wrapping every reference to the parameter in `CALCULATE` to guarantee context transition regardless of what was passed.
 
 ## Introspection functions
 
 Two functions are available for use inside a function body with `COLUMNREF` or `TABLEREF` parameters:
 
-- **`TABLEOF ( columnRef )`** — returns the table in which the referenced column is defined.
-- **`NAMEOF ( columnRef )`** — returns the column's fully qualified name as a string.
+- **`TABLEOF ( columnRef )`**: returns the table in which the referenced column is defined.
+- **`NAMEOF ( columnRef )`**: returns the column's fully qualified name as a string.
 
-These functions are intended to support runtime validation — for example, checking that two `COLUMNREF` parameters belong to the same table:
+These functions are intended to support runtime validation, for example checking that two `COLUMNREF` parameters belong to the same table:
 
 ```dax
 IF (

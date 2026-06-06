@@ -35,7 +35,7 @@ Increment ( 10, 20 )  -- y is 20; returns 30
 
 ### Skipping a middle parameter
 
-To skip an optional parameter that is not the last one, write an **empty position** — a comma with no value before it:
+To skip an optional parameter that is not the last one, write an **empty position**: a comma with no value before it:
 
 ```dax
 IncrementLimit ( 5, , 20 )  -- y uses its default; limit is 20
@@ -45,7 +45,7 @@ IncrementLimit ( 5, , 20 )  -- y uses its default; limit is 20
 
 Optional parameters can appear in any position in the signature; required parameters can follow optional ones. Callers can always reach a required parameter by leaving an empty position for each optional parameter before it (`MyFunc ( 1, , 3 )` omits the second argument).
 
-The minimum number of arguments a caller must supply — the function's arity — is determined by the **position of the rightmost required parameter**. If a function has three parameters and only the second is optional, callers must still supply at least three arguments: there is no way to omit the third, because it is required and comes last.
+The minimum number of arguments a caller must supply (the function's arity) is determined by the **position of the rightmost required parameter**. If a function has three parameters and only the second is optional, callers must still supply at least three arguments: there is no way to omit the third, because it is required and comes last.
 
 The recommended practice is: **once a parameter is optional, all following parameters should also be optional.** Placing a required parameter after an optional one forces callers to write empty positions just to reach it, which is harder to read and easy to get wrong.
 
@@ -80,7 +80,7 @@ Like the function expression body, a default expression inherits the **filter co
 
 ### Scope
 
-A default expression can only reference names — columns, tables, measures, variables, functions — that are **visible at the point where the UDF is defined**, not where it is called. It cannot reference another parameter of the same function.
+A default expression can only reference names (columns, tables, measures, variables, functions) that are **visible at the point where the UDF is defined**, not where it is called. It cannot reference another parameter of the same function.
 
 ### Type
 

@@ -40,22 +40,22 @@ Function names use **Pascal case** to distinguish user-defined functions from bu
 
 UDFs can be defined in two places:
 
-- **Query level** — inside the `DEFINE` block of a DAX query. The function is visible only within that query.
-- **Model level** — stored as a named object in a semantic model. The function is visible from any measure, calculated column, or calculated table in that model, and from DAX queries run against it.
+- **Query level**: inside the `DEFINE` block of a DAX query. The function is visible only within that query.
+- **Model level**: stored as a named object in a semantic model. The function is visible from any measure, calculated column, or calculated table in that model, and from DAX queries run against it.
 
 ## Return type
 
 A function can return:
 
-- A **scalar value** — usable anywhere a scalar expression is valid.
-- A **table** — usable anywhere a table expression is valid.
-- A **CALCULATE modifier** (e.g., `REMOVEFILTERS`) — only valid as a filter argument inside `CALCULATE` or `CALCULATETABLE`. This special case is possible because UDFs expand as macros; see [Returning CALCULATE modifiers](calculate-modifiers.md).
+- A **scalar value**: usable anywhere a scalar expression is valid.
+- A **table**: usable anywhere a table expression is valid.
+- A **CALCULATE modifier** (e.g., `REMOVEFILTERS`): only valid as a filter argument inside `CALCULATE` or `CALCULATETABLE`. This special case is possible because UDFs expand as macros; see [Returning CALCULATE modifiers](calculate-modifiers.md).
 
 ## Macro-expansion semantics
 
 UDFs are not subroutines. There is no separate call stack or isolated execution context. When a UDF is called, its body is substituted inline at the call site, with each argument replacing its corresponding parameter according to the parameter's passing mode. The result is semantically identical to having written the substituted expression directly at the call site.
 
-A consequence is that the function body may contain language constructs — such as CALCULATE modifiers — that are only syntactically valid in certain positions, provided the function is always called from a position where those constructs are valid.
+A consequence is that the function body may contain language constructs (such as CALCULATE modifiers) that are only syntactically valid in certain positions, provided the function is always called from a position where those constructs are valid.
 
 ## Limitations
 
