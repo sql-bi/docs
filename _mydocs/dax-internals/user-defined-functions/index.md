@@ -16,3 +16,5 @@ Related SQLBI articles:
 - [Model-dependent and model-independent user-defined functions in DAX](https://www.sqlbi.com/articles/model-dependent-and-model-independent-user-defined-functions-in-dax/)
 - [Understanding parameter types in DAX user-defined functions](https://www.sqlbi.com/articles/understanding-parameter-types-in-dax-user-defined-functions-udf/)
 - [UDFs vs. calculation groups](https://www.sqlbi.com/articles/dax-user-defined-functions-udf-vs-calculation-groups/)
+
+Content in this section:
