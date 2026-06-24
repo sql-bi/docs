@@ -19,9 +19,8 @@ The DAX Formatter **MCP Server (stdio)** is a local [Model Context Protocol](htt
 The server runs **locally on your machine**: no install step, no account, no API key, no login. Find your app below, follow the short steps, and afterwards just ask your assistant to *"format this DAX"*. There is nothing to install ahead of time: the configurations below run the latest version on demand with `npx`.
 
 ## Visual Studio Code
-
-[![Install in VS Code](https://img.shields.io/badge/VS_Code-Install_DAX_Formatter-0098FF?style=flat-square&logo=visualstudiocode&logoColor=white)](https://vscode.dev/redirect/mcp/install?name=DaxFormatter&config=%7B%22type%22%3A%22stdio%22%2C%22command%22%3A%22npx%22%2C%22args%22%3A%5B%22-y%22%2C%22%40sqlbi%2Fdaxformatter-mcp%22%5D%7D)
-[![Install in VS Code Insiders](https://img.shields.io/badge/VS_Code_Insiders-Install_DAX_Formatter-24bfa5?style=flat-square&logo=visualstudiocode&logoColor=white)](https://insiders.vscode.dev/redirect/mcp/install?name=DaxFormatter&config=%7B%22type%22%3A%22stdio%22%2C%22command%22%3A%22npx%22%2C%22args%22%3A%5B%22-y%22%2C%22%40sqlbi%2Fdaxformatter-mcp%22%5D%7D&quality=insiders)
+<a href="https://vscode.dev/redirect/mcp/install?name=DaxFormatter&config=%7B%22type%22%3A%22stdio%22%2C%22command%22%3A%22npx%22%2C%22args%22%3A%5B%22-y%22%2C%22%40sqlbi%2Fdaxformatter-mcp%22%5D%7D"><img src="https://img.shields.io/badge/VS_Code-Install_DAX_Formatter-0098FF?style=flat-square&logo=visualstudiocode&logoColor=white" alt="Install in VS Code" class="naked"/></a>
+<a href="(https://insiders.vscode.dev/redirect/mcp/install?name=DaxFormatter&config=%7B%22type%22%3A%22stdio%22%2C%22command%22%3A%22npx%22%2C%22args%22%3A%5B%22-y%22%2C%22%40sqlbi%2Fdaxformatter-mcp%22%5D%7D&quality=insiders"><img src="https://img.shields.io/badge/VS_Code_Insiders-Install_DAX_Formatter-24bfa5?style=flat-square&logo=visualstudiocode&logoColor=white" alt="Install in VS Code Insiders" class="naked"/></a>
 
 Click a badge above: VS Code opens and asks you to confirm. That's it. Alternatively, add it from the terminal:
 
