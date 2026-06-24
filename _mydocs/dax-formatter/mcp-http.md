@@ -28,7 +28,7 @@ No account, API key, or login is required. Once the server is added, just ask yo
 [![Install in VS Code](https://img.shields.io/badge/VS_Code-Install_DAX_Formatter-0098FF?style=flat-square&logo=visualstudiocode&logoColor=white)](https://vscode.dev/redirect/mcp/install?name=DaxFormatter&config=%7B%22type%22%3A%22http%22%2C%22url%22%3A%22https%3A%2F%2Fapi.daxformatter.com%2Fmcp%22%7D)
 [![Install in VS Code Insiders](https://img.shields.io/badge/VS_Code_Insiders-Install_DAX_Formatter-24bfa5?style=flat-square&logo=visualstudiocode&logoColor=white)](https://insiders.vscode.dev/redirect/mcp/install?name=DaxFormatter&config=%7B%22type%22%3A%22http%22%2C%22url%22%3A%22https%3A%2F%2Fapi.daxformatter.com%2Fmcp%22%7D&quality=insiders)
 
-Click a badge above — VS Code opens and asks you to confirm. Alternatively, add it from the terminal:
+Click a badge above: VS Code opens and asks you to confirm. Alternatively, add it from the terminal:
 
 ```bash
 code --add-mcp "{\"name\":\"DaxFormatter\",\"type\":\"http\",\"url\":\"https://api.daxformatter.com/mcp\"}"
@@ -60,7 +60,7 @@ In the **Codex app**:
 
 1. Open **Settings → Integrations → MCP servers → Add**.
 2. Choose the **streamable HTTP / URL** type, give it a name (e.g. `DaxFormatter`), and paste the **Server URL** above.
-3. Leave **Bearer token** and **Headers** empty — DAX Formatter needs no login.
+3. Leave **Bearer token** and **Headers** empty. DAX Formatter needs no login.
 4. Click **Save**.
 
 The app and the CLI share the same settings, so this also covers the **Codex CLI**. From the terminal:
