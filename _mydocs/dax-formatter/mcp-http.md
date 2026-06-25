@@ -25,8 +25,9 @@ No account, API key, or login is required. Once the server is added, just ask yo
 
 ## Visual Studio Code
 
-[![Install in VS Code](https://img.shields.io/badge/VS_Code-Install_DAX_Formatter-0098FF?style=flat-square&logo=visualstudiocode&logoColor=white)](https://vscode.dev/redirect/mcp/install?name=DaxFormatter&config=%7B%22type%22%3A%22http%22%2C%22url%22%3A%22https%3A%2F%2Fapi.daxformatter.com%2Fmcp%22%7D)
-[![Install in VS Code Insiders](https://img.shields.io/badge/VS_Code_Insiders-Install_DAX_Formatter-24bfa5?style=flat-square&logo=visualstudiocode&logoColor=white)](https://insiders.vscode.dev/redirect/mcp/install?name=DaxFormatter&config=%7B%22type%22%3A%22http%22%2C%22url%22%3A%22https%3A%2F%2Fapi.daxformatter.com%2Fmcp%22%7D&quality=insiders)
+<a href="https://vscode.dev/redirect/mcp/install?name=DaxFormatter&config=%7B%22type%22%3A%22http%22%2C%22url%22%3A%22https%3A%2F%2Fapi.daxformatter.com%2Fmcp%22%7D"><img src="https://img.shields.io/badge/VS_Code-Install_DAX_Formatter-0098FF?style=flat-square&logo=visualstudiocode&logoColor=white" height="20" alt="Install in VS Code" class="nozoom noborder"/></a>
+
+<a href="https://insiders.vscode.dev/redirect/mcp/install?name=DaxFormatter&config=%7B%22type%22%3A%22http%22%2C%22url%22%3A%22https%3A%2F%2Fapi.daxformatter.com%2Fmcp%22%7D&quality=insiders"><img height="20" src="https://img.shields.io/badge/VS_Code_Insiders-Install_DAX_Formatter-24bfa5?style=flat-square&logo=visualstudiocode&logoColor=white" alt="Install in VS Code Insiders" class="nozoom noborder"/></a>
 
 Click a badge above: VS Code opens and asks you to confirm. Alternatively, add it from the terminal:
 
