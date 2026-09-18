@@ -15,7 +15,7 @@ Sample model used in all the steps: **[ContosoDemo10k.zip](https://www.sqlbi.com
 
 At the end you have an agent in the terminal that reads and writes the semantic model, and that also creates and validates report pages.
 
-One clarification on the name. **Grok Build** is also the name of a web feature that builds applications in the browser. This article is about the **command-line client** of xAI, the one you start with `grok` in the command prompt.
+One clarification on the name. **Grok Build** is also the name of a web feature that builds applications in the browser. This article is about the **command-line client** of SpaceXAI, the one you start with `grok` in the command prompt.
 
 Grok Build reads the configuration of Claude Code without any setting: marketplaces, plugins, skills, MCP servers, and instruction files. This is what makes the report authoring skill usable here, because that skill is published for Claude Code and has no marketplace of its own for other clients.
 
@@ -23,8 +23,8 @@ Grok Build reads the configuration of Claude Code without any setting: marketpla
 
 - **Power BI Desktop**, installed.
 - **[Node.js](https://nodejs.org/en/download) 22 or later**. The Power BI Modeling MCP server is started with `npx`, which is part of Node.js. A new machine does not have it, so step 1 installs it.
-- **Microsoft Visual C++ 2015 Redistributable or later**. The WinGet package installs it as a dependency. If you use the installer of xAI, install it separately when the client does not start.
-- An **xAI account with a plan that includes Grok Build**, or an **xAI API key** with credits. Check the [plans page](https://x.ai/pricing) before you start.
+- **Microsoft Visual C++ 2015 Redistributable or later**. The WinGet package installs it as a dependency. If you use the installer of SpaceXAI, install it separately when the client does not start.
+- An **SpaceXAI account with a plan that includes Grok Build**, or an **SpaceXAI API key** with credits. Check the [plans page](https://x.ai/pricing) before you start.
 - **[Git for Windows](https://git-scm.com/downloads/win)**. The repository of the skills is downloaded with `git`, and Windows does not include it. Step 11 installs it.
 - **Write permission** on any semantic model you modify. The MCP server follows the same rules as the Power BI external tools.
 
@@ -124,7 +124,7 @@ With any of the three options, close the window, open a **command prompt**, and 
 <!-- options -->
 Choose one of the two methods.
 
-**Option 1: the installer of xAI.** In **PowerShell**:
+**Option 1: the installer of SpaceXAI.** In **PowerShell**:
 
 ```text
 irm https://x.ai/cli/install.ps1 | iex
@@ -176,7 +176,7 @@ args = ["-y", "@microsoft/powerbi-modeling-mcp@latest", "--start", "--readonly"]
 startup_timeout_sec = 120
 ```
 
-The documentation of xAI asks for a higher `startup_timeout_sec` when the server is started with `npx`, because the first start downloads the package. The default is 30 seconds.
+The documentation of SpaceXAI asks for a higher `startup_timeout_sec` when the server is started with `npx`, because the first start downloads the package. The default is 30 seconds.
 
 Verify the registration, in the **command prompt**:
 
@@ -412,7 +412,7 @@ args = ["--start"]
 - The MCP server, the report authoring skill, and the Power BI Desktop Bridge are all **in preview**. Behavior and tools can change before general availability.
 - The agent proposes and executes. The review is your responsibility.
 - The sandbox of Grok Build is not available on Windows. The permission rules still apply, the isolation of the file system does not.
-- The compatibility with the configuration of Claude Code is documented by xAI, the specific combination with the Fabric skills is not tested by Microsoft.
+- The compatibility with the configuration of Claude Code is documented by SpaceXAI, the specific combination with the Fabric skills is not tested by Microsoft.
 
 ## Troubleshooting
 

@@ -24,7 +24,7 @@ All ten clients support a local MCP server on Windows. **Node.js** is a requirem
 | Claude Code Desktop | no | download from claude.com, or `winget install -e --id Anthropic.Claude` | Claude, Pro or higher |
 | Claude Code | no | installer of Anthropic, `winget install Anthropic.ClaudeCode`, or `npm install -g @anthropic-ai/claude-code` | Claude, Pro or higher |
 | Google Antigravity | no | download from antigravity.google/download | personal Google account, free with weekly rate limits |
-| Grok Build | no | installer of xAI, or `winget install xAI.GrokBuild` | xAI, plan that includes Grok Build |
+| Grok Build | no | installer of SpaceXAI, or `winget install xAI.GrokBuild` | SpaceXAI, plan that includes Grok Build |
 | Kiro | no | download from kiro.dev | GitHub, Google, or AWS, free plan included |
 | Qwen Code | no | installer of the project, or `npm install -g @qwen-code/qwen-code@latest` | paid key of a supported provider |
 
@@ -78,7 +78,7 @@ npm install -g @microsoft/powerbi-report-authoring-cli@latest @microsoft/powerbi
 
 - **The shortest path to the report layer** is GitHub Copilot CLI or Claude Code, because the plugin installs with two commands and Microsoft documents them.
 - **The shortest path to the semantic model only** is any of the ten. Visual Studio Code is the only one where the report authoring skill is not offered, and the prompt that connects to Power BI Desktop is the same everywhere.
-- **On a managed machine without administrator rights**, prefer a client that installs in the user profile: the npm packages, the installers of Anthropic, OpenAI, and xAI, and the Microsoft Store version of the ChatGPT desktop app.
+- **On a managed machine without administrator rights**, prefer a client that installs in the user profile: the npm packages, the installers of Anthropic, OpenAI, and SpaceXAI, and the Microsoft Store version of the ChatGPT desktop app.
 - **If you already use Claude Code**, Grok Build reuses its configuration, including the marketplaces and the MCP servers.
 - **If you want to see the state of the connection**, Google Antigravity, Kiro, and the Claude desktop application show it in a panel, the command-line clients show it with a command.
 

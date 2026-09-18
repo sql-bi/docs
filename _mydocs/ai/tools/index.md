@@ -30,7 +30,7 @@ This page collects the comparison that helps you pick one, and a self-contained 
 | <img src="images/microsoft-copilot.svg" alt="Microsoft Copilot" width="32" class="naked nozoom"> | Microsoft | [Microsoft Copilot](microsoft-copilot.md) (*) — no setup guide yet |
 | <img src="images/github-copilot.png" alt="GitHub Copilot" width="110" class="naked nozoom"> | GitHub | [GitHub Copilot CLI](github-copilot-cli.md) |
 | <img src="images/antigravity.png" alt="Google Antigravity" width="32" class="naked nozoom"> | Google | [Google Antigravity](antigravity.md) |
-| <img src="images/grok.svg" alt="Grok" width="32" class="naked nozoom"> | xAI | [Grok Build](grok-build.md) |
+| <img src="images/grok.svg" alt="Grok" width="32" class="naked nozoom"> | SpaceXAI | [Grok Build](grok-build.md) |
 | <img src="images/kiro.svg" alt="Kiro" width="32" class="naked nozoom"> | AWS | [Kiro](kiro.md) |
 | <img src="images/qwen.png" alt="Qwen" width="32" class="naked nozoom"> | Alibaba | [Qwen Code](qwen-code.md) |
 
