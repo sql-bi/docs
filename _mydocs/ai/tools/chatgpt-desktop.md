@@ -47,16 +47,18 @@ Every command of this article says which of the two to use. To open a window alr
 
 ### Install Node.js
 
-<!-- options -->
 Choose one of the two methods. LTS stands for Long Term Support.
-
-**Option 1: the installer.** Download it from [nodejs.org/en/download](https://nodejs.org/en/download) and run it.
-
-**Option 2: WinGet.** In the **command prompt**:
+<!-- options -->
+**Option 1: WinGet.** In the **command prompt**:
 
 ```text
 winget install --id OpenJS.NodeJS.LTS --source winget
 ```
+<video src="videos/AIsetup-NodeJS.mp4" 
+ autoplay loop muted width="500"></video>
+
+**Option 2: the installer.** Download it from [nodejs.org/en/download](https://nodejs.org/en/download) and run it.
+
 <!-- /options -->
 
 Both methods write in the folders of the machine, so they ask for administrator rights. If you do not have them, use one of the options at the end of this step.
@@ -128,6 +130,9 @@ Choose one of the two methods.
 
 **Option 1: the Store.** Open [apps.microsoft.com/detail/9plm9xgg6vks](https://apps.microsoft.com/detail/9plm9xgg6vks) and install the application from there. The web page [chatgpt.com/features/desktop](https://chatgpt.com/features/desktop/) leads to the same product.
 
+<video src="videos/AIsetup-ChatGPT-Microsoft-Store.mp4" 
+ autoplay loop muted width="500"></video>
+ 
 **Option 2: WinGet.** In the **command prompt**:
 
 ```text
@@ -147,6 +152,9 @@ The application runs natively on Windows, in PowerShell. The Windows Subsystem f
 
 The title bar shows **ContosoDemo10k**. You use that name in step 6.
 
+<video src="videos/AIsetup-CopyContosoDemo.mp4" 
+ autoplay loop muted width="500"></video>
+
 ## Step 4: open the application and sign in
 
 1. Start the **ChatGPT desktop application** from the Start menu.
@@ -156,6 +164,9 @@ The title bar shows **ContosoDemo10k**. You use that name in step 6.
 Below the box where you write, the **Ask for approval** option controls the checkpoints. Keep it active for this setup.
 
 The permission profiles are three: `read-only`, `workspace`, which allows the writes inside the folder you opened, and `danger-full-access`, which removes the limits. The second one is the profile of this setup.
+
+<video src="videos/AIsetup-ChatGPT-login.mp4" 
+ autoplay loop muted width="500"></video>
 
 ## Step 5: register the Power BI Modeling MCP server
 
@@ -175,6 +186,9 @@ There is no extension to install. The server is an npm package, and the applicat
       - `--readonly`
    
 The `--readonly` argument blocks every write operation. We suggest it for the first session, so that a wrong prompt cannot modify anything. Step 8 replaces it.
+
+<video src="videos/AIsetup-ChatGPT-mcp-server.mp4" 
+ autoplay loop muted width="500"></video>
 
 The application writes the entry in `%USERPROFILE%\.codex\config.toml`, and you can edit that file directly:
 

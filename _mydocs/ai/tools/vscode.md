@@ -49,6 +49,9 @@ The extension registers the MCP server. There is no separate download, no runtim
 
 The title bar shows **ContosoDemo10k**. You use that name in the next step.
 
+<video src="videos/AIsetup-CopyContosoDemo.mp4" 
+ autoplay loop muted width="500"></video>
+
 ## Step 4: connect the agent
 
 1. Open the **chat panel** and set the mode selector to **Agent**. In Ask mode the MCP server is never used.

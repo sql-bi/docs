@@ -20,6 +20,6 @@ This section collects information to support the use of AI tools to create model
 
 These video courses can help in understanding and applying AI in Power BI.
 
-- [**AI for Power BI: Intro**](https://www.sqlbi.com/p/ai-for-power-bi-intro/) — where an agent helps and where it does not, the tools involved, and how to set up a first safe experiment on a model of yours.
-- [**DAX with AI: Essentials**](https://www.sqlbi.com/p/dax-with-ai-essentials/) — write, read, and review DAX with an agent: the prompts that work, the ones that do not, and how to verify what the agent produced.
-- [**DAX with AI: Scenarios**](https://www.sqlbi.com/p/dax-with-ai-scenarios/) — complete scenarios on real models: bulk operations, refactoring, optimization, and the reviews that keep the result correct.
+- [**AI for Power BI: Intro (free)**](https://www.sqlbi.com/p/ai-for-powerbi-intro-video-course/) — where an agent helps and where it does not, the tools involved, and how to set up a first safe experiment on a model of yours.
+- [**DAX with AI: Essentials**](https://www.sqlbi.com/p/dax-with-ai-essentials-video-course/) — write, read, and review DAX with an agent: the prompts that work, the ones that do not, and how to verify what the agent produced.
+- [**DAX with AI: Scenarios**](https://www.sqlbi.com/p/dax-with-ai-scenarios-video-course/) — complete scenarios on real models: bulk operations, refactoring, optimization, and the reviews that keep the result correct.

@@ -45,16 +45,18 @@ Every command of this article says which of the two to use. To open a window alr
 
 ### Install Node.js
 
-<!-- options -->
 Choose one of the two methods. LTS stands for Long Term Support.
-
-**Option 1: the installer.** Download it from [nodejs.org/en/download](https://nodejs.org/en/download) and run it.
-
-**Option 2: WinGet.** In the **command prompt**:
+<!-- options -->
+**Option 1: WinGet.** In the **command prompt**:
 
 ```text
 winget install --id OpenJS.NodeJS.LTS --source winget
 ```
+<video src="videos/AIsetup-NodeJS.mp4" 
+ autoplay loop muted width="500"></video>
+
+**Option 2: the installer.** Download it from [nodejs.org/en/download](https://nodejs.org/en/download) and run it.
+
 <!-- /options -->
 
 Both methods write in the folders of the machine, so they ask for administrator rights. If you do not have them, use one of the options at the end of this step.
@@ -158,6 +160,9 @@ winget install --id Git.Git --source winget
 3. Open **ContosoDemo10k.pbix** in Power BI Desktop and leave Power BI Desktop open.
 
 The title bar shows **ContosoDemo10k**. You use that name in step 6.
+
+<video src="videos/AIsetup-CopyContosoDemo.mp4" 
+ autoplay loop muted width="500"></video>
 
 ## Step 5: open the application and sign in
 
