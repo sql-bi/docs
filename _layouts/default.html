@@ -1,13 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    {% assign canonical_path = page.url | default: "/" | append: "__docs0_url_end__" | replace: "/index__docs0_url_end__", "/__docs0_url_end__" | remove: "__docs0_url_end__" %}
+    {% capture meta_title %}{% if page.error %}{{ page.error }}{% else %}{{ page.title }}{% endif %}{% endcapture %}
+    {% capture meta_description %}{% if page.description %}{{ page.description }}{% else %}{{ page.title }} on {{ site.title }}.{% endif %}{% endcapture %}
+    {% assign meta_title = meta_title | normalize_whitespace | strip %}
+    {% assign meta_description = meta_description | normalize_whitespace | strip %}
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% if page.noindex or page.redirect %}<meta name="robots" content="noindex">{% endif %}
     {% if page.redirect %}<meta http-equiv="refresh" content="0; URL={{page.redirect}}" />{% endif %}
-    <title>{% if page.error %}{{ page.error}}{% else %}{{ page.title }}{% endif %}{% unless page.title == site.title %} - {{ site.title }}{% endunless %}</title>
-    {% if page.description %}<meta name="description" content="{{ page.description }}">{% endif %}
+    <title>{{ meta_title }}{% unless page.title == site.title %} - {{ site.title }}{% endunless %}</title>
+    <meta name="description" content="{{ meta_description | escape }}">
+    {% unless page.redirect %}<link rel="canonical" href="{{ canonical_path | absolute_url }}">{% endunless %}
+    <meta property="og:title" content="{{ meta_title | escape }}">
+    <meta property="og:description" content="{{ meta_description | escape }}">
+    <meta property="og:site_name" content="{{ site.title | escape }}">
+    <meta property="og:type" content="article">
+    {% unless page.redirect %}<meta property="og:url" content="{{ canonical_path | absolute_url }}">{% endunless %}
+    <meta name="twitter:card" content="summary">
+    {% unless page.redirect or page.error %}
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "TechArticle",
+        "headline": {{ meta_title | jsonify }},
+        "description": {{ meta_description | jsonify }},
+        "url": {{ canonical_path | absolute_url | jsonify }},
+        {% if page.date %}"datePublished": {{ page.date | date_to_xmlschema | jsonify }},{% endif %}
+        {% if page.modified %}"dateModified": {{ page.modified | date_to_xmlschema | jsonify }},{% elsif page.date %}"dateModified": {{ page.date | date_to_xmlschema | jsonify }},{% endif %}
+        "publisher": {
+            "@type": "Organization",
+            "name": {{ site.company | default: site.title | jsonify }},
+            "url": {{ site.web_url | jsonify }}
+        }
+    }
+    </script>
+    {% endunless %}
     <link rel="shortcut icon" href="/assets/images/icon.png" sizes="228x228" media="(prefers-color-scheme: light)">
     <link rel="shortcut icon" href="/assets/images/icon-dark.png" sizes="228x228" media="(prefers-color-scheme: dark)">
     <link rel="apple-touch-icon" href="/assets/images/icon.png">
@@ -29,14 +59,15 @@
     
     {% include footer.html %}
 
-    <script src="/assets/scripts/fuse-index.js" defer></script>
-    <script src="/assets/scripts/fuse.min.js" defer></script>
-    <script src="/assets/scripts/search.min.js" defer></script>
+    {% if site.search %}
+        <script src="/assets/scripts/fuse-index.js" defer></script>
+        <script src="/assets/scripts/fuse.min.js" defer></script>
+        <script src="/assets/scripts/search.min.js" defer></script>
+    {% endif %}
     <script src="/assets/scripts/prism.js"></script>
     <script src="/assets/scripts/medium-zoom.min.js"></script>
     <script src="/assets/scripts/split.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
-    <script src="/assets/scripts/main.min.js"></script>
     <script src="/assets/scripts/my.js"></script>
 </body>
 </html>

@@ -1,5 +1,19 @@
 # Docs0 Changelog
 
+## 1.3.0 (2026-08-26)
+
+- Generate the documentation tree once in `/assets/nav.json`, then render and cache it client-side
+- Preserve navigation expansion and scroll state while reducing flashing during page loads
+- Add canonical, Open Graph, Twitter Card, and `TechArticle` JSON-LD metadata
+- Add static `robots.txt` and sitemap generation for GitHub Pages
+- Add an automatically generated visual sitemap linked from the footer
+- Add local validation for metadata, machine-readable resources, navigation, internal links, anchors, media, and rate-limited external links
+- Improve image alternative-text and video-description guidance
+
+## 1.2.2 (2026-07-03)
+
+- Fix navigation URL normalization so `index` is treated as a special segment only when it is the final page name
+
 ## 1.2.1 (2026-05-06)
 
 - Improve responsive layout

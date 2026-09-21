@@ -1,4 +1,5 @@
-{% assign crumbs = page.url | remove: "/index" | split: "/" %}
+{% assign current_page_url = page.url | append: "__docs0_url_end__" | replace: "/index__docs0_url_end__", "__docs0_url_end__" | remove: "__docs0_url_end__" %}
+{% assign crumbs = current_page_url | split: "/" %}
 {% assign level = crumbs | size | minus: 1 %}
 {% if level > 0 %}
   {% capture html %}
@@ -16,7 +17,11 @@
           
           {% assign crumb_title = crumb | replace:'-',' ' | remove:'.html' %}
           {% for _page in site.mydocs %}
-            {% assign page_url = _page.url | remove: "/index" | append: '/' %}
+            {% assign page_url = _page.url | append: "__docs0_url_end__" | replace: "/index__docs0_url_end__", "__docs0_url_end__" | remove: "__docs0_url_end__" %}
+            {% assign page_url_suffix = page_url | slice: -1, 1 %}
+            {% unless page_url_suffix == "/" %}
+              {% assign page_url = page_url | append: '/' %}
+            {% endunless %}
             {% if page_url == crumb_url %}
 
               {% capture crumb_title %}{% if _page.menu_title %}{{ _page.menu_title }}{% else %}{{ _page.title }}{% endif %}{% endcapture %}

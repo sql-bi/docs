@@ -1,10 +1,12 @@
 {
     "name": "Docs0",
-    "version": "1.2.1",
-    "lastUpdated": "2026-05-06",
+    "version": "1.3.0",
+    "lastUpdated": "2026-08-26",
     "scripts": {
         "run:incremental": "bundle exec jekyll serve --incremental --port 4001",
         "run:full": "bundle exec jekyll serve --port 4001",
+        "validate": "bundle exec jekyll build && node --experimental-strip-types _scripts/validate-site.ts _site --external",
+        "validate:site": "node --experimental-strip-types _scripts/validate-site.ts _site",
         "update-dates:sh": "./_scripts/update-mydocs-modified.sh",
         "update-dates:sh:dry-run": "./_scripts/update-mydocs-modified.sh --dry-run",
         "update-dates:ps": "powershell -ExecutionPolicy Bypass -File .\\_scripts\\update-mydocs-modified.ps1",

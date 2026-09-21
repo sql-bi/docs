@@ -32,6 +32,10 @@
         padding: 40px;
         min-width: 0;
 
+        &:has(.visual-sitemap) {
+            max-width: 1440px;
+        }
+
         header {
 
             .super-title {

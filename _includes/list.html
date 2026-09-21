@@ -2,7 +2,7 @@
 
 {% capture _list %}
 {% for _page in sorted_pages %}
-    {% assign page_url = _page.url | remove: "/index" %}
+    {% assign page_url = _page.url | append: "__docs0_url_end__" | replace: "/index__docs0_url_end__", "__docs0_url_end__" | remove: "__docs0_url_end__" %}
     {% assign path_size = include.path | size %}
     {% assign page_url_root = page_url | slice: 0, path_size %}
     {% assign page_file = _page.url | split: "/" | last %}

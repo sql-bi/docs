@@ -27,16 +27,18 @@ This page collects the comparison that helps you pick one, and a self-contained 
 | <img src="images/openai.png" alt="OpenAI" width="32" class="naked nozoom"> | OpenAI | [The ChatGPT desktop app](chatgpt-desktop.md)<br>[Codex CLI](codex-cli.md) |
 | <img src="images/anthropic.jpg" alt="Anthropic" width="32" class="naked nozoom"> | Anthropic | [Claude Code Desktop](claude-code-desktop.md)<br>[Claude Code](claude-code.md) |
 | <img src="images/vscode.png" alt="Visual Studio Code" width="32" class="naked nozoom"> | Microsoft | [Visual Studio Code](vscode.md) |
-| <img src="images/microsoft-copilot.svg" alt="Microsoft Copilot" width="32" class="naked nozoom"> | Microsoft | [Microsoft Copilot](microsoft-copilot.md) (*) — no setup guide yet |
+| <img src="images/microsoft-copilot.svg" alt="Microsoft Copilot" width="32" class="naked nozoom"> | Microsoft | [Microsoft Copilot](microsoft-copilot.md) (*no setup guide yet) |
 | <img src="images/github-copilot.png" alt="GitHub Copilot" width="110" class="naked nozoom"> | GitHub | [GitHub Copilot CLI](github-copilot-cli.md) |
 | <img src="images/antigravity.png" alt="Google Antigravity" width="32" class="naked nozoom"> | Google | [Google Antigravity](antigravity.md) |
 | <img src="images/grok.svg" alt="Grok" width="32" class="naked nozoom"> | SpaceXAI | [Grok Build](grok-build.md) |
 | <img src="images/kiro.svg" alt="Kiro" width="32" class="naked nozoom"> | AWS | [Kiro](kiro.md) |
 | <img src="images/qwen.png" alt="Qwen" width="32" class="naked nozoom"> | Alibaba | [Qwen Code](qwen-code.md) |
 
-> Product names and logos are trademarks of their respective owners. SQLBI is not affiliated with them.
+<small>Product names and logos are trademarks of their respective owners. SQLBI is not affiliated with them.</small>
 
-**Microsoft Copilot** is in the table for completeness, without a setup guide. As of September 2026 it does not create the objects of a semantic model in Power BI Desktop, so it cannot follow the exercises of the courses. [More details about the reasons, and what we will do when that changes](microsoft-copilot.md).
+>> **Microsoft Copilot** is in the table for completeness, without a setup guide. As of September 2026 it does not create the objects of a semantic model in Power BI Desktop, so it cannot follow the exercises of the courses. [More details about the reasons, and what we will do when that changes](microsoft-copilot.md).
+
+
 
 ## What every setup has in common
 

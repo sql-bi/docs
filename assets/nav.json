@@ -1,0 +1,30 @@
+---
+layout: null
+permalink: /assets/nav.json
+---
+{% capture navigation_json %}
+{
+    "items": [
+{% assign first_item = true %}
+{% assign sorted_pages = site.mydocs | sort: "order" %}
+{% for doc in sorted_pages %}
+    {% unless doc.redirect %}
+        {% unless doc.unlisted %}
+            {% assign doc_url = doc.url | append: "__docs0_url_end__" | replace: "/index__docs0_url_end__", "/__docs0_url_end__" | remove: "__docs0_url_end__" %}
+            {% unless doc_url == "/" %}
+                {% capture doc_title %}{% if doc.menu_title %}{{ doc.menu_title }}{% else %}{{ doc.title }}{% endif %}{% endcapture %}{% unless first_item %},{% endunless %}
+        {
+            "id": {{ "p-" | append: doc.url | slugify | jsonify }},
+            "url": {{ doc_url | jsonify }},
+            "title": {{ doc_title | normalize_whitespace | strip_html | strip | jsonify }},
+            "menuClass": {% if doc.menu_class %}{{ doc.menu_class | jsonify }}{% else %}""{% endif %},
+            "separator": {% if doc.menu_sep %}true{% else %}false{% endif %}
+        }{% assign first_item = false %}
+            {% endunless %}
+        {% endunless %}
+    {% endunless %}
+{% endfor %}
+    ]
+}
+{% endcapture %}
+{{ navigation_json | normalize_whitespace | strip }}

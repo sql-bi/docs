@@ -1,0 +1,26 @@
+---
+layout: null
+permalink: /sitemap.xml
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+{% for doc in site.mydocs %}
+    {% unless doc.redirect %}
+        {% unless doc.draft %}
+            {% unless doc.noindex %}
+                {% unless doc.published == false %}
+                    {% unless doc.sitemap == false %}
+                        {% assign doc_url = doc.url | append: "__docs0_url_end__" | replace: "/index__docs0_url_end__", "/__docs0_url_end__" | remove: "__docs0_url_end__" %}
+                        {% assign last_modified = doc.modified | default: doc.date %}
+    <url>
+        <loc>{{ doc_url | absolute_url | xml_escape }}</loc>{% if last_modified %}
+        <lastmod>{{ last_modified | date_to_xmlschema }}</lastmod>{% endif %}
+    </url>
+                    {% endunless %}
+                {% endunless %}
+            {% endunless %}
+        {% endunless %}
+    {% endunless %}
+{% endfor %}
+    <url><loc>{{ "/sitemap/" | absolute_url | xml_escape }}</loc></url>
+</urlset>
