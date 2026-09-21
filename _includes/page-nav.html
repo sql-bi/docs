@@ -1,19 +1,6 @@
-<nav class="main-nav">
+{% assign current_page_url = page.url | append: "__docs0_url_end__" | replace: "/index__docs0_url_end__", "/__docs0_url_end__" | remove: "__docs0_url_end__" %}
+<nav class="main-nav" data-navigation-source="{{ "/assets/nav.json" | relative_url }}?v={{ site.time | date: "%s" }}" data-current-url="{{ current_page_url | escape }}" aria-label="Documentation navigation" aria-busy="true">
     <ul>
-        <li class="l0{% if page.url == "/index" or page.url == "/" %} current{% endif %}"><a href="/" class="tree-link">{{ site.nav_root_title }}</a></li>
-        {% capture nav_html %}{% include_cached nav.html pages=site.mydocs %}{% endcapture %}
-
-        {% assign current_class = "url_" | append: page.url | replace: "/index", "/" %}
-        {% assign nav_html = nav_html | replace: current_class, "current" %}
-
-        {% assign expanded_class = "url_" %}
-        {% assign page_url_parts = page.url | split: "/" %}
-        {% for part in page_url_parts %}
-            {% assign expanded_class = expanded_class | append: part | append: "/" %}
-            {% assign replace_expanded_class = expanded_class | append: '"' %}
-            {% assign nav_html = nav_html | replace: replace_expanded_class, 'expanded"' %}
-        {% endfor %}
-
-        {{ nav_html }}
+        <li class="l0{% if current_page_url == "/" %} current{% endif %}" data-nav-url="/"><a href="/" class="tree-link">{{ site.nav_root_title }}</a></li>
     </ul>
 </nav>

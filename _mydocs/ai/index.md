@@ -2,7 +2,6 @@
 layout:      page
 title:       "AI and Power BI"
 menu_title:  "AI"
-description: "What SQLBI publishes about AI and Power BI: our position, our courses, and the instructions to configure each AI client on Windows."
 published:   true
 order:       /ai
 next_reading: false
@@ -12,11 +11,11 @@ An AI agent can now read and modify a **semantic model** and a **report** while 
 
 This section collects information to support the use of AI tools to create models and reports with Power BI.
 
-# Setup instructions for AI tools
+## Setup instructions for AI tools
 
 - [**AI tools for Power BI Desktop**](tools/index.md) — the ten clients that connect to Power BI Desktop, a comparison to choose one, and a self-contained setup guide for each of them.
 
-# Video Courses
+## Video Courses
 
 These video courses can help in understanding and applying AI in Power BI.
 

@@ -2,6 +2,7 @@
 title: SQLBI Docs
 email: info@sqlbi.com
 company: SQLBI Corp.
+url: https://docs.sqlbi.com
 
 # Main website URL
 web_url: https://www.sqlbi.com
@@ -13,7 +14,7 @@ privacy_url: https://www.sqlbi.com/privacy/
 terms_url: https://docs.sqlbi.com/terms-and-conditions/
 
 # GitHub URL - Leave blank if you don't want to display links to GitHub repo
-github_url: 
+github_url: https://github.com/sql-bi/docs
 
 # Header quick link - This is usually a quick link to the service/product
 header_link_title: 
@@ -35,7 +36,6 @@ nav_root_title: Docs
 ### DO NOT CHANGE BELOW THIS LINE ###
 
 plugins:
-  - jekyll-sitemap
   - jekyll-relative-links
   - jekyll-include-cache
 

@@ -5,6 +5,7 @@
             {% if site.web_url %}
             <a href="{{ site.web_url }}">{{ site.web_url | replace: 'https://', '' }}</a> &nbsp;<span class="sep">|</span>&nbsp; 
             {% endif %}
+            <a href="{{ "/sitemap/" | relative_url }}">Sitemap</a> &nbsp;<span class="sep">|</span>&nbsp;
             {% if site.privacy_url %}
             <a href="{{ site.privacy_url }}">Privacy Policy</a> &nbsp;<span class="sep">|</span>&nbsp; 
             {% endif %}
@@ -16,4 +17,6 @@
             {% endif %}
         </div>
     </div>
+
+    <div class="change-theme ctrl solo icon-theme-system" title="Change Theme"></div>
 </footer>

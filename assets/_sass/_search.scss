@@ -3,8 +3,14 @@
     position: relative;
 
     .icon-search {
+        appearance: none;
+        background: none;
+        border: 0;
+        color: inherit;
+        cursor: pointer;
         font-size: 20px;
         margin-left: 10px;
+        padding: 0;
     }
 
 }
@@ -120,4 +126,3 @@
     top: 0;
     bottom:0;
 }
-

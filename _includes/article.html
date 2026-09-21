@@ -6,7 +6,8 @@
                 {% include breadcrumbs.html %}
             {% endunless %}
 
-            <a href="{{ page.url | remove: "index" | remove: ".html" }}"><h1>{{ page.title }}{% if page.available %}
+            {% assign article_page_url = page.url | append: "__docs0_url_end__" | replace: "/index__docs0_url_end__", "/__docs0_url_end__" | remove: "__docs0_url_end__" %}
+            <a href="{{ article_page_url | remove: ".html" }}"><h1>{{ page.title }}{% if page.available %}
                 {% include badge in=page.available %}
             {% elsif page.version %}
                 {% include badge v=page.version %}

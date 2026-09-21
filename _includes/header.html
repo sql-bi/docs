@@ -6,16 +6,14 @@
     <div class="title">{{ site.nav_root_title }}</div>
 
     {% if site.search %}
-    <div class="search">
+    <form class="search" action="/search/" method="get">
         <div class="search-results" hidden></div>
-        <div class="icon-search"></div>
-        <input type="search" placeholder="Search">
-    </div>
+        <button type="submit" class="icon-search" aria-label="Search"></button>
+        <input type="search" name="s" placeholder="Search" aria-label="Search documentation">
+    </form>
     {% endif %}
 
     <div class="controls">
-
-        <div class="change-theme ctrl solo icon-theme-system" title="Change Theme"></div>
 
         {% if site.github_url %}
         <a href="{{ site.github_url }}/blob/main{{ site.collections_dir }}/{{ page.path }}" class="gotogithub ctrl solo icon-github" title="Go to GitHub"></a>

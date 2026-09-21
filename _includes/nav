@@ -4,19 +4,21 @@
         {% if _page.unlisted %}
             {% continue %}
         {% endif %}
-        {% assign page_url = _page.url | replace: "/index", "/" %}
+        {% assign page_url = _page.url | append: "__docs0_url_end__" | replace: "/index__docs0_url_end__", "/__docs0_url_end__" | remove: "__docs0_url_end__" %}
         {% assign page_url_parts = page_url | split: "/" %}
         {% assign page_level = page_url_parts | size | minus: 1 | at_least: 0 %}
         {% assign page_file = _page.url | split: "/" | last %}
+        {% capture page_title %}{% if _page.menu_title %}{{ _page.menu_title }}{% else %}{{ _page.title }}{% endif %}{% endcapture %}
+        {% assign page_title = page_title | normalize_whitespace | strip_html | strip %}
 
         {% assign include_url_size = include.url | size %}
         {% assign page_url_sub = page_url | slice: 0, include_url_size %}
         
         {% if page_url_sub == include.url and page_level == include.level %}
-            <li id="p-{{ _page.url | slugify }}" class="l{{ include.level }} url_{{ _page.url | remove: "index" }}">
+            <li id="p-{{ _page.url | slugify }}" class="l{{ include.level }} url_{{ page_url }}">
         
                 <a href="{{ page_url }}" class="tree-link{% if _page.menu_class %} {{ _page.menu_class }}{% endif %}" >
-                    <span class="link-title" title="{% if _page.menu_title %}{{ _page.menu_title }}{% else %}{{ _page.title }}{% endif %}">{% if _page.menu_title %}{{ _page.menu_title }}{% else %}{{ _page.title }}{% endif %}</span>
+                    <span class="link-title" title="{{ page_title | escape }}">{{ page_title | escape }}</span>
                     {% if page_file == "index" and page_level > 0 %}
                         <span class="tree-toggle icon"></span>
                     {% endif %}

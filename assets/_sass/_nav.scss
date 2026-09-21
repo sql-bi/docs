@@ -51,13 +51,15 @@ nav {
         }
 
         &.non-expandable {
-            .tree-toggle { 
+            .tree-toggle,
+            [data-navigation-toggle] {
                display: none;
             }
         }
         &:not(.non-expandable).expanded, 
         &:not(.non-expandable):not(.collapsed).current {
-            & > .tree-link .tree-toggle {
+            & > .tree-link .tree-toggle,
+            & > .tree-link [data-navigation-toggle] {
                 @include icon-down;
             }
 
@@ -106,7 +108,8 @@ nav {
                     @include ellipsis;
                 }
 
-                .tree-toggle {
+                .tree-toggle,
+                [data-navigation-toggle] {
                     margin: 0 0 0 auto;
                     padding-left: 6px;
                     @include icon-right; // right
@@ -170,7 +173,173 @@ nav {
             }
         }
     }
-    
+
+}
+
+.visual-sitemap {
+    width: 100%;
+    padding: 16px 0 60px;
+
+    ul,
+    li {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    > ul,
+    ul ul {
+        padding-left: 0 !important;
+    }
+
+    > ul {
+        display: flex;
+        flex-direction: column;
+        gap: 42px;
+    }
+
+    li {
+        display: block;
+        min-width: 0;
+    }
+
+    a.tree-link {
+        display: block;
+        margin: 0;
+        padding: 2px 0;
+        line-height: 1.4;
+
+        .link-title {
+            width: auto;
+            overflow: visible;
+            white-space: normal;
+            text-overflow: clip;
+        }
+    }
+
+    > ul > li > .tree-link {
+        margin-bottom: 16px;
+        font-size: 24px;
+        font-weight: 700 !important;
+        border-bottom: 1px solid var(--border-color);
+        padding-bottom: 10px;
+    }
+
+    > ul > li > ul {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
+        gap: 28px 40px;
+        align-items: start;
+    }
+
+    > ul > li > ul > li > .tree-link {
+        margin-bottom: 6px;
+        font-size: 18px;
+        font-weight: 700 !important;
+    }
+
+    > ul > li > ul > li:has(> ul > li:nth-child(7)) {
+        grid-column: 1 / -1;
+        margin-top: 8px;
+
+        > .tree-link {
+            margin-bottom: 12px;
+            font-size: 20px;
+        }
+
+        > ul {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr));
+            gap: 24px 36px;
+
+            > li {
+                min-width: 0;
+
+                > .tree-link {
+                    margin-bottom: 4px;
+                    font-size: 16px;
+                    font-weight: 600 !important;
+                }
+            }
+        }
+    }
+
+    ul ul ul {
+        margin-top: 4px;
+    }
+
+    li li li:has(> ul > li) {
+        margin-top: 12px;
+
+        > .tree-link {
+            break-after: avoid;
+            font-size: 15px;
+            font-weight: 600 !important;
+        }
+    }
+
+    > ul > li > ul > li > ul > li:has(> ul > li:nth-child(10)) {
+        grid-column: 1 / -1;
+        break-inside: auto;
+
+        > ul {
+            column-count: 4;
+            column-width: auto;
+            column-gap: 28px;
+
+            > li {
+                display: inline-block;
+                width: 100%;
+                margin-bottom: 14px;
+                vertical-align: top;
+                break-inside: avoid;
+            }
+        }
+    }
+
+    > ul > li > ul > li > ul > li:has(> ul > li:nth-child(10)) > ul > li:has(> ul > li:nth-child(10)) {
+        display: block;
+        column-span: all;
+        break-inside: auto;
+
+        > ul {
+            column-count: 4;
+            column-width: auto;
+            column-gap: 28px;
+
+            > li {
+                margin-bottom: 0;
+                break-inside: avoid;
+            }
+        }
+    }
+
+    .tree-toggle,
+    li.block {
+        display: none;
+    }
+
+    @include screen(760px) {
+        padding-bottom: 30px;
+
+        > ul {
+            gap: 30px;
+        }
+
+        > ul > li > .tree-link {
+            font-size: 21px;
+        }
+
+        > ul > li > ul,
+        > ul > li > ul > li:has(> ul > li:nth-child(7)) > ul {
+            grid-template-columns: 1fr;
+        }
+
+        > ul > li > ul > li > ul > li:has(> ul > li:nth-child(10)) > ul,
+        > ul > li > ul > li > ul > li:has(> ul > li:nth-child(10)) > ul > li:has(> ul > li:nth-child(10)) > ul {
+            column-count: 1;
+        }
+    }
 }
 
 .burger {

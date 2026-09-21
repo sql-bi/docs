@@ -1,7 +1,7 @@
 {% assign sorted_pages = site.mydocs | sort | reverse %}
 {% assign filtered_list = '' | split: '' %}
 {% for _page in sorted_pages %}
-    {% assign page_url = _page.url | remove: "/index" %}
+    {% assign page_url = _page.url | append: "__docs0_url_end__" | replace: "/index__docs0_url_end__", "__docs0_url_end__" | remove: "__docs0_url_end__" %}
     {% assign path_size = include.path | size %}
     {% assign page_url_root = page_url | slice: 0, path_size %}
     {% assign page_file = _page.url | split: "/" | last %}
@@ -13,7 +13,8 @@
 {% for _page in filtered_list %}{
     "title": {{ _page.title | jsonify }},
     "date": {{ _page.date | date: "%Y-%m-%d" | jsonify }},
-    "url": {{ _page.url | jsonify }},
+    {% assign page_url = _page.url | append: "__docs0_url_end__" | replace: "/index__docs0_url_end__", "__docs0_url_end__" | remove: "__docs0_url_end__" %}
+    "url": {{ page_url | jsonify }},
     "content": {{ _page.content | markdownify | strip_newlines | strip | jsonify }}
 }{% if forloop.last == false %},{% endif %}
 {% endfor %}

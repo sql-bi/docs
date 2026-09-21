@@ -3,8 +3,9 @@ layout: default
 ---
 {% assign page_file = page.url | split: "/" | last %}
 
-<div class="page{% if page_file == "index" and page.next_reading %} front-section{% endif %} {{ page.class }} loading">
+<main class="page{% if page_file == "index" and page.next_reading %} front-section{% endif %} {{ page.class }} loading">
     {% include page-nav.html %}
+    <script src="/assets/scripts/main.min.js"></script>
 
     <div class="content main-content">
         <div class="burger">
@@ -13,4 +14,4 @@ layout: default
         
         {% include article.html %}
     </div>
-</div>
+</main>
