@@ -18,3 +18,27 @@
         }
     }
 }
+
+// Tables
+// .markdown-body sets `overflow-wrap: anywhere`, and that value is taken into
+// account when the browser computes the min-content width of a column: every
+// column can shrink to one character. With automatic table layout the space is
+// then handed to the columns with the longest content (the ones with `code`
+// spans), and a short column like "Client" collapses to a single letter per
+// line. `break-word` keeps the same wrapping of long tokens without lowering
+// the min-content width, so each column stays at least as wide as its longest
+// word.
+.markdown-body {
+    table th,
+    table td {
+        overflow-wrap: break-word;
+        word-break: normal;
+    }
+
+    // Opt-in for tables whose first column is a label that must stay on one line:
+    // add `{: .labels}` on the line after the table in the Markdown file.
+    table.labels th:first-child,
+    table.labels td:first-child {
+        white-space: nowrap;
+    }
+}
