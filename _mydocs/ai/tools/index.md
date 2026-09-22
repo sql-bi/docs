@@ -28,7 +28,7 @@ This page collects the comparison that helps you pick one, and a self-contained 
 | <img src="images/anthropic.jpg" alt="Anthropic" width="32" class="naked nozoom"> | Anthropic | [Claude Code Desktop](claude-code-desktop.md)<br>[Claude Code](claude-code.md) |
 | <img src="images/vscode.png" alt="Visual Studio Code" width="32" class="naked nozoom"> | Microsoft | [Visual Studio Code](vscode.md) |
 | <img src="images/microsoft-copilot.svg" alt="Microsoft Copilot" width="32" class="naked nozoom"> | Microsoft | [Microsoft Copilot](microsoft-copilot.md) (*no setup guide yet) |
-| <img src="images/github-copilot.png" alt="GitHub Copilot" width="110" class="naked nozoom"> | GitHub | [GitHub Copilot CLI](github-copilot-cli.md) |
+| <img src="images/github.svg" alt="GitHub" width="32" class="naked nozoom"> | GitHub | [GitHub Copilot CLI](github-copilot-cli.md) |
 | <img src="images/antigravity.png" alt="Google Antigravity" width="32" class="naked nozoom"> | Google | [Google Antigravity](antigravity.md) |
 | <img src="images/grok.svg" alt="Grok" width="32" class="naked nozoom"> | SpaceXAI | [Grok Build](grok-build.md) |
 | <img src="images/kiro.svg" alt="Kiro" width="32" class="naked nozoom"> | AWS | [Kiro](kiro.md) |
