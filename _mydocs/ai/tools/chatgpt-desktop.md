@@ -48,6 +48,7 @@ Every command of this article says which of the two to use. To open a window alr
 ### Install Node.js
 
 Choose one of the two methods. LTS stands for Long Term Support.
+
 <!-- options -->
 **Option 1: WinGet.** In the **command prompt**:
 
@@ -211,6 +212,9 @@ Connect to 'ContosoDemo10k' in Power BI Desktop
 
 The answer reports the model name and an active connection. The first call to the MCP server raises a confirmation prompt. Read it: it is the only checkpoint before a change.
 
+<video src="videos/AIsetup-ChatGPT-connect-PbiDesktop.mp4" 
+ autoplay loop muted width="500"></video>
+
 ## Step 7: verify the connection
 
 Send these two prompts to the agent, one after the other:
@@ -222,6 +226,9 @@ Show me the relationships in the model
 
 Both answers arrive in a few seconds. The chain works: the ChatGPT desktop app, MCP server, Power BI Desktop.
 
+<video src="videos/AIsetup-ChatGPT-verify-connection.mp4" 
+ autoplay loop muted width="500"></video>
+
 ## Step 8: enable the write operations
 
 The session started in read-only mode, so the next prompt would fail. Remove the restriction:
@@ -230,6 +237,9 @@ The session started in read-only mode, so the next prompt would fail. Remove the
 2. Select **File/Quit ChatGPT**.
 3. Start ChatGPT desktop app and connect again, as in step 6.
 
+<video src="videos/AIsetup-ChatGPT-mcp-enable-write.mp4" 
+ autoplay loop muted width="500"></video>
+
 Then send this prompt:
 
 ```text
@@ -237,6 +247,9 @@ Create a measure that returns the Sales Amount of the previous year using the sa
 ```
 
 The measure appears in Power BI Desktop without a refresh. Each write operation raises a confirmation prompt, if **Ask for approval** is active. The same approach applies to bulk operations, like format strings and display folders on hundreds of objects in a single request.
+
+<video src="videos/AIsetup-ChatGPT-mcp-create-measure.mp4" 
+ autoplay loop muted width="500"></video>
 
 ## Step 9: enable the preview features for the report layer
 
@@ -252,6 +265,9 @@ The third option is the **Power BI Desktop Bridge**, and it is enabled by defaul
 
 Restart Power BI Desktop.
 
+<video src="videos/AIsetup-PowerBI-enable-preview-report-layer.mp4" 
+ autoplay loop muted width="500"></video>
+
 ## Step 10: save the sample as a project
 
 Use **File > Save as** and choose the **Power BI Project (\*.pbip)** file type. Power BI Desktop creates this structure:
@@ -265,6 +281,9 @@ ContosoDemo10k.Report/
 
 The model is a set of **TMDL** files (Tabular Model Definition Language) and the report is a set of JSON files. Put the folder under source control and commit a baseline, so to undo a wrong operation with one command.
 
+<video src="videos/AIsetup-PowerBI-save-as-PBIP.mp4" 
+ autoplay loop muted width="500"></video>
+ 
 ## Step 11: install the report authoring skill
 
 **Git is required for this step.** The repository is downloaded with `git`, and Windows does not include it. Install it, then close the command prompt and open it again.
@@ -279,6 +298,10 @@ Choose one of the two methods.
 ```text
 winget install --id Git.Git --source winget
 ```
+
+<video src="videos/AIsetup-skill-tools-install.mp4" 
+ autoplay loop muted width="500"></video>
+ 
 <!-- /options -->
 
 The skills call two command-line tools. Install them in the **command prompt**:
@@ -307,6 +330,10 @@ xcopy /E /I "C:\Demo\skills-for-fabric\plugins\powerbi-authoring\skills" "%USERP
 ```
 
 Please, verify the folder names in the repository before you copy, because the layout changes between versions. The repository also has a `skills` folder in its root, which contains all the skills of the collection. The five skills of the report layer are the ones in the folder of the plugin.
+
+<video src="videos/AIsetup-skill-repo-clone.mp4" 
+ autoplay loop muted width="500"></video>
+ 
 <!-- /options -->
 
 Restart the application, and ask the agent to list the skills it can use.
@@ -323,6 +350,9 @@ Open semantic model from PBIP folder 'C:\Demo\ContosoDemo10k.SemanticModel'
 
 The MCP server manages the semantic model folder. The authoring skill reads and writes the report folder as files.
 
+<video src="videos/AIsetup-ChatGPT-connect-PBIP.mp4" 
+ autoplay loop muted width="500"></video>
+ 
 ## Step 13: create a report page
 
 ```text
@@ -331,6 +361,9 @@ Create a report page with a line chart showing Sales Amount by Quarter, and a ca
 
 Then ask the agent to validate the report, which checks the structure of the PBIR files, and open the `.pbip` file in Power BI Desktop. Review the final result.
 
+<video src="videos/AIsetup-ChatGPT-create-report.mp4" 
+ autoplay loop muted width="500"></video>
+ 
 **NOTE: Save any manual change in Power BI Desktop before the agent iterates.** The agent reads the files on disk and does not see the unsaved state. Editing in both places at the same time loses one set of changes.
 
 The examples in the documentation use cards, bar charts, clustered column charts, tables, KPI cards, and slicers, and the skill converts the legacy `card` and `matrix` visuals into the modern `cardVisual` and `pivotTable`. There is no published list of the supported visuals, so expect some trial and error. Q&A, Bing maps, and filled maps are announced for deprecation, and Microsoft recommends avoiding them.

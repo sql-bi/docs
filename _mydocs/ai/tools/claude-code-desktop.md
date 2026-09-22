@@ -152,6 +152,9 @@ Choose one of the two methods.
 winget install --id Git.Git --source winget
 ```
 
+<video src="videos/AIsetup-skill-tools-install.mp4" 
+ autoplay loop muted width="500"></video>
+
 <!-- /options -->
 ## Step 4: open the sample model
 
@@ -252,6 +255,9 @@ The third option is the **Power BI Desktop Bridge**, and it is enabled by defaul
 
 Restart Power BI Desktop.
 
+<video src="videos/AIsetup-PowerBI-enable-preview-report-layer.mp4" 
+ autoplay loop muted width="500"></video>
+
 ## Step 11: save the sample as a project
 
 Use **File > Save as** and choose the **Power BI Project (\*.pbip)** file type. Power BI Desktop creates this structure:
@@ -265,6 +271,9 @@ ContosoDemo10k.Report/
 
 The model is a set of **TMDL** files (Tabular Model Definition Language) and the report is a set of JSON files. Put the folder under source control and commit a baseline, so to undo a wrong operation with one command.
 
+<video src="videos/AIsetup-PowerBI-save-as-PBIP.mp4" 
+ autoplay loop muted width="500"></video>
+ 
 ## Step 12: install the report authoring skill
 
 **Git is required for this step**, and step 3 installed it already. The marketplace is downloaded with `git`. If it cannot be downloaded, verify in the **command prompt** that `git --version` answers.

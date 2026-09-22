@@ -115,6 +115,9 @@ ContosoDemo10k.Report/
 
 The model is a set of **TMDL** files (Tabular Model Definition Language) and the report is a set of JSON files. Put the folder under source control and commit a baseline, so to undo a wrong operation with one command.
 
+<video src="videos/AIsetup-PowerBI-save-as-PBIP.mp4" 
+ autoplay loop muted width="500"></video>
+ 
 ### Obtain the report authoring skill
 
 The skill is part of the **powerbi-authoring** plugin, published in the [skills-for-fabric](https://github.com/microsoft/skills-for-fabric) marketplace by Microsoft, together with a report design skill and a report planner skill.

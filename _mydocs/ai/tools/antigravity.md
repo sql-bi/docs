@@ -273,6 +273,9 @@ The third option is the **Power BI Desktop Bridge**, and it is enabled by defaul
 
 Restart Power BI Desktop.
 
+<video src="videos/AIsetup-PowerBI-enable-preview-report-layer.mp4" 
+ autoplay loop muted width="500"></video>
+
 ## Step 10: save the sample as a project
 
 Use **File > Save as** and choose the **Power BI Project (\*.pbip)** file type. Power BI Desktop creates this structure:
@@ -286,6 +289,9 @@ ContosoDemo10k.Report/
 
 The model is a set of **TMDL** files (Tabular Model Definition Language) and the report is a set of JSON files. Put the folder under source control and commit a baseline, so to undo a wrong operation with one command.
 
+<video src="videos/AIsetup-PowerBI-save-as-PBIP.mp4" 
+ autoplay loop muted width="500"></video>
+ 
 ## Step 11: install the report authoring skill
 
 **Git is required for this step.** The repository is downloaded with `git`, and Windows does not include it. Install it, then close the command prompt and open it again.
@@ -300,6 +306,10 @@ Choose one of the two methods.
 ```text
 winget install --id Git.Git --source winget
 ```
+
+<video src="videos/AIsetup-skill-tools-install.mp4" 
+ autoplay loop muted width="500"></video>
+ 
 <!-- /options -->
 
 The skills call two command-line tools. Install them in the **command prompt**:
@@ -326,6 +336,9 @@ xcopy /E /I "C:\Demo\skills-for-fabric\plugins\powerbi-authoring\skills" "%USERP
 
 Please, verify the folder names in the repository before you copy, because the layout changes between versions. The repository also has a `skills` folder in its root, which contains all the skills of the collection. The five skills of the report layer are the ones in the folder of the plugin. Each skill is a folder with a `SKILL.md` file, whose front matter declares a `description`, and a `name` that defaults to the name of the folder.
 
+<video src="videos/AIsetup-skill-repo-clone.mp4" 
+ autoplay loop muted width="500"></video>
+ 
 The guidance of the repository is a different thing from the skills. Microsoft publishes it in an `AGENTS.md` file in the root of the repository, and Antigravity reads the rules in `%USERPROFILE%\.gemini\GEMINI.md` for every Project, and in the folder `.agents\rules` of the project. Copy the content you want in one of those files. Each rules file is limited to 12,000 characters, so keep the part that concerns the report layer instead of the whole document.
 
 Restart Antigravity, then ask the agent to list the skills it can use, so that you see the five names before you send a prompt that needs them.
