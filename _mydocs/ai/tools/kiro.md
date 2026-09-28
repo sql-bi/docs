@@ -2,7 +2,7 @@
 layout:      page
 title:       "Set up Kiro for agentic development with Power BI Desktop"
 menu_title:  "Kiro"
-description: "How to configure Kiro, the Power BI Modeling MCP server, and the Power BI report authoring skill to modify a semantic model and a report with an AI agent."
+description: "How to configure Kiro, the Power BI Authoring MCP server, and the Power BI report authoring skill to modify a semantic model and a report with an AI agent."
 published:   true
 order:       /70
 modified:    2026-09-13
@@ -20,19 +20,19 @@ Kiro is the agentic development environment of Amazon Web Services, available as
 ## Requirements
 
 - **Power BI Desktop**, installed.
-- **[Node.js](https://nodejs.org/en/download) 22 or later**. The Power BI Modeling MCP server is started with `npx`, which is part of Node.js. Kiro does not need it for itself. A new machine does not have it, so step 1 installs it.
+- **[Node.js](https://nodejs.org/en/download) 22 or later**. The Power BI Authoring MCP server is started with `npx`, which is part of Node.js. Kiro does not need it for itself. A new machine does not have it, so step 1 installs it.
 - **Windows 10 or Windows 11**, 64 bit, for the desktop application. The command-line client of Kiro requires Windows 11.
 - An account to sign in: a **GitHub account**, a **Google account**, an **AWS Builder ID**, or an account of AWS IAM Identity Center. The free plan includes a monthly amount of credits, and the MCP servers are not a paid feature. Check the [plans page](https://kiro.dev/pricing/) before you start.
 - **[Git for Windows](https://git-scm.com/downloads/win)**. The repository of the skills is downloaded with `git`, and Windows does not include it. Step 11 installs it.
 - **Write permission** on any semantic model you modify. The MCP server follows the same rules as the Power BI external tools.
 
-MCP stands for Model Context Protocol. The **Power BI Modeling MCP server** runs on your machine and connects to Power BI Desktop like an external tool. Kiro is the client that hosts the agent, and it starts the server as a local process.
+MCP stands for Model Context Protocol. The **Power BI Authoring MCP server** runs on your machine and connects to Power BI Desktop like an external tool. Kiro is the client that hosts the agent, and it starts the server as a local process.
 
 > Back up your model before an agent writes to it. With the sample model, extract the archive again if something goes wrong.
 
 ## Step 1: install Node.js
 
-A new installation of Windows does not have it. `npm` and `npx` are part of Node.js, and the Power BI Modeling MCP server is started with `npx`.
+A new installation of Windows does not have it. `npm` and `npx` are part of Node.js, and the Power BI Authoring MCP server is started with `npx`.
 
 ### Open the command prompt
 
@@ -164,13 +164,13 @@ The title bar shows **ContosoDemo10k**. You use that name in step 6.
 
 The autonomy of the agent has two modes, **Supervised**, which asks a confirmation for every action, and **Autopilot**, which proceeds inside the permissions. Keep **Autopilot** for this setup, in **Settings > Agent > Agent Autonomy**.
 
-## Step 5: register the Power BI Modeling MCP server
+## Step 5: register the Power BI Authoring MCP server
 
 There is no extension to install. The server is an npm package, and Kiro starts it on demand.
 
 Kiro reads two files: `%USERPROFILE%\.kiro\settings\mcp.json`, which applies to every folder, and `.kiro\settings\mcp.json` in the folder of the project. The two are merged, and the project wins where both declare the same server.
 
-**We use the file of the project.** The Power BI Modeling MCP server is useful where you work on a model, and declaring it for the user loads it in every other session you open, for any other work. The file of the user remains the choice when you connect to Power BI Desktop from many folders.
+**We use the file of the project.** The Power BI Authoring MCP server is useful where you work on a model, and declaring it for the user loads it in every other session you open, for any other work. The file of the user remains the choice when you connect to Power BI Desktop from many folders.
 
 1. Open the Kiro panel and select the **MCP Servers** tab.
 2. Select **Open Workspace MCP Config (JSON)**, which opens the file of the folder you opened in step 4, and creates it if it does not exist. The command palette, with `Ctrl+Shift+P`, reaches the same file with **Kiro: Open workspace MCP config (JSON)**.
@@ -451,7 +451,7 @@ Name the objects explicitly. For example, "add display folders to the measures i
 
 ## Conclusions
 
-Install Node.js, install Kiro, declare the **Power BI Modeling MCP server** in `mcp.json`, open a model in Power BI Desktop, connect with one prompt.
+Install Node.js, install Kiro, declare the **Power BI Authoring MCP server** in `mcp.json`, open a model in Power BI Desktop, connect with one prompt.
 
 These are the rules we suggest applying:
 

@@ -2,7 +2,7 @@
 layout:      page
 title:       "Set up Qwen Code for agentic development with Power BI Desktop"
 menu_title:  "Qwen Code"
-description: "How to configure Qwen Code, the Power BI Modeling MCP server, and the Power BI report authoring skill to modify a semantic model and a report with an AI agent."
+description: "How to configure Qwen Code, the Power BI Authoring MCP server, and the Power BI report authoring skill to modify a semantic model and a report with an AI agent."
 published:   true
 order:       /80
 modified:    2026-09-13
@@ -20,18 +20,18 @@ One warning before you start, because it changes the cost of this setup: the fre
 ## Requirements
 
 - **Power BI Desktop**, installed.
-- **[Node.js](https://nodejs.org/en/download) 22 or later**. Qwen Code requires it, and the Power BI Modeling MCP server is started with `npx`, which is part of Node.js. A new machine does not have it, so step 1 installs it.
+- **[Node.js](https://nodejs.org/en/download) 22 or later**. Qwen Code requires it, and the Power BI Authoring MCP server is started with `npx`, which is part of Node.js. A new machine does not have it, so step 1 installs it.
 - An **API key** of a provider that Qwen Code supports, including any endpoint compatible with the OpenAI protocol. There is no free tier with a personal account. The key, the address of the service, and the names of the models all depend on the subscription you buy, so read the three in the console of your provider before you start, as in step 5.
 - **[Git for Windows](https://git-scm.com/downloads/win)**. The repository of the skills is downloaded with `git`, and Windows does not include it. Step 11 installs it.
 - **Write permission** on any semantic model you modify. The MCP server follows the same rules as the Power BI external tools.
 
-MCP stands for Model Context Protocol. The **Power BI Modeling MCP server** runs on your machine and connects to Power BI Desktop like an external tool. Qwen Code is the client that hosts the agent, and it starts the server as a local process.
+MCP stands for Model Context Protocol. The **Power BI Authoring MCP server** runs on your machine and connects to Power BI Desktop like an external tool. Qwen Code is the client that hosts the agent, and it starts the server as a local process.
 
 > Back up your model before an agent writes to it. With the sample model, extract the archive again if something goes wrong.
 
 ## Step 1: install Node.js
 
-A new installation of Windows does not have it. `npm` and `npx` are part of Node.js, and the Power BI Modeling MCP server is started with `npx`.
+A new installation of Windows does not have it. `npm` and `npx` are part of Node.js, and the Power BI Authoring MCP server is started with `npx`.
 
 ### Open the command prompt
 
@@ -157,7 +157,7 @@ The title bar shows **ContosoDemo10k**. You use that name in step 6.
 <video src="videos/AIsetup-CopyContosoDemo.mp4" 
  autoplay loop muted width="500"></video>
 
-## Step 4: register the Power BI Modeling MCP server
+## Step 4: register the Power BI Authoring MCP server
 
 There is no extension to install. The server is an npm package, and Qwen Code starts it on demand.
 
@@ -496,7 +496,7 @@ Name the objects explicitly. For example, "add display folders to the measures i
 
 ## Conclusions
 
-Install Node.js, install Qwen Code, register the **Power BI Modeling MCP server** with one command, open a model in Power BI Desktop, connect with one prompt.
+Install Node.js, install Qwen Code, register the **Power BI Authoring MCP server** with one command, open a model in Power BI Desktop, connect with one prompt.
 
 These are the rules we suggest applying:
 

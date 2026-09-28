@@ -2,13 +2,13 @@
 layout:      page
 title:       "AI tools for Power BI Desktop"
 menu_title:  "AI tools"
-description: "The AI clients that connect to Power BI Desktop through the Power BI Modeling MCP server, with a comparison and one setup guide for each of them."
+description: "The AI clients that connect to Power BI Desktop through the Power BI Authoring MCP server, with a comparison and one setup guide for each of them."
 published:   true
 order:       /10
 next_reading: false
 modified:    2026-09-13
 ---
-Ten clients from eight vendors can read and modify a semantic model while **Power BI Desktop** is open, and all of them do it through the same component: the **Power BI Modeling MCP server**, published by Microsoft as the npm package `@microsoft/powerbi-modeling-mcp` and started as a local process.
+Ten clients from eight vendors can read and modify a semantic model while **Power BI Desktop** is open, and all of them do it through the same component: the **Power BI Authoring MCP server**, published by Microsoft as the npm package `@microsoft/powerbi-modeling-mcp` and started as a local process.
 
 What changes between one client and another is the installation, the account it requires, the way the MCP server is declared, and the way each one asks for approval before it writes. Some of them also run the **Power BI report authoring skill**, which works on the report of a PBIP project.
 

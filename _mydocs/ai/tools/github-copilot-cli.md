@@ -2,7 +2,7 @@
 layout:      page
 title:       "Set up GitHub Copilot CLI for agentic development with Power BI Desktop"
 menu_title:  "GitHub Copilot CLI"
-description: "How to configure GitHub Copilot CLI, the Power BI Modeling MCP server, and the Power BI report authoring skill to modify a semantic model and a report with an AI agent."
+description: "How to configure GitHub Copilot CLI, the Power BI Authoring MCP server, and the Power BI report authoring skill to modify a semantic model and a report with an AI agent."
 published:   true
 order:       /40
 modified:    2026-09-08
@@ -18,7 +18,7 @@ At the end you have an agent in the terminal that reads and writes the semantic 
 ## Requirements
 
 - **Power BI Desktop**, installed.
-- **[Node.js](https://nodejs.org/en/download) 22 or later**. GitHub Copilot CLI requires it when installed with npm, and the Power BI Modeling MCP server is started with `npx`, which is part of Node.js. A new machine does not have it, so step 1 installs it.
+- **[Node.js](https://nodejs.org/en/download) 22 or later**. GitHub Copilot CLI requires it when installed with npm, and the Power BI Authoring MCP server is started with `npx`, which is part of Node.js. A new machine does not have it, so step 1 installs it.
 - **[PowerShell](https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell-on-windows) 7 or later** on Windows. GitHub documents PowerShell 6 as the minimum, the Skills for Fabric documentation asks for PowerShell 7. Install 7, in step 1.
 - The **[Microsoft Visual C++ Redistributable x64](https://aka.ms/vc14/vc_redist.x64.exe)**. GitHub Copilot CLI does not run without it, and a new installation of Windows does not always have it. Step 2 installs it.
 - A **GitHub account**. Free to create. Step 5 asks for it.
@@ -26,7 +26,7 @@ At the end you have an agent in the terminal that reads and writes the semantic 
 - A **GitHub Copilot plan that includes MCP**. Every plan includes GitHub Copilot CLI, MCP is a different matter: if you sign in without a subscription, you are enrolled in **Copilot Free**, which currently does not include MCP. Check the [plans page](https://docs.github.com/en/copilot/get-started/plans) before you start.
 - **Write permission** on any semantic model you modify. The MCP server follows the same rules as the Power BI external tools.
 
-MCP stands for Model Context Protocol. The **Power BI Modeling MCP server** runs on your machine and connects to Power BI Desktop like an external tool. GitHub Copilot CLI is the client that hosts the agent, and it starts the server as a local process.
+MCP stands for Model Context Protocol. The **Power BI Authoring MCP server** runs on your machine and connects to Power BI Desktop like an external tool. GitHub Copilot CLI is the client that hosts the agent, and it starts the server as a local process.
 
 > Back up your model before an agent writes to it. With the sample model, extract the archive again if something goes wrong.
 
@@ -206,7 +206,7 @@ The title bar shows **ContosoDemo10k**. You use that name in step 6.
 <video src="videos/AIsetup-CopyContosoDemo.mp4" 
  autoplay loop muted width="500"></video>
 
-## Step 4: register the Power BI Modeling MCP server
+## Step 4: register the Power BI Authoring MCP server
 
 There is no extension to install. The server is an npm package, and GitHub Copilot CLI starts it on demand.
 
@@ -533,7 +533,7 @@ Name the objects explicitly. For example, "add display folders to the measures i
 
 ## Conclusions
 
-Install Node.js and the Microsoft Visual C++ Redistributable, install GitHub Copilot CLI, register the **Power BI Modeling MCP server** with one command, install the **powerbi-authoring** plugin, open a model in Power BI Desktop, connect with one prompt.
+Install Node.js and the Microsoft Visual C++ Redistributable, install GitHub Copilot CLI, register the **Power BI Authoring MCP server** with one command, install the **powerbi-authoring** plugin, open a model in Power BI Desktop, connect with one prompt.
 
 These are the rules we suggest applying:
 

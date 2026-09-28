@@ -7,7 +7,7 @@ order:       /ai
 next_reading: false
 modified:    2026-09-18
 ---
-An AI agent can now read and modify a **semantic model** and a **report** while Power BI Desktop is open. It connects through the **Power BI Modeling MCP server**, a local component published by Microsoft that behaves like an external tool of Power BI Desktop.
+An AI agent can now read and modify a **semantic model** and a **report** while Power BI Desktop is open. It connects through the **Power BI Authoring MCP server**, a local component published by Microsoft that behaves like an external tool of Power BI Desktop.
 
 This section collects information to support the use of AI tools to create models and reports with Power BI.
 

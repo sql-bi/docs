@@ -2,7 +2,7 @@
 layout:      page
 title:       "Set up Grok Build for agentic development with Power BI Desktop"
 menu_title:  "Grok Build"
-description: "How to configure Grok Build, the Power BI Modeling MCP server, and the Power BI report authoring skill to modify a semantic model and a report with an AI agent."
+description: "How to configure Grok Build, the Power BI Authoring MCP server, and the Power BI report authoring skill to modify a semantic model and a report with an AI agent."
 published:   true
 order:       /60
 modified:    2026-09-08
@@ -22,19 +22,19 @@ Grok Build reads the configuration of Claude Code without any setting: marketpla
 ## Requirements
 
 - **Power BI Desktop**, installed.
-- **[Node.js](https://nodejs.org/en/download) 22 or later**. The Power BI Modeling MCP server is started with `npx`, which is part of Node.js. A new machine does not have it, so step 1 installs it.
+- **[Node.js](https://nodejs.org/en/download) 22 or later**. The Power BI Authoring MCP server is started with `npx`, which is part of Node.js. A new machine does not have it, so step 1 installs it.
 - **Microsoft Visual C++ 2015 Redistributable or later**. The WinGet package installs it as a dependency. If you use the installer of SpaceXAI, install it separately when the client does not start.
 - An **SpaceXAI account with a plan that includes Grok Build**, or an **SpaceXAI API key** with credits. Check the [plans page](https://x.ai/pricing) before you start.
 - **[Git for Windows](https://git-scm.com/downloads/win)**. The repository of the skills is downloaded with `git`, and Windows does not include it. Step 11 installs it.
 - **Write permission** on any semantic model you modify. The MCP server follows the same rules as the Power BI external tools.
 
-MCP stands for Model Context Protocol. The **Power BI Modeling MCP server** runs on your machine and connects to Power BI Desktop like an external tool. Grok Build is the client that hosts the agent, and it starts the server as a local process.
+MCP stands for Model Context Protocol. The **Power BI Authoring MCP server** runs on your machine and connects to Power BI Desktop like an external tool. Grok Build is the client that hosts the agent, and it starts the server as a local process.
 
 > Back up your model before an agent writes to it. With the sample model, extract the archive again if something goes wrong.
 
 ## Step 1: install Node.js
 
-A new installation of Windows does not have it. `npm` and `npx` are part of Node.js, and the Power BI Modeling MCP server is started with `npx`.
+A new installation of Windows does not have it. `npm` and `npx` are part of Node.js, and the Power BI Authoring MCP server is started with `npx`.
 
 ### Open the command prompt
 
@@ -160,7 +160,7 @@ The title bar shows **ContosoDemo10k**. You use that name in step 6.
 <video src="videos/AIsetup-CopyContosoDemo.mp4" 
  autoplay loop muted width="500"></video>
 
-## Step 4: register the Power BI Modeling MCP server
+## Step 4: register the Power BI Authoring MCP server
 
 There is no extension to install. The server is an npm package, and Grok Build starts it on demand.
 
@@ -478,7 +478,7 @@ Name the objects explicitly. For example, "add display folders to the measures i
 
 ## Conclusions
 
-Install Node.js, install Grok Build, register the **Power BI Modeling MCP server** with one command, open a model in Power BI Desktop, connect with one prompt.
+Install Node.js, install Grok Build, register the **Power BI Authoring MCP server** with one command, open a model in Power BI Desktop, connect with one prompt.
 
 These are the rules we suggest applying:
 

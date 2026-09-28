@@ -2,14 +2,14 @@
 layout:      page
 title:       "AI hosts for Power BI Desktop: a comparison"
 menu_title:  "Comparison of the clients"
-description: "How ten AI clients install on Windows, how each one registers the Power BI Modeling MCP server, and which of them can run the Power BI report authoring skill."
+description: "How ten AI clients install on Windows, how each one registers the Power BI Authoring MCP server, and which of them can run the Power BI report authoring skill."
 published:   true
 order:       /00
 modified:    2026-09-13
 ---
-*This article compares the AI clients that connect to Power BI Desktop through the Power BI Modeling MCP server on Windows, to choose one before starting a setup.*
+*This article compares the AI clients that connect to Power BI Desktop through the Power BI Authoring MCP server on Windows, to choose one before starting a setup.*
 
-MCP stands for Model Context Protocol. The **Power BI Modeling MCP server** is the same npm package in every row of the tables below, `@microsoft/powerbi-modeling-mcp`, started with `npx` as a local process. What changes between the clients is how you declare it, how you approve what it does, and whether the client can also run the **Power BI report authoring skill**, which works on the report of a PBIP project. PBIP stands for Power BI Project.
+MCP stands for Model Context Protocol. The **Power BI Authoring MCP server** is the same npm package in every row of the tables below, `@microsoft/powerbi-modeling-mcp`, started with `npx` as a local process. What changes between the clients is how you declare it, how you approve what it does, and whether the client can also run the **Power BI report authoring skill**, which works on the report of a PBIP project. PBIP stands for Power BI Project.
 
 All ten clients support a local MCP server on Windows. **Node.js** is a requirement in every row, because the server is started with `npx`.
 
@@ -28,7 +28,7 @@ All ten clients support a local MCP server on Windows. **Node.js** is a requirem
 | <img src="images/kiro.svg" alt="Kiro" width="18" height="18" class="naked nozoom nomargin"> | Kiro | free | yes | manual |
 | <img src="images/qwen.png" alt="Qwen" width="18" height="18" class="naked nozoom nomargin"> | Qwen Code | paid | yes | manual |
 
-**Plan**: the account that the client requires to use an MCP server; the two free plans have rate limits, weekly for Google Antigravity and monthly for Kiro. **Model edit**: the semantic model, through the Power BI Modeling MCP server. **Report edit**: the report of a PBIP project, through the report authoring skill, installed with a command of the plugin marketplace (*plugin*) or with a manual copy of the skill folders (*manual*). The sections below detail every column.
+**Plan**: the account that the client requires to use an MCP server; the two free plans have rate limits, weekly for Google Antigravity and monthly for Kiro. **Model edit**: the semantic model, through the Power BI Authoring MCP server. **Report edit**: the report of a PBIP project, through the report authoring skill, installed with a command of the plugin marketplace (*plugin*) or with a manual copy of the skill folders (*manual*). The sections below detail every column.
 
 ## Installation and account
 

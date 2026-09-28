@@ -9,7 +9,7 @@ modified:    2026-09-18
 ---
 *This page explains why Microsoft Copilot does not have a setup guide in this section, and what we will do when that changes.*
 
-**As of September 2026, Microsoft Copilot is not integrated with Power BI Desktop to create the elements of a semantic model**: tables, relationships, and measures. For this reason, the courses and the guides of this section rely on the other AI tools, which reach the model through the [Power BI Modeling MCP server](index.md).
+**As of September 2026, Microsoft Copilot is not integrated with Power BI Desktop to create the elements of a semantic model**: tables, relationships, and measures. For this reason, the courses and the guides of this section rely on the other AI tools, which reach the model through the [Power BI Authoring MCP server](index.md).
 
 This is not a judgment on the quality of Copilot. It is a difference in what the product is allowed to do today.
 
@@ -28,7 +28,7 @@ Copilot does not act on the **structure** of the model. It does not create or mo
 
 The closest thing is the DAX query view, where Copilot can define a measure inside a query it generates. Even there, the measure exists only in the query until **you** decide to apply it to the model, one measure at a time. There is no equivalent step for a table or a relationship.
 
-This is the gap with the clients described in the [setup guides](index.md). Those clients connect to Power BI Desktop through the Power BI Modeling MCP server, which exposes the operations of the object model: create a table, create a relationship, write a measure, set a format string, run a DAX query. An agent chains those operations and shows you the result, and you approve what it writes.
+This is the gap with the clients described in the [setup guides](index.md). Those clients connect to Power BI Desktop through the Power BI Authoring MCP server, which exposes the operations of the object model: create a table, create a relationship, write a measure, set a format string, run a DAX query. An agent chains those operations and shows you the result, and you approve what it writes.
 
 ## Two practical consequences for a student
 
@@ -37,7 +37,7 @@ This is the gap with the clients described in the [setup guides](index.md). Thos
 
 ## We will update this page
 
-Microsoft is building the agentic layer of Power BI Desktop in the open: the **Power BI Modeling MCP server** and the **Power BI Desktop Bridge** are both published by Microsoft, and they are the same components the other clients use. It is reasonable to expect that Copilot will eventually reach the model the same way.
+Microsoft is building the agentic layer of Power BI Desktop in the open: the **Power BI Authoring MCP server** and the **Power BI Desktop Bridge** are both published by Microsoft, and they are the same components the other clients use. It is reasonable to expect that Copilot will eventually reach the model the same way.
 
 **When Microsoft releases a feature that aligns Copilot with the tools of the other AI vendors, we will update this section**, and Copilot will get a setup guide like the others.
 

@@ -2,7 +2,7 @@
 layout:      page
 title:       "Set up the ChatGPT desktop app for agentic development with Power BI Desktop"
 menu_title:  "ChatGPT desktop app"
-description: "How to configure the ChatGPT desktop app, the Power BI Modeling MCP server, and the Power BI report authoring skill to modify a semantic model and a report with an AI agent."
+description: "How to configure the ChatGPT desktop app, the Power BI Authoring MCP server, and the Power BI report authoring skill to modify a semantic model and a report with an AI agent."
 published:   true
 order:       /10
 modified:    2026-09-13
@@ -20,13 +20,13 @@ One clarification on the application, because two of them carry a similar name. 
 ## Requirements
 
 - **Power BI Desktop**, installed.
-- **[Node.js](https://nodejs.org/en/download) 22 or later**. The Power BI Modeling MCP server is started with `npx`, which is part of Node.js. A new machine does not have it, so step 1 installs it.
+- **[Node.js](https://nodejs.org/en/download) 22 or later**. The Power BI Authoring MCP server is started with `npx`, which is part of Node.js. A new machine does not have it, so step 1 installs it.
 - **Windows 10 version 1809 or later**, and WinGet available on the machine. The application uses them to prepare its sandbox.
 - A **ChatGPT account with a paid plan**, Plus, Pro, Business, or Enterprise. The free plan does not include the agent, and it does not include the MCP servers. Check the [plans page](https://learn.chatgpt.com/docs/pricing) before you start.
 - **[Git for Windows](https://git-scm.com/downloads/win)**. The repository of the skills is downloaded with `git`, and Windows does not include it. Step 11 installs it.
 - **Write permission** on any semantic model you modify. The MCP server follows the same rules as the Power BI external tools.
 
-MCP stands for Model Context Protocol. The **Power BI Modeling MCP server** runs on your machine and connects to Power BI Desktop like an external tool. The ChatGPT desktop app is the client that hosts the agent, and it starts the server as a local process.
+MCP stands for Model Context Protocol. The **Power BI Authoring MCP server** runs on your machine and connects to Power BI Desktop like an external tool. The ChatGPT desktop app is the client that hosts the agent, and it starts the server as a local process.
 
 > Back up your model before an agent writes to it. With the sample model, extract the archive again if something goes wrong.
 
@@ -34,7 +34,7 @@ MCP stands for Model Context Protocol. The **Power BI Modeling MCP server** runs
 
 ## Step 1: install Node.js
 
-A new installation of Windows does not have it. `npm` and `npx` are part of Node.js, and the Power BI Modeling MCP server is started with `npx`.
+A new installation of Windows does not have it. `npm` and `npx` are part of Node.js, and the Power BI Authoring MCP server is started with `npx`.
 
 ### Open the command prompt
 
@@ -169,7 +169,7 @@ The permission profiles are three: `read-only`, `workspace`, which allows the wr
 <video src="videos/AIsetup-ChatGPT-login.mp4" 
  autoplay loop muted width="500"></video>
 
-## Step 5: register the Power BI Modeling MCP server
+## Step 5: register the Power BI Authoring MCP server
 
 There is no extension to install. The server is an npm package, and the application starts it on demand.
 
@@ -459,7 +459,7 @@ Name the objects explicitly. For example, "add display folders to the measures i
 
 ## Conclusions
 
-Install Node.js, install the ChatGPT desktop app from the Microsoft Store, register the **Power BI Modeling MCP server** in the settings, open a model in Power BI Desktop, connect with one prompt.
+Install Node.js, install the ChatGPT desktop app from the Microsoft Store, register the **Power BI Authoring MCP server** in the settings, open a model in Power BI Desktop, connect with one prompt.
 
 These are the rules we suggest applying:
 

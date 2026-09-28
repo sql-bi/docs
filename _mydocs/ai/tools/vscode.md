@@ -2,7 +2,7 @@
 layout:      page
 title:       "Set up VS Code for agentic development with Power BI Desktop"
 menu_title:  "Visual Studio Code"
-description: "How to configure Visual Studio Code and the Power BI Modeling MCP server to modify a semantic model with an AI agent."
+description: "How to configure Visual Studio Code and the Power BI Authoring MCP server to modify a semantic model with an AI agent."
 published:   true
 order:       /30
 modified:    2026-09-08
@@ -20,7 +20,7 @@ Sample model used in all the steps: **[ContosoDemo10k.zip](https://www.sqlbi.com
 - A **GitHub Copilot plan that includes agent mode and MCP**. If you sign in without a subscription, you are enrolled in **Copilot Free**, which currently does not include agent mode and MCP. Check the [plans page](https://docs.github.com/en/copilot/get-started/plans) before you start.
 - **Write permission** on any semantic model you modify. The MCP server follows the same rules as the Power BI external tools.
 
-MCP stands for Model Context Protocol. The **Power BI Modeling MCP server** runs on your machine and connects to Power BI Desktop like an external tool. The chat panel of Visual Studio Code hosts the agent, and it requires no separate installation.
+MCP stands for Model Context Protocol. The **Power BI Authoring MCP server** runs on your machine and connects to Power BI Desktop like an external tool. The chat panel of Visual Studio Code hosts the agent, and it requires no separate installation.
 
 > Back up your model before an agent writes to it. With the sample model, extract the archive again if something goes wrong.
 
@@ -30,10 +30,10 @@ Install from the **Microsoft Store** on Windows, which requires no administrator
 
 Launch Visual Studio Code. The **chat panel** is already available. There is no chat extension to install.
 
-## Step 2: install the Power BI Modeling MCP server
+## Step 2: install the Power BI Authoring MCP server
 
 1. Open the **Extensions** view with `Ctrl+Shift+X`.
-2. Search for **Power BI Modeling MCP Server**, published by Microsoft. The identifier is `analysis-services.powerbi-modeling-mcp`.
+2. Search for **Power BI Authoring MCP Server**, published by Microsoft. The identifier is `analysis-services.powerbi-modeling-mcp`.
 3. Install it.
 4. **Switch to Pre-release Version**  in the extension settings to get the last updates; in that case, **Restart Extensions** after the installation.
 
@@ -207,7 +207,7 @@ Name the objects explicitly. For example, "add display folders to the measures i
 
 ## Conclusions
 
-Install Visual Studio Code, install the **Power BI Modeling MCP Server** extension, open a model in Power BI Desktop, connect with one prompt.
+Install Visual Studio Code, install the **Power BI Authoring MCP Server** extension, open a model in Power BI Desktop, connect with one prompt.
 
 These are the rules we suggest applying:
 
@@ -224,7 +224,7 @@ These are the rules we suggest applying:
 - [ContosoDemo10k.zip](https://www.sqlbi.com/wp-content/uploads/ContosoDemo10k.zip): the sample model used in this article.
 - [What are the Power BI MCP servers?](https://learn.microsoft.com/en-us/power-bi/developer/mcp/mcp-servers-overview): the comparison between the local and the remote server.
 - [microsoft/powerbi-modeling-mcp](https://github.com/microsoft/powerbi-modeling-mcp): repository, configuration reference, and the complete list of tools.
-- [Power BI Modeling MCP Server](https://marketplace.visualstudio.com/items?itemName=analysis-services.powerbi-modeling-mcp): the extension in the Visual Studio Marketplace.
+- [Power BI Authoring MCP Server](https://marketplace.visualstudio.com/items?itemName=analysis-services.powerbi-modeling-mcp): the extension in the Visual Studio Marketplace.
 - [Power BI report authoring skill](https://learn.microsoft.com/en-us/power-bi/developer/agentic/power-bi-report-authoring-skill-overview): what the skill does and its limits.
 - [microsoft/skills-for-fabric](https://github.com/microsoft/skills-for-fabric): the marketplace that publishes the skill.
 - [Power BI Desktop projects (PBIP)](https://learn.microsoft.com/en-us/power-bi/developer/projects/projects-overview): how to save a project and the folder structure.

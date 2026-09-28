@@ -2,7 +2,7 @@
 layout:      page
 title:       "Set up Google Antigravity for agentic development with Power BI Desktop"
 menu_title:  "Google Antigravity"
-description: "How to configure Google Antigravity, the Power BI Modeling MCP server, and the Power BI report authoring skill to modify a semantic model and a report with an AI agent."
+description: "How to configure Google Antigravity, the Power BI Authoring MCP server, and the Power BI report authoring skill to modify a semantic model and a report with an AI agent."
 published:   true
 order:       /50
 modified:    2026-09-13
@@ -22,19 +22,19 @@ One point deserves attention from the beginning, because it produces a silent fa
 ## Requirements
 
 - **Power BI Desktop**, installed.
-- **[Node.js](https://nodejs.org/en/download) 22 or later**. The Power BI Modeling MCP server is started with `npx`, which is part of Node.js. Antigravity does not need it for itself. A new machine does not have it, so step 1 installs it.
+- **[Node.js](https://nodejs.org/en/download) 22 or later**. The Power BI Authoring MCP server is started with `npx`, which is part of Node.js. Antigravity does not need it for itself. A new machine does not have it, so step 1 installs it.
 - **Windows 10, 64 bit, or later**, on an x64 or an ARM64 processor.
 - A **personal Google account**. Antigravity signs you in with an account of the `@gmail.com` domain, in the countries where it is available, and it is not available below 18 years of age. An account of Google Workspace is not the documented path, and the [FAQ](https://antigravity.google/docs/faq) suggests a personal account when the sign-in fails. The free use has weekly rate limits, and the subscriptions Google AI Pro and Google AI Ultra raise them. Check the [plans page](https://antigravity.google/docs/plans) before you start.
 - **[Git for Windows](https://git-scm.com/downloads/win)**. The repository of the skills is downloaded with `git`, and Windows does not include it. Step 11 installs it.
 - **Write permission** on any semantic model you modify. The MCP server follows the same rules as the Power BI external tools.
 
-MCP stands for Model Context Protocol. The **Power BI Modeling MCP server** runs on your machine and connects to Power BI Desktop like an external tool. Antigravity is the client that hosts the agent, and it starts the server as a local process.
+MCP stands for Model Context Protocol. The **Power BI Authoring MCP server** runs on your machine and connects to Power BI Desktop like an external tool. Antigravity is the client that hosts the agent, and it starts the server as a local process.
 
 > Back up your model before an agent writes to it. With the sample model, extract the archive again if something goes wrong.
 
 ## Step 1: install Node.js
 
-A new installation of Windows does not have it. `npm` and `npx` are part of Node.js, and the Power BI Modeling MCP server is started with `npx`.
+A new installation of Windows does not have it. `npm` and `npx` are part of Node.js, and the Power BI Authoring MCP server is started with `npx`.
 
 ### Open the command prompt
 
@@ -177,11 +177,11 @@ How much the agent does without asking is decided in **Settings**, page **Genera
 
 Keep the confirmations of the commands while you work on the model, and read step 13 before you start on the report, because that is where they become expensive.
 
-## Step 5: register the Power BI Modeling MCP server
+## Step 5: register the Power BI Authoring MCP server
 
 There is no extension to install. The server is an npm package, and Antigravity starts it on demand.
 
-Antigravity has a store that installs some servers with one click, in **Settings > Customizations > Installed MCP Servers**, with the button **Add MCP**. At the time of writing the Power BI Modeling MCP server is not among them, so you write the entry in the configuration file.
+Antigravity has a store that installs some servers with one click, in **Settings > Customizations > Installed MCP Servers**, with the button **Add MCP**. At the time of writing the Power BI Authoring MCP server is not among them, so you write the entry in the configuration file.
 
 Antigravity reads two files: `%USERPROFILE%\.gemini\config\mcp_config.json`, which applies to every Project, and `.agents\mcp_config.json` in the folder of the project, which wins over the first one. We use the file of the user, which serves the desktop application, the command-line client, and the extensions, all at once.
 
@@ -490,7 +490,7 @@ The free use has weekly rate limits, and a long agentic task consumes more than 
 
 ## Conclusions
 
-Install Node.js, install Antigravity, declare the **Power BI Modeling MCP server** in `mcp_config.json`, create a Project on the folder of the model, open the model in Power BI Desktop, connect with one prompt.
+Install Node.js, install Antigravity, declare the **Power BI Authoring MCP server** in `mcp_config.json`, create a Project on the folder of the model, open the model in Power BI Desktop, connect with one prompt.
 
 These are the rules we suggest applying:
 

@@ -2,7 +2,7 @@
 layout:      page
 title:       "Set up Claude Code for agentic development with Power BI Desktop"
 menu_title:  "Claude Code"
-description: "How to configure the Claude Code command-line client, the Power BI Modeling MCP server, and the Power BI report authoring skill to modify a semantic model and a report with an AI agent."
+description: "How to configure the Claude Code command-line client, the Power BI Authoring MCP server, and the Power BI report authoring skill to modify a semantic model and a report with an AI agent."
 published:   true
 order:       /21
 modified:    2026-09-08
@@ -22,18 +22,18 @@ Claude Code is one of the two clients for which Microsoft publishes a marketplac
 ## Requirements
 
 - **Power BI Desktop**, installed.
-- **[Node.js](https://nodejs.org/en/download) 22 or later**. The Power BI Modeling MCP server is started with `npx`, which is part of Node.js. Claude Code itself needs it only if you install it with npm. A new machine does not have it, so step 1 installs it.
+- **[Node.js](https://nodejs.org/en/download) 22 or later**. The Power BI Authoring MCP server is started with `npx`, which is part of Node.js. Claude Code itself needs it only if you install it with npm. A new machine does not have it, so step 1 installs it.
 - **[Git for Windows](https://git-scm.com/downloads/win)**. Without it, the marketplace of the skills cannot be downloaded in step 11, and Claude Code uses PowerShell instead of the Bash tool.
 - A **Claude account with a Pro, Max, Team, or Enterprise plan**, or a Console account with credits. The free plan does not include Claude Code. Check the [plans page](https://claude.com/pricing) before you start.
 - **Write permission** on any semantic model you modify. The MCP server follows the same rules as the Power BI external tools.
 
-MCP stands for Model Context Protocol. The **Power BI Modeling MCP server** runs on your machine and connects to Power BI Desktop like an external tool. Claude Code is the client that hosts the agent, and it starts the server as a local process.
+MCP stands for Model Context Protocol. The **Power BI Authoring MCP server** runs on your machine and connects to Power BI Desktop like an external tool. Claude Code is the client that hosts the agent, and it starts the server as a local process.
 
 > Back up your model before an agent writes to it. With the sample model, extract the archive again if something goes wrong.
 
 ## Step 1: install Node.js
 
-A new installation of Windows does not have it. `npm` and `npx` are part of Node.js, and the Power BI Modeling MCP server is started with `npx`.
+A new installation of Windows does not have it. `npm` and `npx` are part of Node.js, and the Power BI Authoring MCP server is started with `npx`.
 
 ### Open the command prompt
 
@@ -167,7 +167,7 @@ The title bar shows **ContosoDemo10k**. You use that name in step 6.
 <video src="videos/AIsetup-CopyContosoDemo.mp4" 
  autoplay loop muted width="500"></video>
 
-## Step 4: register the Power BI Modeling MCP server
+## Step 4: register the Power BI Authoring MCP server
 
 There is no extension to install. The server is an npm package, and Claude Code starts it on demand.
 
@@ -475,7 +475,7 @@ Name the objects explicitly. For example, "add display folders to the measures i
 
 ## Conclusions
 
-Install Node.js, install Claude Code, register the **Power BI Modeling MCP server** with one command, install the **powerbi-authoring** plugin, open a model in Power BI Desktop, connect with one prompt.
+Install Node.js, install Claude Code, register the **Power BI Authoring MCP server** with one command, install the **powerbi-authoring** plugin, open a model in Power BI Desktop, connect with one prompt.
 
 These are the rules we suggest applying:
 
