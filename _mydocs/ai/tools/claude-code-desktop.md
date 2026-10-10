@@ -182,9 +182,9 @@ One note: the command `/permissions` is not available in this tab. The rules are
 
 There is no extension to install. The server is an npm package, and the application starts it on demand.
 
-The Code tab reads the MCP servers from three places: the connectors of the application, the file `%USERPROFILE%\.claude.json`, and a `.mcp.json` file in the folder of the project. We use the first file, because it applies to every folder.
+The Code tab reads the MCP servers from four places: the connectors of the application, the file `%USERPROFILE%\.claude.json`, a `.mcp.json` file in the folder of the project, and the file `%APPDATA%\Claude\claude_desktop_config.json` of the chat application. We use `%USERPROFILE%\.claude.json`, because it applies to every folder and the Claude Code CLI reads it too.
 
-Open `%USERPROFILE%\.claude.json` in a text editor and add the server at the top level of the file:
+Close the Claude application, then open `%USERPROFILE%\.claude.json` in a text editor. If the file is missing or empty, use this content as is:
 
 ```json
 {
@@ -197,6 +197,26 @@ Open `%USERPROFILE%\.claude.json` in a text editor and add the server at the top
   }
 }
 ```
+
+If the file already has content, do not paste the snippet at the beginning of the file: add the `"mcpServers"` key inside the existing root object, right after the opening `{`, with a comma after it. If the file already has a `"mcpServers"` key, add only the `"powerbi-modeling-mcp"` entry inside it. The result has this shape, where `...` stands for the other keys of the file:
+
+```json
+{
+  "mcpServers": {
+    "powerbi-modeling-mcp": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "@microsoft/powerbi-modeling-mcp@latest", "--start", "--readonly"]
+    }
+  },
+  "cachedGrowthBookFeatures": { ... },
+  ...
+}
+```
+
+An invalid JSON file prevents the application from starting. Check the file with a JSON validator, or with an editor that highlights JSON errors, before you open the application again.
+
+As an alternative, the same entry can go in the `"mcpServers"` section of `%APPDATA%\Claude\claude_desktop_config.json`, which **Settings > Developer > Edit Config** opens directly. The Code tab reads that file too, but the standalone Claude Code CLI does not. See [Alternative installation methods](#alternative-installation-methods).
 
 The `--readonly` argument blocks every write operation. We suggest it for the first session, so that a wrong prompt cannot modify anything. Step 9 replaces it.
 
