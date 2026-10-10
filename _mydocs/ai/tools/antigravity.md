@@ -433,7 +433,7 @@ The documentation of Antigravity asks for the absolute path of the executable in
 - The report authoring skill operates on **PBIP projects in PBIR format**, not on a `.pbix` file.
 - Neither of them can do anything your permissions do not allow, because they operate with your identity.
 - Model metadata does not stay local: table names, column names, measure definitions, and query results are sent to the language model of the service you signed in to. The collection of the data is refused in the Settings panel.
-- The MCP server, the report authoring skill, and the Power BI Desktop Bridge are all **in preview**. Behavior and tools can change before general availability.
+- The local MCP server is **generally available**. The report authoring skill and the Power BI Desktop Bridge are newer, and their behavior and tools can still change.
 - The agent proposes and executes. The review is your responsibility.
 - Antigravity signs in with a **personal Google account**, in the countries where it is available, and the free use has weekly rate limits that depend on the work the agent does, not on the number of the prompts.
 - The agent reads and writes inside the folders of the Project. A folder that is not part of it is not visible, and no message says so.

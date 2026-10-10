@@ -426,7 +426,7 @@ args = ["--start"]
 - The report authoring skill operates on **PBIP projects in PBIR format**, not on a `.pbix` file.
 - Neither of them can do anything your permissions do not allow, because they operate with your identity.
 - Model metadata does not stay local: table names, column names, measure definitions, and query results are sent to the language model of the service you signed in to.
-- The MCP server, the report authoring skill, and the Power BI Desktop Bridge are all **in preview**. Behavior and tools can change before general availability.
+- The local MCP server is **generally available**. The report authoring skill and the Power BI Desktop Bridge are newer, and their behavior and tools can still change.
 - The agent proposes and executes. The review is your responsibility.
 - The sandbox of Grok Build is not available on Windows. The permission rules still apply, the isolation of the file system does not.
 - The compatibility with the configuration of Claude Code is documented by SpaceXAI, the specific combination with the Fabric skills is not tested by Microsoft.

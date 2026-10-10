@@ -179,7 +179,7 @@ The server communicates over stdio, so any MCP client can run it with the NPX co
 - The MCP server operates on the **semantic model**, not on the report.
 - It cannot do anything your permissions do not allow, because it operates with your identity.
 - Model metadata does not stay local: table names, column names, measure definitions, and query results are sent to the language model used by your client.
-- The MCP server and the report authoring skill are both **in preview**. Behavior and tools can change.
+- The local MCP server is **generally available**. The report authoring skill is newer, and its behavior and tools can still change.
 - The agent proposes and executes. The review is your responsibility.
 
 ## Troubleshooting
