@@ -317,13 +317,12 @@ The measure appears in Power BI Desktop without a refresh. Each write operation 
 
 The MCP server operates on the semantic model. The report layer requires a different tool, the **Power BI report authoring skill**, which works only on **PBIP** files in **PBIR** format. PBIP stands for Power BI Project, PBIR for Power BI enhanced report format. The skill cannot modify a `.pbix` file.
 
-In Power BI Desktop, open **File > Options and settings > Options > Preview features** and enable these three options:
+In Power BI Desktop, open **File > Options and settings > Options > Preview features** and enable these two options:
 
 - **Power BI Project (.pbip) save option**
 - **Store reports using enhanced metadata format (PBIR)**
-- **Enable external tool access to Power BI Desktop through secure local APIs**
 
-The third option is the **Power BI Desktop Bridge**, and it is enabled by default. The report authoring skill uses it to reload the project and to capture a screenshot of a page, so that the agent verifies its own work. Verify that the option is checked.
+The report authoring skill also uses the **Power BI Desktop Bridge**, which is enabled by default. Its setting is not under Preview features: open **File > Options and settings > Options > Security** and, under **Desktop Bridge**, verify that **Enable external tool access to Power BI Desktop through secure local APIs** is checked. The report authoring skill uses it to reload the project and to capture a screenshot of a page, so that the agent verifies its own work. Verify that the option is checked.
 
 Restart Power BI Desktop.
 
@@ -526,7 +525,7 @@ It requires PBIP in PBIR format. Verify both preview features and save the proje
 The folder must be trusted. Use `/add-dir` with the folder of the project, or start `copilot` from that folder.
 
 **The report changes do not appear in Power BI Desktop.**
-Reload the project. Power BI Desktop shows the version loaded before. Verify the preview option of the Power BI Desktop Bridge, so that the agent reloads the project without your intervention.
+Reload the project. Power BI Desktop shows the version loaded before. Verify the Desktop Bridge setting under **Options > Security**, so that the agent reloads the project without your intervention.
 
 **The agent modifies objects you did not mention.**
 Name the objects explicitly. For example, "add display folders to the measures in the Sales table" instead of "apply the best practices".
@@ -564,7 +563,7 @@ These are the rules we suggest applying:
 - [Power BI report authoring skill](https://learn.microsoft.com/en-us/power-bi/developer/agentic/power-bi-report-authoring-skill-overview): what the skill does and its limits.
 - [Install Skills for Fabric](https://learn.microsoft.com/en-us/fabric/fundamentals/skills-for-fabric-install): the marketplace and the installation commands for the plugins.
 - [microsoft/skills-for-fabric](https://github.com/microsoft/skills-for-fabric): the repository that publishes the marketplace.
-- [What is the Power BI Desktop Bridge?](https://learn.microsoft.com/en-us/power-bi/developer/agentic/power-bi-desktop-bridge-overview): the preview setting and the operations it provides.
+- [What is the Power BI Desktop Bridge?](https://learn.microsoft.com/en-us/power-bi/developer/agentic/power-bi-desktop-bridge-overview): the Security setting and the operations it provides.
 - [Power BI Desktop projects (PBIP)](https://learn.microsoft.com/en-us/power-bi/developer/projects/projects-overview): how to save a project and the folder structure.
 - [Power BI Desktop project report folder](https://learn.microsoft.com/en-us/power-bi/developer/projects/projects-report): the PBIR format and the preview settings.
 
