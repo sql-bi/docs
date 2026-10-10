@@ -21,7 +21,7 @@ One clarification on the product. **Claude Code Desktop is the Code tab of the C
 
 - **Power BI Desktop**, installed.
 - **[Node.js](https://nodejs.org/en/download) 22 or later**. The Power BI Authoring MCP server is started with `npx`, which is part of Node.js. The application does not need it for itself. A new machine does not have it, so step 1 installs it.
-- **[Git for Windows](https://git-scm.com/downloads/win)**. On Windows the Code tab does not work without it, and the marketplace of the skills cannot be downloaded in step 11. Install it and restart the application.
+- **[Git for Windows](https://git-scm.com/downloads/win)**. On Windows the Code tab does not work without it, and the marketplace of the skills cannot be downloaded in step 12. Install it and restart the application.
 - **Windows 10 version 1809 or later**, or Windows Server 2019 or later.
 - A **Claude account with a Pro, Max, Team, or Enterprise plan**, or a Console account with credits. The free plan does not include Claude Code, and the Code tab asks for an upgrade. Check the [plans page](https://claude.com/pricing) before you start.
 - **Write permission** on any semantic model you modify. The MCP server follows the same rules as the Power BI external tools.
@@ -162,7 +162,7 @@ winget install --id Git.Git --source winget
 2. **Extract the archive** in a local folder, for example `C:\Demo`. Please, do not open the file directly from the compressed folder.
 3. Open **ContosoDemo10k.pbix** in Power BI Desktop and leave Power BI Desktop open.
 
-The title bar shows **ContosoDemo10k**. You use that name in step 6.
+The title bar shows **ContosoDemo10k**. You use that name in step 7.
 
 <video src="videos/AIsetup-CopyContosoDemo.mp4" 
  autoplay loop muted width="500"></video>
@@ -198,7 +198,7 @@ Open `%USERPROFILE%\.claude.json` in a text editor and add the server at the top
 }
 ```
 
-The `--readonly` argument blocks every write operation. We suggest it for the first session, so that a wrong prompt cannot modify anything. Step 8 replaces it.
+The `--readonly` argument blocks every write operation. We suggest it for the first session, so that a wrong prompt cannot modify anything. Step 9 replaces it.
 
 Restart the application, so that it reads the file again. The command `/mcp` in the Code tab lists the servers and the state of the connection.
 
@@ -231,7 +231,7 @@ The session started in read-only mode, so the next prompt would fail. Remove the
 
 1. Close the application.
 2. Open `%USERPROFILE%\.claude.json` and remove `"--readonly"` from the `args` array.
-3. Start the application again, select the **Code** tab and the folder, and connect again, as in step 6.
+3. Start the application again, select the **Code** tab and the folder, and connect again, as in step 7.
 
 Then send this prompt:
 
@@ -342,7 +342,7 @@ The command-line arguments of the MCP server go in the `args` array of the JSON 
 
 For the service principal authentication, set `AZURE_CLIENT_ID` and `AZURE_TENANT_ID` in the environment of the server, with either `AZURE_CLIENT_SECRET` or `AZURE_CLIENT_CERTIFICATE_PATH`.
 
-On a model that matters, run the first session with **`--readonly`**, as in step 5.
+On a model that matters, run the first session with **`--readonly`**, as in step 6.
 
 ## Alternative installation methods
 
@@ -407,13 +407,13 @@ Run `/mcp` in the Code tab. Verify that the entry is at the top level of `%USERP
 Use the `cmd` form of the alternative installation methods, or the absolute path of the executable. The application inherits the variables of the user and of the system, and does not read the profile of PowerShell, so restart it after a change of the path.
 
 **The plugin does not install and the message mentions an unsupported source type.**
-Update the application. If the message remains, copy the five folders of `plugins\powerbi-authoring\skills` into `%USERPROFILE%\.claude\skills`, as described in step 11.
+Update the application. If the message remains, copy the five folders of `plugins\powerbi-authoring\skills` into `%USERPROFILE%\.claude\skills`, as described in step 12.
 
 **The `npm` or the `npx` command is not found.**
 Node.js is not installed, or the terminal was opened before the installation. Close the terminal, open it again, and run `node --version`. See step 1.
 
 **The marketplace cannot be added, and the message mentions `git`.**
-Git is not installed, or the command prompt was opened before the installation. Install Git for Windows as in step 11, then close the command prompt and open it again.
+Git is not installed, or the command prompt was opened before the installation. Install Git for Windows as in step 3, then close the command prompt and open it again.
 
 **The server starts and provides no tools.**
 Verify that Node.js is installed and that `npx` runs. The first start downloads the package, so it takes longer than the following ones. Run `npx -y @microsoft/powerbi-modeling-mcp@latest --help` once in the **command prompt**, so that the package is already in the cache.
@@ -422,10 +422,10 @@ Verify that Node.js is installed and that `npx` runs. The first start downloads 
 The file must be open, and the name in the prompt must match the title bar: `ContosoDemo10k`, not `ContosoDemo10k.pbix`. After a restart of Power BI Desktop the port changes. Connect again.
 
 **The write operations are rejected.**
-You need write permission on the model, and the server must not run with `--readonly`. See step 8.
+You need write permission on the model, and the server must not run with `--readonly`. See step 9.
 
 **The agent reports that a command is not available when it validates the report.**
-Install the two command-line tools of step 11, `@microsoft/powerbi-report-authoring-cli` and `@microsoft/powerbi-desktop-bridge-cli`, then restart the client.
+Install the two command-line tools of step 12, `@microsoft/powerbi-report-authoring-cli` and `@microsoft/powerbi-desktop-bridge-cli`, then restart the client.
 
 **The report authoring skill does not modify the report.**
 It requires PBIP in PBIR format. Verify both preview features and save the project again, because enabling PBIR does not convert a project already saved.
