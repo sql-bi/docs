@@ -104,7 +104,7 @@ npm install -g @microsoft/powerbi-report-authoring-cli@latest @microsoft/powerbi
 - The MCP server operates on the **semantic model**, not on the report.
 - The report authoring skill operates on **PBIP projects in PBIR format**, not on a `.pbix` file. PBIR stands for Power BI enhanced report format.
 - Model metadata does not stay local: table names, column names, measure definitions, and query results are sent to the language model of the service you signed in to.
-- The MCP server, the report authoring skill, and the Power BI Desktop Bridge are all **in preview**. Behavior and tools can change before general availability.
+- The local MCP server is **generally available**. The report authoring skill and the Power BI Desktop Bridge are newer, and their behavior and tools can still change.
 - The plans and the free quotas of these services change often. The tables report what the vendors published, and the linked pages are the authority.
 
 ## References

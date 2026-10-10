@@ -478,7 +478,7 @@ The server is a standard MCP server, so any client can run it with the same conf
 - The report authoring skill operates on **PBIP projects in PBIR format**, not on a `.pbix` file.
 - Neither of them can do anything your permissions do not allow, because they operate with your identity.
 - Model metadata does not stay local: table names, column names, measure definitions, and query results are sent to the language model of your Copilot plan.
-- The MCP server, the report authoring skill, and the Power BI Desktop Bridge are all **in preview**. Behavior and tools can change before general availability.
+- The local MCP server is **generally available**. The report authoring skill and the Power BI Desktop Bridge are newer, and their behavior and tools can still change.
 - The agent proposes and executes. The review is your responsibility.
 
 ## Troubleshooting
