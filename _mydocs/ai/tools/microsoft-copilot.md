@@ -46,6 +46,6 @@ Microsoft is building the agentic layer of Power BI Desktop in the open: the **P
 - [Copilot in Power BI](https://learn.microsoft.com/en-us/power-bi/create-reports/copilot-introduction): the capabilities and the requirements.
 - [Use Copilot with semantic models](https://learn.microsoft.com/en-us/power-bi/create-reports/copilot-semantic-models): what Copilot does while you develop a model, and its limits.
 - [Write DAX queries with Copilot](https://learn.microsoft.com/en-us/dax/dax-copilot): the DAX query view experience, and how a suggested measure reaches the model.
-- [What is the Power BI Desktop Bridge?](https://learn.microsoft.com/en-us/power-bi/developer/agentic/power-bi-desktop-bridge-overview): the preview setting and the operations it provides.
+- [What is the Power BI Desktop Bridge?](https://learn.microsoft.com/en-us/power-bi/developer/agentic/power-bi-desktop-bridge-overview): the Security setting and the operations it provides.
 
 *The content of this page was verified in September 2026. This is the area of Power BI that changes fastest, so the linked documentation is the authority.*
