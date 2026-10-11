@@ -62,6 +62,8 @@ Two of the ten are published in the Microsoft Store. Six of them are on WinGet, 
 | Kiro | the MCP Servers panel | `%USERPROFILE%\.kiro\settings\mcp.json` | JSON |
 | Qwen Code | `qwen mcp add` | `%USERPROFILE%\.qwen\settings.json` | JSON |
 
+Every registration in the guides includes the `--accepteula` argument, which accepts the [license terms](https://go.microsoft.com/fwlink/?LinkId=2381247) of the server. Version 1.0 and later of the server require this acceptance before the first use.
+
 Every client also reads a configuration of the project, in the folder you open, with a name that changes between them. The user scope is the simplest choice for a first setup, because it does not depend on the folder.
 
 One difference is worth knowing before a long debugging session: **Google Antigravity does not inherit the path of your terminal**, because it is a desktop application, so a server declared with a bare `npx` can fail to start without a message that explains it. **Grok Build** goes in the opposite direction and also reads the MCP servers declared for Claude Code, so a server can be active without appearing in its own file.

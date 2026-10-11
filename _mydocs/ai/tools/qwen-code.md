@@ -23,6 +23,7 @@ One warning before you start, because it changes the cost of this setup: the fre
 - **[Node.js](https://nodejs.org/en/download) 22 or later**. Qwen Code requires it, and the Power BI Authoring MCP server is started with `npx`, which is part of Node.js. A new machine does not have it, so step 1 installs it.
 - An **API key** of a provider that Qwen Code supports, including any endpoint compatible with the OpenAI protocol. There is no free tier with a personal account. The key, the address of the service, and the names of the models all depend on the subscription you buy, so read the three in the console of your provider before you start, as in step 5.
 - **[Git for Windows](https://git-scm.com/downloads/win)**. The repository of the skills is downloaded with `git`, and Windows does not include it. Step 11 installs it.
+- **Acceptance of the [license terms](https://go.microsoft.com/fwlink/?LinkId=2381247) of the Power BI Authoring MCP server**, once. Version 1.0 and later require it. The registration snippet of this guide accepts them with the `--accepteula` argument.
 - **Write permission** on any semantic model you modify. The MCP server follows the same rules as the Power BI external tools.
 
 MCP stands for Model Context Protocol. The **Power BI Authoring MCP server** runs on your machine and connects to Power BI Desktop like an external tool. Qwen Code is the client that hosts the agent, and it starts the server as a local process.
@@ -164,10 +165,12 @@ There is no extension to install. The server is an npm package, and Qwen Code st
 Run this command in the **command prompt**:
 
 ```text
-qwen mcp add --scope user powerbi-modeling-mcp npx -- -y @microsoft/powerbi-modeling-mcp@latest --start --readonly
+qwen mcp add --scope user powerbi-modeling-mcp npx -- -y @microsoft/powerbi-modeling-mcp@latest --start --accepteula --readonly
 ```
 
-The position of the double dash matters, and it is the one place where this command is easy to get wrong. The syntax is `qwen mcp add [options] <name> <commandOrUrl> [args...]`, so the double dash goes **after** `npx`, which is the command, and not before it. Written before `npx`, it leaves the client with one argument instead of two, and the command fails with `Not enough non-option arguments: got 1, need at least 2`. Written after `npx`, it stops the client from reading `-y`, `--start`, and `--readonly` as its own options, and passes them to the server.
+The position of the double dash matters, and it is the one place where this command is easy to get wrong. The syntax is `qwen mcp add [options] <name> <commandOrUrl> [args...]`, so the double dash goes **after** `npx`, which is the command, and not before it. Written before `npx`, it leaves the client with one argument instead of two, and the command fails with `Not enough non-option arguments: got 1, need at least 2`. Written after `npx`, it stops the client from reading `-y`, `--start`, `--accepteula`, and `--readonly` as its own options, and passes them to the server.
+
+{% include ai/mcp-eula-snippet-note.md %}
 
 The `--readonly` argument blocks every write operation. We suggest it for the first session, so that a wrong prompt cannot modify anything. Step 8 replaces it.
 
@@ -180,7 +183,7 @@ You can edit the file directly instead of running the command:
   "mcpServers": {
     "powerbi-modeling-mcp": {
       "command": "npx",
-      "args": ["-y", "@microsoft/powerbi-modeling-mcp@latest", "--start", "--readonly"],
+      "args": ["-y", "@microsoft/powerbi-modeling-mcp@latest", "--start", "--accepteula", "--readonly"],
       "timeout": 600000,
       "trust": false
     }
@@ -247,6 +250,8 @@ Connect to 'ContosoDemo10k' in Power BI Desktop
 
 The answer reports the model name and an active connection. The first call to the MCP server raises a confirmation prompt. Read it: it is the only checkpoint before a change.
 
+{% include ai/mcp-eula-connect-note.md %}
+
 ## Step 7: verify the connection
 
 Send these two prompts to the agent, one after the other:
@@ -272,8 +277,10 @@ The session started in read-only mode, so the next prompt would fail. Remove the
 3. Register the server again without `--readonly`:
 
    ```text
-   qwen mcp add --scope user powerbi-modeling-mcp npx -- -y @microsoft/powerbi-modeling-mcp@latest --start
+   qwen mcp add --scope user powerbi-modeling-mcp npx -- -y @microsoft/powerbi-modeling-mcp@latest --start --accepteula
    ```
+
+   Keep the `--accepteula` argument. It accepts the license terms, as in the first registration.
 
 4. Start `qwen` again and connect again, as in step 6.
 
@@ -405,6 +412,7 @@ The command-line arguments of the MCP server go after `--` in the `qwen mcp add`
 | Option | Default | Description |
 |---|---|---|
 | `--start` | required | Starts the server. |
+| `--accepteula` | | Accepts the license terms of the server. Version 1.0 and later require the acceptance before the first use. |
 | `--readwrite` | enabled | Allows write operations, each one with a confirmation. |
 | `--readonly` | | Blocks all the write operations. |
 | `--skipconfirmation` | | Removes the confirmation prompts. |
@@ -412,6 +420,8 @@ The command-line arguments of the MCP server go after `--` in the `qwen mcp add`
 | `--authmode` | `interactive` | Set it to `serviceprincipal` for unattended scenarios. |
 
 For the service principal authentication, set `AZURE_CLIENT_ID` and `AZURE_TENANT_ID` in the environment of the server, with either `AZURE_CLIENT_SECRET` or `AZURE_CLIENT_CERTIFICATE_PATH`.
+
+{% include ai/mcp-eula-config.md %}
 
 On a model that matters, run the first session with **`--readonly`**, as in step 4.
 
@@ -424,13 +434,15 @@ On a model that matters, run the first session with **`--readonly`**, as in step
   "mcpServers": {
     "powerbi-modeling-mcp": {
       "command": "C:\\MCPServers\\PowerBIModelingMCP\\extension\\server\\powerbi-modeling-mcp.exe",
-      "args": ["--start"]
+      "args": ["--start", "--accepteula"]
     }
   }
 }
 ```
 
 The `cwd` property sets the working folder of the server, and the client refuses to start when the folder does not exist. Write the Windows paths with a double backslash, as in the example, or with the forward slash.
+
+{% include ai/mcp-eula-snippet-note.md %}
 
 ## Limitations
 
@@ -444,6 +456,8 @@ The `cwd` property sets the working folder of the server, and the client refuses
 - The report authoring skill has no marketplace installation for Qwen Code. The manual path of step 11 is not covered by the documentation of Microsoft or of the project.
 
 ## Troubleshooting
+
+{% include ai/mcp-eula-troubleshooting.md %}
 
 **The `qwen` command is not found.**
 Close and open the terminal again, so that it reads the updated path. With npm, verify that the global folder of npm is in the path.

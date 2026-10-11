@@ -24,6 +24,7 @@ At the end you have an agent in the terminal that reads and writes the semantic 
 - A **GitHub account**. Free to create. Step 5 asks for it.
 - **[Git for Windows](https://git-scm.com/downloads/win)**. The marketplace of the skills is downloaded with `git`, and Windows does not include it. Step 11 installs it.
 - A **GitHub Copilot plan that includes MCP**. Every plan includes GitHub Copilot CLI, MCP is a different matter: if you sign in without a subscription, you are enrolled in **Copilot Free**, which currently does not include MCP. Check the [plans page](https://docs.github.com/en/copilot/get-started/plans) before you start.
+- **Acceptance of the [license terms](https://go.microsoft.com/fwlink/?LinkId=2381247) of the Power BI Authoring MCP server**, once. Version 1.0 and later require it. The registration snippet of this guide accepts them with the `--accepteula` argument.
 - **Write permission** on any semantic model you modify. The MCP server follows the same rules as the Power BI external tools.
 
 MCP stands for Model Context Protocol. The **Power BI Authoring MCP server** runs on your machine and connects to Power BI Desktop like an external tool. GitHub Copilot CLI is the client that hosts the agent, and it starts the server as a local process.
@@ -213,8 +214,10 @@ There is no extension to install. The server is an npm package, and GitHub Copil
 Run this command in the **command prompt**:
 
 ```text
-copilot mcp add powerbi-modeling-mcp -- npx -y @microsoft/powerbi-modeling-mcp@latest --start --readonly
+copilot mcp add powerbi-modeling-mcp -- npx -y @microsoft/powerbi-modeling-mcp@latest --start --accepteula --readonly
 ```
+
+{% include ai/mcp-eula-snippet-note.md %}
 
 The `--readonly` argument blocks every write operation. We suggest it for the first session, so that a wrong prompt cannot modify anything. Step 8 replaces it.
 
@@ -230,6 +233,7 @@ The command writes the entry in `%USERPROFILE%\.copilot\mcp-config.json`. You ca
         "-y",
         "@microsoft/powerbi-modeling-mcp@latest",
         "--start",
+        "--accepteula",
         "--readonly"
       ]
     }
@@ -275,6 +279,8 @@ Connect to 'ContosoDemo10k' in Power BI Desktop
 
 The answer reports the model name and an active connection.
 
+{% include ai/mcp-eula-connect-note.md %}
+
 ## Step 7: verify the connection
 
 Send these two prompts to the agent, one after the other:
@@ -300,8 +306,10 @@ The session started in read-only mode, so the next prompt would fail. Remove the
 3. Register the server again without `--readonly`:
 
    ```text
-   copilot mcp add powerbi-modeling-mcp -- npx -y @microsoft/powerbi-modeling-mcp@latest --start
+   copilot mcp add powerbi-modeling-mcp -- npx -y @microsoft/powerbi-modeling-mcp@latest --start --accepteula
    ```
+
+   Keep the `--accepteula` argument. It accepts the license terms, as in the first registration.
 
 4. Start `copilot` again and resume the previous session or connect again, as in step 6.
 
@@ -440,6 +448,7 @@ The command-line arguments of the MCP server go after `--start`, in the `args` a
 | Option | Default | Description |
 |---|---|---|
 | `--start` | required | Starts the server. |
+| `--accepteula` | | Accepts the license terms of the server. Version 1.0 and later require the acceptance before the first use. |
 | `--readwrite` | enabled | Allows write operations, each one with a confirmation. |
 | `--readonly` | | Blocks all the write operations. |
 | `--skipconfirmation` | | Removes the confirmation prompts. |
@@ -447,6 +456,8 @@ The command-line arguments of the MCP server go after `--start`, in the `args` a
 | `--authmode` | `interactive` | Set it to `serviceprincipal` for unattended scenarios. |
 
 For the service principal authentication, set `AZURE_CLIENT_ID` and `AZURE_TENANT_ID` in the `env` object of the configuration, with either `AZURE_CLIENT_SECRET` or `AZURE_CLIENT_CERTIFICATE_PATH`.
+
+{% include ai/mcp-eula-config.md %}
 
 On a model that matters, run the first session with **`--readonly`**, as in step 4.
 
@@ -460,7 +471,7 @@ On a model that matters, run the first session with **`--readonly`**, as in step
     "powerbi-modeling-mcp": {
       "type": "stdio",
       "command": "C:\\MCPServers\\PowerBIModelingMCP\\extension\\server\\powerbi-modeling-mcp.exe",
-      "args": ["--start"],
+      "args": ["--start", "--accepteula"],
       "env": {}
     }
   }
@@ -470,6 +481,8 @@ On a model that matters, run the first session with **`--readonly`**, as in step
 **A note on the `type` value.** GitHub Copilot CLI accepts both `local` and `stdio`, and they behave in the same way. `stdio`, which stands for standard input and output, is the name defined by the protocol, so a configuration written with `stdio` also works in Visual Studio Code and in the other MCP clients. Use `stdio` in a file you share, and `local` only if you follow the GitHub examples.
 
 The server is a standard MCP server, so any client can run it with the same configuration. GitHub Copilot CLI is required only for the plugin and the skills.
+
+{% include ai/mcp-eula-snippet-note.md %}
 
 ## Limitations
 
@@ -481,6 +494,8 @@ The server is a standard MCP server, so any client can run it with the same conf
 - The agent proposes and executes. The review is your responsibility.
 
 ## Troubleshooting
+
+{% include ai/mcp-eula-troubleshooting.md %}
 
 **The `npm` or the `npx` command is not found.**
 Node.js is not installed, or the terminal was opened before the installation. Close the terminal, open it again, and run `node --version`. See step 1.

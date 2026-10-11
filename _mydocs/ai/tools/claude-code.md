@@ -25,6 +25,7 @@ Claude Code is one of the two clients for which Microsoft publishes a marketplac
 - **[Node.js](https://nodejs.org/en/download) 22 or later**. The Power BI Authoring MCP server is started with `npx`, which is part of Node.js. Claude Code itself needs it only if you install it with npm. A new machine does not have it, so step 1 installs it.
 - **[Git for Windows](https://git-scm.com/downloads/win)**. Without it, the marketplace of the skills cannot be downloaded in step 11, and Claude Code uses PowerShell instead of the Bash tool.
 - A **Claude account with a Pro, Max, Team, or Enterprise plan**, or a Console account with credits. The free plan does not include Claude Code. Check the [plans page](https://claude.com/pricing) before you start.
+- **Acceptance of the [license terms](https://go.microsoft.com/fwlink/?LinkId=2381247) of the Power BI Authoring MCP server**, once. Version 1.0 and later require it. The registration snippet of this guide accepts them with the `--accepteula` argument.
 - **Write permission** on any semantic model you modify. The MCP server follows the same rules as the Power BI external tools.
 
 MCP stands for Model Context Protocol. The **Power BI Authoring MCP server** runs on your machine and connects to Power BI Desktop like an external tool. Claude Code is the client that hosts the agent, and it starts the server as a local process.
@@ -174,8 +175,10 @@ There is no extension to install. The server is an npm package, and Claude Code 
 Run this command in the **command prompt**:
 
 ```text
-claude mcp add --transport stdio --scope user powerbi-modeling-mcp -- npx -y @microsoft/powerbi-modeling-mcp@latest --start --readonly
+claude mcp add --transport stdio --scope user powerbi-modeling-mcp -- npx -y @microsoft/powerbi-modeling-mcp@latest --start --accepteula --readonly
 ```
+
+{% include ai/mcp-eula-snippet-note.md %}
 
 The `--readonly` argument blocks every write operation. We suggest it for the first session, so that a wrong prompt cannot modify anything. Step 8 replaces it.
 
@@ -211,6 +214,8 @@ Connect to 'ContosoDemo10k' in Power BI Desktop
 
 The answer reports the model name and an active connection. The first call to the MCP server raises a confirmation prompt. Read it: it is the only checkpoint before a change.
 
+{% include ai/mcp-eula-connect-note.md %}
+
 ## Step 7: verify the connection
 
 Send these two prompts to the agent, one after the other:
@@ -236,8 +241,10 @@ The session started in read-only mode, so the next prompt would fail. Remove the
 3. Register the server again without `--readonly`:
 
    ```text
-   claude mcp add --transport stdio --scope user powerbi-modeling-mcp -- npx -y @microsoft/powerbi-modeling-mcp@latest --start
+   claude mcp add --transport stdio --scope user powerbi-modeling-mcp -- npx -y @microsoft/powerbi-modeling-mcp@latest --start --accepteula
    ```
+
+   Keep the `--accepteula` argument. It accepts the license terms, as in the first registration.
 
 4. Start `claude` again and connect again, as in step 6.
 
@@ -374,6 +381,7 @@ The command-line arguments of the MCP server go after `--` in the `claude mcp ad
 | Option | Default | Description |
 |---|---|---|
 | `--start` | required | Starts the server. |
+| `--accepteula` | | Accepts the license terms of the server. Version 1.0 and later require the acceptance before the first use. |
 | `--readwrite` | enabled | Allows write operations, each one with a confirmation. |
 | `--readonly` | | Blocks all the write operations. |
 | `--skipconfirmation` | | Removes the confirmation prompts. |
@@ -381,6 +389,8 @@ The command-line arguments of the MCP server go after `--` in the `claude mcp ad
 | `--authmode` | `interactive` | Set it to `serviceprincipal` for unattended scenarios. |
 
 For the service principal authentication, set `AZURE_CLIENT_ID` and `AZURE_TENANT_ID` in the environment of the server, with either `AZURE_CLIENT_SECRET` or `AZURE_CLIENT_CERTIFICATE_PATH`.
+
+{% include ai/mcp-eula-config.md %}
 
 On a model that matters, run the first session with **`--readonly`**, as in step 4.
 
@@ -394,7 +404,7 @@ On a model that matters, run the first session with **`--readonly`**, as in step
     "powerbi-modeling-mcp": {
       "type": "stdio",
       "command": "C:\\MCPServers\\PowerBIModelingMCP\\extension\\server\\powerbi-modeling-mcp.exe",
-      "args": ["--start"]
+      "args": ["--start", "--accepteula"]
     }
   }
 }
@@ -408,7 +418,7 @@ On a model that matters, run the first session with **`--readonly`**, as in step
     "powerbi-modeling-mcp": {
       "type": "stdio",
       "command": "cmd",
-      "args": ["/c", "npx", "-y", "@microsoft/powerbi-modeling-mcp@latest", "--start"]
+      "args": ["/c", "npx", "-y", "@microsoft/powerbi-modeling-mcp@latest", "--start", "--accepteula"]
     }
   }
 }
@@ -417,6 +427,8 @@ On a model that matters, run the first session with **`--readonly`**, as in step
 The `npx` command is a `.cmd` script on Windows, and a process that starts it without a shell can fail to find it. Write this form directly in the file, because the `claude mcp add` command does not always preserve the `/c` argument on Windows.
 
 Claude Code accepts three transports, `stdio`, `sse`, and `http`. The value `local`, used by other clients, is rejected.
+
+{% include ai/mcp-eula-snippet-note.md %}
 
 ## Limitations
 
@@ -429,6 +441,8 @@ Claude Code accepts three transports, `stdio`, `sse`, and `http`. The value `loc
 - The free plan does not include Claude Code, and this is a limit of the plan, not of the MCP server.
 
 ## Troubleshooting
+
+{% include ai/mcp-eula-troubleshooting.md %}
 
 **The `claude` command is not found.**
 Close and open the terminal again, so that it reads the updated path. With npm, verify that the global folder of npm is in the path.

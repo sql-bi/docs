@@ -24,6 +24,7 @@ Kiro is the agentic development environment of Amazon Web Services, available as
 - **Windows 10 or Windows 11**, 64 bit, for the desktop application. The command-line client of Kiro requires Windows 11.
 - An account to sign in: a **GitHub account**, a **Google account**, an **AWS Builder ID**, or an account of AWS IAM Identity Center. The free plan includes a monthly amount of credits, and the MCP servers are not a paid feature. Check the [plans page](https://kiro.dev/pricing/) before you start.
 - **[Git for Windows](https://git-scm.com/downloads/win)**. The repository of the skills is downloaded with `git`, and Windows does not include it. Step 11 installs it.
+- **Acceptance of the [license terms](https://go.microsoft.com/fwlink/?LinkId=2381247) of the Power BI Authoring MCP server**, once. Version 1.0 and later require it. The registration snippet of this guide accepts them with the `--accepteula` argument.
 - **Write permission** on any semantic model you modify. The MCP server follows the same rules as the Power BI external tools.
 
 MCP stands for Model Context Protocol. The **Power BI Authoring MCP server** runs on your machine and connects to Power BI Desktop like an external tool. Kiro is the client that hosts the agent, and it starts the server as a local process.
@@ -181,7 +182,7 @@ Kiro reads two files: `%USERPROFILE%\.kiro\settings\mcp.json`, which applies to 
      "mcpServers": {
        "powerbi-modeling-mcp": {
          "command": "npx",
-         "args": ["-y", "@microsoft/powerbi-modeling-mcp@latest", "--start", "--readonly"],
+         "args": ["-y", "@microsoft/powerbi-modeling-mcp@latest", "--start", "--accepteula", "--readonly"],
          "env": {},
          "disabled": false,
          "autoApprove": []
@@ -191,6 +192,8 @@ Kiro reads two files: `%USERPROFILE%\.kiro\settings\mcp.json`, which applies to 
    ```
 
 4. Save the file. Kiro reconnects the servers when the file changes.
+
+{% include ai/mcp-eula-snippet-note.md %}
 
 The `--readonly` argument blocks every write operation. We suggest it for the first session, so that a wrong prompt cannot modify anything. Step 8 replaces it.
 
@@ -205,6 +208,8 @@ Connect to 'ContosoDemo10k' in Power BI Desktop
 ```
 
 The answer reports the model name and an active connection. The first call to the MCP server raises a confirmation prompt. Read it: it is the only checkpoint before a change.
+
+{% include ai/mcp-eula-connect-note.md %}
 
 ## Step 7: verify the connection
 
@@ -351,6 +356,7 @@ The command-line arguments of the MCP server go in the `args` array of the JSON 
 | Option | Default | Description |
 |---|---|---|
 | `--start` | required | Starts the server. |
+| `--accepteula` | | Accepts the license terms of the server. Version 1.0 and later require the acceptance before the first use. |
 | `--readwrite` | enabled | Allows write operations, each one with a confirmation. |
 | `--readonly` | | Blocks all the write operations. |
 | `--skipconfirmation` | | Removes the confirmation prompts. |
@@ -358,6 +364,8 @@ The command-line arguments of the MCP server go in the `args` array of the JSON 
 | `--authmode` | `interactive` | Set it to `serviceprincipal` for unattended scenarios. |
 
 For the service principal authentication, set `AZURE_CLIENT_ID` and `AZURE_TENANT_ID` in the environment of the server, with either `AZURE_CLIENT_SECRET` or `AZURE_CLIENT_CERTIFICATE_PATH`.
+
+{% include ai/mcp-eula-config.md %}
 
 On a model that matters, run the first session with **`--readonly`**, as in step 5.
 
@@ -370,7 +378,7 @@ On a model that matters, run the first session with **`--readonly`**, as in step
   "mcpServers": {
     "powerbi-modeling-mcp": {
       "command": "C:\\MCPServers\\PowerBIModelingMCP\\extension\\server\\powerbi-modeling-mcp.exe",
-      "args": ["--start"],
+      "args": ["--start", "--accepteula"],
       "disabled": false,
       "autoApprove": []
     }
@@ -385,7 +393,7 @@ On a model that matters, run the first session with **`--readonly`**, as in step
   "mcpServers": {
     "powerbi-modeling-mcp": {
       "command": "cmd",
-      "args": ["/c", "npx", "-y", "@microsoft/powerbi-modeling-mcp@latest", "--start"],
+      "args": ["/c", "npx", "-y", "@microsoft/powerbi-modeling-mcp@latest", "--start", "--accepteula"],
       "disabled": false,
       "autoApprove": []
     }
@@ -394,6 +402,8 @@ On a model that matters, run the first session with **`--readonly`**, as in step
 ```
 
 The `npx` command is a `.cmd` script on Windows, and a process that starts it without a shell can fail to find it.
+
+{% include ai/mcp-eula-snippet-note.md %}
 
 ## Limitations
 
@@ -408,6 +418,8 @@ The `npx` command is a `.cmd` script on Windows, and a process that starts it wi
 - The restrictions that an administrator applies to the MCP servers are enforced by the client, so they are not a security boundary on a machine where the user is an administrator.
 
 ## Troubleshooting
+
+{% include ai/mcp-eula-troubleshooting.md %}
 
 **The MCP server does not appear in the list of tools.**
 Open the **MCP Servers** tab of the Kiro panel, verify that `disabled` is `false`, and read the Output panel, entry **Kiro - MCP Logs**. When you declared the server in the file of the project, verify that the folder open in Kiro is the one that contains `.kiro\settings\mcp.json`.

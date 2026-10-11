@@ -18,6 +18,7 @@ Sample model used in all the steps: **[ContosoDemo10k.zip](https://www.sqlbi.com
 - **Power BI Desktop**, installed.
 - A **GitHub account**. Free to create. Step 4 asks for it.
 - A **GitHub Copilot plan that includes agent mode and MCP**. If you sign in without a subscription, you are enrolled in **Copilot Free**, which currently does not include agent mode and MCP. Check the [plans page](https://docs.github.com/en/copilot/get-started/plans) before you start.
+- **Acceptance of the [license terms](https://go.microsoft.com/fwlink/?LinkId=2381247) of the Power BI Authoring MCP server**, once. Version 1.0 and later require it. The extension accepts them by default, as step 2 explains.
 - **Write permission** on any semantic model you modify. The MCP server follows the same rules as the Power BI external tools.
 
 MCP stands for Model Context Protocol. The **Power BI Authoring MCP server** runs on your machine and connects to Power BI Desktop like an external tool. The chat panel of Visual Studio Code hosts the agent, and it requires no separate installation.
@@ -38,6 +39,8 @@ Launch Visual Studio Code. The **chat panel** is already available. There is no 
 4. **Switch to Pre-release Version**  in the extension settings to get the last updates; in that case, **Restart Extensions** after the installation.
 
 The extension registers the MCP server. There is no separate download, no runtime, and no configuration file to write.
+
+The extension starts the server with the arguments of its `args` setting. The default value is `--start --accept-eula`. The `--accept-eula` argument, also written `--accepteula`, accepts the [license terms](https://go.microsoft.com/fwlink/?LinkId=2381247) of the server. Version 1.0 and later of the server require this acceptance before the first use. To review and accept the license terms in the chat, remove the argument from the setting. Step 4 shows how.
 
 **If your organization manages Copilot centrally**, an administrator must enable the MCP servers option in the Copilot policy settings on github.com. Until then, the extension installs and provides no tools.
 
@@ -68,6 +71,8 @@ The answer reports the model name and an active connection.
 The first connection and the first write operation raise a **confirmation prompt** each. Read them: they are the only checkpoint before a change.
 
 The server also provides the built-in prompt `ConnectToPowerBIDesktop`, available by typing `/` in the chat box.
+
+{% include ai/mcp-eula-connect-note.md %}
 
 ## Step 5: verify the connection
 
@@ -128,11 +133,12 @@ Report authoring requires **GitHub Copilot CLI**, or another client that support
 
 ## Configuration options
 
-Settings are available under `@ext:Microsoft.powerbi-modeling-mcp`, and as command-line arguments for a manual configuration.
+Settings are available under `@ext:Microsoft.powerbi-modeling-mcp`, and as command-line arguments for a manual configuration. The extension has two settings: `args`, with the command-line arguments, and `environmentVariables`, with comma-separated `KEY=value` pairs. The default of `args` is `--start --accept-eula`. If you change it, keep `--accept-eula`, or accept the license terms in the chat.
 
 | Option | Default | Description |
 |---|---|---|
 | `--start` | required | Starts the server. |
+| `--accepteula` | | Accepts the license terms of the server. Version 1.0 and later require the acceptance before the first use. |
 | `--readwrite` | enabled | Allows write operations, each one with a confirmation. |
 | `--readonly` | | Blocks all the write operations. |
 | `--skipconfirmation` | | Removes the confirmation prompts. |
@@ -140,6 +146,8 @@ Settings are available under `@ext:Microsoft.powerbi-modeling-mcp`, and as comma
 | `--authmode` | `interactive` | Set it to `serviceprincipal` for unattended scenarios. |
 
 For the service principal authentication, set `AZURE_CLIENT_ID` and `AZURE_TENANT_ID` in the environment, with either `AZURE_CLIENT_SECRET` or `AZURE_CLIENT_CERTIFICATE_PATH`.
+
+{% include ai/mcp-eula-config.md %}
 
 On a model that matters, run the first session with **`--readonly`**.
 
@@ -152,7 +160,7 @@ On a model that matters, run the first session with **`--readonly`**.
   "powerbi-modeling-mcp": {
     "type": "stdio",
     "command": "npx",
-    "args": ["-y", "@microsoft/powerbi-modeling-mcp@latest", "--start"]
+    "args": ["-y", "@microsoft/powerbi-modeling-mcp@latest", "--start", "--accepteula"]
   }
 }
 ```
@@ -164,13 +172,15 @@ On a model that matters, run the first session with **`--readonly`**.
   "powerbi-modeling-mcp": {
     "type": "stdio",
     "command": "C:\\MCPServers\\PowerBIModelingMCP\\extension\\server\\powerbi-modeling-mcp.exe",
-    "args": ["--start"],
+    "args": ["--start", "--accepteula"],
     "env": {}
   }
 }
 ```
 
 In Visual Studio Code, the MCP servers are configured in `.vscode/mcp.json` for a workspace, or in the file opened by the **MCP: Open User Configuration** command. Commit the workspace file to share one configuration in a team.
+
+{% include ai/mcp-eula-snippet-note.md %}
 
 The server communicates over stdio, so any MCP client can run it with the NPX configuration. Visual Studio Code and Copilot are required only for the extension.
 
@@ -183,6 +193,8 @@ The server communicates over stdio, so any MCP client can run it with the NPX co
 - The agent proposes and executes. The review is your responsibility.
 
 ## Troubleshooting
+
+{% include ai/mcp-eula-troubleshooting.md %}
 
 **The MCP server does not appear in the list of tools.**
 Run **MCP: List Servers** from the Command Palette with `Ctrl+Shift+P`. Then verify, in this order: the chat panel is in **Agent** mode, your Copilot plan includes MCP, your organization has enabled MCP servers in the Copilot policy.

@@ -1,0 +1,2 @@
+**The server seems not to work: every tool fails, or the agent tries PowerShell or other tools instead.**
+The license terms of the server are not accepted. Version 1.0 and later block every tool until you accept them. Add `--accepteula` to the arguments of the server and restart the client. As an alternative, read the [license terms](https://go.microsoft.com/fwlink/?LinkId=2381247), tell the agent that you accept them, and approve the call to the `accept_eula` tool. Do not let the agent work around the block with other tools.
