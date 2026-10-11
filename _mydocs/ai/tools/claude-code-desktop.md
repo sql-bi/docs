@@ -24,6 +24,7 @@ One clarification on the product. **Claude Code Desktop is the Code tab of the C
 - **[Git for Windows](https://git-scm.com/downloads/win)**. On Windows the Code tab does not work without it, and the marketplace of the skills cannot be downloaded in step 12. Install it and restart the application.
 - **Windows 10 version 1809 or later**, or Windows Server 2019 or later.
 - A **Claude account with a Pro, Max, Team, or Enterprise plan**, or a Console account with credits. The free plan does not include Claude Code, and the Code tab asks for an upgrade. Check the [plans page](https://claude.com/pricing) before you start.
+- **Acceptance of the [license terms](https://go.microsoft.com/fwlink/?LinkId=2381247) of the Power BI Authoring MCP server**, once. Version 1.0 and later require it. The registration snippet of this guide accepts them with the `--accepteula` argument.
 - **Write permission** on any semantic model you modify. The MCP server follows the same rules as the Power BI external tools.
 
 MCP stands for Model Context Protocol. The **Power BI Authoring MCP server** runs on your machine and connects to Power BI Desktop like an external tool. Claude Code Desktop is the client that hosts the agent, and it starts the server as a local process.
@@ -192,7 +193,7 @@ Close the Claude application, then open `%USERPROFILE%\.claude.json` in a text e
     "powerbi-modeling-mcp": {
       "type": "stdio",
       "command": "npx",
-      "args": ["-y", "@microsoft/powerbi-modeling-mcp@latest", "--start", "--readonly"]
+      "args": ["-y", "@microsoft/powerbi-modeling-mcp@latest", "--start", "--accepteula", "--readonly"]
     }
   }
 }
@@ -206,7 +207,7 @@ If the file already has content, do not paste the snippet at the beginning of th
     "powerbi-modeling-mcp": {
       "type": "stdio",
       "command": "npx",
-      "args": ["-y", "@microsoft/powerbi-modeling-mcp@latest", "--start", "--readonly"]
+      "args": ["-y", "@microsoft/powerbi-modeling-mcp@latest", "--start", "--accepteula", "--readonly"]
     }
   },
   "cachedGrowthBookFeatures": { ... },
@@ -217,6 +218,8 @@ If the file already has content, do not paste the snippet at the beginning of th
 An invalid JSON file prevents the application from starting. Check the file with a JSON validator, or with an editor that highlights JSON errors, before you open the application again.
 
 As an alternative, the same entry can go in the `"mcpServers"` section of `%APPDATA%\Claude\claude_desktop_config.json`, which **Settings > Developer > Edit Config** opens directly. The Code tab reads that file too, but the standalone Claude Code CLI does not. See [Alternative installation methods](#alternative-installation-methods).
+
+{% include ai/mcp-eula-snippet-note.md %}
 
 The `--readonly` argument blocks every write operation. We suggest it for the first session, so that a wrong prompt cannot modify anything. Step 9 replaces it.
 
@@ -233,6 +236,8 @@ Connect to 'ContosoDemo10k' in Power BI Desktop
 ```
 
 The answer reports the model name and an active connection. The first call to the MCP server raises a confirmation prompt. Read it: it is the only checkpoint before a change.
+
+{% include ai/mcp-eula-connect-note.md %}
 
 ## Step 8: verify the connection
 
@@ -353,6 +358,7 @@ The command-line arguments of the MCP server go in the `args` array of the JSON 
 | Option | Default | Description |
 |---|---|---|
 | `--start` | required | Starts the server. |
+| `--accepteula` | | Accepts the license terms of the server. Version 1.0 and later require the acceptance before the first use. |
 | `--readwrite` | enabled | Allows write operations, each one with a confirmation. |
 | `--readonly` | | Blocks all the write operations. |
 | `--skipconfirmation` | | Removes the confirmation prompts. |
@@ -360,6 +366,8 @@ The command-line arguments of the MCP server go in the `args` array of the JSON 
 | `--authmode` | `interactive` | Set it to `serviceprincipal` for unattended scenarios. |
 
 For the service principal authentication, set `AZURE_CLIENT_ID` and `AZURE_TENANT_ID` in the environment of the server, with either `AZURE_CLIENT_SECRET` or `AZURE_CLIENT_CERTIFICATE_PATH`.
+
+{% include ai/mcp-eula-config.md %}
 
 On a model that matters, run the first session with **`--readonly`**, as in step 6.
 
@@ -373,7 +381,7 @@ On a model that matters, run the first session with **`--readonly`**, as in step
     "powerbi-modeling-mcp": {
       "type": "stdio",
       "command": "C:\\MCPServers\\PowerBIModelingMCP\\extension\\server\\powerbi-modeling-mcp.exe",
-      "args": ["--start"]
+      "args": ["--start", "--accepteula"]
     }
   }
 }
@@ -387,7 +395,7 @@ On a model that matters, run the first session with **`--readonly`**, as in step
     "powerbi-modeling-mcp": {
       "type": "stdio",
       "command": "cmd",
-      "args": ["/c", "npx", "-y", "@microsoft/powerbi-modeling-mcp@latest", "--start"]
+      "args": ["/c", "npx", "-y", "@microsoft/powerbi-modeling-mcp@latest", "--start", "--accepteula"]
     }
   }
 }
@@ -398,6 +406,8 @@ The `npx` command is a `.cmd` script on Windows, and a process that starts it wi
 Claude Code accepts three transports, `stdio`, `sse`, and `http`. The value `local`, used by other clients, is rejected.
 
 **The file of the chat application.** The Code tab also reads the servers declared in `%APPDATA%\Claude\claude_desktop_config.json`, which is the file of the chat side of the application, reachable from **Settings > Developer > Edit Config**. When the same name is declared in two files, the definition of this one wins in the local sessions. Use one file only, to avoid a configuration that is hard to read.
+
+{% include ai/mcp-eula-snippet-note.md %}
 
 ## Limitations
 
@@ -412,6 +422,8 @@ Claude Code accepts three transports, `stdio`, `sse`, and `http`. The value `loc
 - The Cowork tab does not share the configuration of the Code tab. A skill installed here does not appear there.
 
 ## Troubleshooting
+
+{% include ai/mcp-eula-troubleshooting.md %}
 
 **The Code tab reports that Git is missing.**
 Install Git for Windows and restart the application.

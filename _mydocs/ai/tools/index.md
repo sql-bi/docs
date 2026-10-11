@@ -44,6 +44,7 @@ This page collects the comparison that helps you pick one, and a self-contained 
 
 - **Power BI Desktop** installed, and **write permission** on any semantic model the agent modifies. The MCP server follows the same rules as the Power BI external tools.
 - **Node.js**, because the MCP server is started with `npx`.
+- The acceptance of the [license terms](https://go.microsoft.com/fwlink/?LinkId=2381247) of the MCP server, once, because version 1.0 and later block every tool until you accept them. Every guide shows how.
 - An account with the vendor of the client, on a plan that includes the use of MCP servers.
 - The sample model used in all the guides: **[ContosoDemo10k.zip](https://www.sqlbi.com/wp-content/uploads/ContosoDemo10k.zip)**.
 

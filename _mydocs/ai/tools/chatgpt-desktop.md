@@ -24,6 +24,7 @@ One clarification on the application, because two of them carry a similar name. 
 - **Windows 10 version 1809 or later**, and WinGet available on the machine. The application uses them to prepare its sandbox.
 - A **ChatGPT account with a paid plan**, Plus, Pro, Business, or Enterprise. The free plan does not include the agent, and it does not include the MCP servers. Check the [plans page](https://learn.chatgpt.com/docs/pricing) before you start.
 - **[Git for Windows](https://git-scm.com/downloads/win)**. The repository of the skills is downloaded with `git`, and Windows does not include it. Step 11 installs it.
+- **Acceptance of the [license terms](https://go.microsoft.com/fwlink/?LinkId=2381247) of the Power BI Authoring MCP server**, once. Version 1.0 and later require it. The registration snippet of this guide accepts them with the `--accepteula` argument.
 - **Write permission** on any semantic model you modify. The MCP server follows the same rules as the Power BI external tools.
 
 MCP stands for Model Context Protocol. The **Power BI Authoring MCP server** runs on your machine and connects to Power BI Desktop like an external tool. The ChatGPT desktop app is the client that hosts the agent, and it starts the server as a local process.
@@ -184,8 +185,11 @@ There is no extension to install. The server is an npm package, and the applicat
       - `-y`
       - `@microsoft/powerbi-modeling-mcp@latest`
       - `--start`
+      - `--accepteula`
       - `--readonly`
    
+{% include ai/mcp-eula-snippet-note.md %}
+
 The `--readonly` argument blocks every write operation. We suggest it for the first session, so that a wrong prompt cannot modify anything. Step 8 replaces it.
 
 <video src="videos/AIsetup-ChatGPT-mcp-server.mp4" 
@@ -196,7 +200,7 @@ The application writes the entry in `%USERPROFILE%\.codex\config.toml`, and you 
 ```toml
 [mcp_servers.powerbi-modeling-mcp]
 command = "npx"
-args = ["-y", "@microsoft/powerbi-modeling-mcp@latest", "--start", "--readonly"]
+args = ["-y", "@microsoft/powerbi-modeling-mcp@latest", "--start", "--accepteula", "--readonly"]
 startup_timeout_sec = 60
 ```
 
@@ -214,6 +218,8 @@ The answer reports the model name and an active connection. The first call to th
 
 <video src="videos/AIsetup-ChatGPT-connect-PbiDesktop.mp4" 
  autoplay loop muted width="500"></video>
+
+{% include ai/mcp-eula-connect-note.md %}
 
 ## Step 7: verify the connection
 
@@ -374,6 +380,7 @@ The command-line arguments of the MCP server go at the end of the command in the
 | Option | Default | Description |
 |---|---|---|
 | `--start` | required | Starts the server. |
+| `--accepteula` | | Accepts the license terms of the server. Version 1.0 and later require the acceptance before the first use. |
 | `--readwrite` | enabled | Allows write operations, each one with a confirmation. |
 | `--readonly` | | Blocks all the write operations. |
 | `--skipconfirmation` | | Removes the confirmation prompts. |
@@ -381,6 +388,8 @@ The command-line arguments of the MCP server go at the end of the command in the
 | `--authmode` | `interactive` | Set it to `serviceprincipal` for unattended scenarios. |
 
 For the service principal authentication, set `AZURE_CLIENT_ID` and `AZURE_TENANT_ID` in the environment of the server, with either `AZURE_CLIENT_SECRET` or `AZURE_CLIENT_CERTIFICATE_PATH`.
+
+{% include ai/mcp-eula-config.md %}
 
 On a model that matters, run the first session with **`--readonly`**, as in step 5.
 
@@ -391,7 +400,7 @@ On a model that matters, run the first session with **`--readonly`**, as in step
 ```toml
 [mcp_servers.powerbi-modeling-mcp]
 command = "C:\\MCPServers\\PowerBIModelingMCP\\extension\\server\\powerbi-modeling-mcp.exe"
-args = ["--start"]
+args = ["--start", "--accepteula"]
 ```
 
 **If `npx` does not start on Windows**, use the command interpreter as the launcher, and declare the variables the server needs:
@@ -399,10 +408,12 @@ args = ["--start"]
 ```toml
 [mcp_servers.powerbi-modeling-mcp]
 command = "cmd"
-args = ["/c", "npx", "-y", "@microsoft/powerbi-modeling-mcp@latest", "--start"]
+args = ["/c", "npx", "-y", "@microsoft/powerbi-modeling-mcp@latest", "--start", "--accepteula"]
 ```
 
 The `npx` command is a `.cmd` script on Windows, and a process that starts it without a shell can fail to find it. A server started by this application does not always inherit the variables of the user, so the absolute path of the executable is the most reliable form.
+
+{% include ai/mcp-eula-snippet-note.md %}
 
 ## Limitations
 
@@ -416,6 +427,8 @@ The `npx` command is a `.cmd` script on Windows, and a process that starts it wi
 - The report authoring skill has no self-service installation for an individual account. The paths of step 11 require an administrator, or a manual copy.
 
 ## Troubleshooting
+
+{% include ai/mcp-eula-troubleshooting.md %}
 
 **The Store installs the wrong application.**
 Use the identifier `9PLM9XGG6VKS`. The identifier `9NT1R1C2HH7J` is ChatGPT Classic, the previous application.

@@ -26,6 +26,7 @@ Grok Build reads the configuration of Claude Code without any setting: marketpla
 - **Microsoft Visual C++ 2015 Redistributable or later**. The WinGet package installs it as a dependency. If you use the installer of SpaceXAI, install it separately when the client does not start.
 - An **SpaceXAI account with a plan that includes Grok Build**, or an **SpaceXAI API key** with credits. Check the [plans page](https://x.ai/pricing) before you start.
 - **[Git for Windows](https://git-scm.com/downloads/win)**. The repository of the skills is downloaded with `git`, and Windows does not include it. Step 11 installs it.
+- **Acceptance of the [license terms](https://go.microsoft.com/fwlink/?LinkId=2381247) of the Power BI Authoring MCP server**, once. Version 1.0 and later require it. The registration snippet of this guide accepts them with the `--accepteula` argument.
 - **Write permission** on any semantic model you modify. The MCP server follows the same rules as the Power BI external tools.
 
 MCP stands for Model Context Protocol. The **Power BI Authoring MCP server** runs on your machine and connects to Power BI Desktop like an external tool. Grok Build is the client that hosts the agent, and it starts the server as a local process.
@@ -167,8 +168,10 @@ There is no extension to install. The server is an npm package, and Grok Build s
 Run this command in the **command prompt**:
 
 ```text
-grok mcp add powerbi-modeling-mcp -- npx -y @microsoft/powerbi-modeling-mcp@latest --start --readonly
+grok mcp add powerbi-modeling-mcp -- npx -y @microsoft/powerbi-modeling-mcp@latest --start --accepteula --readonly
 ```
+
+{% include ai/mcp-eula-snippet-note.md %}
 
 The `--readonly` argument blocks every write operation. We suggest it for the first session, so that a wrong prompt cannot modify anything. Step 8 replaces it.
 
@@ -177,7 +180,7 @@ The command writes the entry in `%USERPROFILE%\.grok\config.toml`. You can edit 
 ```toml
 [mcp_servers.powerbi-modeling-mcp]
 command = "npx"
-args = ["-y", "@microsoft/powerbi-modeling-mcp@latest", "--start", "--readonly"]
+args = ["-y", "@microsoft/powerbi-modeling-mcp@latest", "--start", "--accepteula", "--readonly"]
 startup_timeout_sec = 120
 ```
 
@@ -220,6 +223,8 @@ Connect to 'ContosoDemo10k' in Power BI Desktop
 
 The answer reports the model name and an active connection. The first call to the MCP server raises a confirmation prompt. Read it: it is the only checkpoint before a change.
 
+{% include ai/mcp-eula-connect-note.md %}
+
 ## Step 7: verify the connection
 
 Send these two prompts to the agent, one after the other:
@@ -245,8 +250,10 @@ The session started in read-only mode, so the next prompt would fail. Remove the
 3. Register the server again without `--readonly`:
 
    ```text
-   grok mcp add powerbi-modeling-mcp -- npx -y @microsoft/powerbi-modeling-mcp@latest --start
+   grok mcp add powerbi-modeling-mcp -- npx -y @microsoft/powerbi-modeling-mcp@latest --start --accepteula
    ```
+
+   Keep the `--accepteula` argument. It accepts the license terms, as in the first registration.
 
 4. Start `grok` again and connect again, as in step 6.
 
@@ -398,6 +405,7 @@ The command-line arguments of the MCP server go after `--` in the `grok mcp add`
 | Option | Default | Description |
 |---|---|---|
 | `--start` | required | Starts the server. |
+| `--accepteula` | | Accepts the license terms of the server. Version 1.0 and later require the acceptance before the first use. |
 | `--readwrite` | enabled | Allows write operations, each one with a confirmation. |
 | `--readonly` | | Blocks all the write operations. |
 | `--skipconfirmation` | | Removes the confirmation prompts. |
@@ -405,6 +413,8 @@ The command-line arguments of the MCP server go after `--` in the `grok mcp add`
 | `--authmode` | `interactive` | Set it to `serviceprincipal` for unattended scenarios. |
 
 For the service principal authentication, set `AZURE_CLIENT_ID` and `AZURE_TENANT_ID` in the environment of the server, with either `AZURE_CLIENT_SECRET` or `AZURE_CLIENT_CERTIFICATE_PATH`.
+
+{% include ai/mcp-eula-config.md %}
 
 On a model that matters, run the first session with **`--readonly`**, as in step 4.
 
@@ -415,10 +425,12 @@ On a model that matters, run the first session with **`--readonly`**, as in step
 ```toml
 [mcp_servers.powerbi-modeling-mcp]
 command = "C:\\MCPServers\\PowerBIModelingMCP\\extension\\server\\powerbi-modeling-mcp.exe"
-args = ["--start"]
+args = ["--start", "--accepteula"]
 ```
 
 **A project configuration.** The argument `--scope project` writes the entry in `.grok\config.toml`, in the current folder. Grok Build reads the files from the current folder up to the root of the repository, and a server defined in the project replaces the one with the same name defined for the user.
+
+{% include ai/mcp-eula-snippet-note.md %}
 
 ## Limitations
 
@@ -432,6 +444,8 @@ args = ["--start"]
 - The compatibility with the configuration of Claude Code is documented by SpaceXAI, the specific combination with the Fabric skills is not tested by Microsoft.
 
 ## Troubleshooting
+
+{% include ai/mcp-eula-troubleshooting.md %}
 
 **The `grok` command is not found.**
 Open a new terminal, so that it reads the updated path. The WinGet package is portable, and the path is set at the installation.

@@ -26,6 +26,7 @@ One point deserves attention from the beginning, because it produces a silent fa
 - **Windows 10, 64 bit, or later**, on an x64 or an ARM64 processor.
 - A **personal Google account**. Antigravity signs you in with an account of the `@gmail.com` domain, in the countries where it is available, and it is not available below 18 years of age. An account of Google Workspace is not the documented path, and the [FAQ](https://antigravity.google/docs/faq) suggests a personal account when the sign-in fails. The free use has weekly rate limits, and the subscriptions Google AI Pro and Google AI Ultra raise them. Check the [plans page](https://antigravity.google/docs/plans) before you start.
 - **[Git for Windows](https://git-scm.com/downloads/win)**. The repository of the skills is downloaded with `git`, and Windows does not include it. Step 11 installs it.
+- **Acceptance of the [license terms](https://go.microsoft.com/fwlink/?LinkId=2381247) of the Power BI Authoring MCP server**, once. Version 1.0 and later require it. The registration snippet of this guide accepts them with the `--accepteula` argument.
 - **Write permission** on any semantic model you modify. The MCP server follows the same rules as the Power BI external tools.
 
 MCP stands for Model Context Protocol. The **Power BI Authoring MCP server** runs on your machine and connects to Power BI Desktop like an external tool. Antigravity is the client that hosts the agent, and it starts the server as a local process.
@@ -193,7 +194,7 @@ Antigravity reads two files: `%USERPROFILE%\.gemini\config\mcp_config.json`, whi
      "mcpServers": {
        "powerbi-modeling-mcp": {
          "command": "npx",
-         "args": ["-y", "@microsoft/powerbi-modeling-mcp@latest", "--start", "--readonly"],
+         "args": ["-y", "@microsoft/powerbi-modeling-mcp@latest", "--start", "--accepteula", "--readonly"],
          "disabled": false
        }
      }
@@ -201,6 +202,8 @@ Antigravity reads two files: `%USERPROFILE%\.gemini\config\mcp_config.json`, whi
    ```
 
 3. Save the file, open **Settings > Customizations > Installed MCP Servers**, and select the **Refresh** button.
+
+{% include ai/mcp-eula-snippet-note.md %}
 
 The `--readonly` argument blocks every write operation. We suggest it for the first session, so that a wrong prompt cannot modify anything. Step 8 replaces it.
 
@@ -211,7 +214,7 @@ The `--readonly` argument blocks every write operation. We suggest it for the fi
   "mcpServers": {
     "powerbi-modeling-mcp": {
       "command": "cmd",
-      "args": ["/c", "npx", "-y", "@microsoft/powerbi-modeling-mcp@latest", "--start", "--readonly"],
+      "args": ["/c", "npx", "-y", "@microsoft/powerbi-modeling-mcp@latest", "--start", "--accepteula", "--readonly"],
       "disabled": false
     }
   }
@@ -229,6 +232,8 @@ Connect to 'ContosoDemo10k' in Power BI Desktop
 ```
 
 The answer reports the model name and an active connection. The first call to the MCP server raises a confirmation prompt. Read it: it is the only checkpoint before a change.
+
+{% include ai/mcp-eula-connect-note.md %}
 
 ## Step 7: verify the connection
 
@@ -385,6 +390,7 @@ The command-line arguments of the MCP server go in the `args` array of the JSON 
 | Option | Default | Description |
 |---|---|---|
 | `--start` | required | Starts the server. |
+| `--accepteula` | | Accepts the license terms of the server. Version 1.0 and later require the acceptance before the first use. |
 | `--readwrite` | enabled | Allows write operations, each one with a confirmation. |
 | `--readonly` | | Blocks all the write operations. |
 | `--skipconfirmation` | | Removes the confirmation prompts. |
@@ -392,6 +398,8 @@ The command-line arguments of the MCP server go in the `args` array of the JSON 
 | `--authmode` | `interactive` | Set it to `serviceprincipal` for unattended scenarios. |
 
 For the service principal authentication, set `AZURE_CLIENT_ID` and `AZURE_TENANT_ID` in the `env` object of the entry, with either `AZURE_CLIENT_SECRET` or `AZURE_CLIENT_CERTIFICATE_PATH`. The syntax `${VAR_NAME}` reads a variable of the environment, so a secret does not end in the file.
+
+{% include ai/mcp-eula-config.md %}
 
 On a model that matters, run the first session with **`--readonly`**, as in step 5.
 
@@ -404,7 +412,7 @@ On a model that matters, run the first session with **`--readonly`**, as in step
   "mcpServers": {
     "powerbi-modeling-mcp": {
       "command": "C:\\MCPServers\\PowerBIModelingMCP\\extension\\server\\powerbi-modeling-mcp.exe",
-      "args": ["--start"],
+      "args": ["--start", "--accepteula"],
       "disabled": false
     }
   }
@@ -420,12 +428,14 @@ The documentation of Antigravity asks for the absolute path of the executable in
   "mcpServers": {
     "powerbi-modeling-mcp": {
       "command": "cmd",
-      "args": ["/c", "npx", "-y", "@microsoft/powerbi-modeling-mcp@latest", "--start"],
+      "args": ["/c", "npx", "-y", "@microsoft/powerbi-modeling-mcp@latest", "--start", "--accepteula"],
       "disabled": false
     }
   }
 }
 ```
+
+{% include ai/mcp-eula-snippet-note.md %}
 
 ## Limitations
 
@@ -441,6 +451,8 @@ The documentation of Antigravity asks for the absolute path of the executable in
 - The report authoring skill has no marketplace installation for Antigravity. The manual path of step 11 is not covered by the documentation of Microsoft or of Google.
 
 ## Troubleshooting
+
+{% include ai/mcp-eula-troubleshooting.md %}
 
 **The MCP server does not appear in the list of tools.**
 Open **Settings > Customizations > Installed MCP Servers**, verify that the toggle of the server is on and that `disabled` is `false`, then select the refresh button.
