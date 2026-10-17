@@ -343,7 +343,7 @@ Please, verify the folder names in the repository before you copy, because the l
 <video src="videos/AIsetup-skill-repo-clone.mp4" 
  autoplay loop muted width="500"></video>
  
-The guidance of the repository is a different thing from the skills. Microsoft publishes it in an `AGENTS.md` file in the root of the repository, and Antigravity reads the rules in `%USERPROFILE%\.gemini\GEMINI.md` for every Project, and in the folder `.agents\rules` of the project. Copy the content you want in one of those files. Each rules file is limited to 12,000 characters, so keep the part that concerns the report layer instead of the whole document.
+The guidance of the repository is a different thing from the skills. Microsoft publishes it in an `AGENTS.md` file in the root of the repository, and Antigravity reads the rules in `%USERPROFILE%\.gemini\GEMINI.md` for every Project, and in the folder `.agents\rules` of the project. Copy the content you want in one of those files. Antigravity truncates a rules file that is larger than 24,000 bytes, and all the active rules share a budget of 20,000 tokens. Keep the part that concerns the report layer instead of the whole document.
 
 Restart Antigravity, then ask the agent to list the skills it can use, so that you see the five names before you send a prompt that needs them.
 
@@ -525,7 +525,7 @@ These are the rules we suggest applying:
 - [Projects](https://antigravity.google/docs/projects/): the folders that define what the agent sees.
 - [MCP](https://antigravity.google/docs/mcp/): the configuration files, the JSON schema, every property, and the store of the servers.
 - [Skills](https://antigravity.google/docs/skills/): the `SKILL.md` format and the folders where the skills are discovered.
-- [Rules](https://antigravity.google/docs/rules-workflows/): the files of the rules, their position, and their limit of characters.
+- [Rules](https://antigravity.google/docs/rules): the files of the rules, their position, and their size limits.
 - [Permissions](https://antigravity.google/docs/permissions/): the lists Deny, Ask, and Allow, and the patterns of the MCP tools.
 - [Plans](https://antigravity.google/docs/plans): the free use, the rate limits, and the subscriptions.
 - [FAQ](https://antigravity.google/docs/faq): the accounts and the countries where Antigravity is available.
