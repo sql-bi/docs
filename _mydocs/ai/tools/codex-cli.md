@@ -272,7 +272,7 @@ Create a measure that returns the Sales Amount of the previous year using the sa
 
 The measure appears in Power BI Desktop without a refresh. Each write operation raises a confirmation prompt. The same approach applies to bulk operations, like format strings and display folders on hundreds of objects in a single request.
 
-The sandbox of Codex CLI has three levels, `read-only`, `workspace-write`, and `danger-full-access`, and the approval policy has three values, `untrusted`, `on-request`, and `never`. The pair used above is the one we suggest for this scenario. The older `--full-auto` argument is deprecated.
+The sandbox of Codex CLI has three levels, `read-only`, `workspace-write`, and `danger-full-access`. The `--ask-for-approval` argument accepts two values, `on-request` and `never`. The pair used above is the one we suggest for this scenario. Codex no longer supports the `untrusted` approval policy. If your `config.toml` contains `approval_policy = "untrusted"`, remove that line, because it can prevent the client from starting. The older `--full-auto` argument was removed, and the client rejects it.
 
 ## Step 9: enable the preview features for the report layer
 
