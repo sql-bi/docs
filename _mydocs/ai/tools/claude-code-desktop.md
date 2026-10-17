@@ -21,7 +21,7 @@ One clarification on the product. **Claude Code Desktop is the Code tab of the C
 
 - **Power BI Desktop**, installed.
 - **[Node.js](https://nodejs.org/en/download) 22 or later**. The Power BI Authoring MCP server is started with `npx`, which is part of Node.js. The application does not need it for itself. A new machine does not have it, so step 1 installs it.
-- **[Git for Windows](https://git-scm.com/downloads/win)**. On Windows the Code tab does not work without it, and the marketplace of the skills cannot be downloaded in step 12. Install it and restart the application.
+- **[Git for Windows](https://git-scm.com/downloads/win)**. Step 12 downloads the marketplace of the skills with `git`, and a session in its own Git worktree also needs it. Versions of the application before 1.49585.0 ask for Git before any local session. Install it and restart the application.
 - **Windows 10 version 1809 or later**, or Windows Server 2019 or later.
 - A **Claude account with a Pro, Max, Team, or Enterprise plan**, or a Console account with credits. The free plan does not include Claude Code, and the Code tab asks for an upgrade. Check the [plans page](https://claude.com/pricing) before you start.
 - **Acceptance of the [license terms](https://go.microsoft.com/fwlink/?LinkId=2381247) of the Power BI Authoring MCP server**, once. Version 1.0 and later require it. The registration snippet of this guide accepts them with the `--accepteula` argument.
@@ -417,7 +417,7 @@ Claude Code accepts three transports, `stdio`, `sse`, and `http`. The value `loc
 - Model metadata does not stay local: table names, column names, measure definitions, and query results are sent to the language model of the service you signed in to.
 - The local MCP server is **generally available**. The report authoring skill and the Power BI Desktop Bridge are newer, and their behavior and tools can still change.
 - The agent proposes and executes. The review is your responsibility.
-- The Code tab does not work on Windows without Git for Windows.
+- On Windows, the marketplace of the skills and the sessions in a Git worktree do not work without Git for Windows.
 - The commands `/plugin` and `/permissions` are not available in the Code tab. The equivalent operations are in the panels and in the settings files.
 - The Cowork tab does not share the configuration of the Code tab. A skill installed here does not appear there.
 
@@ -426,7 +426,7 @@ Claude Code accepts three transports, `stdio`, `sse`, and `http`. The value `loc
 {% include ai/mcp-eula-troubleshooting.md %}
 
 **The Code tab reports that Git is missing.**
-Install Git for Windows and restart the application.
+Install Git for Windows and restart the application. If you do not use worktrees, also update the application: versions before 1.49585.0 ask for Git before any local session.
 
 **The Code tab asks for an upgrade.**
 Claude Code requires a Pro, Max, Team, or Enterprise plan. The free plan does not include it.
@@ -473,7 +473,7 @@ Install Node.js and Git for Windows, install the Claude desktop application, dec
 
 These are the rules we suggest applying:
 
-- Install Git for Windows before you open the Code tab.
+- Install Git for Windows before you install the report authoring skill.
 - Declare the server in one file only, because three files are read and the same name in two of them is confusing.
 - Register the server by its package name, instead of asking the agent to find it.
 - Verify the connection with a read-only prompt before any change.
