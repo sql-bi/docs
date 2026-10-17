@@ -125,7 +125,7 @@ The model is a set of **TMDL** files (Tabular Model Definition Language) and the
  
 ### Obtain the report authoring skill
 
-The skill is part of the **powerbi-authoring** plugin, published in the [skills-for-fabric](https://github.com/microsoft/skills-for-fabric) marketplace by Microsoft, together with a report design skill and a report planner skill.
+The skill is part of the **powerbi-authoring** plugin, published in the [skills-for-fabric](https://github.com/microsoft/skills-for-fabric) marketplace by Microsoft. The plugin contains two skills: `semantic-model-authoring` and `powerbi-report-cli`. The second one covers report planning, design, authoring, and management.
 
 **The Visual Studio Code path stops here.** A search for `@agentPlugins fabric` in the Extensions view returns only the **fabric-skills** bundle published by github/copilot-plugins. The powerbi-authoring plugin is not offered there, and what is available does not work well with Fabric.
 

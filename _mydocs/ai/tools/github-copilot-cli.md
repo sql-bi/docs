@@ -355,7 +355,7 @@ The model is a set of **TMDL** files (Tabular Model Definition Language) and the
  
 ## Step 11: install the report authoring skill
 
-The skill is part of the **powerbi-authoring** plugin, published in the [skills-for-fabric](https://github.com/microsoft/skills-for-fabric) marketplace by Microsoft. The plugin contains five skills: semantic model authoring, report planning, report design, report authoring, and report management.
+The skill is part of the **powerbi-authoring** plugin, published in the [skills-for-fabric](https://github.com/microsoft/skills-for-fabric) marketplace by Microsoft. The plugin contains two skills: `semantic-model-authoring`, for the semantic model, and `powerbi-report-cli`, for the report. Since version 0.3.17 of the marketplace, `powerbi-report-cli` replaces the four separate report skills (planning, design, authoring, and management). It selects the correct mode from your request.
 
 **Git is required for this step.** The marketplace is downloaded with `git`, and Windows does not include it. Install it, then close the command prompt and open it again.
 
@@ -403,7 +403,7 @@ Start `copilot` again and list the skills:
 /skills
 ```
 
-The list includes the five skills. The two commands above are typed inside the client. The same operations are available in the **command prompt** as `copilot plugin marketplace add` and `copilot plugin install`.
+The list includes the two skills of the plugin. The two commands above are typed inside the client. The same operations are available in the **command prompt** as `copilot plugin marketplace add` and `copilot plugin install`.
 
 **The plugin registers its own copy of the MCP server**, with the same name `powerbi-modeling-mcp` and without `--readonly`. When two definitions share a name, the one loaded last wins, so after this step the read-only registration of step 4 could be replaced. Run `copilot mcp list` and verify which arguments are active before you rely on read-only mode.
 

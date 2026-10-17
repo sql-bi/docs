@@ -332,7 +332,7 @@ The skills call two command-line tools. Install them in the **command prompt**:
 npm install -g @microsoft/powerbi-report-authoring-cli@latest @microsoft/powerbi-desktop-bridge-cli@latest
 ```
 
-The skill is part of the **powerbi-authoring** plugin of the [skills-for-fabric](https://github.com/microsoft/skills-for-fabric) repository, published by Microsoft. The plugin contains five skills: semantic model authoring, report planning, report design, report authoring, and report management.
+The skill is part of the **powerbi-authoring** plugin of the [skills-for-fabric](https://github.com/microsoft/skills-for-fabric) repository, published by Microsoft. The plugin contains two skills: `semantic-model-authoring`, for the semantic model, and `powerbi-report-cli`, for the report. Since version 0.3.17 of the marketplace, `powerbi-report-cli` replaces the four separate report skills (planning, design, authoring, and management). It selects the correct mode from your request.
 
 **Codex CLI is not one of the clients with a marketplace command for these skills.** Microsoft documents the manual path for it: clone the repository, and the `AGENTS.md` file in the root is detected automatically. Codex CLI reads `AGENTS.md` from the folder of the project and from the folders above it.
 
@@ -348,7 +348,7 @@ Codex CLI also loads the skills it finds in `%USERPROFILE%\.agents\skills`, in t
 xcopy /E /I "C:\Demo\skills-for-fabric\plugins\powerbi-authoring\skills" "%USERPROFILE%\.agents\skills"
 ```
 
-Please, verify the folder names in the repository before you copy, because the layout changes between versions. The repository also has a `skills` folder in its root, which contains all the skills of the collection. The five skills of the report layer are the ones in the folder of the plugin. Restart the client, and ask the agent to list the skills it can use.
+Please, verify the folder names in the repository before you copy, because the layout changes between versions. The repository also has a `skills` folder in its root, which contains all the skills of the collection. The two skills of the plugin are the ones in the folder of the plugin. Restart the client, and ask the agent to list the skills it can use.
 
 <video src="videos/AIsetup-skill-repo-clone.mp4" 
  autoplay loop muted width="500"></video>

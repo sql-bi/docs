@@ -308,7 +308,7 @@ The skills call two command-line tools. Install them in the **command prompt**:
 npm install -g @microsoft/powerbi-report-authoring-cli@latest @microsoft/powerbi-desktop-bridge-cli@latest
 ```
 
-The skill is part of the **powerbi-authoring** plugin, published in the [skills-for-fabric](https://github.com/microsoft/skills-for-fabric) marketplace by Microsoft. The plugin contains five skills: semantic model authoring, report planning, report design, report authoring, and report management.
+The skill is part of the **powerbi-authoring** plugin, published in the [skills-for-fabric](https://github.com/microsoft/skills-for-fabric) marketplace by Microsoft. The plugin contains two skills: `semantic-model-authoring`, for the semantic model, and `powerbi-report-cli`, for the report. Since version 0.3.17 of the marketplace, `powerbi-report-cli` replaces the four separate report skills (planning, design, authoring, and management). It selects the correct mode from your request.
 
 The commands `/plugin marketplace add` and `/plugin install` belong to the command-line client and are not available in the Code tab. In the application the plugins are installed from a panel, and the marketplace of Microsoft is declared in a settings file.
 
@@ -323,7 +323,7 @@ You can click the settings icon to see the list of skills installed for the Powe
 
 **The plugin declares its own copy of the MCP server**, with the same name `powerbi-modeling-mcp` and without `--readonly`. Verify with `/mcp` which definition is active before you rely on read-only mode.
 
-One known problem: the file that the plugin uses to declare the server has contained a transport name that Claude Code does not accept, which produces an error at the installation. If you see a message about an unsupported source type, update the application first. If the error remains, clone the repository in the **command prompt** and copy the five folders of `plugins\powerbi-authoring\skills` into `%USERPROFILE%\.claude\skills` instead of installing the plugin, because the report skills do not need the server declared by the plugin.
+One known problem: the file that the plugin uses to declare the server has contained a transport name that Claude Code does not accept, which produces an error at the installation. If you see a message about an unsupported source type, update the application first. If the error remains, clone the repository in the **command prompt** and copy the two folders of `plugins\powerbi-authoring\skills` into `%USERPROFILE%\.claude\skills` instead of installing the plugin, because the report skills do not need the server declared by the plugin.
 
 ## Step 13: connect the agent to the project
 
@@ -438,7 +438,7 @@ Run `/mcp` in the Code tab. Verify that the entry is at the top level of `%USERP
 Use the `cmd` form of the alternative installation methods, or the absolute path of the executable. The application inherits the variables of the user and of the system, and does not read the profile of PowerShell, so restart it after a change of the path.
 
 **The plugin does not install and the message mentions an unsupported source type.**
-Update the application. If the message remains, copy the five folders of `plugins\powerbi-authoring\skills` into `%USERPROFILE%\.claude\skills`, as described in step 12.
+Update the application. If the message remains, copy the two folders of `plugins\powerbi-authoring\skills` into `%USERPROFILE%\.claude\skills`, as described in step 12.
 
 **The `npm` or the `npx` command is not found.**
 Node.js is not installed, or the terminal was opened before the installation. Close the terminal, open it again, and run `node --version`. See step 1.

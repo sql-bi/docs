@@ -296,7 +296,7 @@ The skills call two command-line tools. Install them in the **command prompt**:
 npm install -g @microsoft/powerbi-report-authoring-cli@latest @microsoft/powerbi-desktop-bridge-cli@latest
 ```
 
-The skill is part of the **powerbi-authoring** plugin of the [skills-for-fabric](https://github.com/microsoft/skills-for-fabric) repository, published by Microsoft. The plugin contains five skills: semantic model authoring, report planning, report design, report authoring, and report management.
+The skill is part of the **powerbi-authoring** plugin of the [skills-for-fabric](https://github.com/microsoft/skills-for-fabric) repository, published by Microsoft. The plugin contains two skills: `semantic-model-authoring`, for the semantic model, and `powerbi-report-cli`, for the report. Since version 0.3.17 of the marketplace, `powerbi-report-cli` replaces the four separate report skills (planning, design, authoring, and management). It selects the correct mode from your request.
 
 **Kiro is not named in the compatibility list of Microsoft**, and it does not read the marketplaces published in the format of Claude Code. Kiro has its own agent skills, in the same `SKILL.md` format, so the installation is manual.
 
@@ -312,7 +312,7 @@ Then copy the folders of the skills in the folder where Kiro discovers them, `%U
 xcopy /E /I "C:\Demo\skills-for-fabric\plugins\powerbi-authoring\skills" "%USERPROFILE%\.kiro\skills"
 ```
 
-Please, verify the folder names in the repository before you copy, because the layout changes between versions. The repository also has a `skills` folder in its root, which contains all the skills of the collection. The five skills of the report layer are the ones in the folder of the plugin. Each skill is a folder with a `SKILL.md` file, and the name of the folder must match the `name` written in that file.
+Please, verify the folder names in the repository before you copy, because the layout changes between versions. The repository also has a `skills` folder in its root, which contains all the skills of the collection. The two skills of the plugin are the ones in the folder of the plugin. Each skill is a folder with a `SKILL.md` file, and the name of the folder must match the `name` written in that file.
 
 <video src="videos/AIsetup-skill-repo-clone.mp4" 
  autoplay loop muted width="500"></video>

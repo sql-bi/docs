@@ -322,7 +322,7 @@ The skills call two command-line tools. Install them in the **command prompt**:
 npm install -g @microsoft/powerbi-report-authoring-cli@latest @microsoft/powerbi-desktop-bridge-cli@latest
 ```
 
-The skill is part of the **powerbi-authoring** plugin of the [skills-for-fabric](https://github.com/microsoft/skills-for-fabric) repository, published by Microsoft. The plugin contains five skills: semantic model authoring, report planning, report design, report authoring, and report management.
+The skill is part of the **powerbi-authoring** plugin of the [skills-for-fabric](https://github.com/microsoft/skills-for-fabric) repository, published by Microsoft. The plugin contains two skills: `semantic-model-authoring`, for the semantic model, and `powerbi-report-cli`, for the report. Since version 0.3.17 of the marketplace, `powerbi-report-cli` replaces the four separate report skills (planning, design, authoring, and management). It selects the correct mode from your request.
 
 **Antigravity is not named in the compatibility list of Microsoft**, and it has no command that installs a plugin from that marketplace. Antigravity has its own agent skills, in the same `SKILL.md` format, so the installation is manual and it is a copy of folders.
 
@@ -338,14 +338,14 @@ Then copy the folders of the skills where Antigravity discovers them, `%USERPROF
 xcopy /E /I "C:\Demo\skills-for-fabric\plugins\powerbi-authoring\skills" "%USERPROFILE%\.gemini\config\skills"
 ```
 
-Please, verify the folder names in the repository before you copy, because the layout changes between versions. The repository also has a `skills` folder in its root, which contains all the skills of the collection. The five skills of the report layer are the ones in the folder of the plugin. Each skill is a folder with a `SKILL.md` file, whose front matter declares a `description`, and a `name` that defaults to the name of the folder.
+Please, verify the folder names in the repository before you copy, because the layout changes between versions. The repository also has a `skills` folder in its root, which contains all the skills of the collection. The two skills of the plugin are the ones in the folder of the plugin. Each skill is a folder with a `SKILL.md` file, whose front matter declares a `description`, and a `name` that defaults to the name of the folder.
 
 <video src="videos/AIsetup-skill-repo-clone.mp4" 
  autoplay loop muted width="500"></video>
  
 The guidance of the repository is a different thing from the skills. Microsoft publishes it in an `AGENTS.md` file in the root of the repository, and Antigravity reads the rules in `%USERPROFILE%\.gemini\GEMINI.md` for every Project, and in the folder `.agents\rules` of the project. Copy the content you want in one of those files. Each rules file is limited to 12,000 characters, so keep the part that concerns the report layer instead of the whole document.
 
-Restart Antigravity, then ask the agent to list the skills it can use, so that you see the five names before you send a prompt that needs them.
+Restart Antigravity, then ask the agent to list the skills it can use, so that you see the two names before you send a prompt that needs them.
 
 This combination is not documented by Microsoft or by Google, and it can stop working with any update of the repository. Treat it as a manual installation and verify the result on the sample before you use it on a model that matters.
 
