@@ -23,7 +23,7 @@ At the end you have an agent in the terminal that reads and writes the semantic 
 - The **[Microsoft Visual C++ Redistributable x64](https://aka.ms/vc14/vc_redist.x64.exe)**. GitHub Copilot CLI does not run without it, and a new installation of Windows does not always have it. Step 2 installs it.
 - A **GitHub account**. Free to create. Step 5 asks for it.
 - **[Git for Windows](https://git-scm.com/downloads/win)**. The marketplace of the skills is downloaded with `git`, and Windows does not include it. Step 11 installs it.
-- A **GitHub Copilot plan that includes MCP**. Every plan includes GitHub Copilot CLI, MCP is a different matter: if you sign in without a subscription, you are enrolled in **Copilot Free**, which currently does not include MCP. Check the [plans page](https://docs.github.com/en/copilot/get-started/plans) before you start.
+- A **GitHub Copilot plan**. Every plan includes GitHub Copilot CLI and MCP. If you sign in without a subscription, you are enrolled in **Copilot Free**, which includes MCP with a limited allowance of GitHub AI Credits and automatic model selection only. Check the [plans page](https://docs.github.com/en/copilot/get-started/plans) before you start.
 - **Acceptance of the [license terms](https://go.microsoft.com/fwlink/?LinkId=2381247) of the Power BI Authoring MCP server**, once. Version 1.0 and later require it. The registration snippet of this guide accepts them with the `--accepteula` argument.
 - **Write permission** on any semantic model you modify. The MCP server follows the same rules as the Power BI external tools.
 

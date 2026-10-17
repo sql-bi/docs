@@ -17,7 +17,7 @@ Sample model used in all the steps: **[ContosoDemo10k.zip](https://www.sqlbi.com
 
 - **Power BI Desktop**, installed.
 - A **GitHub account**. Free to create. Step 4 asks for it.
-- A **GitHub Copilot plan that includes agent mode and MCP**. If you sign in without a subscription, you are enrolled in **Copilot Free**, which currently does not include agent mode and MCP. Check the [plans page](https://docs.github.com/en/copilot/get-started/plans) before you start.
+- A **GitHub Copilot plan**. Every plan includes agent mode and MCP. If you sign in without a subscription, you are enrolled in **Copilot Free**, which includes them with a limited allowance of GitHub AI Credits and automatic model selection only. Check the [plans page](https://docs.github.com/en/copilot/get-started/plans) before you start.
 - **Acceptance of the [license terms](https://go.microsoft.com/fwlink/?LinkId=2381247) of the Power BI Authoring MCP server**, once. Version 1.0 and later require it. The extension accepts them by default, as step 2 explains.
 - **Write permission** on any semantic model you modify. The MCP server follows the same rules as the Power BI external tools.
 

@@ -21,21 +21,21 @@ All ten clients support a local MCP server on Windows. **Node.js** is a requirem
 | <img src="images/openai.png" alt="OpenAI" width="18" height="18" class="naked nozoom nomargin"> | Codex CLI | paid | yes | manual |
 | <img src="images/anthropic.jpg" alt="Anthropic" width="18" height="18" class="naked nozoom nomargin"> | Claude Code Desktop | paid | yes | plugin |
 | <img src="images/anthropic.jpg" alt="Anthropic" width="18" height="18" class="naked nozoom nomargin"> | Claude Code | paid | yes | plugin |
-| <img src="images/vscode.png" alt="Visual Studio Code" width="18" height="18" class="naked nozoom nomargin"> | Visual Studio Code | paid | yes | no |
-| <img src="images/github.svg" alt="GitHub" width="18" height="18" class="naked nozoom nomargin"> | GitHub Copilot CLI | paid | yes | plugin |
+| <img src="images/vscode.png" alt="Visual Studio Code" width="18" height="18" class="naked nozoom nomargin"> | Visual Studio Code | free | yes | no |
+| <img src="images/github.svg" alt="GitHub" width="18" height="18" class="naked nozoom nomargin"> | GitHub Copilot CLI | free | yes | plugin |
 | <img src="images/antigravity.png" alt="Google Antigravity" width="18" height="18" class="naked nozoom nomargin"> | Google Antigravity | free | yes | manual |
 | <img src="images/grok.svg" alt="Grok" width="18" height="18" class="naked nozoom nomargin"> | Grok Build | paid | yes | plugin |
 | <img src="images/kiro.svg" alt="Kiro" width="18" height="18" class="naked nozoom nomargin"> | Kiro | free | yes | manual |
 | <img src="images/qwen.png" alt="Qwen" width="18" height="18" class="naked nozoom nomargin"> | Qwen Code | paid | yes | manual |
 
-**Plan**: the account that the client requires to use an MCP server; the two free plans have rate limits, weekly for Google Antigravity and monthly for Kiro. **Model edit**: the semantic model, through the Power BI Authoring MCP server. **Report edit**: the report of a PBIP project, through the report authoring skill, installed with a command of the plugin marketplace (*plugin*) or with a manual copy of the skill folders (*manual*). The sections below detail every column.
+**Plan**: the account that the client requires to use an MCP server; the free plans have limits: weekly rate limits for Google Antigravity, monthly credits for Kiro, and an allowance of GitHub AI Credits for Copilot Free, used by Visual Studio Code and GitHub Copilot CLI. **Model edit**: the semantic model, through the Power BI Authoring MCP server. **Report edit**: the report of a PBIP project, through the report authoring skill, installed with a command of the plugin marketplace (*plugin*) or with a manual copy of the skill folders (*manual*). The sections below detail every column.
 
 ## Installation and account
 
 | Client | Microsoft Store | Other installation on Windows | Account |
 |---|---|---|---|
-| GitHub Copilot CLI | no | `npm install -g @github/copilot`, or `winget install GitHub.Copilot` | GitHub, with a plan that includes MCP |
-| Visual Studio Code | **yes** | download from code.visualstudio.com, or `winget install Microsoft.VisualStudioCode` | GitHub, with a plan that includes agent mode and MCP |
+| GitHub Copilot CLI | no | `npm install -g @github/copilot`, or `winget install GitHub.Copilot` | GitHub, Copilot Free included |
+| Visual Studio Code | **yes** | download from code.visualstudio.com, or `winget install Microsoft.VisualStudioCode` | GitHub, Copilot Free included |
 | ChatGPT desktop app | **yes**, identifier `9PLM9XGG6VKS` | download from chatgpt.com | ChatGPT, paid plan |
 | Codex CLI | no | installer of OpenAI, `winget install -e --id OpenAI.Codex`, or `npm install -g @openai/codex` | ChatGPT |
 | Claude Code Desktop | no | download from claude.com, or `winget install -e --id Anthropic.Claude` | Claude, Pro or higher |
