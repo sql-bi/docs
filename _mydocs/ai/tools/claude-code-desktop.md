@@ -432,7 +432,7 @@ Install Git for Windows and restart the application.
 Claude Code requires a Pro, Max, Team, or Enterprise plan. The free plan does not include it.
 
 **The MCP server does not appear in the list of tools.**
-Run `/mcp` in the Code tab. Verify that the entry is at the top level of `%USERPROFILE%\.claude.json`, restart the application, and verify in the Task Manager that the process of the server is running.
+Run `/mcp` in the Code tab. Open `%USERPROFILE%\.claude.json` and verify that the `"powerbi-modeling-mcp"` entry is inside the `"mcpServers"` key of the root object, as in step 6. Verify that the file is valid JSON. Restart the application, and verify in the Task Manager that the process of the server is running.
 
 **The server does not start and the message mentions `npx` or `spawn`.**
 Use the `cmd` form of the alternative installation methods, or the absolute path of the executable. The application inherits the variables of the user and of the system, and does not read the profile of PowerShell, so restart it after a change of the path.
