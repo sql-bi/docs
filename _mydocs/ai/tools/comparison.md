@@ -37,7 +37,7 @@ All ten clients support a local MCP server on Windows. **Node.js** is a requirem
 | GitHub Copilot CLI | no | `npm install -g @github/copilot`, or `winget install GitHub.Copilot` | GitHub, Copilot Free included |
 | Visual Studio Code | **yes** | download from code.visualstudio.com, or `winget install Microsoft.VisualStudioCode` | GitHub, Copilot Free included |
 | ChatGPT desktop app | **yes**, identifier `9PLM9XGG6VKS` | download from chatgpt.com | ChatGPT, paid plan |
-| Codex CLI | no | installer of OpenAI, `winget install -e --id OpenAI.Codex`, or `npm install -g @openai/codex` | ChatGPT |
+| Codex CLI | no | installer of OpenAI, `winget install -e --id OpenAI.Codex`, or `npm install -g @openai/codex` | ChatGPT, paid plan |
 | Claude Code Desktop | no | download from claude.com, or `winget install -e --id Anthropic.Claude` | Claude, Pro or higher |
 | Claude Code | no | installer of Anthropic, `winget install Anthropic.ClaudeCode`, or `npm install -g @anthropic-ai/claude-code` | Claude, Pro or higher |
 | Google Antigravity | no | download from antigravity.google/download | personal Google account, free with weekly rate limits |
