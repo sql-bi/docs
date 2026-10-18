@@ -314,7 +314,7 @@ The skills call two command-line tools. Install them in the **command prompt**:
 npm install -g @microsoft/powerbi-report-authoring-cli@latest @microsoft/powerbi-desktop-bridge-cli@latest
 ```
 
-The skill is part of the **powerbi-authoring** plugin, published in the [skills-for-fabric](https://github.com/microsoft/skills-for-fabric) marketplace by Microsoft. The plugin contains five skills: semantic model authoring, report planning, report design, report authoring, and report management.
+The skill is part of the **powerbi-authoring** plugin, published in the [skills-for-fabric](https://github.com/microsoft/skills-for-fabric) marketplace by Microsoft. The plugin contains two skills: `semantic-model-authoring`, for the semantic model, and `powerbi-report-cli`, for the report. Since version 0.3.17 of the marketplace, `powerbi-report-cli` replaces the four separate report skills (planning, design, authoring, and management). It selects the correct mode from your request.
 
 In the client, add the marketplace and install the plugin:
 
@@ -454,7 +454,7 @@ Run `claude mcp list` in the terminal, or `/mcp` in the client. Verify that you 
 Use the `cmd` form of the alternative installation methods, or the absolute path of the executable.
 
 **The plugin does not install and the message mentions an unsupported source type.**
-Update Claude Code. If the message remains, copy the five folders of `plugins\powerbi-authoring\skills` into `%USERPROFILE%\.claude\skills`, as described in step 11.
+Update Claude Code. If the message remains, copy the two folders of `plugins\powerbi-authoring\skills` into `%USERPROFILE%\.claude\skills`, as described in step 11.
 
 **The skills do not appear after the installation.**
 Restart the client with `/quit`, start `claude` again, and run `/skills`. If they are still missing, delete the folder `%USERPROFILE%\.claude\plugins\cache` and install the plugin again.

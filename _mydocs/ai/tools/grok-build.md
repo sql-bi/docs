@@ -323,7 +323,7 @@ The skills call two command-line tools. Install them in the **command prompt**:
 npm install -g @microsoft/powerbi-report-authoring-cli@latest @microsoft/powerbi-desktop-bridge-cli@latest
 ```
 
-The skill is part of the **powerbi-authoring** plugin, published in the [skills-for-fabric](https://github.com/microsoft/skills-for-fabric) marketplace by Microsoft. The plugin contains five skills: semantic model authoring, report planning, report design, report authoring, and report management.
+The skill is part of the **powerbi-authoring** plugin, published in the [skills-for-fabric](https://github.com/microsoft/skills-for-fabric) marketplace by Microsoft. The plugin contains two skills: `semantic-model-authoring`, for the semantic model, and `powerbi-report-cli`, for the report. Since version 0.3.17 of the marketplace, `powerbi-report-cli` replaces the four separate report skills (planning, design, authoring, and management). It selects the correct mode from your request.
 
 The marketplace is published in the format of Claude Code, and Grok Build reads that format without any setting. Two paths are available.
 
@@ -352,7 +352,7 @@ git clone https://github.com/microsoft/skills-for-fabric.git C:\Demo\skills-for-
 xcopy /E /I "C:\Demo\skills-for-fabric\plugins\powerbi-authoring\skills" "%USERPROFILE%\.grok\skills"
 ```
 
-Please, verify the folder names in the repository before you copy, because the layout changes between versions. The repository also has a `skills` folder in its root, which contains all the skills of the collection. The five skills of the report layer are the ones in the folder of the plugin.
+Please, verify the folder names in the repository before you copy, because the layout changes between versions. The repository also has a `skills` folder in its root, which contains all the skills of the collection. The two skills of the plugin are the ones in the folder of the plugin.
 
 <video src="videos/AIsetup-skill-repo-clone.mp4" 
  autoplay loop muted width="500"></video>
