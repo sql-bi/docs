@@ -292,21 +292,15 @@ Create a measure that returns the Sales Amount of the previous year using the sa
 
 The measure appears in Power BI Desktop without a refresh. Each write operation raises a confirmation prompt. The same approach applies to bulk operations, like format strings and display folders on hundreds of objects in a single request.
 
-## Step 9: enable the preview features for the report layer
+## Step 9: prepare Power BI Desktop for the report layer
 
 The MCP server operates on the semantic model. The report layer requires a different tool, the **Power BI report authoring skill**, which works only on **PBIP** files in **PBIR** format. PBIP stands for Power BI Project, PBIR for Power BI enhanced report format. The skill cannot modify a `.pbix` file.
 
-In Power BI Desktop, open **File > Options and settings > Options > Preview features** and enable these two options:
+PBIP and PBIR are generally available, and PBIR is the default report format. They do not require a preview feature.
 
-- **Power BI Project (.pbip) save option**
-- **Store reports using enhanced metadata format (PBIR)**
+The report authoring skill also uses the **Power BI Desktop Bridge**, which is enabled by default. Open **File > Options and settings > Options > Security** and, under **Desktop Bridge**, verify that **Enable external tool access to Power BI Desktop through secure local APIs** is checked. The report authoring skill uses it to reload the project and to capture a screenshot of a page, so that the agent verifies its own work.
 
-The report authoring skill also uses the **Power BI Desktop Bridge**, which is enabled by default. Its setting is not under Preview features: open **File > Options and settings > Options > Security** and, under **Desktop Bridge**, verify that **Enable external tool access to Power BI Desktop through secure local APIs** is checked. The report authoring skill uses it to reload the project and to capture a screenshot of a page, so that the agent verifies its own work.
-
-Restart Power BI Desktop.
-
-<video src="videos/AIsetup-PowerBI-enable-preview-report-layer.mp4" 
- autoplay loop muted width="500"></video>
+If you change this setting, restart Power BI Desktop.
 
 ## Step 10: save the sample as a project
 
@@ -499,7 +493,7 @@ You need write permission on the model, and the server must not run with `--read
 Install the two command-line tools of step 11, `@microsoft/powerbi-report-authoring-cli` and `@microsoft/powerbi-desktop-bridge-cli`, then restart the client.
 
 **The report authoring skill does not modify the report.**
-It requires PBIP in PBIR format. Verify both preview features and save the project again, because enabling PBIR does not convert a project already saved.
+It requires PBIP in PBIR format. Make a change in Power BI Desktop and save the project again. Power BI converts a project in the older PBIR-Legacy format to PBIR when you save it. Versions of Power BI Desktop released before September 2026 still require the **Power BI Project (.pbip) save option** and **Store reports using enhanced metadata format (PBIR)** preview features. Update Power BI Desktop, or enable these two preview features.
 
 **The report changes do not appear in Power BI Desktop.**
 Reload the project. Power BI Desktop shows the version loaded before. Verify the Desktop Bridge setting under **Options > Security**, so that the agent reloads the project without your intervention.
@@ -543,6 +537,6 @@ These are the rules we suggest applying:
 - [microsoft/skills-for-fabric](https://github.com/microsoft/skills-for-fabric): the repository that publishes the skills.
 - [What is the Power BI Desktop Bridge?](https://learn.microsoft.com/en-us/power-bi/developer/agentic/power-bi-desktop-bridge-overview): the Security setting and the operations it provides.
 - [Power BI Desktop projects (PBIP)](https://learn.microsoft.com/en-us/power-bi/developer/projects/projects-overview): how to save a project and the folder structure.
-- [Power BI Desktop project report folder](https://learn.microsoft.com/en-us/power-bi/developer/projects/projects-report): the PBIR format and the preview settings.
+- [Power BI Desktop project report folder](https://learn.microsoft.com/en-us/power-bi/developer/projects/projects-report): the PBIR format and the conversion from PBIR-Legacy.
 
 *The content of this article was verified in September 2026, with the `@microsoft/powerbi-modeling-mcp` package installed from npm with the `@latest` tag. Command names, preview settings, and plan boundaries change over time, so the linked documentation is the authority.*
