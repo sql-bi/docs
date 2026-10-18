@@ -321,7 +321,7 @@ The commands `/plugin marketplace add` and `/plugin install` belong to the comma
 
 You can click the settings icon to see the list of skills installed for the Powerbi authoring plugin.
 
-**The plugin declares its own copy of the MCP server**, with the same name `powerbi-modeling-mcp` and without `--readonly`. Verify with `/mcp` which definition is active before you rely on read-only mode.
+**The plugin declares its own copy of the MCP server**, with the same name `powerbi-modeling-mcp` and without `--readonly`. It also does not include `--accepteula`. If that definition is active, accept the license terms in the chat, as the step that connects to Power BI Desktop shows. Verify with `/mcp` which definition is active before you rely on read-only mode.
 
 One known problem: the file that the plugin uses to declare the server has contained a transport name that Claude Code does not accept, which produces an error at the installation. If you see a message about an unsupported source type, update the application first. If the error remains, clone the repository in the **command prompt** and copy the two folders of `plugins\powerbi-authoring\skills` into `%USERPROFILE%\.claude\skills` instead of installing the plugin, because the report skills do not need the server declared by the plugin.
 

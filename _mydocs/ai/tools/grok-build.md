@@ -364,7 +364,7 @@ Restart the client and list the skills:
 ```
 <!-- /options -->
 
-The plugin also declares its own copy of the MCP server, with the same name `powerbi-modeling-mcp` and without `--readonly`. Run `grok inspect` and verify which definition is active before you rely on read-only mode.
+The plugin also declares its own copy of the MCP server, with the same name `powerbi-modeling-mcp` and without `--readonly`. It also does not include `--accepteula`. If that definition is active, accept the license terms in the chat, as the step that connects to Power BI Desktop shows. Run `grok inspect` and verify which definition is active before you rely on read-only mode.
 
 ## Step 12: connect the agent to the project
 

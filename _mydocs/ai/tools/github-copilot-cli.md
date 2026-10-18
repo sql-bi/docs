@@ -405,7 +405,7 @@ Start `copilot` again and list the skills:
 
 The list includes the two skills of the plugin. The two commands above are typed inside the client. The same operations are available in the **command prompt** as `copilot plugin marketplace add` and `copilot plugin install`.
 
-**The plugin registers its own copy of the MCP server**, with the same name `powerbi-modeling-mcp` and without `--readonly`. When two definitions share a name, the one loaded last wins, so after this step the read-only registration of step 4 could be replaced. Run `copilot mcp list` and verify which arguments are active before you rely on read-only mode.
+**The plugin registers its own copy of the MCP server**, with the same name `powerbi-modeling-mcp` and without `--readonly`. It also does not include `--accepteula`. If that definition is active, accept the license terms in the chat, as the step that connects to Power BI Desktop shows. When two definitions share a name, the one loaded last wins, so after this step the read-only registration of step 4 could be replaced. Run `copilot mcp list` and verify which arguments are active before you rely on read-only mode.
 
 The Fabric skills are published in the same marketplace, in the `fabric-skills` bundle. They are a separate installation, and they are not required for the steps of this article.
 

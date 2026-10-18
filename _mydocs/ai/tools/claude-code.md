@@ -340,7 +340,7 @@ Start `claude` again and list the skills:
 
 The two commands above are typed inside the client. The same operations are available in the **command prompt** as `claude plugin marketplace add` and `claude plugin install`.
 
-**The plugin declares its own copy of the MCP server**, with the same name `powerbi-modeling-mcp` and without `--readonly`. Run `claude mcp list` and verify which arguments are active before you rely on read-only mode.
+**The plugin declares its own copy of the MCP server**, with the same name `powerbi-modeling-mcp` and without `--readonly`. It also does not include `--accepteula`. If that definition is active, accept the license terms in the chat, as the step that connects to Power BI Desktop shows. Run `claude mcp list` and verify which arguments are active before you rely on read-only mode.
 
 ## Step 12: connect the agent to the project
 
