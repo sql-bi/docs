@@ -36,7 +36,8 @@ Launch Visual Studio Code. The **chat panel** is already available. There is no 
 1. Open the **Extensions** view with `Ctrl+Shift+X`.
 2. Search for **Power BI Authoring MCP Server**, published by Microsoft. The identifier is `analysis-services.powerbi-modeling-mcp`.
 3. Install it.
-4. **Switch to Pre-release Version**  in the extension settings to get the last updates; in that case, **Restart Extensions** after the installation.
+
+Use the release version. Version 1.0.0 is newer than all the pre-release versions. Select **Switch to Pre-release Version** only when a pre-release has a higher version number than the release. In that case, select **Restart Extensions** after the change.
 
 The extension registers the MCP server. There is no separate download, no runtime, and no configuration file to write.
 
