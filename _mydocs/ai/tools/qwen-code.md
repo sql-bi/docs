@@ -234,7 +234,7 @@ qwen mcp list
 
    An answer means that the key, the address, and the model agree with each other. An error means that they do not, and no step of this article can work until they do.
 
-The approval mode is `auto` by default, and the values are `plan`, `default`, `auto-edit`, `auto`, and `yolo`. Keep `default` for this setup, so that every write asks for a confirmation. Start the client in the **command prompt** with this argument:
+The approval mode is `auto` by default, and the values are `plan`, `default`, `auto-edit`, `auto`, and `yolo`. Keep `default` for this setup, so that every write asks for a confirmation. The interface shows this mode as **Ask Permissions**. Start the client in the **command prompt** with this argument:
 
 ```text
 qwen --approval-mode default
