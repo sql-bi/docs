@@ -21,7 +21,7 @@ One note on the name, because it changed around the product and not in it. The c
 
 - **Power BI Desktop**, installed.
 - **[Node.js](https://nodejs.org/en/download) 22 or later**. The Power BI Authoring MCP server is started with `npx`, which is part of Node.js. Codex CLI itself does not need it, unless you install it with npm. A new machine does not have it, so step 1 installs it.
-- A **ChatGPT account**. Codex CLI signs in with it, and the plan you have determines the limits of the session. Check the [plans page](https://learn.chatgpt.com/docs/pricing) before you start.
+- A **ChatGPT account with a paid plan**, Plus, Pro, Business, or Enterprise. Codex CLI signs in with it, and the plan you have determines the limits of the session. The Free and Go plans give access to Codex only in the desktop app, subject to rollout. Check the [plans page](https://learn.chatgpt.com/docs/pricing) before you start.
 - **[Git for Windows](https://git-scm.com/downloads/win)**. The repository of the skills is downloaded with `git`, and Windows does not include it. Step 11 installs it.
 - **Acceptance of the [license terms](https://go.microsoft.com/fwlink/?LinkId=2381247) of the Power BI Authoring MCP server**, once. Version 1.0 and later require it. The registration snippet of this guide accepts them with the `--accepteula` argument.
 - **Write permission** on any semantic model you modify. The MCP server follows the same rules as the Power BI external tools.
