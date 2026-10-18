@@ -275,7 +275,7 @@ In Power BI Desktop, open **File > Options and settings > Options > Preview feat
 - **Power BI Project (.pbip) save option**
 - **Store reports using enhanced metadata format (PBIR)**
 
-The report authoring skill also uses the **Power BI Desktop Bridge**, which is enabled by default. Its setting is not under Preview features: open **File > Options and settings > Options > Security** and, under **Desktop Bridge**, verify that **Enable external tool access to Power BI Desktop through secure local APIs** is checked. The report authoring skill uses it to reload the project and to capture a screenshot of a page, so that the agent verifies its own work. Verify that the option is checked.
+The report authoring skill also uses the **Power BI Desktop Bridge**, which is enabled by default. Its setting is not under Preview features: open **File > Options and settings > Options > Security** and, under **Desktop Bridge**, verify that **Enable external tool access to Power BI Desktop through secure local APIs** is checked. The report authoring skill uses it to reload the project and to capture a screenshot of a page, so that the agent verifies its own work.
 
 Restart Power BI Desktop.
 
