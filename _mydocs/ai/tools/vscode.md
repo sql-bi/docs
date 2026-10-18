@@ -19,6 +19,7 @@ Sample model used in all the steps: **[ContosoDemo10k.zip](https://www.sqlbi.com
 - A **GitHub account**. Free to create. Step 4 asks for it.
 - A **GitHub Copilot plan**. Every plan includes agent mode and MCP. If you sign in without a subscription, you are enrolled in **Copilot Free**, which includes them with a limited allowance of GitHub AI Credits and automatic model selection only. Check the [plans page](https://docs.github.com/en/copilot/get-started/plans) before you start.
 - **Acceptance of the [license terms](https://go.microsoft.com/fwlink/?LinkId=2381247) of the Power BI Authoring MCP server**, once. Version 1.0 and later require it. The extension accepts them by default, as step 2 explains.
+- **Git**, only for the report layer. Visual Studio Code uses Git to download the report authoring skill. The section [Install the report authoring skill](#install-the-report-authoring-skill) shows how to install it.
 - **Write permission** on any semantic model you modify. The MCP server follows the same rules as the Power BI external tools.
 
 MCP stands for Model Context Protocol. The **Power BI Authoring MCP server** runs on your machine and connects to Power BI Desktop like an external tool. The chat panel of Visual Studio Code hosts the agent, and it requires no separate installation.
@@ -94,10 +95,7 @@ The measure appears in Power BI Desktop without a refresh. The same approach app
 
 ## Manipulating reports in Power BI
 
-The report layer requires a different tool, the **Power BI report authoring skill**, with two conditions:
-
-- It works only on **PBIP** files in **PBIR** format, and it cannot modify a `.pbix` file. PBIP stands for Power BI Project, PBIR for Power BI enhanced report format.
-- It is **not available in Visual Studio Code today**. See the second part below.
+The report layer requires a different tool, the **Power BI report authoring skill**. It works only on **PBIP** files in **PBIR** format, and it cannot modify a `.pbix` file. PBIP stands for Power BI Project, PBIR for Power BI enhanced report format.
 
 ### Save the sample as a project
 
@@ -117,13 +115,69 @@ The model is a set of **TMDL** files (Tabular Model Definition Language) and the
 <video src="videos/AIsetup-PowerBI-save-as-PBIP.mp4" 
  autoplay loop muted width="500"></video>
  
-### Obtain the report authoring skill
+### Install the report authoring skill
 
-The skill is part of the **powerbi-authoring** plugin, published in the [skills-for-fabric](https://github.com/microsoft/skills-for-fabric) marketplace by Microsoft. The plugin contains two skills: `semantic-model-authoring` and `powerbi-report-cli`. The second one covers report planning, design, authoring, and management.
+The skill is part of the **powerbi-authoring** plugin, published by Microsoft in the [skills-for-fabric](https://github.com/microsoft/skills-for-fabric) repository. The plugin contains two skills: `semantic-model-authoring` and `powerbi-report-cli`. The second one covers report planning, design, authoring, and management.
 
-**The Visual Studio Code path stops here.** A search for `@agentPlugins fabric` in the Extensions view returns only the **fabric-skills** bundle published by github/copilot-plugins. The powerbi-authoring plugin is not offered there, and what is available does not work well with Fabric.
+The installation has four parts: the command-line tools, Git, the Microsoft marketplace, and the plugin.
 
-Report authoring requires **GitHub Copilot CLI**, or another client that supports these skills, like Claude Code, Cursor, Codex, or Windsurf. Please, check the Agent Plugins view again before assuming this is still accurate.
+**Install the command-line tools.** The skills call two command-line tools. These tools require **Node.js** 20.0 or later. If Node.js is not installed, follow step 1 of the [GitHub Copilot CLI guide](github-copilot-cli.md). Then install the tools in a terminal:
+
+```text
+npm install -g @microsoft/powerbi-report-authoring-cli@latest @microsoft/powerbi-desktop-bridge-cli@latest
+```
+
+**Install Git.** Visual Studio Code uses Git to download the plugin from its marketplace. Without Git, the installation of the plugin fails.
+
+1. Open a terminal and run `git --version`. If the command shows a version number, Git is installed. Go to the next part.
+2. Download [Git for Windows](https://git-scm.com/download/win) and install it. Keep the default options, which add Git to the `PATH`. As an alternative, run `winget install --id Git.Git -e` in a terminal.
+3. Close all the windows of Visual Studio Code, then open Visual Studio Code again. Visual Studio Code reads the `PATH` only when it starts.
+
+**Add the Microsoft marketplace.** By default, Visual Studio Code searches the plugins in the **copilot-plugins** and **awesome-copilot** marketplaces of GitHub. The search does not show the powerbi-authoring plugin until you add the **skills-for-fabric** marketplace of Microsoft.
+
+1. Open the **Settings** editor with `Ctrl+,`.
+2. Search for `chat.plugins.enabled` and verify that the setting is checked.
+3. Search for `chat.plugins.marketplaces`.
+4. Select **Add Item**, enter `microsoft/skills-for-fabric`, and select **OK**.
+
+To edit the settings file instead, run **Preferences: Open User Settings (JSON)** from the Command Palette. Add this entry. If the setting already exists, add the string to its list.
+
+```json
+"chat.plugins.marketplaces": [
+    "microsoft/skills-for-fabric"
+]
+```
+
+**Install the plugin.**
+
+1. Open the **Extensions** view with `Ctrl+Shift+X`.
+2. Enter `@agentPlugins powerbi` in the search field.
+3. Select **powerbi-authoring** and select **Install**.
+4. The first time you install a plugin from a marketplace, Visual Studio Code shows a trust prompt. Review the source and confirm.
+
+You can also install the plugin from the Agent Customizations editor: run **Chat: Open Customizations** from the Command Palette, or select the gear icon in the Chat view, then select **Plugins** > **Browse Marketplace**.
+
+Type `/skills` in the chat input. The list includes the two skills of the plugin.
+
+**The plugin registers its own copy of the MCP server**, with the name `powerbi-modeling-mcp`. This copy starts with `npx` and does not include `--accepteula`. The extension of step 2 already provides the server. Run **MCP: List Servers** from the Command Palette and verify which servers are active. If the plugin copy is active, accept the license terms in the chat, as step 4 shows.
+
+The skill also uses the **Power BI Desktop Bridge**, which is enabled by default. In Power BI Desktop, open **File > Options and settings > Options > Security** and, under **Desktop Bridge**, verify that **Enable external tool access to Power BI Desktop through secure local APIs** is checked. The skill uses it to reload the project and to capture a screenshot of a page.
+
+### Create a report page
+
+Open the folder that contains the `.pbip` file with **File > Open Folder**, so that the agent sees both the model folder and the report folder. In **Agent** mode, send this prompt:
+
+```text
+Open semantic model from PBIP folder 'C:\Demo\ContosoDemo10k.SemanticModel'
+```
+
+Then ask for a page:
+
+```text
+Create a report page with a line chart showing Sales Amount by Quarter, and a card showing the Sales Amount of the last year that has data.
+```
+
+Ask the agent to validate the report, and open the `.pbip` file in Power BI Desktop. **Save any manual change in Power BI Desktop before the agent iterates.** The agent reads the files on disk and does not see the unsaved state.
 
 ## Configuration options
 
@@ -199,14 +253,20 @@ The file must be open, and the name in the prompt must match the title bar: `Con
 **The write operations are rejected.**
 You need write permission on the model, and the server must not run with `--readonly`.
 
-**The report authoring skill is not available in Visual Studio Code.**
-Use GitHub Copilot CLI or another client that supports these skills.
+**The powerbi-authoring plugin does not appear in the Agent Plugins view.**
+Add `microsoft/skills-for-fabric` to the `chat.plugins.marketplaces` setting, as [Install the report authoring skill](#install-the-report-authoring-skill) shows. Verify that the `chat.plugins.enabled` setting is on. Then search for `@agentPlugins powerbi` again.
+
+**The installation of the plugin fails with `Failed to install plugin 'powerbi-authoring': spawn git ENOENT`.**
+Visual Studio Code does not find Git. Install [Git for Windows](https://git-scm.com/download/win). Close all the windows of Visual Studio Code and open it again. Then install the plugin again. If Git is already installed, run `git --version` in a new terminal. If the command fails, add the `cmd` folder of Git, by default `C:\Program Files\Git\cmd`, to the `PATH`.
+
+**The agent reports that a command is not available when it validates the report.**
+Install the two command-line tools, `@microsoft/powerbi-report-authoring-cli` and `@microsoft/powerbi-desktop-bridge-cli`, then restart Visual Studio Code.
 
 **The report authoring skill does not modify the report.**
 It requires PBIP in PBIR format. Make a change in Power BI Desktop and save the project again. Power BI converts a project in the older PBIR-Legacy format to PBIR when you save it. Versions of Power BI Desktop released before September 2026 still require the **Power BI Project (.pbip) save option** and **Store reports using enhanced metadata format (PBIR)** preview features. Update Power BI Desktop, or enable these two preview features.
 
 **The report changes do not appear in Power BI Desktop.**
-Reload the project. Power BI Desktop shows the version loaded before.
+Reload the project. Power BI Desktop shows the version loaded before. Verify the Desktop Bridge setting under **Options > Security**, so that the agent reloads the project without your intervention.
 
 **The agent modifies objects you did not mention.**
 Name the objects explicitly. For example, "add display folders to the measures in the Sales table" instead of "apply the best practices".
@@ -223,7 +283,8 @@ These are the rules we suggest applying:
 - Read the confirmation prompts.
 - Use `--readonly` for the first session on a model that matters.
 - Do not write the connection port in a script.
-- For the report layer, use PBIP with PBIR and a client that supports the authoring skill.
+- For the report layer, install Git and add the Microsoft marketplace before you search for the plugin.
+- For the report layer, use PBIP with PBIR, and save in Power BI Desktop before the agent iterates.
 
 ## References
 
@@ -232,7 +293,9 @@ These are the rules we suggest applying:
 - [microsoft/powerbi-modeling-mcp](https://github.com/microsoft/powerbi-modeling-mcp): repository, configuration reference, and the complete list of tools.
 - [Power BI Authoring MCP Server](https://marketplace.visualstudio.com/items?itemName=analysis-services.powerbi-modeling-mcp): the extension in the Visual Studio Marketplace.
 - [Power BI report authoring skill](https://learn.microsoft.com/en-us/power-bi/developer/agentic/power-bi-report-authoring-skill-overview): what the skill does and its limits.
-- [microsoft/skills-for-fabric](https://github.com/microsoft/skills-for-fabric): the marketplace that publishes the skill.
+- [microsoft/skills-for-fabric](https://github.com/microsoft/skills-for-fabric): the repository that publishes the skill.
+- [Agent plugins in VS Code](https://code.visualstudio.com/docs/copilot/customization/agent-plugins): how to find, install, and manage plugins.
+- [Git for Windows](https://git-scm.com/download/win): the Git installer that Visual Studio Code requires to install a plugin.
 - [Power BI Desktop projects (PBIP)](https://learn.microsoft.com/en-us/power-bi/developer/projects/projects-overview): how to save a project and the folder structure.
 - [Power BI Desktop project report folder](https://learn.microsoft.com/en-us/power-bi/developer/projects/projects-report): the PBIR format and the conversion from PBIR-Legacy.
 - [Set up GitHub Copilot in VS Code](https://code.visualstudio.com/docs/copilot/setup): the sign-in process.
