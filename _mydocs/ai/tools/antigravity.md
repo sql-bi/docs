@@ -193,13 +193,24 @@ Keep the confirmations of the commands while you work on the model. Read step 13
 
 There is no extension to install. The server is an npm package, and Antigravity starts it on demand.
 
-Antigravity has a marketplace that installs some servers with one click. To open it, select **Customizations** in the left sidebar of the main window. The **Marketplace** tab opens by default. At the time of writing the Power BI Authoring MCP server is not in the marketplace, so you write the entry in the configuration file.
+Antigravity has a store that installs some servers with one click. To open it, select **Customizations** in the left sidebar of the main window, select the **Installed** tab, and expand the **MCP Servers** section. In the header of the section, select **+** (**Add MCP Server**). The **+** button opens the store. At the time of writing the Power BI Authoring MCP server is not in the store, so you write the entry in the configuration file.
 
 Antigravity reads two files: `%USERPROFILE%\.gemini\config\mcp_config.json`, which applies to every Project, and `.agents\mcp_config.json` in the folder of the project, which wins over the first one. We use the file of the user, which serves the desktop application, the command-line client, and the extensions, all at once.
 
-1. Select **Customizations** in the left sidebar, then select the **Installed** tab.
-2. Press **Open MCP Config** to open `%USERPROFILE%\.gemini\config\mcp_config.json` in the Antigravity editor. Create the file, and the folders, if they do not exist.
-3. Write this content:
+1. Open the **command prompt**.
+2. Create the folder, if it does not exist:
+
+   ```text
+   mkdir "%USERPROFILE%\.gemini\config"
+   ```
+
+3. Open the file in Notepad. If the file does not exist, Notepad asks to create it. Select **Yes**.
+
+   ```text
+   notepad "%USERPROFILE%\.gemini\config\mcp_config.json"
+   ```
+
+4. Write this content:
 
    ```json
    {
@@ -213,8 +224,10 @@ Antigravity reads two files: `%USERPROFILE%\.gemini\config\mcp_config.json`, whi
    }
    ```
 
-4. Save the file. In the **Installed** tab, select the **Refresh** button.
-5. Find the `powerbi-modeling-mcp` server in the **Installed** list.
+5. Save the file.
+6. Close Antigravity and start it again, so that it reads the file.
+7. Select **Customizations** in the left sidebar, select the **Installed** tab, and expand the **MCP Servers** section.
+8. Find the `powerbi-modeling-mcp` server in the list.
 
 {% include ai/mcp-eula-snippet-note.md %}
 
@@ -234,7 +247,7 @@ The `--readonly` argument blocks every write operation. We suggest it for the fi
 }
 ```
 
-The panel of the servers shows the state of each one, the toggle that enables it, and the trash can that removes it. The `disabledTools` property, an array of names, hides single tools of a server from the model, and `disabled` turns off the whole server without removing the entry.
+The **MCP Servers** section lists the servers that Antigravity reads from the file. The `disabledTools` property, an array of names, hides single tools of a server from the model, and `disabled` turns off the whole server without removing the entry.
 
 ## Step 6: connect to Power BI Desktop
 
@@ -263,11 +276,15 @@ Both answers arrive in a few seconds. The chain works: Antigravity, MCP server, 
 
 The session started in read-only mode, so the next prompt would fail. Remove the restriction:
 
-1. Select **Customizations** in the left sidebar, then select the **Installed** tab.
-2. Press **Open MCP Config** to open the file `%USERPROFILE%\.gemini\config\mcp_config.json` again.
-3. Remove `"--readonly"` from the `args` array and save.
-4. In the **Installed** tab, select the refresh button.
-5. Connect again, as in step 6.
+1. Open the file in Notepad again, from the **command prompt**:
+
+   ```text
+   notepad "%USERPROFILE%\.gemini\config\mcp_config.json"
+   ```
+
+2. Remove `"--readonly"` from the `args` array and save.
+3. Close Antigravity and start it again, so that it reads the file.
+4. Connect again, as in step 6.
 
 Then send this prompt:
 
@@ -477,7 +494,7 @@ The documentation of Antigravity asks for the absolute path of the executable in
 {% include ai/mcp-eula-troubleshooting.md %}
 
 **The MCP server does not appear in the list of tools.**
-Select **Customizations** in the left sidebar, then select the **Installed** tab. Find the `powerbi-modeling-mcp` server in the **Installed** list. Verify that the toggle of the server is on, and that `disabled` is `false` in the file. Then select the refresh button.
+Select **Customizations** in the left sidebar, select the **Installed** tab, and expand the **MCP Servers** section. Find the `powerbi-modeling-mcp` server in the list. If the section says **No MCP servers yet**, Antigravity did not read the entry. Verify that the entry is in `%USERPROFILE%\.gemini\config\mcp_config.json`, that the JSON is valid, and that `disabled` is `false`. Then close Antigravity and start it again.
 
 **The server does not start, or the message contains `spawn npx ENOENT`.**
 Antigravity does not find `npx`, because a desktop application does not inherit the path of your command prompt, and because `npx` is a `.cmd` script on Windows. Use the form with `cmd` of step 5, or the absolute path of the executable of the alternative installation methods.
