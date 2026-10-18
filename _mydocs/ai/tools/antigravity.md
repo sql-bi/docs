@@ -5,7 +5,7 @@ menu_title:  "Google Antigravity"
 description: "How to configure Google Antigravity, the Power BI Authoring MCP server, and the Power BI report authoring skill to modify a semantic model and a report with an AI agent."
 published:   true
 order:       /50
-modified:    2026-09-13
+modified:    2026-10-18
 ---
 *This article describes how to configure Google Antigravity so that an AI agent can read and modify a Power BI semantic model open in Power BI Desktop, and the report of a Power BI project.*
 
@@ -169,25 +169,42 @@ A Project is the configuration of the folders that define the environment of the
 
 The permissions of an operation are evaluated on three lists, **Deny**, **Ask**, and **Allow**, in this order of precedence. The tools of an MCP server are in **Ask** by default, so each call waits for your confirmation. Keep that default for this setup.
 
-How much the agent does without asking is decided in **Settings**, page **General**, section **Agent Settings**. The control at the top, **Security Preset**, chooses a level of autonomy, and the value **Custom** reveals the settings that compose it:
+The approval settings are in **Settings > General > Global Permissions**. The **Security Preset** list sets how much the agent does without asking. It has four values:
 
-- **Outside of folders file access policy** decides what happens when the agent reaches a file outside the folders of the Project. Inside them it reads and writes without asking, which is the reason for which step 12 adds the folder of the report.
-- **Terminal Command Auto Execution** decides whether a command of the agent waits for your approval. **Request Review** asks every time, **Always Proceed** does not.
-- **Enable Sandbox Mode (Preview)** restricts the tools of the agent to an isolated local sandbox.
-- **Tool Permissions**, with the button **Open**, is where the three lists are edited, for the files, for the terminal, and for the MCP tools.
+- **Default** requires a manual review for all terminal commands, and for the access to files outside the working folders. Inside the folders of the Project the agent reads and writes without asking. This is the reason for which step 12 adds the folder of the report.
+- **Full machine** requires a review for all terminal commands. The agent can read and write any file on the machine.
+- **Turbo mode** disables all the safety barriers. We do not recommend it for this setup.
+- **Custom** shows the individual settings.
 
-Keep the confirmations of the commands while you work on the model, and read step 13 before you start on the report, because that is where they become expensive.
+Keep **Security Preset** on **Default**.
+
+The **Tool Permissions** row is available with every preset. Select **Open** to edit the three lists. The page has three groups, each one with an **Open** button: **File Access Rules**, **Terminal Commands**, and **MCP Tools**.
+
+When you select **Custom**, two more rows appear:
+
+- **Terminal Command Auto Execution** sets whether a command of the agent waits for your approval. **Require Review** asks every time, and it is the default. **Proceed in Sandbox** runs the command in the sandbox. **Always Proceed** does not ask.
+- **Enable Sandbox Mode (Preview)** restricts the tools of the agent to an isolated local sandbox. It is off by default.
+
+Keep the confirmations of the commands while you work on the model. Read step 13 before you start on the report, because there the confirmations become expensive.
+
+> The Windows version of Antigravity uses an older permission system than macOS and Linux, and the labels can be different. This article uses the labels of the Windows application.
 
 ## Step 5: register the Power BI Authoring MCP server
 
 There is no extension to install. The server is an npm package, and Antigravity starts it on demand.
 
-Antigravity has a store that installs some servers with one click, in **Settings > Customizations > Installed MCP Servers**, with the button **Add MCP**. At the time of writing the Power BI Authoring MCP server is not among them, so you write the entry in the configuration file.
+Antigravity has a store that installs some servers with one click. To open it, select **Customizations** in the left sidebar of the main window, select the **Installed** tab, and expand the **MCP Servers** section. In the header of the section, select **+** (**Add MCP Server**). The **+** button opens the store. At the time of writing the Power BI Authoring MCP server is not in the store, so you write the entry in the configuration file.
 
 Antigravity reads two files: `%USERPROFILE%\.gemini\config\mcp_config.json`, which applies to every Project, and `.agents\mcp_config.json` in the folder of the project, which wins over the first one. We use the file of the user, which serves the desktop application, the command-line client, and the extensions, all at once.
 
-1. Press **Open MCP Config** to open `%USERPROFILE%\.gemini\config\mcp_config.json` in the Antigravity editor. Create the file, and the folders, if they do not exist.
-2. Write this content:
+1. Select **Customizations** in the left sidebar of the main window.
+2. Select the **Installed** tab.
+3. Expand the **MCP Servers** section.
+4. In the header of the section, select **Copy Config File Path**. Antigravity copies the full path of `mcp_config.json` to the clipboard.
+5. Open **Notepad**.
+6. Select **File > Open**.
+7. Paste the path in **File name** and select **Open**. If the file does not exist, Notepad asks to create it. Select **Yes**.
+8. Write this content:
 
    ```json
    {
@@ -201,7 +218,12 @@ Antigravity reads two files: `%USERPROFILE%\.gemini\config\mcp_config.json`, whi
    }
    ```
 
-3. Save the file, open **Settings > Customizations > Installed MCP Servers**, and select the **Refresh** button.
+9. Save the file.
+10. Close Antigravity and start it again, so that it reads the file.
+11. Select **Customizations** in the left sidebar, select the **Installed** tab, and expand the **MCP Servers** section.
+12. Make sure that the `powerbi-modeling-mcp` server is in the list.
+
+If Notepad cannot save the file, see **Notepad cannot save mcp_config.json** in Troubleshooting.
 
 {% include ai/mcp-eula-snippet-note.md %}
 
@@ -221,7 +243,7 @@ The `--readonly` argument blocks every write operation. We suggest it for the fi
 }
 ```
 
-The panel of the servers shows the state of each one, the toggle that enables it, and the trash can that removes it. The `disabledTools` property, an array of names, hides single tools of a server from the model, and `disabled` turns off the whole server without removing the entry.
+The **MCP Servers** section lists the servers that Antigravity reads from the file. The `disabledTools` property, an array of names, hides single tools of a server from the model, and `disabled` turns off the whole server without removing the entry.
 
 ## Step 6: connect to Power BI Desktop
 
@@ -250,9 +272,12 @@ Both answers arrive in a few seconds. The chain works: Antigravity, MCP server, 
 
 The session started in read-only mode, so the next prompt would fail. Remove the restriction:
 
-1. Open **Settings > Customizations > Installed MCP Servers** and press **Open MCP Config** to open the file `%USERPROFILE%\.gemini\config\mcp_config.json` again.
-2. Remove `"--readonly"` from the `args` array and save.
-3. Select the refresh button in **Settings > Customizations > Installed MCP Servers**, then connect again, as in step 6.
+1. Select **Customizations** in the left sidebar, select the **Installed** tab, and expand the **MCP Servers** section.
+2. Select **Copy Config File Path**.
+3. Open **Notepad**, select **File > Open**, paste the path in **File name**, and select **Open**.
+4. Remove `"--readonly"` from the `args` array and save.
+5. Close Antigravity and start it again, so that it reads the file.
+6. Connect again, as in step 6.
 
 Then send this prompt:
 
@@ -262,7 +287,16 @@ Create a measure that returns the Sales Amount of the previous year using the sa
 
 The measure appears in Power BI Desktop without a refresh. Each write operation raises a confirmation prompt. The same approach applies to bulk operations, like format strings and display folders on hundreds of objects in a single request.
 
-When the confirmations become too many, the permissions accept a pattern instead of an answer at a time. Open them in **Settings**, page **General**, section **Agent Settings**, with the button **Open** of **Tool Permissions**: `mcp(powerbi-modeling-mcp/*)` covers every tool of this server, and `mcp(powerbi-modeling-mcp/<tool>)` covers one of them. Moving that pattern to the **Allow** list removes the checkpoint, so keep it in **Ask** while you learn what the agent does.
+The tools of an MCP server are in **Ask** by default. To make this explicit, add a rule for the server:
+
+1. Open **Settings > General > Global Permissions**.
+2. In the **Tool Permissions** row, select **Open**.
+3. In the **MCP Tools** row, select **Open**.
+4. Select **Add**.
+5. In the list of the new rule, select **ask**.
+6. In the **Enter tool name or server...** box, type `mcp(powerbi-modeling-mcp/*)`.
+
+The rule `mcp(powerbi-modeling-mcp/*)` covers every tool of this server. The rule `mcp(powerbi-modeling-mcp/<tool>)` covers one tool. The server name in the rule must be the same as the key in `mcp_config.json`, which is `powerbi-modeling-mcp` in this article. A rule set to **allow** removes the checkpoint. Keep the rule on **ask** while you learn what the agent does.
 
 ## Step 9: prepare Power BI Desktop for the report layer
 
@@ -359,9 +393,13 @@ The MCP server manages the semantic model folder. The authoring skill reads and 
 
 Before this step, relax the security settings. A report page is not a single operation: the skill writes the JSON files of the report, runs `powerbi-report-author` to validate them, and calls the Power BI Desktop Bridge to reload the project and to capture a screenshot, and it repeats the sequence at every iteration. With a confirmation at every command, one page costs a dozen of them, and the agent waits at each one.
 
-In **Settings**, page **General**, section **Agent Settings**, set **Security Preset** to **Custom**, which reveals the settings that compose it, and set **Terminal Command Auto Execution** to **Always Proceed**. The presets that remove every confirmation at once exist, and they are more than this step needs: what costs time here is the approval of the commands, and the tools of the MCP server can stay in **Ask**.
+1. Open **Settings > General > Global Permissions**.
+2. Set **Security Preset** to **Custom**.
+3. Set **Terminal Command Auto Execution** to **Always Proceed**.
 
-The two layers do not carry the same risk, and this is the reason for which we relax one and not the other. The report is a set of files in a PBIP project, so a wrong iteration is undone with `git checkout` when the folder is under source control, which is the reason for the baseline commit of step 10. A write on the semantic model, instead, reaches Power BI Desktop immediately, and the confirmation is the only checkpoint before it. Put **Terminal Command Auto Execution** back on **Request Review** when you return to the model.
+Do not use **Turbo mode**. It removes every confirmation at once, and this step does not need that. Here only the approval of the commands costs time. The tools of the MCP server stay in **Ask**.
+
+The two layers do not carry the same risk, and this is the reason for which we relax one and not the other. The report is a set of files in a PBIP project, so a wrong iteration is undone with `git checkout` when the folder is under source control, which is the reason for the baseline commit of step 10. A write on the semantic model, instead, reaches Power BI Desktop immediately, and the confirmation is the only checkpoint before it. When you return to the model, set **Security Preset** back to **Default**, or set **Terminal Command Auto Execution** back to **Require Review**.
 
 ```text
 Create a report page with a line chart showing Sales Amount by Quarter, and a card showing the Sales Amount of the last year that has data.
@@ -449,13 +487,29 @@ The documentation of Antigravity asks for the absolute path of the executable in
 {% include ai/mcp-eula-troubleshooting.md %}
 
 **The MCP server does not appear in the list of tools.**
-Open **Settings > Customizations > Installed MCP Servers**, verify that the toggle of the server is on and that `disabled` is `false`, then select the refresh button.
+Select **Customizations** in the left sidebar, select the **Installed** tab, and expand the **MCP Servers** section. Find the `powerbi-modeling-mcp` server in the list. If the section says **No MCP servers yet**, Antigravity did not read the entry. Select **Copy Config File Path** in the header of the section, and verify that you edited the file at that path. Verify that the JSON is valid, and that `disabled` is `false`. Then close Antigravity and start it again.
+
+**Notepad cannot save mcp_config.json.**
+The folder `%USERPROFILE%\.gemini\config` does not exist. Create it, and open the file from the **command prompt**:
+
+```text
+mkdir "%USERPROFILE%\.gemini\config"
+```
+
+```text
+notepad "%USERPROFILE%\.gemini\config\mcp_config.json"
+```
+
+If Notepad asks to create the file, select **Yes**. Then continue from the JSON content of step 5.
 
 **The server does not start, or the message contains `spawn npx ENOENT`.**
 Antigravity does not find `npx`, because a desktop application does not inherit the path of your command prompt, and because `npx` is a `.cmd` script on Windows. Use the form with `cmd` of step 5, or the absolute path of the executable of the alternative installation methods.
 
 **The agent asks a confirmation at every command while it writes the report.**
-That is **Terminal Command Auto Execution** on **Request Review**, and the skill runs several commands per iteration. Set **Security Preset** to **Custom** and that setting to **Always Proceed**, as in step 13, then put it back when you return to the model.
+The **Default** preset requires a review for every terminal command, and the skill runs several commands per iteration. In **Settings > General > Global Permissions**, set **Security Preset** to **Custom** and **Terminal Command Auto Execution** to **Always Proceed**, as in step 13. Set **Security Preset** back to **Default** when you return to the model.
+
+**The Settings page has no Agent Settings section.**
+The Windows application does not have it. The approval settings are in **Settings > General > Global Permissions**. The **Agent Behavior** section, below it, contains only **Plan Review Policy**.
 
 **The agent does not see the files of the project.**
 The folder is not part of the Project. Add it, in the configuration of the folders of the Project, and send the prompt again. See step 4.
@@ -520,7 +574,7 @@ These are the rules we suggest applying:
 - [MCP](https://antigravity.google/docs/mcp/): the configuration files, the JSON schema, every property, and the store of the servers.
 - [Skills](https://antigravity.google/docs/skills/): the `SKILL.md` format and the folders where the skills are discovered.
 - [Rules](https://antigravity.google/docs/rules): the files of the rules, their position, and their size limits.
-- [Permissions](https://antigravity.google/docs/permissions/): the lists Deny, Ask, and Allow, and the patterns of the MCP tools.
+- [Permissions](https://antigravity.google/docs/permissions/): the lists Deny, Ask, and Allow, the patterns of the MCP tools, and the differences of the Windows version.
 - [Plans](https://antigravity.google/docs/plans): the free use, the rate limits, and the subscriptions.
 - [FAQ](https://antigravity.google/docs/faq): the accounts and the countries where Antigravity is available.
 - [ContosoDemo10k.zip](https://www.sqlbi.com/wp-content/uploads/ContosoDemo10k.zip): the sample model used in this article.
@@ -536,4 +590,4 @@ These are the rules we suggest applying:
 - [Power BI Desktop projects (PBIP)](https://learn.microsoft.com/en-us/power-bi/developer/projects/projects-overview): how to save a project and the folder structure.
 - [Power BI Desktop project report folder](https://learn.microsoft.com/en-us/power-bi/developer/projects/projects-report): the PBIR format and the conversion from PBIR-Legacy.
 
-*The content of this article was verified in September 2026, with the `@microsoft/powerbi-modeling-mcp` package installed from npm with the `@latest` tag. Command names, preview settings, and plan boundaries change over time, so the linked documentation is the authority.*
+*The content of this article was verified in September 2026, and the settings of Antigravity on Windows in October 2026, with the `@microsoft/powerbi-modeling-mcp` package installed from npm with the `@latest` tag. Command names, preview settings, and plan boundaries change over time, so the linked documentation is the authority.*
