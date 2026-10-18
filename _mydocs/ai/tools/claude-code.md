@@ -426,7 +426,7 @@ On a model that matters, run the first session with **`--readonly`**, as in step
 
 The `npx` command is a `.cmd` script on Windows, and a process that starts it without a shell can fail to find it. Write this form directly in the file, because the `claude mcp add` command does not always preserve the `/c` argument on Windows.
 
-Claude Code accepts three transports, `stdio`, `sse`, and `http`. The value `local`, used by other clients, is rejected.
+Claude Code accepts four transports in the configuration file: `stdio`, `sse`, `http`, and `ws`. The `--transport` argument of `claude mcp add` does not accept `ws`. The value `local`, used by other clients, is rejected.
 
 {% include ai/mcp-eula-snippet-note.md %}
 
@@ -524,4 +524,4 @@ These are the rules we suggest applying:
 - [Power BI Desktop projects (PBIP)](https://learn.microsoft.com/en-us/power-bi/developer/projects/projects-overview): how to save a project and the folder structure.
 - [Power BI Desktop project report folder](https://learn.microsoft.com/en-us/power-bi/developer/projects/projects-report): the PBIR format and the preview settings.
 
-*The content of this article was verified in September 2026, with the `@microsoft/powerbi-modeling-mcp` package installed from npm with the `@latest` tag, and with version 0.3.15 of the skills-for-fabric marketplace. Command names, preview settings, and plan boundaries change over time, so the linked documentation is the authority.*
+*The content of this article was verified in September 2026, with the `@microsoft/powerbi-modeling-mcp` package installed from npm with the `@latest` tag, and with version 0.3.15 of the skills-for-fabric marketplace. The current version of the marketplace is 0.3.19. Command names, preview settings, and plan boundaries change over time, so the linked documentation is the authority.*

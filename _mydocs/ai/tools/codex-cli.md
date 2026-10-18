@@ -505,11 +505,11 @@ These are the rules we suggest applying:
 
 ## References
 
-- [Codex CLI](https://developers.openai.com/codex/cli/): the installation methods and the sign-in process.
-- [MCP servers in Codex](https://developers.openai.com/codex/mcp): the `codex mcp add` command and the TOML configuration.
-- [Configuration reference](https://developers.openai.com/codex/config-reference): every key accepted in `config.toml`.
-- [Approvals and sandbox](https://developers.openai.com/codex/agent-approvals-security): the values of `--sandbox` and `--ask-for-approval`.
-- [Skills in Codex](https://developers.openai.com/codex/skills): the `SKILL.md` format and the folders where the skills are discovered.
+- [Codex CLI](https://learn.chatgpt.com/docs/codex/cli): the installation methods and the sign-in process.
+- [MCP servers in Codex](https://learn.chatgpt.com/docs/extend/mcp): the `codex mcp add` command and the TOML configuration.
+- [Configuration reference](https://learn.chatgpt.com/docs/config-file/config-reference): every key accepted in `config.toml`.
+- [Approvals and sandbox](https://learn.chatgpt.com/docs/agent-approvals-security): the values of `--sandbox` and `--ask-for-approval`.
+- [Skills in Codex](https://learn.chatgpt.com/docs/build-skills): the `SKILL.md` format and the folders where the skills are discovered.
 - [openai/codex](https://github.com/openai/codex): the repository of the client.
 - [ContosoDemo10k.zip](https://www.sqlbi.com/wp-content/uploads/ContosoDemo10k.zip): the sample model used in this article.
 - [Download Node.js](https://nodejs.org/en/download): the LTS installer and the standalone archive, both providing `npm` and `npx`.

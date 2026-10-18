@@ -117,7 +117,7 @@ npm install -g @microsoft/powerbi-report-authoring-cli@latest @microsoft/powerbi
 - [Install Skills for Fabric](https://learn.microsoft.com/en-us/fabric/fundamentals/skills-for-fabric-install): the clients for which Microsoft documents the installation.
 - [microsoft/skills-for-fabric](https://github.com/microsoft/skills-for-fabric): the repository that publishes the skills.
 - [Adding MCP servers for GitHub Copilot CLI](https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/add-mcp-servers): the configuration of the first row.
-- [MCP servers in Codex](https://developers.openai.com/codex/mcp): the configuration shared by Codex CLI and the ChatGPT desktop app.
+- [MCP servers in Codex](https://learn.chatgpt.com/docs/extend/mcp): the configuration shared by Codex CLI and the ChatGPT desktop app.
 - [MCP servers in Claude Code](https://code.claude.com/docs/en/mcp): the scopes and the JSON schema.
 - [MCP in Google Antigravity](https://antigravity.google/docs/mcp/): the configuration files, the JSON schema, and every property.
 - [MCP servers in Grok Build](https://docs.x.ai/build/features/mcp-servers): the TOML configuration and the compatibility with Claude Code.
