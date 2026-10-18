@@ -21,14 +21,14 @@ All ten clients support a local MCP server on Windows. **Node.js** is a requirem
 | <img src="images/openai.png" alt="OpenAI" width="18" height="18" class="naked nozoom nomargin"> | Codex CLI | paid | yes | manual |
 | <img src="images/anthropic.jpg" alt="Anthropic" width="18" height="18" class="naked nozoom nomargin"> | Claude Code Desktop | paid | yes | plugin |
 | <img src="images/anthropic.jpg" alt="Anthropic" width="18" height="18" class="naked nozoom nomargin"> | Claude Code | paid | yes | plugin |
-| <img src="images/vscode.png" alt="Visual Studio Code" width="18" height="18" class="naked nozoom nomargin"> | Visual Studio Code | free | yes | no |
+| <img src="images/vscode.png" alt="Visual Studio Code" width="18" height="18" class="naked nozoom nomargin"> | Visual Studio Code | free | yes | plugin |
 | <img src="images/github.svg" alt="GitHub" width="18" height="18" class="naked nozoom nomargin"> | GitHub Copilot CLI | free | yes | plugin |
 | <img src="images/antigravity.png" alt="Google Antigravity" width="18" height="18" class="naked nozoom nomargin"> | Google Antigravity | free | yes | manual |
 | <img src="images/grok.svg" alt="Grok" width="18" height="18" class="naked nozoom nomargin"> | Grok Build | paid | yes | plugin |
 | <img src="images/kiro.svg" alt="Kiro" width="18" height="18" class="naked nozoom nomargin"> | Kiro | free | yes | manual |
 | <img src="images/qwen.png" alt="Qwen" width="18" height="18" class="naked nozoom nomargin"> | Qwen Code | paid | yes | manual |
 
-**Plan**: the account that the client requires to use an MCP server; the free plans have limits: weekly rate limits for Google Antigravity, monthly credits for Kiro, and an allowance of GitHub AI Credits for Copilot Free, used by Visual Studio Code and GitHub Copilot CLI. **Model edit**: the semantic model, through the Power BI Authoring MCP server. **Report edit**: the report of a PBIP project, through the report authoring skill, installed with a command of the plugin marketplace (*plugin*) or with a manual copy of the skill folders (*manual*). The sections below detail every column.
+**Plan**: the account that the client requires to use an MCP server; the free plans have limits: weekly rate limits for Google Antigravity, monthly credits for Kiro, and an allowance of GitHub AI Credits for Copilot Free, used by Visual Studio Code and GitHub Copilot CLI. **Model edit**: the semantic model, through the Power BI Authoring MCP server. **Report edit**: the report of a PBIP project, through the report authoring skill, installed from a plugin marketplace (*plugin*) or with a manual copy of the skill folders (*manual*). The sections below detail every column.
 
 ## Installation and account
 
@@ -70,12 +70,12 @@ One difference is worth knowing before a long debugging session: **Google Antigr
 
 ## The report authoring skill
 
-The report layer requires the **powerbi-authoring** plugin, published by Microsoft in the skills-for-fabric repository. Two clients install it with a command, the others need a manual copy of the skill folders.
+The report layer requires the **powerbi-authoring** plugin, published by Microsoft in the skills-for-fabric repository. Some clients install it from a plugin marketplace, the others need a manual copy of the skill folders.
 
 | Client | Installation of the skill | Documented by Microsoft |
 |---|---|---|
 | GitHub Copilot CLI | `/plugin marketplace add` and `/plugin install` | yes |
-| Visual Studio Code | not available today | the limit is documented |
+| Visual Studio Code | `@agentPlugins` search in the Extensions view, then **Install** | partially |
 | Claude Code | `/plugin marketplace add` and `/plugin install` | yes |
 | Claude Code Desktop | the marketplace declared in the settings, then the plugin panel | partially |
 | Grok Build | the marketplace of Claude Code, read without any setting | no |
@@ -96,7 +96,7 @@ npm install -g @microsoft/powerbi-report-authoring-cli@latest @microsoft/powerbi
 ## How to choose
 
 - **The shortest path to the report layer** is GitHub Copilot CLI or Claude Code, because the plugin installs with two commands and Microsoft documents them.
-- **The shortest path to the semantic model only** is any of the ten. Visual Studio Code is the only one where the report authoring skill is not offered, and the prompt that connects to Power BI Desktop is the same everywhere.
+- **The shortest path to the semantic model only** is any of the ten. The prompt that connects to Power BI Desktop is the same everywhere.
 - **On a managed machine without administrator rights**, prefer a client that installs in the user profile: the npm packages, the installers of Anthropic, OpenAI, and SpaceXAI, and the Microsoft Store version of the ChatGPT desktop app.
 - **If you already use Claude Code**, Grok Build reuses its configuration, including the marketplaces and the MCP servers.
 - **If you want to see the state of the connection**, Google Antigravity, Kiro, and the Claude desktop application show it in a panel, the command-line clients show it with a command.
