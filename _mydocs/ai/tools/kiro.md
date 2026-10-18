@@ -21,7 +21,7 @@ Kiro is the agentic development environment of Amazon Web Services, available as
 
 - **Power BI Desktop**, installed.
 - **[Node.js](https://nodejs.org/en/download) 22 or later**. The Power BI Authoring MCP server is started with `npx`, which is part of Node.js. Kiro does not need it for itself. A new machine does not have it, so step 1 installs it.
-- **Windows 10 or Windows 11**, 64 bit, for the desktop application. The command-line client of Kiro requires Windows 11.
+- **Windows 10 or Windows 11**, on an x64 or an ARM64 processor, for the desktop application. The command-line client of Kiro requires Windows 11.
 - An account to sign in: a **GitHub account**, a **Google account**, an **AWS Builder ID**, or an account of AWS IAM Identity Center. The free plan includes a monthly amount of credits, and the MCP servers are not a paid feature. Check the [plans page](https://kiro.dev/pricing/) before you start.
 - **[Git for Windows](https://git-scm.com/downloads/win)**. The repository of the skills is downloaded with `git`, and Windows does not include it. Step 11 installs it.
 - **Acceptance of the [license terms](https://go.microsoft.com/fwlink/?LinkId=2381247) of the Power BI Authoring MCP server**, once. Version 1.0 and later require it. The registration snippet of this guide accepts them with the `--accepteula` argument.
@@ -127,7 +127,7 @@ There is no Microsoft Store version.
 <!-- options -->
 Choose one of the two methods.
 
-**Option 1: the download page.** Open [kiro.dev/downloads](https://kiro.dev/downloads/), which offers the version for the x64 processors, and run the installer.
+**Option 1: the download page.** Open [kiro.dev/downloads](https://kiro.dev/downloads/), which offers the versions for the x64 and the ARM64 processors, and run the installer.
 
 **Option 2: WinGet.** In the **command prompt**:
 
