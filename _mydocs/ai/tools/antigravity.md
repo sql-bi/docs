@@ -197,6 +197,8 @@ Antigravity has a store that installs some servers with one click. To open it, s
 
 Antigravity reads two files: `%USERPROFILE%\.gemini\config\mcp_config.json`, which applies to every Project, and `.agents\mcp_config.json` in the folder of the project, which wins over the first one. We use the file of the user, which serves the desktop application, the command-line client, and the extensions, all at once.
 
+To confirm the location of the file, select **Customizations** in the left sidebar, select the **Installed** tab, and expand the **MCP Servers** section. In the header of the section, select **Copy Config File Path**. Antigravity copies the full path of `mcp_config.json` to the clipboard. You can paste it in Notepad or in the command prompt.
+
 1. Open the **command prompt**.
 2. Create the folder, if it does not exist:
 
@@ -494,7 +496,7 @@ The documentation of Antigravity asks for the absolute path of the executable in
 {% include ai/mcp-eula-troubleshooting.md %}
 
 **The MCP server does not appear in the list of tools.**
-Select **Customizations** in the left sidebar, select the **Installed** tab, and expand the **MCP Servers** section. Find the `powerbi-modeling-mcp` server in the list. If the section says **No MCP servers yet**, Antigravity did not read the entry. Verify that the entry is in `%USERPROFILE%\.gemini\config\mcp_config.json`, that the JSON is valid, and that `disabled` is `false`. Then close Antigravity and start it again.
+Select **Customizations** in the left sidebar, select the **Installed** tab, and expand the **MCP Servers** section. Find the `powerbi-modeling-mcp` server in the list. If the section says **No MCP servers yet**, Antigravity did not read the entry. Select **Copy Config File Path** in the header of the section, and verify that you edited the file at that path. Verify that the JSON is valid, and that `disabled` is `false`. Then close Antigravity and start it again.
 
 **The server does not start, or the message contains `spawn npx ENOENT`.**
 Antigravity does not find `npx`, because a desktop application does not inherit the path of your command prompt, and because `npx` is a `.cmd` script on Windows. Use the form with `cmd` of step 5, or the absolute path of the executable of the alternative installation methods.
