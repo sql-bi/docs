@@ -197,22 +197,14 @@ Antigravity has a store that installs some servers with one click. To open it, s
 
 Antigravity reads two files: `%USERPROFILE%\.gemini\config\mcp_config.json`, which applies to every Project, and `.agents\mcp_config.json` in the folder of the project, which wins over the first one. We use the file of the user, which serves the desktop application, the command-line client, and the extensions, all at once.
 
-To confirm the location of the file, select **Customizations** in the left sidebar, select the **Installed** tab, and expand the **MCP Servers** section. In the header of the section, select **Copy Config File Path**. Antigravity copies the full path of `mcp_config.json` to the clipboard. You can paste it in Notepad or in the command prompt.
-
-1. Open the **command prompt**.
-2. Create the folder, if it does not exist:
-
-   ```text
-   mkdir "%USERPROFILE%\.gemini\config"
-   ```
-
-3. Open the file in Notepad. If the file does not exist, Notepad asks to create it. Select **Yes**.
-
-   ```text
-   notepad "%USERPROFILE%\.gemini\config\mcp_config.json"
-   ```
-
-4. Write this content:
+1. Select **Customizations** in the left sidebar of the main window.
+2. Select the **Installed** tab.
+3. Expand the **MCP Servers** section.
+4. In the header of the section, select **Copy Config File Path**. Antigravity copies the full path of `mcp_config.json` to the clipboard.
+5. Open **Notepad**.
+6. Select **File > Open**.
+7. Paste the path in **File name** and select **Open**. If the file does not exist, Notepad asks to create it. Select **Yes**.
+8. Write this content:
 
    ```json
    {
@@ -226,10 +218,12 @@ To confirm the location of the file, select **Customizations** in the left sideb
    }
    ```
 
-5. Save the file.
-6. Close Antigravity and start it again, so that it reads the file.
-7. Select **Customizations** in the left sidebar, select the **Installed** tab, and expand the **MCP Servers** section.
-8. Find the `powerbi-modeling-mcp` server in the list.
+9. Save the file.
+10. Close Antigravity and start it again, so that it reads the file.
+11. Select **Customizations** in the left sidebar, select the **Installed** tab, and expand the **MCP Servers** section.
+12. Make sure that the `powerbi-modeling-mcp` server is in the list.
+
+If Notepad cannot save the file, see **Notepad cannot save mcp_config.json** in Troubleshooting.
 
 {% include ai/mcp-eula-snippet-note.md %}
 
@@ -278,15 +272,12 @@ Both answers arrive in a few seconds. The chain works: Antigravity, MCP server, 
 
 The session started in read-only mode, so the next prompt would fail. Remove the restriction:
 
-1. Open the file in Notepad again, from the **command prompt**:
-
-   ```text
-   notepad "%USERPROFILE%\.gemini\config\mcp_config.json"
-   ```
-
-2. Remove `"--readonly"` from the `args` array and save.
-3. Close Antigravity and start it again, so that it reads the file.
-4. Connect again, as in step 6.
+1. Select **Customizations** in the left sidebar, select the **Installed** tab, and expand the **MCP Servers** section.
+2. Select **Copy Config File Path**.
+3. Open **Notepad**, select **File > Open**, paste the path in **File name**, and select **Open**.
+4. Remove `"--readonly"` from the `args` array and save.
+5. Close Antigravity and start it again, so that it reads the file.
+6. Connect again, as in step 6.
 
 Then send this prompt:
 
@@ -497,6 +488,19 @@ The documentation of Antigravity asks for the absolute path of the executable in
 
 **The MCP server does not appear in the list of tools.**
 Select **Customizations** in the left sidebar, select the **Installed** tab, and expand the **MCP Servers** section. Find the `powerbi-modeling-mcp` server in the list. If the section says **No MCP servers yet**, Antigravity did not read the entry. Select **Copy Config File Path** in the header of the section, and verify that you edited the file at that path. Verify that the JSON is valid, and that `disabled` is `false`. Then close Antigravity and start it again.
+
+**Notepad cannot save mcp_config.json.**
+The folder `%USERPROFILE%\.gemini\config` does not exist. Create it, and open the file from the **command prompt**:
+
+```text
+mkdir "%USERPROFILE%\.gemini\config"
+```
+
+```text
+notepad "%USERPROFILE%\.gemini\config\mcp_config.json"
+```
+
+If Notepad asks to create the file, select **Yes**. Then continue from the JSON content of step 5.
 
 **The server does not start, or the message contains `spawn npx ENOENT`.**
 Antigravity does not find `npx`, because a desktop application does not inherit the path of your command prompt, and because `npx` is a `.cmd` script on Windows. Use the form with `cmd` of step 5, or the absolute path of the executable of the alternative installation methods.
