@@ -52,7 +52,7 @@ Two of the ten are published in the Microsoft Store. Six of them are on WinGet, 
 | Client | Command | Configuration file | Format |
 |---|---|---|---|
 | GitHub Copilot CLI | `copilot mcp add` | `%USERPROFILE%\.copilot\mcp-config.json` | JSON |
-| Visual Studio Code | the extension registers the server | `.vscode\mcp.json`, or the file opened by **MCP: Open User Configuration** | JSON |
+| Visual Studio Code | the extension registers the server | `.mcp.json` in the workspace, or `%USERPROFILE%\.copilot\mcp-config.json`. The older `.vscode\mcp.json` still works. | JSON |
 | ChatGPT desktop app | Settings, MCP servers, Add server | `%USERPROFILE%\.codex\config.toml` | TOML |
 | Codex CLI | `codex mcp add` | `%USERPROFILE%\.codex\config.toml` | TOML |
 | Claude Code Desktop | the Connectors panel | `%USERPROFILE%\.claude.json` | JSON |

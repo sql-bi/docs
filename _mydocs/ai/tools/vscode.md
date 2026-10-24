@@ -226,7 +226,16 @@ On a model that matters, run the first session with **`--readonly`**.
 }
 ```
 
-In Visual Studio Code, the MCP servers are configured in `.vscode/mcp.json` for a workspace, or in the file opened by the **MCP: Open User Configuration** command. Commit the workspace file to share one configuration in a team.
+Visual Studio Code reads two formats of MCP configuration. Since version 1.143, new chat sessions use the **Copilot harness** by default, and this harness reads the portable format directly:
+
+- `.mcp.json` in the root of the workspace.
+- `%USERPROFILE%\.copilot\mcp-config.json` for your user. This is the same file that GitHub Copilot CLI uses.
+
+These two files put the servers in a top-level `mcpServers` object. To write the user file, run **MCP: Add Server** from the Command Palette, select **Global**, and then select **Copilot Global**.
+
+The older format is `.vscode/mcp.json` for a workspace, or the file opened by the **MCP: Open User Configuration** command. These files put the servers in a top-level `servers` object. Visual Studio Code forwards these servers to the Copilot harness, except the servers that use input variables such as `${input:...}`. The guided flow of **MCP: Add Server** labels these locations as deprecated.
+
+Commit the `.mcp.json` file of the workspace to share one configuration in a team.
 
 {% include ai/mcp-eula-snippet-note.md %}
 
@@ -295,6 +304,7 @@ These are the rules we suggest applying:
 - [Power BI report authoring skill](https://learn.microsoft.com/en-us/power-bi/developer/agentic/power-bi-report-authoring-skill-overview): what the skill does and its limits.
 - [microsoft/skills-for-fabric](https://github.com/microsoft/skills-for-fabric): the repository that publishes the skill.
 - [Agent plugins in VS Code](https://code.visualstudio.com/docs/copilot/customization/agent-plugins): how to find, install, and manage plugins.
+- [MCP configuration reference](https://code.visualstudio.com/docs/agents/reference/mcp-configuration): the two configuration formats, and the servers that Visual Studio Code forwards to the Copilot harness.
 - [Git for Windows](https://git-scm.com/download/win): the Git installer that Visual Studio Code requires to install a plugin.
 - [Power BI Desktop projects (PBIP)](https://learn.microsoft.com/en-us/power-bi/developer/projects/projects-overview): how to save a project and the folder structure.
 - [Power BI Desktop project report folder](https://learn.microsoft.com/en-us/power-bi/developer/projects/projects-report): the PBIR format and the conversion from PBIR-Legacy.
