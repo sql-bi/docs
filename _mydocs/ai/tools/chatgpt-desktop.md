@@ -5,7 +5,7 @@ menu_title:  "ChatGPT desktop app"
 description: "How to configure the ChatGPT desktop app, the Power BI Authoring MCP server, and the Power BI report authoring skill to modify a semantic model and a report with an AI agent."
 published:   true
 order:       /10
-modified:    2026-09-13
+modified:    2026-10-31
 ---
 *This article describes how to configure the ChatGPT desktop app so that an AI agent can read and modify a Power BI semantic model open in Power BI Desktop, and the report of a Power BI project.*
 
@@ -162,6 +162,8 @@ The title bar shows **ContosoDemo10k**. You use that name in step 6.
 1. Start the **ChatGPT desktop application** from the Start menu.
 2. Sign in with your ChatGPT account.
 3. Open the folder of the sample, for example `C:\Demo`. The folder you open becomes the workspace of the session, and the agent writes only inside it.
+
+Use the **Codex** or the **Work** surface for all the sessions of this guide. The **Chat** surface does not show the tools of a local MCP server, such as the Power BI Authoring MCP server.
 
 Below the box where you write, the **Ask for approval** option controls the checkpoints. Keep it active for this setup.
 
@@ -429,6 +431,9 @@ Use the identifier `9PLM9XGG6VKS`. The identifier `9NT1R1C2HH7J` is ChatGPT Clas
 
 **The MCP server does not appear in the list of tools.**
 Open **Settings > MCP servers** and verify that the entry exists and is not disabled. Then verify that your plan includes MCP, and that your organization does not restrict the servers.
+
+**The agent does not see the MCP server, but the entry exists in Settings > MCP servers.**
+Verify the surface of the session. The **Chat** surface does not show the tools of a local MCP server. Start the session in the **Codex** or the **Work** surface.
 
 **The server times out at the start.**
 Raise `startup_timeout_sec` in the TOML section. The default is 10 seconds, which is not enough for the first download of the package.
