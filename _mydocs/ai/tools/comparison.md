@@ -75,7 +75,7 @@ The report layer requires the **powerbi-authoring** plugin, published by Microso
 | Client | Installation of the skill | Documented by Microsoft |
 |---|---|---|
 | GitHub Copilot CLI | `/plugin marketplace add` and `/plugin install` | yes |
-| Visual Studio Code | Git, the marketplace declared in the `chat.plugins.marketplaces` setting, then the `@agentPlugins` search in the Extensions view | partially |
+| Visual Studio Code | Git, the marketplace declared in the `chat.plugins.marketplaces` setting, then **Browse Agent Plugins** from the `@agentPlugins` search in the Extensions view | partially |
 | Claude Code | `/plugin marketplace add` and `/plugin install` | yes |
 | Claude Code Desktop | the marketplace declared in the settings, then the plugin panel | partially |
 | Grok Build | the marketplace of Claude Code, read without any setting | no |
