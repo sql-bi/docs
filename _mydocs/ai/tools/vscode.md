@@ -155,7 +155,14 @@ To edit the settings file instead, run **Preferences: Open User Settings (JSON)*
 3. Select **powerbi-authoring** and select **Install**.
 4. The first time you install a plugin from a marketplace, Visual Studio Code shows a trust prompt. Review the source and confirm.
 
-You can also install the plugin from the Agent Customizations editor: run **Chat: Open Customizations** from the Command Palette, or select the gear icon in the Chat view, then select **Plugins** > **Browse Marketplace**.
+You can also install the plugin from the Agent Customizations editor. Run **Chat: Open Customizations** from the Command Palette, or select **Open Customizations** in the title bar of the Chat view. Select **Browse**, then select the **skills-for-fabric** marketplace in the source menu. If the editor does not show **Browse**, select **Plugins** > **Browse Marketplace**.
+
+Since version 1.144, two more methods are available:
+
+- Open this link in a browser. Visual Studio Code asks for a confirmation, adds the marketplace, and installs the plugin: `vscode://chat-plugin/install?source=microsoft/skills-for-fabric&plugin=powerbi-authoring`
+- In a chat session with the **Copilot** harness, type `/plugin install` and select **powerbi-authoring**.
+
+Git is necessary for all the methods.
 
 Type `/skills` in the chat input. The list includes the two skills of the plugin.
 
