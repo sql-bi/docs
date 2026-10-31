@@ -151,11 +151,22 @@ To edit the settings file instead, run **Preferences: Open User Settings (JSON)*
 **Install the plugin.**
 
 1. Open the **Extensions** view with `Ctrl+Shift+X`.
-2. Enter `@agentPlugins powerbi` in the search field.
-3. Select **powerbi-authoring** and select **Install**.
-4. The first time you install a plugin from a marketplace, Visual Studio Code shows a trust prompt. Review the source and confirm.
+2. Enter `@agentPlugins` in the search field. Do not add other words. The view shows **Find Agent Plugins in Customizations**.
+3. Select **Browse Agent Plugins**. The **Browse customizations** page opens. Its search field contains `@type:plugin`.
+4. After `@type:plugin`, type a space and `powerbi`. The search field contains `@type:plugin powerbi`, and the list shows only the Power BI plugins.
+5. Select **powerbi-authoring**, then select **Install**.
+6. The first time you install a plugin from a marketplace, Visual Studio Code shows a trust prompt. Review the source and confirm.
 
-You can also install the plugin from the Agent Customizations editor: run **Chat: Open Customizations** from the Command Palette, or select the gear icon in the Chat view, then select **Plugins** > **Browse Marketplace**.
+When the installation is complete, the plugin page shows **Installed agent plugin** and an **Uninstall** button.
+
+You can also install the plugin from the Agent Customizations editor. Run **Chat: Open Customizations** from the Command Palette, or select **Open Customizations** in the title bar of the Chat view. Select **Browse**, then select the **skills-for-fabric** marketplace in the source menu. If the editor does not show **Browse**, select **Plugins** > **Browse Marketplace**.
+
+Since version 1.144, two more methods are available:
+
+- Open this link in a browser. Visual Studio Code asks for a confirmation, adds the marketplace, and installs the plugin: `vscode://chat-plugin/install?source=microsoft/skills-for-fabric&plugin=powerbi-authoring`
+- In a chat session with the **Copilot** harness, type `/plugin install` and select **powerbi-authoring**.
+
+Git is necessary for all the methods.
 
 Type `/skills` in the chat input. The list includes the two skills of the plugin.
 
@@ -262,8 +273,8 @@ The file must be open, and the name in the prompt must match the title bar: `Con
 **The write operations are rejected.**
 You need write permission on the model, and the server must not run with `--readonly`.
 
-**The powerbi-authoring plugin does not appear in the Agent Plugins view.**
-Add `microsoft/skills-for-fabric` to the `chat.plugins.marketplaces` setting, as [Install the report authoring skill](#install-the-report-authoring-skill) shows. Verify that the `chat.plugins.enabled` setting is on. Then search for `@agentPlugins powerbi` again.
+**The powerbi-authoring plugin does not appear in the Browse customizations page.**
+Add `microsoft/skills-for-fabric` to the `chat.plugins.marketplaces` setting, as [Install the report authoring skill](#install-the-report-authoring-skill) shows. Verify that the `chat.plugins.enabled` setting is on. Then enter `@agentPlugins` in the Extensions view, select **Browse Agent Plugins**, and search for `@type:plugin powerbi` again.
 
 **The installation of the plugin fails with `Failed to install plugin 'powerbi-authoring': spawn git ENOENT`.**
 Visual Studio Code does not find Git. Install [Git for Windows](https://git-scm.com/download/win). Close all the windows of Visual Studio Code and open it again. Then install the plugin again. If Git is already installed, run `git --version` in a new terminal. If the command fails, add the `cmd` folder of Git, by default `C:\Program Files\Git\cmd`, to the `PATH`.
