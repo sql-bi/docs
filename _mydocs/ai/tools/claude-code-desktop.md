@@ -499,4 +499,4 @@ These are the rules we suggest applying:
 - [Power BI Desktop projects (PBIP)](https://learn.microsoft.com/en-us/power-bi/developer/projects/projects-overview): how to save a project and the folder structure.
 - [Power BI Desktop project report folder](https://learn.microsoft.com/en-us/power-bi/developer/projects/projects-report): the PBIR format and the conversion from PBIR-Legacy.
 
-*The content of this article was verified in September 2026, with the `@microsoft/powerbi-modeling-mcp` package installed from npm with the `@latest` tag, and with version 0.3.15 of the skills-for-fabric marketplace. The current version of the marketplace is 0.3.19. Command names, preview settings, and plan boundaries change over time, so the linked documentation is the authority.*
+*The content of this article was verified in September 2026, with the `@microsoft/powerbi-modeling-mcp` package installed from npm with the `@latest` tag, and with version 0.3.15 of the skills-for-fabric marketplace. The current version of the marketplace is 0.3.20. Command names, preview settings, and plan boundaries change over time, so the linked documentation is the authority.*
