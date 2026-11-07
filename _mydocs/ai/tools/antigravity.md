@@ -425,7 +425,6 @@ The command-line arguments of the MCP server go in the `args` array of the JSON 
 | `--accepteula` | | Accepts the license terms of the server. Version 1.0 and later require the acceptance before the first use. |
 | `--readwrite` | enabled | Allows write operations, each one with a confirmation. |
 | `--readonly` | | Blocks all the write operations. |
-| `--skipconfirmation` | | Removes the confirmation prompts. |
 | `--compatibility` | `PowerBI` | Set it to `Full` for Analysis Services databases. |
 | `--authmode` | `interactive` | Set it to `serviceprincipal` for unattended scenarios. |
 
