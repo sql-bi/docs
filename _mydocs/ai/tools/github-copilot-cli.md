@@ -13,7 +13,7 @@ The only requirement we assume is **Power BI Desktop**, already installed. Every
 
 Sample model used in all the steps: **[ContosoDemo10k.zip](https://www.sqlbi.com/wp-content/uploads/ContosoDemo10k.zip)**. Please, download it before you start.
 
-At the end you have an agent in the terminal that reads and writes the semantic model, and that also creates and validates report pages. The report part is the reason to use the command line: the report authoring skill is not offered in the Visual Studio Code extension marketplace today. GitHub Copilot CLI is not the only client that supports it, Claude Code uses the same plugin marketplace, and Cursor, Codex, and Windsurf have their own path. This article covers the GitHub one.
+At the end you have an agent in the terminal that reads and writes the semantic model, and that also creates and validates report pages. The report authoring skill is part of the **powerbi-authoring** plugin. GitHub Copilot CLI installs it with two commands. Visual Studio Code installs the same plugin from its Agent Plugins view, as the [Visual Studio Code guide](vscode.md) shows. Claude Code uses the same plugin marketplace, and Cursor, Codex, and Windsurf have their own path. This article covers GitHub Copilot CLI.
 
 ## Requirements
 
@@ -399,7 +399,7 @@ Start `copilot` again and list the skills:
 
 The list includes the two skills of the plugin. The two commands above are typed inside the client. The same operations are available in the **command prompt** as `copilot plugin marketplace add` and `copilot plugin install`.
 
-**The plugin registers its own copy of the MCP server**, with the same name `powerbi-modeling-mcp` and without `--readonly`. It also does not include `--accepteula`. If that definition is active, accept the license terms in the chat, as the step that connects to Power BI Desktop shows. When two definitions share a name, the one loaded last wins, so after this step the read-only registration of step 4 could be replaced. Run `copilot mcp list` and verify which arguments are active before you rely on read-only mode.
+**The plugin registers its own copy of the MCP server**, with the same name `powerbi-modeling-mcp`. The plugin copy does not include `--readonly` or `--accepteula`. GitHub Copilot CLI loads the MCP servers of plugins after `%USERPROFILE%\.copilot\mcp-config.json`, and the server loaded last wins. Thus, after this step the plugin copy replaces the registration of step 4, and the server can write to the model. Accept the license terms in the chat, as the step that connects to Power BI Desktop shows. Run `copilot mcp list` to see the active arguments.
 
 The Fabric skills are published in the same marketplace, in the `fabric-skills` bundle. They are a separate installation, and they are not required for the steps of this article.
 
@@ -525,7 +525,7 @@ Restart the client with `/quit`, start `copilot` again, and run `/skills`.
 Install the two command-line tools of step 11, `@microsoft/powerbi-report-authoring-cli` and `@microsoft/powerbi-desktop-bridge-cli`, then restart the client.
 
 **The server accepts a write operation while you expect read-only mode.**
-The plugin of step 11 registers its own definition of `powerbi-modeling-mcp` without `--readonly`. Run `copilot mcp list` and check the arguments in use.
+The plugin of step 11 registers its own definition of `powerbi-modeling-mcp` without `--readonly`. This definition takes precedence over the registration of step 4. Run `copilot mcp list` and check the arguments in use.
 
 **The report authoring skill does not modify the report.**
 It requires PBIP in PBIR format. Make a change in Power BI Desktop and save the project again. Power BI converts a project in the older PBIR-Legacy format to PBIR when you save it. Versions of Power BI Desktop released before September 2026 still require the **Power BI Project (.pbip) save option** and **Store reports using enhanced metadata format (PBIR)** preview features. Update Power BI Desktop, or enable these two preview features.
@@ -562,7 +562,7 @@ These are the rules we suggest applying:
 - [Schniz/fnm](https://github.com/Schniz/fnm): the Fast Node Manager, one of the options that does not require administrator rights.
 - [Scoop](https://scoop.sh/): the package manager that installs in the user profile.
 - [Installing PowerShell on Windows](https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell-on-windows): the Microsoft Store, WinGet, and MSI methods.
-- [Install GitHub Copilot CLI](https://docs.github.com/en/copilot/how-tos/set-up/install-copilot-cli): the installation methods and the sign-in process.
+- [Install GitHub Copilot CLI](https://docs.github.com/en/copilot/how-tos/copilot-cli/set-up-copilot-cli/install-copilot-cli): the installation methods and the sign-in process.
 - [Adding MCP servers for GitHub Copilot CLI](https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/add-mcp-servers): the `copilot mcp add` command and the configuration files.
 - [GitHub Copilot CLI command reference](https://docs.github.com/en/copilot/reference/copilot-cli-reference/cli-command-reference): the slash commands of the interactive session.
 - [GitHub Copilot CLI plugin reference](https://docs.github.com/en/copilot/reference/copilot-cli-reference/cli-plugin-reference): the `/plugin` commands and the marketplace format.
