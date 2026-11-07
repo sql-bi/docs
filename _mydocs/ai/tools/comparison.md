@@ -43,7 +43,7 @@ All ten clients support a local MCP server on Windows. **Node.js** is a requirem
 | Google Antigravity | no | download from antigravity.google/download | personal Google account, free with weekly rate limits |
 | Grok Build | no | installer of SpaceXSI, `winget install xAI.GrokBuild`, or `npm install -g @xai-official/grok` | SpaceXSI, plan that includes Grok Build |
 | Kiro | no | download from kiro.dev | GitHub, Google, or AWS, free plan included |
-| Qwen Code | no | installer of the project, or `npm install -g @qwen-code/qwen-code@latest` | paid key of a supported provider |
+| Qwen Code | no | installer of the project, or `npm install -g @qwen-code/qwen-code@latest` | Qwen Plus or Pro subscription, or paid key of a supported provider |
 
 Two of the ten are published in the Microsoft Store. Six of them are on WinGet, and five are npm packages, so a machine without administrator rights installs most of them in the user profile.
 

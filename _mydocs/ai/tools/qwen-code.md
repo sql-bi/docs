@@ -15,13 +15,15 @@ Sample model used in all the steps: **[ContosoDemo10k.zip](https://www.sqlbi.com
 
 At the end you have an agent in the terminal that reads and writes the semantic model, and that also creates and validates report pages.
 
-One warning before you start, because it changes the cost of this setup: the free tier that used the sign-in with a Qwen account was discontinued on 15 April 2026. Qwen Code today needs an API key of a paid service, or of a compatible provider. Step 5 covers the choice.
+One warning before you start, because it changes the cost of this setup: the free tier that used the sign-in with a Qwen account was discontinued on 15 April 2026. Qwen Code today needs a paid **Qwen Plus or Pro subscription** from [chat.qwen.ai](https://chat.qwen.ai), or an API key of a paid service or of a compatible provider. Step 5 covers the choice.
 
 ## Requirements
 
 - **Power BI Desktop**, installed.
 - **[Node.js](https://nodejs.org/en/download) 22 or later**. Qwen Code requires it, and the Power BI Authoring MCP server is started with `npx`, which is part of Node.js. A new machine does not have it, so step 1 installs it.
-- An **API key** of a provider that Qwen Code supports, including any endpoint compatible with the OpenAI protocol. There is no free tier with a personal account. The key, the address of the service, and the names of the models all depend on the subscription you buy, so read the three in the console of your provider before you start, as in step 5.
+- One of these two accounts. There is no free tier with a personal account.
+  - A **Qwen account with a Plus or Pro subscription** from [chat.qwen.ai](https://chat.qwen.ai). Qwen Code signs in with it in the browser, and it needs no API key.
+  - An **API key** of a provider that Qwen Code supports, including any endpoint compatible with the OpenAI protocol. The key, the address of the service, and the names of the models all depend on the subscription you buy, so read the three in the console of your provider before you start, as in step 5.
 - **[Git for Windows](https://git-scm.com/downloads/win)**. The repository of the skills is downloaded with `git`, and Windows does not include it. Step 11 installs it.
 - **Acceptance of the [license terms](https://go.microsoft.com/fwlink/?LinkId=2381247) of the Power BI Authoring MCP server**, once. Version 1.0 and later require it. The registration snippet of this guide accepts them with the `--accepteula` argument.
 - **Write permission** on any semantic model you modify. The MCP server follows the same rules as the Power BI external tools.
@@ -212,9 +214,17 @@ qwen mcp list
    /auth
    ```
 
-   The menu offers the providers of Alibaba Cloud, the third-party providers, and a custom provider for any endpoint compatible with the OpenAI protocol.
+   The menu has five options:
 
-   **Read the values in the console of your subscription.** The entries of the menu named after a commercial plan assume that precise plan, and each one carries a fixed address of the service. A key issued for a different plan, or in a different region, is refused by that address with an error of authentication, and no file of configuration corrects it, because the entry of the menu wins over the environment and over the files. When the name of your subscription does not appear in the menu, or when you are not certain of the correspondence, choose the provider compatible with the OpenAI protocol and write the three values yourself:
+   - **Qwen Account with Subscription**: sign in with your Qwen account in the browser and use your Plus or Pro subscription from chat.qwen.ai. This option needs no API key.
+   - **QwenCloud**: a Token Plan key or a standard (pay-as-you-go) API key of QwenCloud.
+   - **Alibaba ModelStudio**: a Coding Plan, Token Plan, or standard API key of Alibaba Cloud ModelStudio.
+   - **Third-party Providers**: an API key of a built-in provider, such as DeepSeek, OpenRouter, or Kimi.
+   - **Custom Provider**: any local server, proxy, or endpoint compatible with the OpenAI, Anthropic, or Gemini protocol.
+
+   If you have a Plus or Pro subscription, select **Qwen Account with Subscription**. Complete the sign-in in the browser with the same account that you used to subscribe, then go back to the client. Then continue with the verification below.
+
+   **With an API key, read the values in the console of your subscription.** The entries of the menu named after a commercial plan assume that precise plan, and each one carries a fixed address of the service. A key issued for a different plan, or in a different region, is refused by that address with an error of authentication, and no file of configuration corrects it, because the entry of the menu wins over the environment and over the files. When the name of your subscription does not appear in the menu, or when you are not certain of the correspondence, choose **Custom Provider** and write the three values yourself:
 
    - the **API key**;
    - the **base URL**, exactly as the console publishes it, which changes with the plan and with the region;
@@ -232,7 +242,7 @@ qwen mcp list
    say hello
    ```
 
-   An answer means that the key, the address, and the model agree with each other. An error means that they do not, and no step of this article can work until they do.
+   An answer means that the sign-in works, or that the key, the address, and the model agree with each other. An error means that they do not, and no step of this article can work until they do.
 
 The approval mode is `auto` by default, and the values are `plan`, `default`, `auto-edit`, `auto`, and `yolo`. Keep `default` for this setup, so that every write asks for a confirmation. The interface shows this mode as **Ask Permissions**. Start the client in the **command prompt** with this argument:
 
@@ -445,7 +455,7 @@ The `cwd` property sets the working folder of the server, and the client refuses
 - Model metadata does not stay local: table names, column names, measure definitions, and query results are sent to the language model of the service you signed in to.
 - The local MCP server is **generally available**. The report authoring skill and the Power BI Desktop Bridge are newer, and their behavior and tools can still change.
 - The agent proposes and executes. The review is your responsibility.
-- The free tier of Qwen Code with a personal account was discontinued in April 2026. A paid key is part of the requirements.
+- The free tier of Qwen Code with a personal account was discontinued in April 2026. A paid Qwen Plus or Pro subscription, or a paid key, is part of the requirements.
 - The report authoring skill has no marketplace installation for Qwen Code. The manual path of step 11 is not covered by the documentation of Microsoft or of the project.
 
 ## Troubleshooting
@@ -456,7 +466,7 @@ The `cwd` property sets the working folder of the server, and the client refuses
 Close and open the terminal again, so that it reads the updated path. With npm, verify that the global folder of npm is in the path.
 
 **The client asks for an authentication that you do not have.**
-The free tier with a personal account was discontinued. Run `/auth` and configure a key of one of the supported providers.
+The free tier with a personal account was discontinued. Run `/auth`. Select **Qwen Account with Subscription** if you have a Plus or Pro subscription. Otherwise, configure a key of one of the supported providers.
 
 **The registration fails with `Not enough non-option arguments: got 1, need at least 2`.**
 The double dash is before `npx` instead of after it, so the client reads one argument where it needs the name and the command. Write `powerbi-modeling-mcp npx -- -y ...`, as in step 4.
@@ -465,7 +475,7 @@ The double dash is before `npx` instead of after it, so the client reads one arg
 That error arrives from the provider of the model, and not from the MCP server. A local server started with `npx` communicates on the standard input and output: it has no token, and it cannot produce an error of HTTP. Send `say hello`, and if that fails too, the subject is the authentication of step 5 and the MCP server has nothing to do with it.
 
 **The key works when you test it, and the client refuses it.**
-Read the configuration the client is using, with `/about`, and compare the address with the one of your console. An entry of the menu of `/auth` named after a commercial plan keeps its own address, and it wins over the variables of the environment and over the files `.env`. Run `/auth` again and choose the provider compatible with the OpenAI protocol, then write the address of your console. Consider also that a test on the list of the models proves nothing, because some services answer that list to any key: only a request of completion tells you whether a key is accepted.
+Read the configuration the client is using, with `/about`, and compare the address with the one of your console. An entry of the menu of `/auth` named after a commercial plan keeps its own address, and it wins over the variables of the environment and over the files `.env`. Run `/auth` again and choose **Custom Provider**, then write the address of your console. Consider also that a test on the list of the models proves nothing, because some services answer that list to any key: only a request of completion tells you whether a key is accepted.
 
 **The MCP server does not appear in the list of tools.**
 Run `qwen mcp list` in the terminal, or `/mcp` in the client. If you registered the server in the project instead of the user scope, run `qwen mcp approve` and start a new session.
