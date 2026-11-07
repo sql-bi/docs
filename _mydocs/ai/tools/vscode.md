@@ -133,7 +133,7 @@ npm install -g @microsoft/powerbi-report-authoring-cli@latest @microsoft/powerbi
 2. Download [Git for Windows](https://git-scm.com/download/win) and install it. Keep the default options, which add Git to the `PATH`. As an alternative, run `winget install --id Git.Git -e` in a terminal.
 3. Close all the windows of Visual Studio Code, then open Visual Studio Code again. Visual Studio Code reads the `PATH` only when it starts.
 
-**Add the Microsoft marketplace.** By default, Visual Studio Code searches the plugins in the **copilot-plugins** and **awesome-copilot** marketplaces of GitHub. The search does not show the powerbi-authoring plugin until you add the **skills-for-fabric** marketplace of Microsoft.
+**Add the Microsoft marketplace.** By default, Visual Studio Code searches the plugins only in the **awesome-copilot** marketplace of GitHub. The search does not show the powerbi-authoring plugin until you add the **skills-for-fabric** marketplace of Microsoft.
 
 1. Open the **Settings** editor with `Ctrl+,`.
 2. Search for `chat.plugins.enabled` and verify that the setting is checked.
@@ -314,12 +314,12 @@ These are the rules we suggest applying:
 - [Power BI Authoring MCP Server](https://marketplace.visualstudio.com/items?itemName=analysis-services.powerbi-modeling-mcp): the extension in the Visual Studio Marketplace.
 - [Power BI report authoring skill](https://learn.microsoft.com/en-us/power-bi/developer/agentic/power-bi-report-authoring-skill-overview): what the skill does and its limits.
 - [microsoft/skills-for-fabric](https://github.com/microsoft/skills-for-fabric): the repository that publishes the skill.
-- [Agent plugins in VS Code](https://code.visualstudio.com/docs/copilot/customization/agent-plugins): how to find, install, and manage plugins.
+- [Agent plugins in VS Code](https://code.visualstudio.com/docs/agent-customization/agent-plugins): how to find, install, and manage plugins.
 - [MCP configuration reference](https://code.visualstudio.com/docs/agents/reference/mcp-configuration): the two configuration formats, and the servers that Visual Studio Code forwards to the Copilot harness.
 - [Git for Windows](https://git-scm.com/download/win): the Git installer that Visual Studio Code requires to install a plugin.
 - [Power BI Desktop projects (PBIP)](https://learn.microsoft.com/en-us/power-bi/developer/projects/projects-overview): how to save a project and the folder structure.
 - [Power BI Desktop project report folder](https://learn.microsoft.com/en-us/power-bi/developer/projects/projects-report): the PBIR format and the conversion from PBIR-Legacy.
-- [Set up GitHub Copilot in VS Code](https://code.visualstudio.com/docs/copilot/setup): the sign-in process.
+- [Set up GitHub Copilot in VS Code](https://code.visualstudio.com/docs/setup/copilot): the sign-in process.
 - [Plans for GitHub Copilot](https://docs.github.com/en/copilot/get-started/plans): the plans that include agent mode and MCP.
 
 *The content of this article was verified in September 2026, with version 0.5.13 of the extension. Version numbers, preview settings, and plan boundaries change over time, so the linked documentation is the authority.*
