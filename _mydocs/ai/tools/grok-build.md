@@ -15,7 +15,7 @@ Sample model used in all the steps: **[ContosoDemo10k.zip](https://www.sqlbi.com
 
 At the end you have an agent in the terminal that reads and writes the semantic model, and that also creates and validates report pages.
 
-One clarification on the name. **Grok Build** is also the name of a web feature that builds applications in the browser. This article is about the **command-line client** of SpaceXAI, the one you start with `grok` in the command prompt.
+One clarification on the name. **Grok Build** is also the name of a web feature that builds applications in the browser. This article is about the **command-line client** of SpaceXSI (formerly xAI), the one you start with `grok` in the command prompt.
 
 Grok Build reads the configuration of Claude Code without any setting: marketplaces, plugins, skills, MCP servers, and instruction files. This is what makes the report authoring skill usable here, because that skill is published for Claude Code and has no marketplace of its own for other clients.
 
@@ -23,8 +23,8 @@ Grok Build reads the configuration of Claude Code without any setting: marketpla
 
 - **Power BI Desktop**, installed.
 - **[Node.js](https://nodejs.org/en/download) 22 or later**. The Power BI Authoring MCP server is started with `npx`, which is part of Node.js. A new machine does not have it, so step 1 installs it.
-- **Microsoft Visual C++ 2015 Redistributable or later**. The WinGet package installs it as a dependency. If you use the installer of SpaceXAI, install it separately when the client does not start.
-- An **SpaceXAI account with a plan that includes Grok Build**, or an **SpaceXAI API key** with credits. Check the [plans page](https://x.ai/pricing) before you start.
+- **Microsoft Visual C++ 2015 Redistributable or later**. The WinGet package installs it as a dependency. If you use the installer of SpaceXSI or npm, install it separately when the client does not start.
+- A **SpaceXSI account with a plan that includes Grok Build**, or a **SpaceXSI API key** with credits. Check the [plans page](https://x.ai/pricing) before you start.
 - **[Git for Windows](https://git-scm.com/downloads/win)**. The repository of the skills is downloaded with `git`, and Windows does not include it. Step 11 installs it.
 - **Acceptance of the [license terms](https://go.microsoft.com/fwlink/?LinkId=2381247) of the Power BI Authoring MCP server**, once. Version 1.0 and later require it. The registration snippet of this guide accepts them with the `--accepteula` argument.
 - **Write permission** on any semantic model you modify. The MCP server follows the same rules as the Power BI external tools.
@@ -125,9 +125,9 @@ With any of the three options, close the window, open a **command prompt**, and 
 ## Step 2: install Grok Build
 
 <!-- options -->
-Choose one of the two methods.
+Choose one of the three methods.
 
-**Option 1: the installer of SpaceXAI.** In **PowerShell**:
+**Option 1: the installer of SpaceXSI.** In **PowerShell**:
 
 ```text
 irm https://x.ai/cli/install.ps1 | iex
@@ -137,6 +137,12 @@ irm https://x.ai/cli/install.ps1 | iex
 
 ```text
 winget install xAI.GrokBuild
+```
+
+**Option 3: npm.** Node.js is already installed from step 1. In the **command prompt**:
+
+```text
+npm install -g @xai-official/grok
 ```
 <!-- /options -->
 
@@ -184,7 +190,7 @@ args = ["-y", "@microsoft/powerbi-modeling-mcp@latest", "--start", "--accepteula
 startup_timeout_sec = 120
 ```
 
-The documentation of SpaceXAI asks for a higher `startup_timeout_sec` when the server is started with `npx`, because the first start downloads the package. The default is 30 seconds.
+The documentation of SpaceXSI asks for a higher `startup_timeout_sec` when the server is started with `npx`, because the first start downloads the package. The default is 30 seconds.
 
 Verify the registration, in the **command prompt**:
 
@@ -209,7 +215,7 @@ The command `grok mcp doctor` reports the servers that fail to start, and `grok 
    $env:XAI_API_KEY="xai-..."
    ```
 
-The permission mode is shown in the interface and changes with `Shift+Tab`. The three modes are **ask**, which is the default, **auto**, and **always-approve**. Keep **ask** for this setup.
+The permission mode is shown in the interface. The three modes are **ask**, which is the default, **auto**, and **always-approve**. `Shift+Tab` cycles through **Normal**, **Plan**, **Auto** (when the feature is available), and **Always-approve**. **Normal** uses the default **ask** mode. Keep **ask** for this setup. If you press `Shift+Tab`, cycle back to **Normal** before you continue.
 
 The command `/mcps` opens the tab of the MCP servers, where `r` reloads the configuration after you edit the file.
 
@@ -435,7 +441,7 @@ args = ["--start", "--accepteula"]
 - The local MCP server is **generally available**. The report authoring skill and the Power BI Desktop Bridge are newer, and their behavior and tools can still change.
 - The agent proposes and executes. The review is your responsibility.
 - The sandbox of Grok Build is not available on Windows. The permission rules still apply, the isolation of the file system does not.
-- The compatibility with the configuration of Claude Code is documented by SpaceXAI, the specific combination with the Fabric skills is not tested by Microsoft.
+- The compatibility with the configuration of Claude Code is documented by SpaceXSI, the specific combination with the Fabric skills is not tested by Microsoft.
 
 ## Troubleshooting
 
