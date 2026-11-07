@@ -162,6 +162,7 @@ The title bar shows **ContosoDemo10k**. You use that name in step 6.
 1. Start **Kiro** from the Start menu.
 2. Choose the provider in the welcome screen and sign in. The browser opens, you authenticate, and the control returns to the application.
 3. Open the folder of the sample, for example `C:\Demo`.
+4. Trust the workspace when Kiro asks. Until you trust it, Kiro does not load the MCP configuration and the skills of the workspace, and it asks before every MCP tool call.
 
 The autonomy of the agent has two modes, **Supervised**, which asks a confirmation for every action, and **Autopilot**, which proceeds inside the permissions. Keep **Autopilot** for this setup, in **Settings > Agent > Agent Autonomy**.
 
@@ -319,7 +320,7 @@ This combination is not documented by Microsoft or by Kiro, and it can stop work
 
 ## Step 12: connect the agent to the project
 
-Open the folder that contains the `.pbip` file, so that the agent sees both the model folder and the report folder. When that is not the folder you opened in step 4, its `.kiro\settings\mcp.json` does not follow: copy the file in the new folder, or declare the server in the file of the user. Then send this prompt:
+Open the folder that contains the `.pbip` file, so that the agent sees both the model folder and the report folder. When that is not the folder you opened in step 4, its `.kiro\settings\mcp.json` does not follow: copy the file in the new folder, or declare the server in the file of the user. Trust the new folder too when Kiro asks. Then send this prompt:
 
 ```text
 Open semantic model from PBIP folder 'C:\Demo\ContosoDemo10k.SemanticModel'
@@ -417,6 +418,9 @@ The `npx` command is a `.cmd` script on Windows, and a process that starts it wi
 
 **The MCP server does not appear in the list of tools.**
 Open the **MCP Servers** tab of the Kiro panel, verify that `disabled` is `false`, and read the Output panel, entry **Kiro - MCP Logs**. When you declared the server in the file of the project, verify that the folder open in Kiro is the one that contains `.kiro\settings\mcp.json`.
+
+**The server of the project file does not load, and Kiro asks a confirmation for every MCP tool call.**
+The workspace is not trusted. Until you trust it, Kiro does not load the MCP configuration and the skills of the workspace. Trust the workspace, then reload the MCP servers. The file of the user, `%USERPROFILE%\.kiro\settings\mcp.json`, does not depend on the trust of the workspace.
 
 **The server does not start and the message contains `spawn npx ENOENT`.**
 Use the `cmd` form of the alternative installation methods, or the absolute path of the executable.
