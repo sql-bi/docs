@@ -24,7 +24,7 @@ Claude Code is one of the two clients for which Microsoft publishes a marketplac
 - **Power BI Desktop**, installed.
 - **[Node.js](https://nodejs.org/en/download) 22 or later**. The Power BI Authoring MCP server is started with `npx`, which is part of Node.js. Claude Code itself needs it only if you install it with npm. A new machine does not have it, so step 1 installs it.
 - **[Git for Windows](https://git-scm.com/downloads/win)**. Without it, the marketplace of the skills cannot be downloaded in step 11, and Claude Code uses PowerShell instead of the Bash tool.
-- A **Claude account with a Pro, Max, Team, or Enterprise plan**, or a Console account with credits. The free plan does not include Claude Code. Check the [plans page](https://claude.com/pricing) before you start.
+- A **Claude account with a Pro, Max, Ultra, Team, or Enterprise plan**, or a Console account with credits. The free plan does not include Claude Code. Check the [plans page](https://claude.com/pricing) before you start.
 - **Acceptance of the [license terms](https://go.microsoft.com/fwlink/?LinkId=2381247) of the Power BI Authoring MCP server**, once. Version 1.0 and later require it. The registration snippet of this guide accepts them with the `--accepteula` argument.
 - **Write permission** on any semantic model you modify. The MCP server follows the same rules as the Power BI external tools.
 
