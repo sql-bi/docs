@@ -23,7 +23,7 @@ One clarification on the product. **Claude Code Desktop is the Code tab of the C
 - **[Node.js](https://nodejs.org/en/download) 22 or later**. The Power BI Authoring MCP server is started with `npx`, which is part of Node.js. The application does not need it for itself. A new machine does not have it, so step 1 installs it.
 - **[Git for Windows](https://git-scm.com/downloads/win)**. Step 12 downloads the marketplace of the skills with `git`, and a session in its own Git worktree also needs it. Versions of the application before 1.49585.0 ask for Git before any local session. Install it and restart the application.
 - **Windows 10 version 1809 or later**, or Windows Server 2019 or later.
-- A **Claude account with a Pro, Max, Team, or Enterprise plan**, or a Console account with credits. The free plan does not include Claude Code, and the Code tab asks for an upgrade. Check the [plans page](https://claude.com/pricing) before you start.
+- A **Claude account with a Pro, Max, Ultra, Team, or Enterprise plan**, or a Console account with credits. The free plan does not include Claude Code, and the Code tab asks for an upgrade. Check the [plans page](https://claude.com/pricing) before you start.
 - **Acceptance of the [license terms](https://go.microsoft.com/fwlink/?LinkId=2381247) of the Power BI Authoring MCP server**, once. Version 1.0 and later require it. The registration snippet of this guide accepts them with the `--accepteula` argument.
 - **Write permission** on any semantic model you modify. The MCP server follows the same rules as the Power BI external tools.
 
@@ -122,10 +122,10 @@ With any of the three options, close the window, open a **command prompt**, and 
 
 ## Step 2: install the Claude desktop application
 
-There is no Microsoft Store version.
+The application is also published in the **Microsoft Store** by Anthropic, PBC, with the product identifier `9P6K58THS811`.
 
 <!-- options -->
-Choose one of the two methods.
+Choose one of the three methods.
 
 **Option 1: the installer.** Download it from [claude.com/download](https://claude.com/download), which offers the version for the x64 and the ARM64 processors.
 
@@ -134,9 +134,15 @@ Choose one of the two methods.
 ```text
 winget install -e --id Anthropic.Claude
 ```
+
+**Option 3: the Store.** Open [apps.microsoft.com/detail/9p6k58ths811](https://apps.microsoft.com/detail/9p6k58ths811) and install the application from there. You can also install it from the Store in the **command prompt**:
+
+```text
+winget install --id 9P6K58THS811 -s msstore
+```
 <!-- /options -->
 
-The WinGet package is published by Anthropic, and the documentation of Anthropic does not mention it. The download from the web page is the documented method.
+The WinGet package `Anthropic.Claude` is published by Anthropic, and the documentation of Anthropic does not mention it. The download from the web page is the documented method.
 
 ## Step 3: install Git
 
@@ -306,7 +312,7 @@ The skill is part of the **powerbi-authoring** plugin, published in the [skills-
 
 The commands `/plugin marketplace add` and `/plugin install` belong to the command-line client and are not available in the Code tab. In the application the plugins are installed from a panel, and the marketplace of Microsoft is declared in a settings file.
 
-1. Select the **+** button next to the box where you write, then **Plugins**, then **Add plugin**.
+1. Select the **+** button next to the box where you write, then **Add plugins**. If the menu shows **Plugins** instead, select **Plugins**, then **Browse plugins**.
 2. Select the **+** button next to **Filter by** that opens the **Add marketplace** dialog.
 3. Select **Add from a repository** and provide `microsoft/skills-for-fabric` as a URL, then click **Use "microsoft/skills-for-fabric"** in the dropdown list, then click the **Sync** button.
 4. Select **Code** to filter the skill from fabric-collection and press the **+** button in the **Powerbi authoring** area.
@@ -396,7 +402,7 @@ On a model that matters, run the first session with **`--readonly`**, as in step
 
 The `npx` command is a `.cmd` script on Windows, and a process that starts it without a shell can fail to find it.
 
-Claude Code accepts three transports, `stdio`, `sse`, and `http`. The value `local`, used by other clients, is rejected.
+Claude Code accepts four transports in the configuration file: `stdio`, `sse`, `http`, and `ws`. The `sse` transport is deprecated. The value `local`, used by other clients, is rejected.
 
 **The file of the chat application.** The Code tab also reads the servers declared in `%APPDATA%\Claude\claude_desktop_config.json`, which is the file of the chat side of the application, reachable from **Settings > Developer > Edit Config**. When the same name is declared in two files, the definition of this one wins in the local sessions. Use one file only, to avoid a configuration that is hard to read.
 
@@ -422,7 +428,7 @@ Claude Code accepts three transports, `stdio`, `sse`, and `http`. The value `loc
 Install Git for Windows and restart the application. If you do not use worktrees, also update the application: versions before 1.49585.0 ask for Git before any local session.
 
 **The Code tab asks for an upgrade.**
-Claude Code requires a Pro, Max, Team, or Enterprise plan. The free plan does not include it.
+Claude Code requires a Pro, Max, Ultra, Team, or Enterprise plan. The free plan does not include it.
 
 **The MCP server does not appear in the list of tools.**
 Run `/mcp` in the Code tab. Open `%USERPROFILE%\.claude.json` and verify that the `"powerbi-modeling-mcp"` entry is inside the `"mcpServers"` key of the root object, as in step 6. Verify that the file is valid JSON. Restart the application, and verify in the Task Manager that the process of the server is running.

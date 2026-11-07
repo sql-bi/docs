@@ -38,14 +38,14 @@ All ten clients support a local MCP server on Windows. **Node.js** is a requirem
 | Visual Studio Code | **yes** | download from code.visualstudio.com, or `winget install Microsoft.VisualStudioCode` | GitHub, Copilot Free included |
 | ChatGPT desktop app | **yes**, identifier `9PLM9XGG6VKS` | download from chatgpt.com | ChatGPT, paid plan |
 | Codex CLI | no | installer of OpenAI, `winget install -e --id OpenAI.Codex`, or `npm install -g @openai/codex` | ChatGPT, paid plan |
-| Claude Code Desktop | no | download from claude.com, or `winget install -e --id Anthropic.Claude` | Claude, Pro or higher |
+| Claude Code Desktop | **yes**, identifier `9P6K58THS811` | download from claude.com, or `winget install -e --id Anthropic.Claude` | Claude, Pro or higher |
 | Claude Code | no | installer of Anthropic, `winget install Anthropic.ClaudeCode`, or `npm install -g @anthropic-ai/claude-code` | Claude, Pro or higher |
 | Google Antigravity | no | download from antigravity.google/download | personal Google account, free with weekly rate limits |
 | Grok Build | no | installer of SpaceXSI, `winget install xAI.GrokBuild`, or `npm install -g @xai-official/grok` | SpaceXSI, plan that includes Grok Build |
 | Kiro | no | download from kiro.dev | GitHub, Google, or AWS, free plan included |
 | Qwen Code | no | installer of the project, or `npm install -g @qwen-code/qwen-code@latest` | Qwen Plus or Pro subscription, or paid key of a supported provider |
 
-Two of the ten are published in the Microsoft Store. Six of them are on WinGet, and five are npm packages, so a machine without administrator rights installs most of them in the user profile.
+Three of the ten are published in the Microsoft Store. Six of them are on WinGet, and five are npm packages, so a machine without administrator rights installs most of them in the user profile.
 
 ## Registration of the MCP server
 
