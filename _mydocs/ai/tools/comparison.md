@@ -5,7 +5,7 @@ menu_title:  "Comparison of the clients"
 description: "How ten AI clients install on Windows, how each one registers the Power BI Authoring MCP server, and which of them can run the Power BI report authoring skill."
 published:   true
 order:       /00
-modified:    2026-09-13
+modified:    2026-11-18
 ---
 *This article compares the AI clients that connect to Power BI Desktop through the Power BI Authoring MCP server on Windows, to choose one before starting a setup.*
 
@@ -17,8 +17,8 @@ All ten clients support a local MCP server on Windows. **Node.js** is a requirem
 
 | | Client | Plan | Model edit | Report edit |
 |---|---|---|---|---|
-| <img src="images/openai.png" alt="OpenAI" width="18" height="18" class="naked nozoom nomargin"> | ChatGPT desktop app | paid | yes | manual |
-| <img src="images/openai.png" alt="OpenAI" width="18" height="18" class="naked nozoom nomargin"> | Codex CLI | paid | yes | manual |
+| <img src="images/openai.png" alt="OpenAI" width="18" height="18" class="naked nozoom nomargin"> | ChatGPT desktop app | paid | yes | plugin |
+| <img src="images/openai.png" alt="OpenAI" width="18" height="18" class="naked nozoom nomargin"> | Codex CLI | paid | yes | plugin |
 | <img src="images/anthropic.jpg" alt="Anthropic" width="18" height="18" class="naked nozoom nomargin"> | Claude Code Desktop | paid | yes | plugin |
 | <img src="images/anthropic.jpg" alt="Anthropic" width="18" height="18" class="naked nozoom nomargin"> | Claude Code | paid | yes | plugin |
 | <img src="images/vscode.png" alt="Visual Studio Code" width="18" height="18" class="naked nozoom nomargin"> | Visual Studio Code | free | yes | plugin |
@@ -53,7 +53,7 @@ Three of the ten are published in the Microsoft Store. Six of them are on WinGet
 |---|---|---|---|
 | GitHub Copilot CLI | `copilot mcp add` | `%USERPROFILE%\.copilot\mcp-config.json` | JSON |
 | Visual Studio Code | the extension registers the server | `.mcp.json` in the workspace, or `%USERPROFILE%\.copilot\mcp-config.json`. The older `.vscode\mcp.json` still works. | JSON |
-| ChatGPT desktop app | Settings, MCP servers, Add server | `%USERPROFILE%\.codex\config.toml` | TOML |
+| ChatGPT desktop app | the Plugins tab | `%USERPROFILE%\.codex\config.toml` | TOML |
 | Codex CLI | `codex mcp add` | `%USERPROFILE%\.codex\config.toml` | TOML |
 | Claude Code Desktop | the Connectors panel | `%USERPROFILE%\.claude.json` | JSON |
 | Claude Code | `claude mcp add` | `%USERPROFILE%\.claude.json` | JSON |
@@ -79,13 +79,13 @@ The report layer requires the **powerbi-authoring** plugin, published by Microso
 | Claude Code | `/plugin marketplace add` and `/plugin install` | yes |
 | Claude Code Desktop | the marketplace declared in the settings, then the plugin panel | partially |
 | Grok Build | the marketplace of Claude Code, read without any setting | no |
-| ChatGPT desktop app | import of the marketplace by an administrator, or copy in `.agents\skills` | no |
-| Codex CLI | clone of the repository, and copy in `.agents\skills` | the clone, yes |
+| ChatGPT desktop app | `codex plugin marketplace add` and `codex plugin add`; the Plugins tab shows the skills | no |
+| Codex CLI | `codex plugin marketplace add` and `codex plugin add` | no |
 | Google Antigravity | copy in `.gemini\config\skills`, or in `.agents\skills` | no |
 | Kiro | copy in `.kiro\skills` | no |
 | Qwen Code | copy in `.qwen\skills` | no |
 
-The skills use the same `SKILL.md` format in every client, which is why the manual copy works at all. The rows marked as not documented are combinations that nobody tests: they can stop working with any update of the repository.
+The skills use the same `SKILL.md` format in every client, which is why the manual copy works at all. The Codex plugin commands in the ChatGPT desktop app and Codex CLI rows are documented by OpenAI, not by Microsoft. The other rows marked as not documented are combinations that nobody tests: they can stop working with any update of the repository.
 
 Two tools complete the report layer in every client, and they are installed with npm:
 
@@ -95,7 +95,7 @@ npm install -g @microsoft/powerbi-report-authoring-cli@latest @microsoft/powerbi
 
 ## How to choose
 
-- **The shortest path to the report layer** is GitHub Copilot CLI or Claude Code, because the plugin installs with two commands and Microsoft documents them.
+- **The shortest path to the report layer** is GitHub Copilot CLI, Claude Code, or Codex CLI, because the plugin installs with two commands. Microsoft documents the first two. The ChatGPT desktop app uses the same Codex plugin commands, and then shows the skills in the **Plugins** tab.
 - **The shortest path to the semantic model only** is any of the ten. The prompt that connects to Power BI Desktop is the same everywhere.
 - **On a managed machine without administrator rights**, prefer a client that installs in the user profile: the npm packages, the installers of Anthropic, OpenAI, and SpaceXSI, and the Microsoft Store version of the ChatGPT desktop app.
 - **If you already use Claude Code**, Grok Build reuses its configuration, including the marketplaces and the MCP servers.
