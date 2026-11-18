@@ -5,7 +5,7 @@ menu_title:  "Codex CLI"
 description: "How to configure Codex CLI, the Power BI Authoring MCP server, and the Power BI report authoring skill to modify a semantic model and a report with an AI agent."
 published:   true
 order:       /11
-modified:    2026-09-08
+modified:    2026-11-18
 ---
 *This article describes how to configure Codex CLI so that an AI agent can read and modify a Power BI semantic model open in Power BI Desktop, and the report of a Power BI project.*
 
@@ -22,7 +22,7 @@ One note on the name, because it changed around the product and not in it. The c
 - **Power BI Desktop**, installed.
 - **[Node.js](https://nodejs.org/en/download) 22 or later**. The Power BI Authoring MCP server is started with `npx`, which is part of Node.js. Codex CLI itself does not need it, unless you install it with npm. A new machine does not have it, so step 1 installs it.
 - A **ChatGPT account with a paid plan**, Plus, Pro, Business, or Enterprise. Codex CLI signs in with it, and the plan you have determines the limits of the session. The Free and Go plans give access to Codex only in the desktop app, subject to rollout. Check the [plans page](https://learn.chatgpt.com/docs/pricing) before you start.
-- **[Git for Windows](https://git-scm.com/downloads/win)**. The repository of the skills is downloaded with `git`, and Windows does not include it. Step 11 installs it.
+- **[Git for Windows](https://git-scm.com/downloads/win)**. The plugin marketplace is downloaded with `git`, and Windows does not include it. Step 11 installs it.
 - **Acceptance of the [license terms](https://go.microsoft.com/fwlink/?LinkId=2381247) of the Power BI Authoring MCP server**, once. Version 1.0 and later require it. The registration snippet of this guide accepts them with the `--accepteula` argument.
 - **Write permission** on any semantic model you modify. The MCP server follows the same rules as the Power BI external tools.
 
@@ -302,7 +302,7 @@ The model is a set of **TMDL** files (Tabular Model Definition Language) and the
  
 ## Step 11: install the report authoring skill
 
-**Git is required for this step.** The repository is downloaded with `git`, and Windows does not include it. Install it, then close the command prompt and open it again.
+**Git is required for this step.** The marketplace is downloaded with `git`, and Windows does not include it. Install it, then close the command prompt and open it again.
 
 <!-- options -->
 Choose one of the two methods.
@@ -328,9 +328,21 @@ npm install -g @microsoft/powerbi-report-authoring-cli@latest @microsoft/powerbi
 
 The skill is part of the **powerbi-authoring** plugin of the [skills-for-fabric](https://github.com/microsoft/skills-for-fabric) repository, published by Microsoft. The plugin contains two skills: `semantic-model-authoring`, for the semantic model, and `powerbi-report-cli`, for the report. Since version 0.3.17 of the marketplace, `powerbi-report-cli` replaces the four separate report skills (planning, design, authoring, and management). It selects the correct mode from your request.
 
-**Codex CLI is not one of the clients with a marketplace command for these skills.** Microsoft documents the manual path for it: clone the repository, and the `AGENTS.md` file in the root is detected automatically. Codex CLI reads `AGENTS.md` from the folder of the project and from the folders above it.
+Add the marketplace and install the plugin, in the **command prompt**:
 
-Clone the repository next to the sample, in the **command prompt**:
+```text
+codex plugin marketplace add microsoft/skills-for-fabric
+```
+
+```text
+codex plugin add powerbi-authoring@fabric-collection
+```
+
+Restart the client, and ask the agent to list the skills it can use. If you also use the ChatGPT desktop app, open the **Plugins** tab. The list includes the skills of the plugin, including **Semantic Model Authoring** and **Powerbi Report Authoring**. The two clients share this configuration.
+
+The plugin also includes its own copy of the Power BI Authoring MCP server, under the same name `powerbi-modeling-mcp`, without `--readonly` or `--accepteula`. After the installation, run `codex mcp list` and check the arguments of that server. If `--readonly` is missing, the server can write to the model. Accept the license terms in the chat, as the step that connects to Power BI Desktop shows.
+
+**Fallback: clone the repository.** Microsoft still documents this path for Codex: clone the repository, and the `AGENTS.md` file in the root is detected automatically. Codex CLI reads `AGENTS.md` from the folder of the project and from the folders above it. Clone the repository next to the sample, in the **command prompt**:
 
 ```text
 git clone https://github.com/microsoft/skills-for-fabric.git C:\Demo\skills-for-fabric
@@ -346,8 +358,8 @@ Please, verify the folder names in the repository before you copy, because the l
 
 <video src="videos/AIsetup-skill-repo-clone.mp4" 
  autoplay loop muted width="500"></video>
- 
-This combination is not documented by Microsoft or by OpenAI, and it can stop working with any update of the repository. Treat it as a manual installation and verify the result on the sample before you use it on a model that matters.
+
+The copy into `.agents\skills` is not documented by Microsoft or by OpenAI, and it can stop working with any update of the repository. Treat this fallback as a manual installation and verify the result on the sample before you use it on a model that matters.
 
 ## Step 12: connect the agent to the project
 
@@ -430,7 +442,7 @@ The `npx` command is a `.cmd` script on Windows, and a process that starts it wi
 - Model metadata does not stay local: table names, column names, measure definitions, and query results are sent to the language model of the service you signed in to.
 - The local MCP server is **generally available**. The report authoring skill and the Power BI Desktop Bridge are newer, and their behavior and tools can still change.
 - The agent proposes and executes. The review is your responsibility.
-- The report authoring skill has no marketplace installation for Codex CLI. The manual path of step 11 is not covered by the documentation of Microsoft or of OpenAI.
+- The plugin of step 11 also registers the MCP server, without `--readonly` or `--accepteula`. After that installation, run `codex mcp list` and check the arguments of the server.
 - The sandbox on Windows depends on the version of the client and on the policy of the machine. Verify which mode is active before you rely on it.
 
 ## Troubleshooting
@@ -500,6 +512,8 @@ These are the rules we suggest applying:
 
 - [Codex CLI](https://learn.chatgpt.com/docs/codex/cli): the installation methods and the sign-in process.
 - [MCP servers in Codex](https://learn.chatgpt.com/docs/extend/mcp): the `codex mcp add` command and the TOML configuration.
+- [Plugins](https://learn.chatgpt.com/docs/plugins): the plugin browser in Codex CLI, and the skills and MCP servers that a plugin can include.
+- [Developer commands](https://learn.chatgpt.com/docs/developer-commands): the `codex plugin` commands.
 - [Configuration reference](https://learn.chatgpt.com/docs/config-file/config-reference): every key accepted in `config.toml`.
 - [Approvals and sandbox](https://learn.chatgpt.com/docs/agent-approvals-security): the values of `--sandbox` and `--ask-for-approval`.
 - [Skills in Codex](https://learn.chatgpt.com/docs/build-skills): the `SKILL.md` format and the folders where the skills are discovered.
@@ -517,4 +531,4 @@ These are the rules we suggest applying:
 - [Power BI Desktop projects (PBIP)](https://learn.microsoft.com/en-us/power-bi/developer/projects/projects-overview): how to save a project and the folder structure.
 - [Power BI Desktop project report folder](https://learn.microsoft.com/en-us/power-bi/developer/projects/projects-report): the PBIR format and the conversion from PBIR-Legacy.
 
-*The content of this article was verified in September 2026, with the `@microsoft/powerbi-modeling-mcp` package installed from npm with the `@latest` tag. Command names, preview settings, and plan boundaries change over time, so the linked documentation is the authority.*
+*The content of this article was verified in September 2026, with the `@microsoft/powerbi-modeling-mcp` package installed from npm with the `@latest` tag. The plugin commands of step 11 were verified in November 2026, with Codex CLI 0.170.0 and version 0.3.22 of the skills-for-fabric marketplace. Command names, preview settings, and plan boundaries change over time, so the linked documentation is the authority.*
