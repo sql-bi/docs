@@ -338,9 +338,7 @@ codex plugin marketplace add microsoft/skills-for-fabric
 codex plugin add powerbi-authoring@fabric-collection
 ```
 
-Restart the client, and ask the agent to list the skills it can use. If you also use the ChatGPT desktop app, open the **Plugins** tab. The list includes the skills of the plugin, including **Semantic Model Authoring** and **Powerbi Report Authoring**. The two clients share this configuration.
-
-The plugin also includes its own copy of the Power BI Authoring MCP server, under the same name `powerbi-modeling-mcp`, without `--readonly` or `--accepteula`. After the installation, run `codex mcp list` and check the arguments of that server. If `--readonly` is missing, the server can write to the model. Accept the license terms in the chat, as the step that connects to Power BI Desktop shows.
+Restart the client, and ask the agent to list the skills it can use. If you also use the ChatGPT desktop app, open **Plugins**, and select the **Skills** tab. The list includes the skills of the plugin, including **Semantic Model Authoring** and **Powerbi Report Authoring**. The two clients share this configuration.
 
 **Fallback: clone the repository.** Microsoft still documents this path for Codex: clone the repository, and the `AGENTS.md` file in the root is detected automatically. Codex CLI reads `AGENTS.md` from the folder of the project and from the folders above it. Clone the repository next to the sample, in the **command prompt**:
 
@@ -442,7 +440,6 @@ The `npx` command is a `.cmd` script on Windows, and a process that starts it wi
 - Model metadata does not stay local: table names, column names, measure definitions, and query results are sent to the language model of the service you signed in to.
 - The local MCP server is **generally available**. The report authoring skill and the Power BI Desktop Bridge are newer, and their behavior and tools can still change.
 - The agent proposes and executes. The review is your responsibility.
-- The plugin of step 11 also registers the MCP server, without `--readonly` or `--accepteula`. After that installation, run `codex mcp list` and check the arguments of the server.
 - The sandbox on Windows depends on the version of the client and on the policy of the machine. Verify which mode is active before you rely on it.
 
 ## Troubleshooting
