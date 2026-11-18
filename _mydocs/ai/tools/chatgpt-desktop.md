@@ -177,19 +177,24 @@ The permission profiles are three: `read-only`, `workspace`, which allows the wr
 
 There is no extension to install. The server is an npm package, and the application starts it on demand.
 
-1. Open the **Plugins** tab.
-2. Add a local STDIO server.
-3. Enter the name `powerbi-modeling-mcp`, choose **STDIO**, and write this command in the field of the dialog. It is not typed in the command prompt, the application runs it:
+1. Open **Plugins**.
+2. Select the **MCPs** tab.
+3. Select **Add**, then select the option to connect a custom MCP.
+4. In **Name**, enter `powerbi-modeling-mcp`.
+5. In **Type**, select **STDIO**.
+6. In **Command to launch**, enter this command. It is not typed in the command prompt. The application runs it:
 
-   Command to launch:
-   - `C:\Program Files\nodejs\npx.cmd`
+   `C:\Program Files\nodejs\npx.cmd`
 
-   Arguments (one argument per line):
-      - `-y`
-      - `@microsoft/powerbi-modeling-mcp@latest`
-      - `--start`
-      - `--accepteula`
-      - `--readonly`
+7. Under **Arguments**, select **Add argument** once for each of these values, and enter one argument in each field:
+
+   - `-y`
+   - `@microsoft/powerbi-modeling-mcp@latest`
+   - `--start`
+   - `--accepteula`
+   - `--readonly`
+
+8. Select **Save**.
    
 {% include ai/mcp-eula-snippet-note.md %}
 
@@ -242,7 +247,7 @@ Both answers arrive in a few seconds. The chain works: the ChatGPT desktop app, 
 
 The session started in read-only mode, so the next prompt would fail. Remove the restriction:
 
-1. Open the **Plugins** tab, select `powerbi-modeling-mcp`, and remove `--readonly` from the command. In the file, remove the same argument from the `args` array.
+1. Open **Plugins**, and select the **MCPs** tab. Open `powerbi-modeling-mcp`, remove `--readonly` from the arguments, and select **Save**. In the file, remove the same argument from the `args` array.
 2. Select **File/Quit ChatGPT**.
 3. Start ChatGPT desktop app and connect again, as in step 6.
 
@@ -325,8 +330,6 @@ codex plugin add powerbi-authoring@fabric-collection
 ```
 
 Restart the application, then open the **Plugins** tab. The list includes the skills of the plugin, including **Semantic Model Authoring** and **Powerbi Report Authoring**. You can also ask the agent to list the skills it can use.
-
-The plugin also includes its own copy of the Power BI Authoring MCP server, under the same name `powerbi-modeling-mcp`, without `--readonly` or `--accepteula`. After the installation, check the command of that server in the **Plugins** tab. If `--readonly` is missing, the server can write to the model. Accept the license terms in the chat, as the step that connects to Power BI Desktop shows.
 
 An administrator of a Business or Enterprise workspace can also import the marketplace. In the administration of the workspace, open **Plugins > Add > Import marketplace**, enter the address of the repository, and authorize the access.
 
@@ -425,7 +428,6 @@ The `npx` command is a `.cmd` script on Windows, and a process that starts it wi
 - The local MCP server is **generally available**. The report authoring skill and the Power BI Desktop Bridge are newer, and their behavior and tools can still change.
 - The agent proposes and executes. The review is your responsibility.
 - Some permission modes run the session without access to the network, and a server that calls a remote service fails in that mode.
-- The plugin of step 11 also registers the MCP server, without `--readonly` or `--accepteula`. After that installation, check the command of the server in the **Plugins** tab.
 
 ## Troubleshooting
 
@@ -435,9 +437,9 @@ The `npx` command is a `.cmd` script on Windows, and a process that starts it wi
 Use the identifier `9PLM9XGG6VKS`. The identifier `9NT1R1C2HH7J` is ChatGPT Classic, the previous application.
 
 **The MCP server does not appear in the list of tools.**
-Open the **Plugins** tab and verify that the entry exists and is not disabled. Then verify that your plan includes MCP, and that your organization does not restrict the servers.
+Open **Plugins**, select the **MCPs** tab, and verify that the entry exists and is not disabled. Then verify that your plan includes MCP, and that your organization does not restrict the servers.
 
-**The agent does not see the MCP server, but the entry exists in the Plugins tab.**
+**The agent does not see the MCP server, but the entry exists in the MCPs tab.**
 Verify the surface of the session. The **Chat** surface does not show the tools of a local MCP server. Start the session in the **Codex** or the **Work** surface.
 
 **The server times out at the start.**
@@ -475,7 +477,7 @@ Name the objects explicitly. For example, "add display folders to the measures i
 
 ## Conclusions
 
-Install Node.js, install the ChatGPT desktop app from the Microsoft Store, register the **Power BI Authoring MCP server** in the **Plugins** tab, open a model in Power BI Desktop, connect with one prompt.
+Install Node.js, install the ChatGPT desktop app from the Microsoft Store, register the **Power BI Authoring MCP server** in the **MCPs** tab of **Plugins**, open a model in Power BI Desktop, connect with one prompt.
 
 These are the rules we suggest applying:
 
@@ -514,4 +516,4 @@ These are the rules we suggest applying:
 - [Power BI Desktop projects (PBIP)](https://learn.microsoft.com/en-us/power-bi/developer/projects/projects-overview): how to save a project and the folder structure.
 - [Power BI Desktop project report folder](https://learn.microsoft.com/en-us/power-bi/developer/projects/projects-report): the PBIR format and the conversion from PBIR-Legacy.
 
-*The content of this article was verified in September 2026, with the `@microsoft/powerbi-modeling-mcp` package installed from npm with the `@latest` tag. The **Plugins** tab and the plugin commands of step 11 were verified in November 2026, with Codex CLI 0.170.0 and version 0.3.22 of the skills-for-fabric marketplace. Command names, preview settings, and plan boundaries change over time, so the linked documentation is the authority.*
+*The content of this article was verified in September 2026, with the `@microsoft/powerbi-modeling-mcp` package installed from npm with the `@latest` tag. The **Plugins** page, the **MCPs** tab, and the plugin commands of step 11 were verified in November 2026, with Codex CLI 0.170.0 and version 0.3.22 of the skills-for-fabric marketplace. Command names, preview settings, and plan boundaries change over time, so the linked documentation is the authority.*
