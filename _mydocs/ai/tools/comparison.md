@@ -79,7 +79,7 @@ The report layer requires the **powerbi-authoring** plugin, published by Microso
 | Claude Code | `/plugin marketplace add` and `/plugin install` | yes |
 | Claude Code Desktop | the marketplace declared in the settings, then the plugin panel | partially |
 | Grok Build | the marketplace of Claude Code, read without any setting | no |
-| ChatGPT desktop app | `codex plugin marketplace add` and `codex plugin add`; the Plugins tab shows the skills | no |
+| ChatGPT desktop app | `codex plugin marketplace add` and `codex plugin add`; the Skills tab in Plugins shows the skills | no |
 | Codex CLI | `codex plugin marketplace add` and `codex plugin add` | no |
 | Google Antigravity | copy in `.gemini\config\skills`, or in `.agents\skills` | no |
 | Kiro | copy in `.kiro\skills` | no |
@@ -95,7 +95,7 @@ npm install -g @microsoft/powerbi-report-authoring-cli@latest @microsoft/powerbi
 
 ## How to choose
 
-- **The shortest path to the report layer** is GitHub Copilot CLI, Claude Code, or Codex CLI, because the plugin installs with two commands. Microsoft documents the first two. The ChatGPT desktop app uses the same Codex plugin commands, and then shows the skills in the **Plugins** tab.
+- **The shortest path to the report layer** is GitHub Copilot CLI, Claude Code, or Codex CLI, because the plugin installs with two commands. Microsoft documents the first two. The ChatGPT desktop app uses the same Codex plugin commands, and then shows the skills in the **Skills** tab of **Plugins**.
 - **The shortest path to the semantic model only** is any of the ten. The prompt that connects to Power BI Desktop is the same everywhere.
 - **On a managed machine without administrator rights**, prefer a client that installs in the user profile: the npm packages, the installers of Anthropic, OpenAI, and SpaceXSI, and the Microsoft Store version of the ChatGPT desktop app.
 - **If you already use Claude Code**, Grok Build reuses its configuration, including the marketplaces and the MCP servers.

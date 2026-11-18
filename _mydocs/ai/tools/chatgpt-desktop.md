@@ -179,8 +179,8 @@ There is no extension to install. The server is an npm package, and the applicat
 
 1. Open **Plugins**.
 2. Select the **MCPs** tab.
-3. Select **Add**, then select the option to connect a custom MCP.
-4. In **Name**, enter `powerbi-modeling-mcp`.
+3. Select **Add**, then select **Add MCP server**. The **Connect to a custom MCP** dialog opens.
+4. In **Name**, enter `powerbi-modeling-mcp`. You cannot change the name after you select **Save**.
 5. In **Type**, select **STDIO**.
 6. In **Command to launch**, enter this command. It is not typed in the command prompt. The application runs it:
 
@@ -329,7 +329,7 @@ codex plugin marketplace add microsoft/skills-for-fabric
 codex plugin add powerbi-authoring@fabric-collection
 ```
 
-Restart the application, then open the **Plugins** tab. The list includes the skills of the plugin, including **Semantic Model Authoring** and **Powerbi Report Authoring**. You can also ask the agent to list the skills it can use.
+Restart the application, then open **Plugins**, and select the **Skills** tab. The list includes the skills of the plugin, including **Semantic Model Authoring** and **Powerbi Report Authoring**. You can also ask the agent to list the skills it can use.
 
 An administrator of a Business or Enterprise workspace can also import the marketplace. In the administration of the workspace, open **Plugins > Add > Import marketplace**, enter the address of the repository, and authorize the access.
 
@@ -516,4 +516,4 @@ These are the rules we suggest applying:
 - [Power BI Desktop projects (PBIP)](https://learn.microsoft.com/en-us/power-bi/developer/projects/projects-overview): how to save a project and the folder structure.
 - [Power BI Desktop project report folder](https://learn.microsoft.com/en-us/power-bi/developer/projects/projects-report): the PBIR format and the conversion from PBIR-Legacy.
 
-*The content of this article was verified in September 2026, with the `@microsoft/powerbi-modeling-mcp` package installed from npm with the `@latest` tag. The **Plugins** page, the **MCPs** tab, and the plugin commands of step 11 were verified in November 2026, with Codex CLI 0.170.0 and version 0.3.22 of the skills-for-fabric marketplace. Command names, preview settings, and plan boundaries change over time, so the linked documentation is the authority.*
+*The content of this article was verified in September 2026, with the `@microsoft/powerbi-modeling-mcp` package installed from npm with the `@latest` tag. The **Plugins** page, the **MCPs** tab, the **Skills** tab, and the plugin commands of step 11 were verified in November 2026, with Codex CLI 0.170.0 and version 0.3.22 of the skills-for-fabric marketplace. Command names, preview settings, and plan boundaries change over time, so the linked documentation is the authority.*

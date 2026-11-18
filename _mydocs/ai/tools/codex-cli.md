@@ -338,7 +338,7 @@ codex plugin marketplace add microsoft/skills-for-fabric
 codex plugin add powerbi-authoring@fabric-collection
 ```
 
-Restart the client, and ask the agent to list the skills it can use. If you also use the ChatGPT desktop app, open the **Plugins** tab. The list includes the skills of the plugin, including **Semantic Model Authoring** and **Powerbi Report Authoring**. The two clients share this configuration.
+Restart the client, and ask the agent to list the skills it can use. If you also use the ChatGPT desktop app, open **Plugins**, and select the **Skills** tab. The list includes the skills of the plugin, including **Semantic Model Authoring** and **Powerbi Report Authoring**. The two clients share this configuration.
 
 **Fallback: clone the repository.** Microsoft still documents this path for Codex: clone the repository, and the `AGENTS.md` file in the root is detected automatically. Codex CLI reads `AGENTS.md` from the folder of the project and from the folders above it. Clone the repository next to the sample, in the **command prompt**:
 
