@@ -189,7 +189,7 @@ One note: the command `/permissions` is not available in this tab. The rules are
 
 There is no extension to install. The server is an npm package, and the application starts it on demand.
 
-The Code tab reads the MCP servers from four places: the connectors of the application, the file `%USERPROFILE%\.claude.json`, a `.mcp.json` file in the folder of the project, and the file `%APPDATA%\Claude\claude_desktop_config.json` of the chat application. We use `%USERPROFILE%\.claude.json`, because it applies to every folder and the Claude Code CLI reads it too.
+The Code tab reads the MCP servers from four places: the connectors of the application, the file `%USERPROFILE%\.claude.json`, a `.mcp.json` file in the folder of the project, and the file `claude_desktop_config.json` of the chat application. We use `%USERPROFILE%\.claude.json`, because it applies to every folder and the Claude Code CLI reads it too.
 
 Close the Claude application, then open `%USERPROFILE%\.claude.json` in a text editor. If the file is missing or empty, use this content as is:
 
@@ -223,7 +223,7 @@ If the file already has content, do not paste the snippet at the beginning of th
 
 An invalid JSON file prevents the application from starting. Check the file with a JSON validator, or with an editor that highlights JSON errors, before you open the application again.
 
-As an alternative, the same entry can go in the `"mcpServers"` section of `%APPDATA%\Claude\claude_desktop_config.json`, which **Settings > Developer > Edit Config** opens directly. The Code tab reads that file too, but the standalone Claude Code CLI does not. See [Alternative installation methods](#alternative-installation-methods).
+As an alternative, the same entry can go in the `"mcpServers"` section of `claude_desktop_config.json`, which **Settings > Developer > Edit Config** opens directly. The folder of this file depends on the installation. The download of Anthropic keeps it in `%APPDATA%\Claude`. The Microsoft Store installation keeps it in `%LOCALAPPDATA%\Claude-Data\anthropicpbc.claude_fnn82j28hfe8t`. The Code tab reads that file too, but the standalone Claude Code CLI does not. See [Alternative installation methods](#alternative-installation-methods).
 
 {% include ai/mcp-eula-snippet-note.md %}
 
@@ -404,7 +404,7 @@ The `npx` command is a `.cmd` script on Windows, and a process that starts it wi
 
 Claude Code accepts four transports in the configuration file: `stdio`, `sse`, `http`, and `ws`. The `sse` transport is deprecated. The value `local`, used by other clients, is rejected.
 
-**The file of the chat application.** The Code tab also reads the servers declared in `%APPDATA%\Claude\claude_desktop_config.json`, which is the file of the chat side of the application, reachable from **Settings > Developer > Edit Config**. When the same name is declared in two files, the definition of this one wins in the local sessions. Use one file only, to avoid a configuration that is hard to read.
+**The file of the chat application.** The Code tab also reads the servers declared in `claude_desktop_config.json`, which is the file of the chat side of the application, reachable from **Settings > Developer > Edit Config**. When the same name is declared in two files, the definition of this one wins in the local sessions. Use one file only, to avoid a configuration that is hard to read.
 
 {% include ai/mcp-eula-snippet-note.md %}
 
