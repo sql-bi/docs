@@ -319,19 +319,25 @@ npm install -g @microsoft/powerbi-report-authoring-cli@latest @microsoft/powerbi
 
 The skill is part of the **powerbi-authoring** plugin of the [skills-for-fabric](https://github.com/microsoft/skills-for-fabric) repository, published by Microsoft. The plugin contains two skills: `semantic-model-authoring`, for the semantic model, and `powerbi-report-cli`, for the report. Since version 0.3.17 of the marketplace, `powerbi-report-cli` replaces the four separate report skills (planning, design, authoring, and management). It selects the correct mode from your request.
 
-The ChatGPT desktop app and Codex CLI share the plugin configuration. Add the marketplace and install the plugin in the **command prompt**. These commands require **Codex CLI**. If the `codex` command is not found, install it as in the [Codex CLI guide](codex-cli.md), or use the fallback below.
+The ChatGPT desktop app and Codex CLI share the plugin configuration. Add the marketplace, then install the plugin.
+
+Add the marketplace in the **command prompt**:
 
 ```text
 codex plugin marketplace add microsoft/skills-for-fabric
 ```
 
+As an alternative, open **Plugins**. Select **Add**, then select **Add a marketplace**. The **Add plugin marketplace** dialog opens. In **Source**, enter `microsoft/skills-for-fabric`. Leave **Git ref** and **Sparse paths** empty. Select **Add marketplace**.
+
+Then install the plugin, in the **command prompt**:
+
 ```text
 codex plugin add powerbi-authoring@fabric-collection
 ```
 
-Restart the application, then open **Plugins**, and select the **Skills** tab. The list includes the skills of the plugin, including **Semantic Model Authoring** and **Powerbi Report Authoring**. You can also ask the agent to list the skills it can use.
+The install command requires **Codex CLI**. If the `codex` command is not found, install it as in the [Codex CLI guide](codex-cli.md), or use the fallback below.
 
-An administrator of a Business or Enterprise workspace can also import the marketplace. In the administration of the workspace, open **Plugins > Add > Import marketplace**, enter the address of the repository, and authorize the access.
+Restart the application, then open **Plugins**, and select the **Skills** tab. The list includes the skills of the plugin, including **Semantic Model Authoring** and **Powerbi Report Authoring**. You can also ask the agent to list the skills it can use.
 
 **Fallback: the skills folder.** If the `codex` command is not available, the application also discovers the skills in `%USERPROFILE%\.agents\skills`, in the same `SKILL.md` format used by the repository. Clone the repository and copy the folders, in the **command prompt**:
 

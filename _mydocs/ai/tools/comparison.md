@@ -79,7 +79,7 @@ The report layer requires the **powerbi-authoring** plugin, published by Microso
 | Claude Code | `/plugin marketplace add` and `/plugin install` | yes |
 | Claude Code Desktop | the marketplace declared in the settings, then the plugin panel | partially |
 | Grok Build | the marketplace of Claude Code, read without any setting | no |
-| ChatGPT desktop app | `codex plugin marketplace add` and `codex plugin add`; the Skills tab in Plugins shows the skills | no |
+| ChatGPT desktop app | `codex plugin marketplace add` or **Add a marketplace** in Plugins, then `codex plugin add`; the Skills tab in Plugins shows the skills | no |
 | Codex CLI | `codex plugin marketplace add` and `codex plugin add` | no |
 | Google Antigravity | copy in `.gemini\config\skills`, or in `.agents\skills` | no |
 | Kiro | copy in `.kiro\skills` | no |
