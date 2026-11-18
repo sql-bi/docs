@@ -174,7 +174,7 @@ The permission profiles are three: `read-only`, `workspace`, which allows the wr
 
 ## Step 5: install the powerbi-authoring plugin
 
-The **powerbi-authoring** plugin of the [skills-for-fabric](https://github.com/microsoft/skills-for-fabric) marketplace, published by Microsoft, installs both the Power BI Authoring MCP server and the skills. You do not register the server by hand.
+The **powerbi-authoring** plugin of the [skills-for-fabric](https://github.com/microsoft/skills-for-fabric) marketplace, published by Microsoft, installs the skills and the Power BI Authoring MCP server together. You install only this plugin. You do not register the server by hand. You do not install the other plugins of the marketplace.
 
 The plugin contains two skills: `semantic-model-authoring`, for the semantic model, and `powerbi-report-cli`, for the report. In the application their names are **Semantic Model Authoring** and **Powerbi Report CLI**. Since version 0.3.17 of the marketplace, `powerbi-report-cli` replaces the four separate report skills (planning, design, authoring, and management). It selects the correct mode from your request.
 
@@ -196,18 +196,16 @@ winget install --id Git.Git --source winget
  
 <!-- /options -->
 
-Then add the marketplace and install the plugin.
+Then add the marketplace and install the **powerbi-authoring** plugin.
 
 1. Open **Plugins**.
 2. Select **Add**, then select **Add a marketplace**. The **Add plugin marketplace** dialog opens.
-3. In **Source**, enter `microsoft/skills-for-fabric`.
-4. Leave **Git ref** and **Sparse paths** empty.
-5. Select **Add marketplace**.
-6. In the **fabric-collection** section, select **+** next to **powerbi-authoring**. The button shows **Installing**.
-
-When the installation is complete, the page of **powerbi-authoring** shows the **MCP servers** and the **Skills**. The **MCP servers** list includes **Powerbi-modeling-mcp**. The **Skills** list includes **Powerbi Report CLI** and **Semantic Model Authoring**. You can also ask the agent to list the skills it can use.
-
-Open the **MCPs** tab. The **From plugins** list includes `powerbi-modeling-mcp`. The **Servers** list is for the servers that you add by hand.
+3. In **Source**, enter `microsoft/skills-for-fabric`. Leave **Git ref** and **Sparse paths** empty.
+4. Select **Add marketplace**.
+5. On the Plugins page, find the **fabric-collection** section. The section lists **fabric-skills**, **skills-for-fabric**, **fabric-authoring**, **fabric-consumption**, **fabric-operations**, and **powerbi-authoring**. Do not install the other plugins.
+6. Select **+** next to **powerbi-authoring**. Wait until the installation completes, and the **Installing** label goes away.
+7. Open **powerbi-authoring** to check it. The page shows **MCP servers 1**, with **Powerbi-modeling-mcp**, and **Skills 2**, with **Powerbi Report CLI** and **Semantic Model Authoring**. You can also ask the agent to list the skills it can use.
+8. Optional. Select the **MCPs** tab. The **From plugins** list includes `powerbi-modeling-mcp`. The **Servers** list is for the servers that you add by hand.
 
 The plugin starts the MCP server without `--readonly`. The server can write to the semantic model. Work on a copy of the `.pbix` file, or of the PBIP project, and save a backup first.
 
