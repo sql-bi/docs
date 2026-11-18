@@ -169,25 +169,22 @@ A Project is the configuration of the folders that define the environment of the
 
 The permissions of an operation are evaluated on three lists, **Deny**, **Ask**, and **Allow**, in this order of precedence. The tools of an MCP server are in **Ask** by default, so each call waits for your confirmation. Keep that default for this setup.
 
-The approval settings are in **Settings > General > Global Permissions**. The **Security Preset** list sets how much the agent does without asking. It has four values:
+The approval settings are in **Settings > General > Global Permissions**. The **Permission Preset** list sets how much the agent does without asking. It has up to four values:
 
-- **Default** requires a manual review for all terminal commands, and for the access to files outside the working folders. Inside the folders of the Project the agent reads and writes without asking. This is the reason for which step 12 adds the folder of the report.
-- **Full machine** requires a review for all terminal commands. The agent can read and write any file on the machine.
-- **Turbo mode** disables all the safety barriers. We do not recommend it for this setup.
-- **Custom** shows the individual settings.
+- **Request Review** asks for your approval before every terminal command. The agent reads and writes the files of the Project without asking, and asks before it accesses files outside the folders of the Project. This is the reason for which step 12 adds the folder of the report.
+- **Default** runs the terminal commands in an isolated sandbox, and asks for your approval when a command must run outside the sandbox.
+- **Auto** also uses the sandbox, and decides automatically which commands outside the sandbox need your approval.
+- **Turbo** runs all commands without restrictions and gives access to every file and MCP tool. We do not recommend it for this setup.
 
-Keep **Security Preset** on **Default**.
+**Default** and **Auto** need the terminal sandbox. When the sandbox is not available on the computer, the list shows only **Request Review** and **Turbo**, and the description under **Permission Preset** says so. In this case, Antigravity uses **Request Review**.
 
-The **Tool Permissions** row is available with every preset. Select **Open** to edit the three lists. The page has three groups, each one with an **Open** button: **File Access Rules**, **Terminal Commands**, and **MCP Tools**.
+Keep **Permission Preset** on **Request Review**, or on **Default** when it is available. The tools of the MCP server stay in **Ask** with every preset except **Turbo**.
 
-When you select **Custom**, two more rows appear:
+The **Tool Permissions** row is available with every preset. Select **Open** to edit the three lists. The page has three groups, each one with an **Open** button: **File Access Rules**, **Terminal Commands**, and **MCP Tools**. A rule that you add there has priority over the preset.
 
-- **Terminal Command Auto Execution** sets whether a command of the agent waits for your approval. **Require Review** asks every time, and it is the default. **Proceed in Sandbox** runs the command in the sandbox. **Always Proceed** does not ask.
-- **Enable Sandbox Mode (Preview)** restricts the tools of the agent to an isolated local sandbox. It is off by default.
+You can also change the preset of a single project in **Settings > Projects**, or from the permissions picker in the message box.
 
 Keep the confirmations of the commands while you work on the model. Read step 13 before you start on the report, because there the confirmations become expensive.
-
-> The Windows version of Antigravity uses an older permission system than macOS and Linux, and the labels can be different. This article uses the labels of the Windows application.
 
 ## Step 5: register the Power BI Authoring MCP server
 
@@ -394,12 +391,15 @@ The MCP server manages the semantic model folder. The authoring skill reads and 
 Before this step, relax the security settings. A report page is not a single operation: the skill writes the JSON files of the report, runs `powerbi-report-author` to validate them, and calls the Power BI Desktop Bridge to reload the project and to capture a screenshot, and it repeats the sequence at every iteration. With a confirmation at every command, one page costs a dozen of them, and the agent waits at each one.
 
 1. Open **Settings > General > Global Permissions**.
-2. Set **Security Preset** to **Custom**.
-3. Set **Terminal Command Auto Execution** to **Always Proceed**.
+2. In the **Tool Permissions** row, select **Open**.
+3. In the **Terminal Commands** group, select **Open**.
+4. Add an **allow** rule with the value `command(powerbi-report-author)`.
 
-Do not use **Turbo mode**. It removes every confirmation at once, and this step does not need that. Here only the approval of the commands costs time. The tools of the MCP server stay in **Ask**.
+This rule removes the confirmation of the validation command. Approve the other commands when the agent asks. If the same command asks at every iteration, add an **allow** rule for it too.
 
-The two layers do not carry the same risk, and this is the reason for which we relax one and not the other. The report is a set of files in a PBIP project, so a wrong iteration is undone with `git checkout` when the folder is under source control, which is the reason for the baseline commit of step 10. A write on the semantic model, instead, reaches Power BI Desktop immediately, and the confirmation is the only checkpoint before it. When you return to the model, set **Security Preset** back to **Default**, or set **Terminal Command Auto Execution** back to **Require Review**.
+Do not use **Turbo**. It removes every confirmation at once, the confirmations of the MCP tools included, and this step does not need that. Here only the approval of the commands costs time. The tools of the MCP server stay in **Ask**.
+
+The two layers do not carry the same risk, and this is the reason for which we relax one and not the other. The report is a set of files in a PBIP project, so a wrong iteration is undone with `git checkout` when the folder is under source control, which is the reason for the baseline commit of step 10. A write on the semantic model, instead, reaches Power BI Desktop immediately, and the confirmation is the only checkpoint before it. When you return to the model, remove the **allow** rules that you added for this step.
 
 ```text
 Create a report page with a line chart showing Sales Amount by Quarter, and a card showing the Sales Amount of the last year that has data.
@@ -505,7 +505,7 @@ If Notepad asks to create the file, select **Yes**. Then continue from the JSON 
 Antigravity does not find `npx`, because a desktop application does not inherit the path of your command prompt, and because `npx` is a `.cmd` script on Windows. Use the form with `cmd` of step 5, or the absolute path of the executable of the alternative installation methods.
 
 **The agent asks a confirmation at every command while it writes the report.**
-The **Default** preset requires a review for every terminal command, and the skill runs several commands per iteration. In **Settings > General > Global Permissions**, set **Security Preset** to **Custom** and **Terminal Command Auto Execution** to **Always Proceed**, as in step 13. Set **Security Preset** back to **Default** when you return to the model.
+The **Request Review** preset asks for approval before every terminal command, and the skill runs several commands per iteration. Add **allow** rules for the commands in **Tool Permissions > Terminal Commands**, as in step 13. Remove them when you return to the model.
 
 **The Settings page has no Agent Settings section.**
 The Windows application does not have it. The approval settings are in **Settings > General > Global Permissions**. The **Agent Behavior** section, below it, contains only **Plan Review Policy**.
