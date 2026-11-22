@@ -311,7 +311,7 @@ These are the rules we suggest applying:
 - [What are the Power BI MCP servers?](https://learn.microsoft.com/en-us/power-bi/developer/mcp/mcp-servers-overview): the comparison between the local and the remote server.
 - [microsoft/powerbi-modeling-mcp](https://github.com/microsoft/powerbi-modeling-mcp): repository, configuration reference, and the complete list of tools.
 - [Power BI Authoring MCP Server](https://marketplace.visualstudio.com/items?itemName=analysis-services.powerbi-modeling-mcp): the extension in the Visual Studio Marketplace.
-- [Power BI report authoring skill](https://learn.microsoft.com/en-us/power-bi/developer/agentic/power-bi-report-authoring-skill-overview): what the skill does and its limits.
+- [Power BI report authoring skill](https://learn.microsoft.com/en-us/power-bi/developer/agentic/power-bi-report-skill-overview): what the skill does and its limits.
 - [microsoft/skills-for-fabric](https://github.com/microsoft/skills-for-fabric): the repository that publishes the skill.
 - [Agent plugins in VS Code](https://code.visualstudio.com/docs/agent-customization/agent-plugins): how to find, install, and manage plugins.
 - [MCP configuration reference](https://code.visualstudio.com/docs/agents/reference/mcp-configuration): the two configuration formats, and the servers that Visual Studio Code forwards to the Copilot harness.
