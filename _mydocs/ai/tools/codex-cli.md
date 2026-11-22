@@ -5,7 +5,7 @@ menu_title:  "Codex CLI"
 description: "How to configure Codex CLI, the Power BI Authoring MCP server, and the Power BI report authoring skill to modify a semantic model and a report with an AI agent."
 published:   true
 order:       /11
-modified:    2026-11-18
+modified:    2026-11-22
 ---
 *This article describes how to configure Codex CLI so that an AI agent can read and modify a Power BI semantic model open in Power BI Desktop, and the report of a Power BI project.*
 
@@ -302,10 +302,12 @@ The model is a set of **TMDL** files (Tabular Model Definition Language) and the
  
 ## Step 11: install the report authoring skill
 
-**Git is required for this step.** The marketplace is downloaded with `git`, and Windows does not include it. Install it, then close the command prompt and open it again.
+**Git is required for this step.** The marketplace is downloaded with `git`, and Windows does not include it. Without Git, the command that adds the marketplace fails.
+
+Open a command prompt and run `git --version`. If the command shows a version number, Git is installed. Go to the next part.
 
 <!-- options -->
-Choose one of the two methods.
+If Git is not installed, choose one of the two methods.
 
 **Option 1: the installer.** Download it from [git-scm.com/downloads/win](https://git-scm.com/downloads/win) and run it.
 
@@ -319,6 +321,8 @@ winget install --id Git.Git --source winget
  autoplay loop muted width="500"></video>
  
 <!-- /options -->
+
+If you installed Git in this step, close the command prompt and open it again, so that Git is on the `PATH`. Run `git --version` to verify.
 
 The skills call two command-line tools. Install them in the **command prompt**:
 
@@ -464,8 +468,11 @@ Trust the folder. Until then, Codex CLI ignores the project configuration and st
 **The `npm` or the `npx` command is not found.**
 Node.js is not installed, or the terminal was opened before the installation. Close the terminal, open it again, and run `node --version`. See step 1.
 
-**The `git` command is not found.**
-Git is not installed, or the command prompt was opened before the installation. Install Git for Windows as in step 11, then close the command prompt and open it again.
+**The `codex plugin marketplace add` command fails with `Error: failed to run git clone ... program not found`.**
+Codex CLI does not find Git. Install Git for Windows as in step 11. Close the command prompt and open it again. Run `git --version`. If the command shows a version number, add the marketplace again. If the command fails, add the `cmd` folder of Git, by default `C:\Program Files\Git\cmd`, to the `PATH`.
+
+**The `codex plugin add` command fails with `Error: plugin 'powerbi-authoring' was not found in marketplace 'fabric-collection'`.**
+The marketplace was not added. This often happens when the previous command failed because Git is missing. Fix the Git installation as in the previous entry. Then run `codex plugin marketplace add microsoft/skills-for-fabric`, and run `codex plugin add powerbi-authoring@fabric-collection` again.
 
 **The server starts and provides no tools.**
 Verify that Node.js is installed and that `npx` runs. The first start downloads the package, so it takes longer than the following ones. Run `npx -y @microsoft/powerbi-modeling-mcp@latest --help` once in the **command prompt**, so that the package is already in the cache.
