@@ -40,12 +40,12 @@ All ten clients support a local MCP server on Windows. **Node.js** is a requirem
 | Codex CLI | no | installer of OpenAI, `winget install -e --id OpenAI.Codex`, or `npm install -g @openai/codex` | ChatGPT, paid plan |
 | Claude Code Desktop | **yes**, identifier `9P6K58THS811` | download from claude.com, or `winget install -e --id Anthropic.Claude` | Claude, Pro or higher |
 | Claude Code | no | installer of Anthropic, `winget install Anthropic.ClaudeCode`, or `npm install -g @anthropic-ai/claude-code` | Claude, Pro or higher |
-| Google Antigravity | no | download from antigravity.google/download | personal Google account, free with weekly rate limits |
+| Google Antigravity | no | download from antigravity.google/download, or `winget install -e --id Google.Antigravity` | personal Google account, free with weekly rate limits |
 | Grok Build | no | installer of SpaceXSI, `winget install xAI.GrokBuild`, or `npm install -g @xai-official/grok` | SpaceXSI, plan that includes Grok Build |
-| Kiro | no | download from kiro.dev | GitHub, Google, or AWS, free plan included |
+| Kiro | no | download from kiro.dev, or `winget install -e --id Amazon.Kiro` | GitHub, Google, or AWS, free plan included |
 | Qwen Code | no | installer of the project, or `npm install -g @qwen-code/qwen-code@latest` | Qwen Plus or Pro subscription, or paid key of a supported provider |
 
-Three of the ten are published in the Microsoft Store. Six of them are on WinGet, and five are npm packages, so a machine without administrator rights installs most of them in the user profile.
+Three of the ten are published in the Microsoft Store. Eight of them are on WinGet, and five are npm packages, so a machine without administrator rights installs most of them in the user profile.
 
 ## Registration of the MCP server
 
