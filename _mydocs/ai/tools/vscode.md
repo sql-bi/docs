@@ -192,7 +192,7 @@ Ask the agent to validate the report, and open the `.pbip` file in Power BI Desk
 
 ## Configuration options
 
-Settings are available under `@ext:Microsoft.powerbi-modeling-mcp`, and as command-line arguments for a manual configuration. The extension has two settings: `args`, with the command-line arguments, and `environmentVariables`, with comma-separated `KEY=value` pairs. The default of `args` is `--start --accept-eula`. If you change it, keep `--accept-eula`, or accept the license terms in the chat.
+Settings are available under `@ext:analysis-services.powerbi-modeling-mcp`, and as command-line arguments for a manual configuration. The extension has two settings: `args`, with the command-line arguments, and `environmentVariables`, with comma-separated `KEY=value` pairs. The default of `args` is `--start --accept-eula`. If you change it, keep `--accept-eula`, or accept the license terms in the chat.
 
 | Option | Default | Description |
 |---|---|---|
